@@ -22,3 +22,4 @@ This is is based on using a Python script to convert the content in a Github rep
 * v2: renamed files by inferring a semantic structure
 * v2.1: fixed duplicate links
 * v2.2: Enabled breadcrumbs
+* v2.3: Refactored HTML to use Bootstrap for all styling. Turned on paragraph numbering.
