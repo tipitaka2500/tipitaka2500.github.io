@@ -20,3 +20,4 @@ This is is based on using a Python script to convert the content in a Github rep
 
 * v1: Initial version based on conversion of XML to HTML then adding Bootstrap
 * v2: renamed files by inferring a semantic structure
+* v2.1: fixed duplicate links
