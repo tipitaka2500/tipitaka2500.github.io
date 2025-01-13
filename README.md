@@ -33,3 +33,4 @@ The scripts to generate this website are contained in https://github.com/tidipa/
 * v2.3: Refactored HTML to use Bootstrap for all styling. Turned on paragraph numbering.
 * v2.4: Enabled deep links for division numbering (d[0-9]+) and paragraph numbering, changed colour scheme to Rosely
 * v2.5: Handle ENDH3, ENDBOOK, G, bold and italic, leaving crappy table handling of verse for now
+* v2.6: Fixed dark mode not working
