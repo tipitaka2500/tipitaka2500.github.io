@@ -4,7 +4,7 @@
 
 *“The Buddhist Era 2500 Great International Council Pāḷi Tipiṭaka, Roman Script 2005” (Mahāsaṅgīti Tipiṭaka Buddhavasse 2500)*
 
-The website contains a reconstruction of the complete 40-volume Roman-script edition of the 25-century old teaching of the Buddhist Theravāda tradition in the Pāḷi language from the B.E. 2500 (1957) Great Internatonal Buddhist Council.
+This website contains a 2025 reconstruction of the complete 40-volume Roman-script edition of the 25-century old teaching of the Buddhist Theravāda tradition in the Pāḷi language from the B.E. 2500 (1957) Great Internatonal Buddhist Council.
 
 It is derived from the Chaṭṭhasaṅgīti Council Edition, the Pāḷi-language text in Burmese Script, the result of the Great International Tipiṭaka Council convened in B.E. 2500 (1957) at Yangon by 2,500 erudite Theravāda Buddhist monks from all over the world.
 
@@ -22,6 +22,8 @@ This work has been marked as dedicated to the public domain. See the [CC0 Deed](
 
 This is is based on using a Python script to convert the content in a Github repository containing a copy of the [original website contents](https://github.com/yuttadhammo/World-Tipitaka) from XML into HTML files, and then removing the original Javascript navigation and replacing with a Bootstrap sidebar. The files are then moved from a numeric naming scheme to a semantic naming scheme.
 
+The scripts to generate this website are contained in https://github.com/tidipa/convert-scripts
+
 ## Release History
 
 * v1: Initial version based on conversion of XML to HTML then adding Bootstrap
@@ -30,3 +32,4 @@ This is is based on using a Python script to convert the content in a Github rep
 * v2.2: Enabled breadcrumbs
 * v2.3: Refactored HTML to use Bootstrap for all styling. Turned on paragraph numbering.
 * v2.4: Enabled deep links for division numbering (d[0-9]+) and paragraph numbering, changed colour scheme to Rosely
+* v2.5: Handle ENDH3, ENDBOOK, G, bold and italic, leaving crappy table handling of verse for now
