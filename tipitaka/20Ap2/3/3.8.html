@@ -1,4431 +1,4092 @@
-<!DOCTYPE html>
-<html data-bs-theme="auto" lang="en">
- <head>
-  <script src="/scripts/color-modes.js">
-  </script>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <meta content="chris@christham.net" name="author"/>
-  <title>
-   tipitaka2500.github.io
-  </title>
-  <meta content="The Buddhist Era 2500 Great International Council Pāḷi Tipiṭaka, Roman Script 2005 as an HTML website." name="description"/>
-  <link href="https://tipitaka2500.github.io" rel="canonical"/>
-  <link href="https://cdn.jsdelivr.net/npm/@docsearch/css@3" rel="stylesheet"/>
-  <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" rel="stylesheet"/>
+
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+
+<head>
+  <script src="/scripts/color-modes.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="chris@christham.net">
+  <title>tipitaka2500.github.io</title>
+  <meta name="description"
+    content="The Buddhist Era 2500 Great International Council Pāḷi Tipiṭaka, Roman Script 2005 as an HTML website.">
+  <link rel="canonical" href="https://tipitaka2500.github.io">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <!-- Favicons -->
-  <link href="/images/logo128.png" rel="apple-touch-icon" sizes="128x128"/>
-  <link href="/images/logo.png" rel="icon" sizes="16x16" type="image/png"/>
-  <link href="/images/logo24.png" rel="icon" sizes="24x24" type="image/png"/>
-  <link href="/images/logo48.png" rel="icon" sizes="48x48" type="image/png"/>
-  <link href="/images/logo128.png" rel="icon" sizes="128x128" type="image/png"/>
-  <link href="/images/logo.ico" rel="icon"/>
-  <meta content="#712cf9" name="theme-color"/>
-  <link href="/css/styles.css" rel="stylesheet" type="text/css"/>
+  <link rel="apple-touch-icon" href="/images/logo128.png" sizes="128x128">
+  <link rel="icon" href="/images/logo.png" sizes="16x16" type="image/png">
+  <link rel="icon" href="/images/logo24.png" sizes="24x24" type="image/png">
+  <link rel="icon" href="/images/logo48.png" sizes="48x48" type="image/png">
+  <link rel="icon" href="/images/logo128.png" sizes="128x128" type="image/png">
+  <link rel="icon" href="/images/logo.ico">
+  <meta name="theme-color" content="#712cf9">
+  <link rel="stylesheet" type="text/css" href="/css/styles.css">
   <!-- Custom styles for this template -->
-  <link href="/css/sidebars.css" rel="stylesheet"/>
- </head>
- <body>
-  <svg class="d-none" xmlns="http://www.w3.org/2000/svg">
-   <symbol id="check2" viewbox="0 0 16 16">
-    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z">
-    </path>
-   </symbol>
-   <symbol id="circle-half" viewbox="0 0 16 16">
-    <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z">
-    </path>
-   </symbol>
-   <symbol id="moon-stars-fill" viewbox="0 0 16 16">
-    <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z">
-    </path>
-    <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z">
-    </path>
-   </symbol>
-   <symbol id="sun-fill" viewbox="0 0 16 16">
-    <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z">
-    </path>
-   </symbol>
+  <link href="/css/sidebars.css" rel="stylesheet">
+</head>
+
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+    <symbol id="check2" viewBox="0 0 16 16">
+      <path
+        d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
+    </symbol>
+    <symbol id="circle-half" viewBox="0 0 16 16">
+      <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z" />
+    </symbol>
+    <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+      <path
+        d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z" />
+      <path
+        d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z" />
+    </symbol>
+    <symbol id="sun-fill" viewBox="0 0 16 16">
+      <path
+        d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z" />
+    </symbol>
   </svg>
+
   <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
-   <button aria-expanded="false" aria-label="Toggle theme (auto)" class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center" data-bs-toggle="dropdown" id="bd-theme" type="button">
-    <svg class="bi my-1 theme-icon-active" height="1em" width="1em">
-     <use href="#circle-half">
-     </use>
-    </svg>
-    <span class="visually-hidden" id="bd-theme-text">
-     Toggle theme
-    </span>
-   </button>
-   <ul aria-labelledby="bd-theme-text" class="dropdown-menu dropdown-menu-end shadow">
-    <li>
-     <button aria-pressed="false" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" type="button">
-      <svg class="bi me-2 opacity-50" height="1em" width="1em">
-       <use href="#sun-fill">
-       </use>
+    <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center" id="bd-theme" type="button"
+      aria-expanded="false" data-bs-toggle="dropdown" aria-label="Toggle theme (auto)">
+      <svg class="bi my-1 theme-icon-active" width="1em" height="1em">
+        <use href="#circle-half"></use>
       </svg>
-      Light
-      <svg class="bi ms-auto d-none" height="1em" width="1em">
-       <use href="#check2">
-       </use>
-      </svg>
-     </button>
-    </li>
-    <li>
-     <button aria-pressed="false" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" type="button">
-      <svg class="bi me-2 opacity-50" height="1em" width="1em">
-       <use href="#moon-stars-fill">
-       </use>
-      </svg>
-      Dark
-      <svg class="bi ms-auto d-none" height="1em" width="1em">
-       <use href="#check2">
-       </use>
-      </svg>
-     </button>
-    </li>
-    <li>
-     <button aria-pressed="true" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" type="button">
-      <svg class="bi me-2 opacity-50" height="1em" width="1em">
-       <use href="#circle-half">
-       </use>
-      </svg>
-      Auto
-      <svg class="bi ms-auto d-none" height="1em" width="1em">
-       <use href="#check2">
-       </use>
-      </svg>
-     </button>
-    </li>
-   </ul>
-  </div>
-  <main class="d-flex flex-nowrap">
-   <div class="flex-shrink-0 p-3 overflow-scroll" style="width: 300px;">
-    <a class="d-flex align-items-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom" href="/">
-     <img alt="Tipitaka2500" id="bootstrap" src="/images/logo48.png" width="24"/>
-     <span class="fs-5 ms-2 fw-semibold">
-      tipitaka2500.github.io
-     </span>
-    </a>
-    <ul class="list-unstyled ps-0">
-     <li class="mb-1">
-      <button aria-expanded="false" class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-target="#v-collapse" data-bs-toggle="collapse">
-       Vinayapiṭaka (V)
-      </button>
-      <div class="collapse" id="v-collapse">
-       <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-        <li>
-         <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/1V.html">
-          Pārājikapāḷi (1V)
-         </a>
-        </li>
-        <li>
-         <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/2V.html">
-          Pācittiyapāḷi (2V)
-         </a>
-        </li>
-        <li>
-         <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/3V.html">
-          Mahāvaggapāḷi (3V)
-         </a>
-        </li>
-        <li>
-         <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/4V.html">
-          Cūḷavaggapāḷi (4V)
-         </a>
-        </li>
-        <li>
-         <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/5V.html">
-          Parivārapāḷi (5V)
-         </a>
-        </li>
-       </ul>
-      </div>
-     </li>
-     <li class="border-top my-2">
-     </li>
-     <li class="mb-1">
-      <button aria-expanded="false" class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-target="#s-collapse" data-bs-toggle="collapse">
-       Suttantapiṭaka (Sutta)
-      </button>
-      <div class="collapse" id="s-collapse">
-       <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-        <li class="mb-1 ms-3">
-         <button aria-expanded="false" class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-target="#d-collapse" data-bs-toggle="collapse">
-          Dīghanikāya (D)
-         </button>
-         <div class="collapse" id="d-collapse">
-          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/6D.html">
-             Sīlakkhandhavaggapāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/7D.html">
-             Mahāvaggapāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/8D.html">
-             Pāthikavaggapāḷi
-            </a>
-           </li>
-          </ul>
-         </div>
-        </li>
-        <li class="mb-1 ms-3">
-         <button aria-expanded="false" class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-target="#m-collapse" data-bs-toggle="collapse">
-          Majjhimanikāya (M)
-         </button>
-         <div class="collapse" id="m-collapse">
-          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/9M.html">
-             Mūlapaṇṇāsapāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/10M.html">
-             Majjhimapaṇṇāsapāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/11M.html">
-             Uparipaṇṇāsapāḷi
-            </a>
-           </li>
-          </ul>
-         </div>
-        </li>
-        <li class="mb-1 ms-3">
-         <button aria-expanded="false" class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-target="#sy-collapse" data-bs-toggle="collapse">
-          Saṃyuttanikāya (S)
-         </button>
-         <div class="collapse" id="sy-collapse">
-          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/12S1.html">
-             Sagāthāvaggasaṃyuttapāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/12S2.html">
-             Nidānavaggasaṃyuttapāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/13S3.html">
-             Khandhavaggasaṃyuttapāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/13S4.html">
-             Saḷāyatanavaggasaṃyuttapāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/14S5.html">
-             Mahāvaggasaṃyuttapāḷi
-            </a>
-           </li>
-          </ul>
-         </div>
-        </li>
-        <li class="mb-1 ms-3">
-         <button aria-expanded="false" class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-target="#a-collapse" data-bs-toggle="collapse">
-          Aṅguttaranikāya (A)
-         </button>
-         <div class="collapse" id="a-collapse">
-          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/15A1.html">
-             Ekakanipātapāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/15A2.html">
-             Dukanipātapāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/15A3.html">
-             Tikanipātapāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/15A4.html">
-             Catukkanipātapāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/16A5.html">
-             Pañcakanipātapāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/16A6.html">
-             Chakkanipātapāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/16A7.html">
-             Sattakanipātapā
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/17A8.html">
-             Aṭṭhakanipātapāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/17A9.html">
-             Navakanipātapāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/17A10.html">
-             Dasakanipātapāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/17A11.html">
-             Ekādasakanipātapāḷi
-            </a>
-           </li>
-          </ul>
-         </div>
-        </li>
-        <li class="mb-1 ms-3">
-         <button aria-expanded="false" class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-target="#k-collapse" data-bs-toggle="collapse">
-          Khuddakanikāya (Khu)
-         </button>
-         <div class="collapse" id="k-collapse">
-          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/18Kh.html">
-             Khuddakapāṭhapāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/18Dh.html">
-             Dhammapadapāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/18Ud.html">
-             Udānapāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/18It.html">
-             Itivuttakapāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/19Vv.html">
-             Vimānavatthupāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/19Pv.html">
-             Petavatthupāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/19Th1.html">
-             Theragāthāpāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/19Th2.html">
-             Therīgāthāpāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/20Ap1.html">
-             Therāpadānapāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/20Ap2.html">
-             Therīapadānapāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/21Bu.html">
-             Buddhavaṃsapāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/21Cp.html">
-             Cariyāpiṭakapāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/22J.html">
-             Jātakapāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/23J.html">
-             Jātakapāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/23Mn.html">
-             Mahāniddesapāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/25Cn.html">
-             Cūḷaniddesapāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/26Ps.html">
-             Paṭisambhidāmaggapāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/27Ne.html">
-             Nettipāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/27Pe.html">
-             Peṭakopadesapāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/28Mi.html">
-             Milindapañhapāḷi
-            </a>
-           </li>
-          </ul>
-         </div>
-        </li>
-       </ul>
-       <li class="border-top my-2">
-       </li>
-       <li class="mb-1">
-        <button aria-expanded="false" class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-target="#ab-collapse" data-bs-toggle="collapse">
-         Abhidhammapiṭaka (Abhi)
+      <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+      <li>
+        <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light"
+          aria-pressed="false">
+          <svg class="bi me-2 opacity-50" width="1em" height="1em">
+            <use href="#sun-fill"></use>
+          </svg>
+          Light
+          <svg class="bi ms-auto d-none" width="1em" height="1em">
+            <use href="#check2"></use>
+          </svg>
         </button>
-        <div class="collapse" id="ab-collapse">
-         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-          <li>
-           <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/29Dhs.html">
-            Dhammasaṅgaṇīpāḷi
-           </a>
-          </li>
-          <li>
-           <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/30Vbh.html">
-            Dhammapadapāḷi
-           </a>
-          </li>
-          <li>
-           <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/31Dht.html">
-            Dhātukathāpāḷi
-           </a>
-          </li>
-          <li>
-           <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/31Pu.html">
-            Puggalapaññattipāḷi
-           </a>
-          </li>
-          <li>
-           <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/32Kv.html">
-            Kathāvatthupāḷi
-           </a>
-          </li>
-         </ul>
-        </div>
-       </li>
-       <li class="border-top my-2">
-       </li>
-       <li class="mb-1">
-        <button aria-expanded="false" class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-target="#y-collapse" data-bs-toggle="collapse">
-         Yamaka (Y)
+      </li>
+      <li>
+        <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark"
+          aria-pressed="false">
+          <svg class="bi me-2 opacity-50" width="1em" height="1em">
+            <use href="#moon-stars-fill"></use>
+          </svg>
+          Dark
+          <svg class="bi ms-auto d-none" width="1em" height="1em">
+            <use href="#check2"></use>
+          </svg>
         </button>
-        <div class="collapse" id="y-collapse">
-         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-          <li>
-           <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/33Y1.html">
-            Mūlayamakapāḷi
-           </a>
-          </li>
-          <li>
-           <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/33Y2.html">
-            Khandhayamakapāḷi
-           </a>
-          </li>
-          <li>
-           <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/33Y3.html">
-            Āyatanayamakapāḷi
-           </a>
-          </li>
-          <li>
-           <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/33Y4.html">
-            Dhātuyamakapāḷi
-           </a>
-          </li>
-          <li>
-           <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/33Y5.html">
-            Saccayamakapāḷi
-           </a>
-          </li>
-          <li>
-           <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/34Y6.html">
-            Saṅkhārayamakapāḷi
-           </a>
-          </li>
-          <li>
-           <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/34Y7.html">
-            Anusayayamakapāḷi
-           </a>
-          </li>
-          <li>
-           <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/34Y8.html">
-            Cittayamakapāḷi
-           </a>
-          </li>
-          <li>
-           <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/35Y9.html">
-            Dhammayamakapāḷi
-           </a>
-          </li>
-          <li>
-           <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/35Y10.html">
-            Indriyayamakapāḷi
-           </a>
-          </li>
-         </ul>
-        </div>
-       </li>
-       <li class="border-top my-2">
-       </li>
-       <li class="mb-1">
-        <button aria-expanded="false" class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-target="#p-collapse" data-bs-toggle="collapse">
-         Paṭṭhāna (P)
+      </li>
+      <li>
+        <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto"
+          aria-pressed="true">
+          <svg class="bi me-2 opacity-50" width="1em" height="1em">
+            <use href="#circle-half"></use>
+          </svg>
+          Auto
+          <svg class="bi ms-auto d-none" width="1em" height="1em">
+            <use href="#check2"></use>
+          </svg>
         </button>
-        <div class="collapse" id="p-collapse">
-         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-          <li class="mb-1 ms-3">
-           <button aria-expanded="false" class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-target="#dh-collapse" data-bs-toggle="collapse">
-            Dhammānuloma
-           </button>
-           <div class="collapse" id="dh-collapse">
-            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-             <li>
-              <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/36P1.html">
-               Tikapaṭṭhānapāḷi
-              </a>
-             </li>
-             <li>
-              <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/37P1.html">
-               Tikapaṭṭhānapāḷi
-              </a>
-             </li>
-             <li>
-              <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/38P2.html">
-               Dukapaṭṭhānapāḷi
-              </a>
-             </li>
-             <li>
-              <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/39P3.html">
-               Dukatikapaṭṭhānapāḷi
-              </a>
-             </li>
-             <li>
-              <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/39P4.html">
-               Tikadukapaṭṭhānapāḷi
-              </a>
-             </li>
-             <li>
-              <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/39P5.html">
-               Tikatikapaṭṭhānapāḷi
-              </a>
-             </li>
-             <li>
-              <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/39P6.html">
-               Dukadukapaṭṭhānapāḷi
-              </a>
-             </li>
-            </ul>
-           </div>
-          </li>
-          <li class="mb-1 ms-3">
-           <button aria-expanded="false" class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-target="#dp-collapse" data-bs-toggle="collapse">
-            Dhammapaccanīya
-           </button>
-           <div class="collapse" id="dp-collapse">
-            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-             <li>
-              <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/40P7.html">
-               Tikapaṭṭhānapāḷi
-              </a>
-             </li>
-             <li>
-              <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/40P8.html">
-               Dukapaṭṭhānapāḷi
-              </a>
-             </li>
-             <li>
-              <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/40P9.html">
-               Dukatikapaṭṭhānapāḷi
-              </a>
-             </li>
-             <li>
-              <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/40P10.html">
-               Tikadukapaṭṭhānapāḷi
-              </a>
-             </li>
-             <li>
-              <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/40P11.html">
-               Tikatikapaṭṭhānapāḷi
-              </a>
-             </li>
-             <li>
-              <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/40P12.html">
-               Dukadukapaṭṭhānapāḷi
-              </a>
-             </li>
-            </ul>
-           </div>
-          </li>
-          <li class="mb-1 ms-3">
-           <button aria-expanded="false" class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-target="#dl-collapse" data-bs-toggle="collapse">
-            Dhammānulomapaccanīya
-           </button>
-           <div class="collapse" id="dl-collapse">
-            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-             <li>
-              <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/40P13.html">
-               Tikapaṭṭhānapāḷi
-              </a>
-             </li>
-             <li>
-              <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/40P14.html">
-               Dukapaṭṭhānapāḷi
-              </a>
-             </li>
-             <li>
-              <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/40P15.html">
-               Dukatikapaṭṭhānapāḷi
-              </a>
-             </li>
-             <li>
-              <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/40P16.html">
-               Tikadukapaṭṭhānapāḷi
-              </a>
-             </li>
-             <li>
-              <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/40P17.html">
-               Tikatikapaṭṭhānapāḷi
-              </a>
-             </li>
-             <li>
-              <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/40P18.html">
-               Dukadukapaṭṭhānapāḷi
-              </a>
-             </li>
-            </ul>
-           </div>
-          </li>
-          <li class="mb-1 ms-3">
-           <button aria-expanded="false" class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-target="#dy-collapse" data-bs-toggle="collapse">
-            Dhammapaccanīyānuloma
-           </button>
-           <div class="collapse" id="dy-collapse">
-            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-             <li>
-              <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/40P19.html">
-               Tikapaṭṭhānapāḷi
-              </a>
-             </li>
-             <li>
-              <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/40P20.html">
-               Dukapaṭṭhānapāḷi
-              </a>
-             </li>
-             <li>
-              <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/40P21.html">
-               Dukatikapaṭṭhānapāḷi
-              </a>
-             </li>
-             <li>
-              <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/40P22.html">
-               Tikadukapaṭṭhānapāḷi
-              </a>
-             </li>
-             <li>
-              <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/40P23.html">
-               Tikatikapaṭṭhānapāḷi
-              </a>
-             </li>
-             <li>
-              <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/40P24.html">
-               Dukadukapaṭṭhānapāḷi
-              </a>
-             </li>
-            </ul>
-           </div>
-          </li>
-         </ul>
-        </div>
-       </li>
-      </div>
-     </li>
+      </li>
     </ul>
-   </div>
-   <div class="container overflow-scroll">
-    <nav aria-label="breadcrumb">
-     <ol class="breadcrumb">
-      <li class="breadcrumb-item">
-       <a href="/">
-        Home
-       </a>
-      </li>
-      <li class="breadcrumb-item">
-       <a href="/tipitaka/20Ap2.html">
-        20Ap2 Therīapadānapāḷi
-       </a>
-      </li>
-      <li class="breadcrumb-item">
-       <a href="/tipitaka/20Ap2/3.html">
-        3 Kuṇḍalakesīvagga
-       </a>
-      </li>
-     </ol>
-    </nav>
-    <div class="container">
-     <div class="m-4 p-4 text-center bg-body-tertiary rounded-3">
-      <h1 class="text-body-emphasis">
-       3.8 Yasodharātherīapadāna
-      </h1>
-     </div>
+  </div>
+
+  <main class="d-flex flex-nowrap" >
+    <div class="flex-shrink-0 p-3 overflow-scroll" style="width: 300px;">
+      <a href="/" class="d-flex align-items-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom">
+        <img src="/images/logo48.png" alt="Tipitaka2500" id="bootstrap" width="24" />
+        <span class="fs-5 ms-2 fw-semibold">tipitaka2500.github.io</span>
+      </a>
+      <ul class="list-unstyled ps-0">
+        <li class="mb-1">
+          <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+            data-bs-toggle="collapse" data-bs-target="#v-collapse" aria-expanded="false">
+            Vinayapiṭaka (V)
+          </button>
+          <div class="collapse" id="v-collapse">
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+              <li><a href="/tipitaka/1V.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Pārājikapāḷi (1V)</a></li>
+              <li><a href="/tipitaka/2V.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Pācittiyapāḷi (2V)</a></li>
+              <li><a href="/tipitaka/3V.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Mahāvaggapāḷi (3V)</a></li>
+              <li><a href="/tipitaka/4V.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Cūḷavaggapāḷi (4V)</a></li>
+              <li><a href="/tipitaka/5V.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Parivārapāḷi (5V)</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="border-top my-2"></li>
+        <li class="mb-1">
+          <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+            data-bs-toggle="collapse" data-bs-target="#s-collapse" aria-expanded="false">
+            Suttantapiṭaka (Sutta)
+          </button>
+          <div class="collapse" id="s-collapse">
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+              <li class="mb-1 ms-3">
+                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                  data-bs-toggle="collapse" data-bs-target="#d-collapse" aria-expanded="false">
+                  Dīghanikāya (D)
+                </button>
+                <div class="collapse" id="d-collapse">
+                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li><a href="/tipitaka/6D.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Sīlakkhandhavaggapāḷi</a></li>
+                    <li><a href="/tipitaka/7D.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Mahāvaggapāḷi</a></li>
+                    <li><a href="/tipitaka/8D.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Pāthikavaggapāḷi</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="mb-1 ms-3">
+                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                  data-bs-toggle="collapse" data-bs-target="#m-collapse" aria-expanded="false">
+                  Majjhimanikāya (M)
+                </button>
+                <div class="collapse" id="m-collapse">
+                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li><a href="/tipitaka/9M.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Mūlapaṇṇāsapāḷi</a></li>
+                    <li><a href="/tipitaka/10M.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Majjhimapaṇṇāsapāḷi</a></li>
+                    <li><a href="/tipitaka/11M.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Uparipaṇṇāsapāḷi</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="mb-1 ms-3">
+                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                  data-bs-toggle="collapse" data-bs-target="#sy-collapse" aria-expanded="false">
+                  Saṃyuttanikāya (S)
+                </button>
+                <div class="collapse" id="sy-collapse">
+                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li><a href="/tipitaka/12S1.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Sagāthāvaggasaṃyuttapāḷi</a></li>
+                    <li><a href="/tipitaka/12S2.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Nidānavaggasaṃyuttapāḷi</a></li>
+                    <li><a href="/tipitaka/13S3.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Khandhavaggasaṃyuttapāḷi</a></li>
+                    <li><a href="/tipitaka/13S4.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Saḷāyatanavaggasaṃyuttapāḷi</a></li>
+                    <li><a href="/tipitaka/14S5.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Mahāvaggasaṃyuttapāḷi</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="mb-1 ms-3">
+                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                  data-bs-toggle="collapse" data-bs-target="#a-collapse" aria-expanded="false">
+                  Aṅguttaranikāya (A)
+                </button>
+                <div class="collapse" id="a-collapse">
+                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li><a href="/tipitaka/15A1.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Ekakanipātapāḷi</a></li>
+                    <li><a href="/tipitaka/15A2.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dukanipātapāḷi</a></li>
+                    <li><a href="/tipitaka/15A3.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Tikanipātapāḷi</a></li>
+                    <li><a href="/tipitaka/15A4.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Catukkanipātapāḷi</a></li>
+                    <li><a href="/tipitaka/16A5.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Pañcakanipātapāḷi</a></li>
+                    <li><a href="/tipitaka/16A6.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Chakkanipātapāḷi</a></li>
+                    <li><a href="/tipitaka/16A7.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Sattakanipātapā</a></li>
+                    <li><a href="/tipitaka/17A8.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Aṭṭhakanipātapāḷi</a></li>
+                    <li><a href="/tipitaka/17A9.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Navakanipātapāḷi</a></li>
+                    <li><a href="/tipitaka/17A10.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dasakanipātapāḷi</a></li>
+                    <li><a href="/tipitaka/17A11.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Ekādasakanipātapāḷi</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="mb-1 ms-3">
+                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                  data-bs-toggle="collapse" data-bs-target="#k-collapse" aria-expanded="false">
+                  Khuddakanikāya (Khu)
+                </button>
+                <div class="collapse" id="k-collapse">
+                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li><a href="/tipitaka/18Kh.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Khuddakapāṭhapāḷi</a></li>
+                    <li><a href="/tipitaka/18Dh.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dhammapadapāḷi</a></li>
+                    <li><a href="/tipitaka/18Ud.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Udānapāḷi</a></li>
+                    <li><a href="/tipitaka/18It.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Itivuttakapāḷi</a></li>
+                    <li><a href="/tipitaka/19Vv.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Vimānavatthupāḷi</a></li>
+                    <li><a href="/tipitaka/19Pv.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Petavatthupāḷi</a></li>
+                    <li><a href="/tipitaka/19Th1.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Theragāthāpāḷi</a></li>
+                    <li><a href="/tipitaka/19Th2.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Therīgāthāpāḷi</a></li>
+                    <li><a href="/tipitaka/20Ap1.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Therāpadānapāḷi</a></li>
+                    <li><a href="/tipitaka/20Ap2.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Therīapadānapāḷi</a></li>
+                    <li><a href="/tipitaka/21Bu.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Buddhavaṃsapāḷi</a></li>
+                    <li><a href="/tipitaka/21Cp.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Cariyāpiṭakapāḷi</a></li>
+                    <li><a href="/tipitaka/22J.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Jātakapāḷi</a></li>
+                    <li><a href="/tipitaka/23J.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Jātakapāḷi</a></li>
+                    <li><a href="/tipitaka/23Mn.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Mahāniddesapāḷi</a></li>
+                    <li><a href="/tipitaka/25Cn.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Cūḷaniddesapāḷi</a></li>
+                    <li><a href="/tipitaka/26Ps.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Paṭisambhidāmaggapāḷi</a></li>
+                    <li><a href="/tipitaka/27Ne.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Nettipāḷi</a></li>
+                    <li><a href="/tipitaka/27Pe.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Peṭakopadesapāḷi</a></li>
+                    <li><a href="/tipitaka/28Mi.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Milindapañhapāḷi</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+            <li class="border-top my-2"></li>
+            <li class="mb-1">
+              <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                data-bs-toggle="collapse" data-bs-target="#ab-collapse" aria-expanded="false">
+                Abhidhammapiṭaka (Abhi)
+              </button>
+              <div class="collapse" id="ab-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  <li><a href="/tipitaka/29Dhs.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dhammasaṅgaṇīpāḷi</a></li>
+                  <li><a href="/tipitaka/30Vbh.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dhammapadapāḷi</a></li>
+                  <li><a href="/tipitaka/31Dht.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dhātukathāpāḷi</a></li>
+                  <li><a href="/tipitaka/31Pu.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Puggalapaññattipāḷi</a></li>
+                  <li><a href="/tipitaka/32Kv.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Kathāvatthupāḷi</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="border-top my-2"></li>
+            <li class="mb-1">
+              <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                data-bs-toggle="collapse" data-bs-target="#y-collapse" aria-expanded="false">
+                Yamaka (Y)
+              </button>
+              <div class="collapse" id="y-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  <li><a href="/tipitaka/33Y1.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Mūlayamakapāḷi</a></li>
+                  <li><a href="/tipitaka/33Y2.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Khandhayamakapāḷi</a></li>
+                  <li><a href="/tipitaka/33Y3.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Āyatanayamakapāḷi</a></li>
+                  <li><a href="/tipitaka/33Y4.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dhātuyamakapāḷi</a></li>
+                  <li><a href="/tipitaka/33Y5.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Saccayamakapāḷi</a></li>
+                  <li><a href="/tipitaka/34Y6.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Saṅkhārayamakapāḷi</a></li>
+                  <li><a href="/tipitaka/34Y7.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Anusayayamakapāḷi</a></li>
+                  <li><a href="/tipitaka/34Y8.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Cittayamakapāḷi</a></li>
+                  <li><a href="/tipitaka/35Y9.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dhammayamakapāḷi</a></li>
+                  <li><a href="/tipitaka/35Y10.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Indriyayamakapāḷi</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="border-top my-2"></li>
+            <li class="mb-1">
+              <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                data-bs-toggle="collapse" data-bs-target="#p-collapse" aria-expanded="false">
+                Paṭṭhāna (P)
+              </button>
+              <div class="collapse" id="p-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  <li class="mb-1 ms-3" >
+                    <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                      data-bs-toggle="collapse" data-bs-target="#dh-collapse" aria-expanded="false">
+                      Dhammānuloma
+                    </button>
+                    <div class="collapse" id="dh-collapse">
+                      <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                        <li><a href="/tipitaka/36P1.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Tikapaṭṭhānapāḷi</a></li>
+                        <li><a href="/tipitaka/37P1.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Tikapaṭṭhānapāḷi</a></li>
+                        <li><a href="/tipitaka/38P2.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dukapaṭṭhānapāḷi</a></li>
+                        <li><a href="/tipitaka/39P3.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dukatikapaṭṭhānapāḷi</a></li>
+                        <li><a href="/tipitaka/39P4.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Tikadukapaṭṭhānapāḷi</a></li>
+                        <li><a href="/tipitaka/39P5.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Tikatikapaṭṭhānapāḷi</a></li>
+                        <li><a href="/tipitaka/39P6.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dukadukapaṭṭhānapāḷi</a></li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li class="mb-1 ms-3">
+                    <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                      data-bs-toggle="collapse" data-bs-target="#dp-collapse" aria-expanded="false">
+                      Dhammapaccanīya
+                    </button>
+                    <div class="collapse" id="dp-collapse">
+                      <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                        <li><a href="/tipitaka/40P7.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Tikapaṭṭhānapāḷi</a></li>
+                        <li><a href="/tipitaka/40P8.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dukapaṭṭhānapāḷi</a></li>
+                        <li><a href="/tipitaka/40P9.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dukatikapaṭṭhānapāḷi</a></li>
+                        <li><a href="/tipitaka/40P10.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Tikadukapaṭṭhānapāḷi</a></li>
+                        <li><a href="/tipitaka/40P11.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Tikatikapaṭṭhānapāḷi</a></li>
+                        <li><a href="/tipitaka/40P12.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dukadukapaṭṭhānapāḷi</a></li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li class="mb-1 ms-3">
+                    <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                      data-bs-toggle="collapse" data-bs-target="#dl-collapse" aria-expanded="false">
+                      Dhammānulomapaccanīya
+                    </button>
+                    <div class="collapse" id="dl-collapse">
+                      <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                        <li><a href="/tipitaka/40P13.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Tikapaṭṭhānapāḷi</a></li>
+                        <li><a href="/tipitaka/40P14.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dukapaṭṭhānapāḷi</a></li>
+                        <li><a href="/tipitaka/40P15.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dukatikapaṭṭhānapāḷi</a></li>
+                        <li><a href="/tipitaka/40P16.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Tikadukapaṭṭhānapāḷi</a></li>
+                        <li><a href="/tipitaka/40P17.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Tikatikapaṭṭhānapāḷi</a></li>
+                        <li><a href="/tipitaka/40P18.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dukadukapaṭṭhānapāḷi</a></li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li class="mb-1 ms-3">
+                    <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                      data-bs-toggle="collapse" data-bs-target="#dy-collapse" aria-expanded="false">
+                      Dhammapaccanīyānuloma
+                    </button>
+                    <div class="collapse" id="dy-collapse">
+                      <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                        <li><a href="/tipitaka/40P19.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Tikapaṭṭhānapāḷi</a></li>
+                        <li><a href="/tipitaka/40P20.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dukapaṭṭhānapāḷi</a></li>
+                        <li><a href="/tipitaka/40P21.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dukatikapaṭṭhānapāḷi</a></li>
+                        <li><a href="/tipitaka/40P22.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Tikadukapaṭṭhānapāḷi</a></li>
+                        <li><a href="/tipitaka/40P23.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Tikatikapaṭṭhānapāḷi</a></li>
+                        <li><a href="/tipitaka/40P24.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dukadukapaṭṭhānapāḷi</a></li>
+                      </ul>
+                    </div>
+                  </li>      
+                </ul>
+              </div>
+            </li>
+          </div>
+        </li>
+      </ul>
     </div>
-    <h3 class="text-center">
-     Kuṇḍalakesīvagga
-    </h3>
-    <h3 class="text-center">
-     Yasodharātherīapadāna
-    </h3>
-    <p id="p_20Ap2_1022">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d314">
-      314.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1022">
-         1022
-        </span>
-        <i>
-         Ekasmiṃ samaye ramme,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         iddhe rājagahe pure;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Pabbhāramhi varekamhi,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         vasante naranāyake.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1023">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d315">
-      315.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1023">
-         1023
-        </span>
-        <i>
-         Vasantiyā tamhi nagare,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         ramme bhikkhunupassaye;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Yasodharābhikkhuniyā,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         evaṃ āsi vitakkitaṃ.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1024">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d316">
-      316.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1024">
-         1024
-        </span>
-        <i>
-         “Suddhodano mahārājā,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         gotamī ca pajāpatī;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Abhiññātā mahātherā,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         theriyo ca mahiddhikā.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1025">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d317">
-      317.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1025">
-         1025
-        </span>
-        <i>
-         Santiṃ gatāva āsuṃ te,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         dīpaccīva nirāsavā;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Lokanāthe dharanteva,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         ahampi ca sivaṃ padaṃ.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1026">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d318">
-      318.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1026">
-         1026
-        </span>
-        <i>
-         Gamissāmī”ti cintetvā,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         passantī āyumattano;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Passitvā āyusaṅkhāraṃ,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         tadaheva khayaṃ gataṃ.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1027">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d319">
-      319.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1027">
-         1027
-        </span>
-        <i>
-         Pattacīvaramādāya,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         nikkhamitvā sakassamā;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Purakkhatā bhikkhunībhi,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         satehi sahassehi sā.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1028">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d320">
-      320.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1028">
-         1028
-        </span>
-        <i>
-         Mahiddhikā mahāpaññā,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         sambuddhaṃ upasaṅkami;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Sambuddhaṃ abhivādetvā,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         satthuno cakkalakkhaṇe;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Nisinnā ekamantamhi,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         idaṃ vacanamabravi.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1029">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d321">
-      321.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1029">
-         1029
-        </span>
-        <i>
-         “Aṭṭhasattativassāhaṃ,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         pacchimo vattate vayo;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Pabbhāramhi anuppattā,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         ārocemi mahāmuni.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1030">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d322">
-      322.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1030">
-         1030
-        </span>
-        <i>
-         Paripakko vayo mayhaṃ,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         parittaṃ mama jīvitaṃ;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Pahāya vo gamissāmi,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         kataṃ me saraṇamattano.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1031">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d323">
-      323.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1031">
-         1031
-        </span>
-        <i>
-         Vayamhi pacchime kāle,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         maraṇaṃ uparuddhati;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Ajjarattiṃ mahāvīra,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         pāpuṇissāmi nibbutiṃ.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1032">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d324">
-      324.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1032">
-         1032
-        </span>
-        <i>
-         Natthi jāti jarā byādhi,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         maraṇañca mahāmune;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Ajarāmaraṇaṃ puraṃ,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         gamissāmi asaṅkhataṃ.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1033">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d325">
-      325.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1033">
-         1033
-        </span>
-        <i>
-         Yāvatā parisā nāma,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         samupāsanti satthuno;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Aparādhamajānantī,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         khamantaṃ sammukhā mune.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1034">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d326">
-      326.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1034">
-         1034
-        </span>
-        <i>
-         Saṃsaritvā ca saṃsāre,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         khalitañce mamaṃ tayi;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Ārocemi mahāvīra,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         aparādhaṃ khamassu me”.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1035">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d327">
-      327.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1035">
-         1035
-        </span>
-        <i>
-         Sutvāna vacanaṃ tassā,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         munindo idamabravi;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         “Kimuttaraṃ te vakkhāmi,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         nibbānāya vajantiyā.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1036">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d328">
-      328.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1036">
-         1036
-        </span>
-        <i>
-         Iddhiñcāpi nidassehi,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         mama sāsanakārike;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Parisānañca sabbāsaṃ,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         kaṅkhaṃ chindassu yāvatā”.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1037">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d329">
-      329.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1037">
-         1037
-        </span>
-        <i>
-         Sutvā taṃ munino vācaṃ,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         bhikkhunī sā yasodharā;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Vanditvā munirājaṃ taṃ,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         idaṃ vacanamabravi.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1038">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d330">
-      330.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1038">
-         1038
-        </span>
-        <i>
-         “Yasodharā ahaṃ vīra,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         agāre te pajāpati;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Sākiyamhi kule jātā,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         itthiaṅge patiṭṭhitā.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1039">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d331">
-      331.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1039">
-         1039
-        </span>
-        <i>
-         Thīnaṃ satasahassānaṃ,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         navutīnaṃ chaduttari;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Agāre te ahaṃ vīra,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         pāmokkhā sabbā issarā.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1040">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d332">
-      332.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1040">
-         1040
-        </span>
-        <i>
-         Rūpācāraguṇūpetā,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         yobbanaṭṭhā piyaṃvadā;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Sabbā maṃ apacāyanti,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         devatā viya mānusā.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1041">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d333">
-      333.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1041">
-         1041
-        </span>
-        <i>
-         Kaññāsatasahassapamukhā,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Sakyaputtanivesane;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Samānasukhadukkhatā,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Devatā viya nandane.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1042">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d334">
-      334.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1042">
-         1042
-        </span>
-        <i>
-         Kāmadhātumatikkamma,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         saṇṭhitā rūpadhātuyā;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Rūpena sadisā natthi,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         ṭhapetvā lokanāyakaṃ”.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1043">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d335">
-      335.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1043">
-         1043
-        </span>
-        <i>
-         Sambuddhaṃ abhivādetvā,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         iddhiṃ dassesi satthuno;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Nekā nānāvidhākārā,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         mahāiddhīpi dassayī.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1044">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d336">
-      336.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1044">
-         1044
-        </span>
-        <i>
-         Cakkavāḷasamaṃ kāyaṃ,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         sīsaṃ uttarato kuru;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Ubho pakkhā duve dīpā,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         jambudīpaṃ sarīrato.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1045">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d337">
-      337.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1045">
-         1045
-        </span>
-        <i>
-         Dakkhiṇañca saraṃ piñchaṃ,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         nānāsākhā tu pattakā;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Candañca sūriyañcakkhi,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         merupabbatato sikhaṃ.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1046">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d338">
-      338.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1046">
-         1046
-        </span>
-        <i>
-         Cakkavāḷagiriṃ tuṇḍaṃ,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         jamburukkhaṃ samūlakaṃ;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Bījamānā upāgantvā,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         vandantī lokanāyakaṃ.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1047">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d339">
-      339.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1047">
-         1047
-        </span>
-        <i>
-         Hatthivaṇṇaṃ tathevassaṃ,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         pabbataṃ jaladhiṃ tathā;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Candimaṃ sūriyaṃ meruṃ,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         sakkavaṇṇañca dassayi.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1048">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d340">
-      340.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1048">
-         1048
-        </span>
-        <i>
-         “Yasodharā ahaṃ vīra,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         pāde vandāmi cakkhuma”;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Sahassalokadhātūnaṃ,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         phullapadmena chādayi.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1049">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d341">
-      341.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1049">
-         1049
-        </span>
-        <i>
-         Brahmavaṇṇañca māpetvā,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         dhammaṃ desesi suññataṃ;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         “Yasodharā ahaṃ vīra,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         pāde vandāmi cakkhuma.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1050">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d342">
-      342.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1050">
-         1050
-        </span>
-        <i>
-         Iddhīsu ca vasī homi,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         dibbāya sotadhātuyā;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Cetopariyañāṇassa,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         vasī homi mahāmuni.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1051">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d343">
-      343.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1051">
-         1051
-        </span>
-        <i>
-         Pubbenivāsaṃ jānāmi,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         dibbacakkhu visodhitaṃ;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Sabbāsavā parikkhīṇā,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         natthi dāni punabbhavo.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1052">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d344">
-      344.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1052">
-         1052
-        </span>
-        <i>
-         Atthadhammaniruttīsu,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         paṭibhāne tatheva ca;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Ñāṇaṃ mayhaṃ mahāvīra,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         uppannaṃ tava santike.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1053">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d345">
-      345.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1053">
-         1053
-        </span>
-        <i>
-         Pubbānaṃ lokanāthānaṃ,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         saṅgamaṃ te nidassitaṃ;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Adhikāraṃ bahuṃ mayhaṃ,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         tuyhatthāya mahāmune.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1054">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d346">
-      346.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1054">
-         1054
-        </span>
-        <i>
-         Yaṃ mayhaṃ pūritaṃ kammaṃ,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Kusalaṃ sarase mune;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Tuyhatthāya mahāvīra,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Puññaṃ upacitaṃ mayā.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1055">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d347">
-      347.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1055">
-         1055
-        </span>
-        <i>
-         Abhabbaṭṭhāne vajjetvā,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         vārayitvā anācaraṃ;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Tuyhatthāya mahāvīra,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         sañcattaṃ jīvitaṃ mayā.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1056">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d348">
-      348.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1056">
-         1056
-        </span>
-        <i>
-         Nekakoṭisahassāni,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         bhariyatthāyadāsi maṃ;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Na tattha vimanā homi,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         tuyhatthāya mahāmuni.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1057">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d349">
-      349.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1057">
-         1057
-        </span>
-        <i>
-         Nekakoṭisahassāni,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         upakārāyadāsi maṃ;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Na tattha vimanā homi,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         tuyhatthāya mahāmuni.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1058">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d350">
-      350.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1058">
-         1058
-        </span>
-        <i>
-         Nekakoṭisahassāni,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         bhojanatthāyadāsi maṃ;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Na tattha vimanā homi,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         tuyhatthāya mahāmuni.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1059">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d351">
-      351.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1059">
-         1059
-        </span>
-        <i>
-         Nekakoṭisahassāni,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         jīvitāni pariccajiṃ;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Bhayamokkhaṃ karissanti,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         dadāmi mama jīvitaṃ.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1060">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d352">
-      352.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1060">
-         1060
-        </span>
-        <i>
-         Aṅgagate alaṅkāre,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         vatthe nānāvidhe bahū;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Itthimaṇḍe na gūhāmi,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         tuyhatthāya mahāmuni.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1061">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d353">
-      353.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1061">
-         1061
-        </span>
-        <i>
-         Dhanadhaññapariccāgaṃ,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         gāmāni nigamāni ca;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Khettaṃ puttā ca dhītā ca,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         pariccattā mahāmuni.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1062">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d354">
-      354.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1062">
-         1062
-        </span>
-        <i>
-         Hatthī assā gavā cāpi,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         dāsiyo paricārikā;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Tuyhatthāya mahāvīra,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         pariccattā asaṅkhiyā.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1063">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d355">
-      355.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1063">
-         1063
-        </span>
-        <i>
-         Yaṃ mayhaṃ paṭimantesi,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         dānaṃ dassāmi yācake;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Vimanaṃ me na passāmi,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         dadato dānamuttamaṃ.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1064">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d356">
-      356.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1064">
-         1064
-        </span>
-        <i>
-         Nānāvidhaṃ bahuṃ dukkhaṃ,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         saṃsāre ca bahubbidhe;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Tuyhatthāya mahāvīra,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         anubhuttaṃ asaṅkhiyaṃ.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1065">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d357">
-      357.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1065">
-         1065
-        </span>
-        <i>
-         Sukhappattānumodāmi,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         na ca dukkhesu dummanā;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Sabbattha tulitā homi,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         tuyhatthāya mahāmuni.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1066">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d358">
-      358.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1066">
-         1066
-        </span>
-        <i>
-         Anumaggena sambuddho,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         yaṃ dhammaṃ abhinīhari;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Anubhotvā sukhaṃ dukkhaṃ,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         patto bodhiṃ mahāmuni.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1067">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d359">
-      359.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1067">
-         1067
-        </span>
-        <i>
-         Brahmadevañca sambuddhaṃ,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         gotamaṃ lokanāyakaṃ;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Aññesaṃ lokanāthānaṃ,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         saṅgamaṃ te bahuṃ mayā.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1068">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d360">
-      360.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1068">
-         1068
-        </span>
-        <i>
-         Adhikāraṃ bahuṃ mayhaṃ,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         tuyhatthāya mahāmuni;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Gavesato buddhadhamme,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         ahaṃ te paricārikā.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1069">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d361">
-      361.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1069">
-         1069
-        </span>
-        <i>
-         Kappe ca satasahasse,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         caturo ca asaṅkhiye;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Dīpaṅkaro mahāvīro,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         uppajji lokanāyako.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1070">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d362">
-      362.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1070">
-         1070
-        </span>
-        <i>
-         Paccantadesavisaye,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         nimantetvā tathāgataṃ;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Tassa āgamanaṃ maggaṃ,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         sodhenti tuṭṭhamānasā.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1071">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d363">
-      363.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1071">
-         1071
-        </span>
-        <i>
-         Tena kālena so āsi,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         sumedho nāma brāhmaṇo;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Maggañca paṭiyādesi,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         āyato sabbadassino.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1072">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d364">
-      364.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1072">
-         1072
-        </span>
-        <i>
-         Tena kālenahaṃ āsiṃ,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         kaññā brāhmaṇasambhavā;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Sumittā nāma nāmena,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         upagacchiṃ samāgamaṃ.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1073">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d365">
-      365.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1073">
-         1073
-        </span>
-        <i>
-         Aṭṭha uppalahatthāni,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         pūjanatthāya satthuno;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Ādāya janasammajjhe,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         addasaṃ isimuggataṃ.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1074">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d366">
-      366.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1074">
-         1074
-        </span>
-        <i>
-         Cirānugataṃ dayitaṃ,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         atikkantaṃ manoharaṃ;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Disvā tadā amaññissaṃ,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         saphalaṃ jīvitaṃ mama.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1075">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d367">
-      367.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1075">
-         1075
-        </span>
-        <i>
-         Parakkamaṃ taṃ saphalaṃ,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         addasaṃ isino tadā;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Pubbakammena sambuddhe,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         cittañcāpi pasīdi me.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1076">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d368">
-      368.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1076">
-         1076
-        </span>
-        <i>
-         Bhiyyo cittaṃ pasādesiṃ,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         ise uggatamānase;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Deyyaṃ aññaṃ na passāmi,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         demi pupphāni te isi.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1077">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d369">
-      369.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1077">
-         1077
-        </span>
-        <i>
-         ‘Pañca hatthā tava hontu,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         tayo hontu mamaṃ ise;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Tena saddhiṃ samā hontu,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         bodhatthāya tavaṃ ise’.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p class="text-center lead" id="p_20Ap2_1078">
-     <span class="badge rounded-pill text-bg-light me-1" id="1078">
-      1078
-     </span>
-     Catutthaṃ bhāṇavāraṃ.
-    </p>
-    <p id="p_20Ap2_1079">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d370">
-      370.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1079">
-         1079
-        </span>
-        <i>
-         Isi gahetvā pupphāni,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         āgacchantaṃ mahāyasaṃ;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Pūjesi janasammajjhe,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         bodhatthāya mahāisi.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1080">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d371">
-      371.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1080">
-         1080
-        </span>
-        <i>
-         Passitvā janasammajjhe,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         dīpaṅkaro mahāmuni;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Viyākāsi mahāvīro,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         isi muggatamānasaṃ.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1081">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d372">
-      372.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1081">
-         1081
-        </span>
-        <i>
-         Aparimeyye ito kappe,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         dīpaṅkaro mahāmuni;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Mama kammaṃ viyākāsi,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         ujubhāvaṃ mahāmuni.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1082">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d373">
-      373.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1082">
-         1082
-        </span>
-        <i>
-         ‘Samacittā samakammā,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         samakārī bhavissati;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Piyā hessati kammena,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         tuyhatthāya mahāisi.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1083">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d374">
-      374.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1083">
-         1083
-        </span>
-        <i>
-         Sudassanā supiyā ca,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         manāpā piyavādinī;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Tassa dhammesu dāyādā,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         viharissati iddhikā.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1084">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d375">
-      375.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1084">
-         1084
-        </span>
-        <i>
-         Yathāpi bhaṇḍasāmuggaṃ,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         anurakkhati sāmino;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Evaṃ kusaladhammānaṃ,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         anurakkhissate ayaṃ.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1085">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d376">
-      376.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1085">
-         1085
-        </span>
-        <i>
-         Tassa te anukampantī,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         pūrayissati pāramī;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Sīhova pañjaraṃ bhetvā,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         pāpuṇissati bodhiyaṃ’.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1086">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d377">
-      377.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1086">
-         1086
-        </span>
-        <i>
-         Aparimeyye ito kappe,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         yaṃ maṃ buddho viyākarī;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Taṃ vācaṃ anumodentī,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         evaṃkārī bhaviṃ ahaṃ.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1087">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d378">
-      378.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1087">
-         1087
-        </span>
-        <i>
-         Tassa kammassa sukatassa,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         tattha cittaṃ pasādayiṃ;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Devamanussakaṃ yoniṃ,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         anubhotvā asaṅkhiyaṃ.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1088">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d379">
-      379.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1088">
-         1088
-        </span>
-        <i>
-         Sukhadukkhenubhotvāhaṃ,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         devesu mānusesu ca;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Pacchime bhave sampatte,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         ajāyiṃ sākiye kule.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1089">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d380">
-      380.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1089">
-         1089
-        </span>
-        <i>
-         Rūpavatī bhogavatī,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         yasasīlavatī tato;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Sabbaṅgasampadā homi,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         kulesu abhisakkatā.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1090">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d381">
-      381.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1090">
-         1090
-        </span>
-        <i>
-         Lābhaṃ silokaṃ sakkāraṃ,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         lokadhammasamāgamaṃ;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Cittañca dukkhitaṃ natthi,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         vasāmi akutobhayā.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1091">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d382">
-      382.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1091">
-         1091
-        </span>
-        <i>
-         Vuttañhetaṃ bhagavatā,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         ‘rañño antepure tadā;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Khattiyānaṃ pure vīra,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         upakārañca niddisi.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1092">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d383">
-      383.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1092">
-         1092
-        </span>
-        <i>
-         Upakārā ca yā nārī,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         yā ca nārī sukhe dukhe;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Atthakkhāyī ca yā nārī,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         yā ca nārīnukampikā’.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1093">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d384">
-      384.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1093">
-         1093
-        </span>
-        <i>
-         Pañcakoṭisatā buddhā,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         navakoṭisatāni ca;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Etesaṃ devadevānaṃ,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         mahādānaṃ pavattayiṃ.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1094">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d385">
-      385.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1094">
-         1094
-        </span>
-        <i>
-         Adhikāraṃ mahā mayhaṃ,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         dhammarāja suṇohi me;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Ekādasakoṭisatā,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         buddhā dvādasa koṭiyo.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1095">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d386">
-      386.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1095">
-         1095
-        </span>
-        <i>
-         Etesaṃ devadevānaṃ,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         mahādānaṃ pavattayiṃ;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Adhikāraṃ mahā mayhaṃ,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         dhammarāja suṇohi me.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1096">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d387">
-      387.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1096">
-         1096
-        </span>
-        <i>
-         Vīsakoṭisatā buddhā,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         tiṃsakoṭisatāni ca;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Etesaṃ devadevānaṃ,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         mahādānaṃ pavattayiṃ.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1097">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d388">
-      388.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1097">
-         1097
-        </span>
-        <i>
-         Adhikāraṃ mahā mayhaṃ,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         dhammarāja suṇohi me;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Cattālīsakoṭisatā,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         paññāsa koṭisatāni ca.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1098">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d389">
-      389.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1098">
-         1098
-        </span>
-        <i>
-         Etesaṃ devadevānaṃ,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         mahādānaṃ pavattayiṃ;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Adhikāraṃ mahā mayhaṃ,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         dhammarāja suṇohi me.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1099">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d390">
-      390.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1099">
-         1099
-        </span>
-        <i>
-         Saṭṭhikoṭisatā buddhā,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         sattatikoṭisatāni ca;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Etesaṃ devadevānaṃ,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         mahādānaṃ pavattayiṃ.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1100">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d391">
-      391.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1100">
-         1100
-        </span>
-        <i>
-         Adhikāraṃ mahā mayhaṃ,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         dhammarāja suṇohi me;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Asītikoṭisatā buddhā,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         navutikoṭisatāni ca.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1101">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d392">
-      392.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1101">
-         1101
-        </span>
-        <i>
-         Etesaṃ devadevānaṃ,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         mahādānaṃ pavattayiṃ;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Adhikāraṃ mahā mayhaṃ,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         dhammarāja suṇohi me.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1102">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d393">
-      393.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1102">
-         1102
-        </span>
-        <i>
-         Koṭisatasahassāni,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         honti lokagganāyakā;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Etesaṃ devadevānaṃ,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         mahādānaṃ pavattayiṃ.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1103">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d394">
-      394.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1103">
-         1103
-        </span>
-        <i>
-         Adhikāraṃ mahā mayhaṃ,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         dhammarāja suṇohi me;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Navakoṭisahassāni,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         apare lokanāyakā.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1104">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d395">
-      395.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1104">
-         1104
-        </span>
-        <i>
-         Etesaṃ devadevānaṃ,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         mahādānaṃ pavattayiṃ;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Adhikāraṃ mahā mayhaṃ,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         dhammarāja suṇohi me.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1105">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d396">
-      396.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1105">
-         1105
-        </span>
-        <i>
-         Koṭisatasahassāni,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         pañcāsītimahesinaṃ;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Pañcāsītikoṭisatā,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         sattatiṃsā ca koṭiyo.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1106">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d397">
-      397.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1106">
-         1106
-        </span>
-        <i>
-         Etesaṃ devadevānaṃ,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         mahādānaṃ pavattayiṃ;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Adhikāraṃ mahā mayhaṃ,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         dhammarāja suṇohi me.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1107">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d398">
-      398.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1107">
-         1107
-        </span>
-        <i>
-         Paccekabuddhā vītarāgā,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         aṭṭhaṭṭhamakakoṭiyo;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Adhikāraṃ mahā mayhaṃ,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         dhammarāja suṇohi me.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1108">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d399">
-      399.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1108">
-         1108
-        </span>
-        <i>
-         Khīṇāsavā vītamalā,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         asaṅkhiyā buddhasāvakā;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Adhikāraṃ mahā mayhaṃ,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         dhammarāja suṇohi me.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1109">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d400">
-      400.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1109">
-         1109
-        </span>
-        <i>
-         Evaṃ dhamme suciṇṇānaṃ,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         sadā dhammassa cārinaṃ;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Dhammacārī sukhaṃ seti,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         asmiṃ loke paramhi ca.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1110">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d401">
-      401.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1110">
-         1110
-        </span>
-        <i>
-         Dhammaṃ care sucaritaṃ,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         na naṃ duccaritaṃ care;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Dhammacārī sukhaṃ seti,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         asmiṃ loke paramhi ca.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1111">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d402">
-      402.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1111">
-         1111
-        </span>
-        <i>
-         Nibbinditvāna saṃsāre,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         pabbajiṃ anagāriyaṃ;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Sahassaparivārena,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         pabbajitvā akiñcanā.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1112">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d403">
-      403.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1112">
-         1112
-        </span>
-        <i>
-         Agāraṃ vijahitvāna,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         pabbajiṃ anagāriyaṃ;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Aḍḍhamāse asampatte,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         catusaccamapāpuṇiṃ.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1113">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d404">
-      404.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1113">
-         1113
-        </span>
-        <i>
-         Cīvaraṃ piṇḍapātañca,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         paccayaṃ sayanāsanaṃ;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Upanenti bahū janā,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         sāgareyeva ūmiyo.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1114">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d405">
-      405.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1114">
-         1114
-        </span>
-        <i>
-         Kilesā jhāpitā mayhaṃ,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         …pe…
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         viharāmi anāsavā.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1115">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d406">
-      406.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1115">
-         1115
-        </span>
-        <i>
-         Svāgataṃ vata me āsi,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         …pe…
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         kataṃ buddhassa sāsanaṃ.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1116">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d407">
-      407.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1116">
-         1116
-        </span>
-        <i>
-         Paṭisambhidā catasso,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         …pe…
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         kataṃ buddhassa sāsanaṃ.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1117">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d408">
-      408.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1117">
-         1117
-        </span>
-        <i>
-         Evaṃ bahuvidhaṃ dukkhaṃ,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         sampattī ca bahubbidhā;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Visuddhibhāvaṃ sampattā,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         labhāmi sabbasampadā.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1118">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d409">
-      409.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1118">
-         1118
-        </span>
-        <i>
-         Yā dadāti sakattānaṃ,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         puññatthāya mahesino;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Sahāyasampadā honti,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         nibbānapadamasaṅkhataṃ.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1119">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d410">
-      410.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="1119">
-         1119
-        </span>
-        <i>
-         Parikkhīṇaṃ atītañca,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Paccuppannaṃ anāgataṃ;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Sabbakammaṃ mamaṃ khīṇaṃ,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Pāde vandāmi cakkhuma”.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_20Ap2_1120">
-     <span class="badge rounded-pill text-bg-light me-1" id="1120">
-      1120
-     </span>
-     Itthaṃ sudaṃ yasodharā bhikkhunī bhagavato sammukhā imā gāthāyo abhāsitthāti.
-    </p>
-    <p class="text-center lead" id="p_20Ap2_1121">
-     <span class="badge rounded-pill text-bg-light me-1" id="1121">
-      1121
-     </span>
-     Yasodharātheriyāpadānaṃ aṭṭhamaṃ.
-    </p>
-    <div class="fixed_bottom container">
-     <footer class="row align-items-center py-4 my-4 border-top">
-      <a class="col order-1 btn btn-outline-secondary" href="/tipitaka/20Ap2/3/3.7.html" id="previous">
-       3.7 Bhaddākāpilānītherīapadāna
-      </a>
-      <a class="col order-2 btn btn-outline-secondary" href="/tipitaka/20Ap2/3.html" id="up">
-       up
-      </a>
-      <a class="col order-3 btn btn-outline-secondary" href="/tipitaka/20Ap2/3/3.9.html" id="next">
-       3.9 Yasodharāpamukhadasabhikkhunīsahassaapadāna
-      </a>
-     </footer>
+
+    <div class="container overflow-scroll">
+<nav aria-label="breadcrumb">
+ <ol class="breadcrumb">
+  <li class="breadcrumb-item">
+   <a href="/">
+    Home
+   </a>
+  </li>
+  <li class="breadcrumb-item">
+   <a href="/tipitaka/20Ap2.html">
+    20Ap2 Therīapadānapāḷi
+   </a>
+  </li>
+  <li class="breadcrumb-item">
+   <a href="/tipitaka/20Ap2/3.html">
+    3 Kuṇḍalakesīvagga
+   </a>
+  </li>
+ </ol>
+</nav>
+<div class="container">
+ <div class="m-4 p-4 text-center bg-body-tertiary rounded-3">
+  <h1 class="text-body-emphasis">
+   3.8 Yasodharātherīapadāna
+  </h1>
+ </div>
+</div>
+<h3 class="text-center">
+ Kuṇḍalakesīvagga
+</h3>
+<h3 class="text-center">
+ Yasodharātherīapadāna
+</h3>
+<p id="p_20Ap2_1022">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d314">
+  314.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1022">
+     1022
+    </span>
+    <i>
+     Ekasmiṃ samaye ramme,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     iddhe rājagahe pure;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Pabbhāramhi varekamhi,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     vasante naranāyake.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1023">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d315">
+  315.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1023">
+     1023
+    </span>
+    <i>
+     Vasantiyā tamhi nagare,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     ramme bhikkhunupassaye;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Yasodharābhikkhuniyā,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     evaṃ āsi vitakkitaṃ.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1024">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d316">
+  316.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1024">
+     1024
+    </span>
+    <i>
+     “Suddhodano mahārājā,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     gotamī ca pajāpatī;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Abhiññātā mahātherā,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     theriyo ca mahiddhikā.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1025">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d317">
+  317.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1025">
+     1025
+    </span>
+    <i>
+     Santiṃ gatāva āsuṃ te,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     dīpaccīva nirāsavā;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Lokanāthe dharanteva,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     ahampi ca sivaṃ padaṃ.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1026">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d318">
+  318.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1026">
+     1026
+    </span>
+    <i>
+     Gamissāmī”ti cintetvā,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     passantī āyumattano;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Passitvā āyusaṅkhāraṃ,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     tadaheva khayaṃ gataṃ.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1027">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d319">
+  319.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1027">
+     1027
+    </span>
+    <i>
+     Pattacīvaramādāya,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     nikkhamitvā sakassamā;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Purakkhatā bhikkhunībhi,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     satehi sahassehi sā.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1028">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d320">
+  320.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1028">
+     1028
+    </span>
+    <i>
+     Mahiddhikā mahāpaññā,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     sambuddhaṃ upasaṅkami;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Sambuddhaṃ abhivādetvā,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     satthuno cakkalakkhaṇe;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Nisinnā ekamantamhi,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     idaṃ vacanamabravi.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1029">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d321">
+  321.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1029">
+     1029
+    </span>
+    <i>
+     “Aṭṭhasattativassāhaṃ,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     pacchimo vattate vayo;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Pabbhāramhi anuppattā,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     ārocemi mahāmuni.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1030">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d322">
+  322.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1030">
+     1030
+    </span>
+    <i>
+     Paripakko vayo mayhaṃ,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     parittaṃ mama jīvitaṃ;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Pahāya vo gamissāmi,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     kataṃ me saraṇamattano.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1031">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d323">
+  323.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1031">
+     1031
+    </span>
+    <i>
+     Vayamhi pacchime kāle,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     maraṇaṃ uparuddhati;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Ajjarattiṃ mahāvīra,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     pāpuṇissāmi nibbutiṃ.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1032">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d324">
+  324.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1032">
+     1032
+    </span>
+    <i>
+     Natthi jāti jarā byādhi,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     maraṇañca mahāmune;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Ajarāmaraṇaṃ puraṃ,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     gamissāmi asaṅkhataṃ.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1033">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d325">
+  325.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1033">
+     1033
+    </span>
+    <i>
+     Yāvatā parisā nāma,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     samupāsanti satthuno;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Aparādhamajānantī,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     khamantaṃ sammukhā mune.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1034">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d326">
+  326.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1034">
+     1034
+    </span>
+    <i>
+     Saṃsaritvā ca saṃsāre,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     khalitañce mamaṃ tayi;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Ārocemi mahāvīra,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     aparādhaṃ khamassu me”.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1035">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d327">
+  327.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1035">
+     1035
+    </span>
+    <i>
+     Sutvāna vacanaṃ tassā,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     munindo idamabravi;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     “Kimuttaraṃ te vakkhāmi,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     nibbānāya vajantiyā.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1036">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d328">
+  328.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1036">
+     1036
+    </span>
+    <i>
+     Iddhiñcāpi nidassehi,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     mama sāsanakārike;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Parisānañca sabbāsaṃ,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     kaṅkhaṃ chindassu yāvatā”.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1037">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d329">
+  329.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1037">
+     1037
+    </span>
+    <i>
+     Sutvā taṃ munino vācaṃ,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     bhikkhunī sā yasodharā;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Vanditvā munirājaṃ taṃ,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     idaṃ vacanamabravi.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1038">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d330">
+  330.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1038">
+     1038
+    </span>
+    <i>
+     “Yasodharā ahaṃ vīra,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     agāre te pajāpati;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Sākiyamhi kule jātā,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     itthiaṅge patiṭṭhitā.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1039">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d331">
+  331.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1039">
+     1039
+    </span>
+    <i>
+     Thīnaṃ satasahassānaṃ,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     navutīnaṃ chaduttari;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Agāre te ahaṃ vīra,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     pāmokkhā sabbā issarā.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1040">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d332">
+  332.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1040">
+     1040
+    </span>
+    <i>
+     Rūpācāraguṇūpetā,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     yobbanaṭṭhā piyaṃvadā;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Sabbā maṃ apacāyanti,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     devatā viya mānusā.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1041">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d333">
+  333.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1041">
+     1041
+    </span>
+    <i>
+     Kaññāsatasahassapamukhā,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Sakyaputtanivesane;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Samānasukhadukkhatā,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Devatā viya nandane.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1042">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d334">
+  334.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1042">
+     1042
+    </span>
+    <i>
+     Kāmadhātumatikkamma,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     saṇṭhitā rūpadhātuyā;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Rūpena sadisā natthi,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     ṭhapetvā lokanāyakaṃ”.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1043">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d335">
+  335.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1043">
+     1043
+    </span>
+    <i>
+     Sambuddhaṃ abhivādetvā,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     iddhiṃ dassesi satthuno;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Nekā nānāvidhākārā,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     mahāiddhīpi dassayī.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1044">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d336">
+  336.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1044">
+     1044
+    </span>
+    <i>
+     Cakkavāḷasamaṃ kāyaṃ,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     sīsaṃ uttarato kuru;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Ubho pakkhā duve dīpā,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     jambudīpaṃ sarīrato.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1045">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d337">
+  337.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1045">
+     1045
+    </span>
+    <i>
+     Dakkhiṇañca saraṃ piñchaṃ,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     nānāsākhā tu pattakā;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Candañca sūriyañcakkhi,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     merupabbatato sikhaṃ.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1046">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d338">
+  338.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1046">
+     1046
+    </span>
+    <i>
+     Cakkavāḷagiriṃ tuṇḍaṃ,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     jamburukkhaṃ samūlakaṃ;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Bījamānā upāgantvā,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     vandantī lokanāyakaṃ.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1047">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d339">
+  339.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1047">
+     1047
+    </span>
+    <i>
+     Hatthivaṇṇaṃ tathevassaṃ,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     pabbataṃ jaladhiṃ tathā;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Candimaṃ sūriyaṃ meruṃ,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     sakkavaṇṇañca dassayi.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1048">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d340">
+  340.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1048">
+     1048
+    </span>
+    <i>
+     “Yasodharā ahaṃ vīra,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     pāde vandāmi cakkhuma”;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Sahassalokadhātūnaṃ,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     phullapadmena chādayi.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1049">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d341">
+  341.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1049">
+     1049
+    </span>
+    <i>
+     Brahmavaṇṇañca māpetvā,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     dhammaṃ desesi suññataṃ;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     “Yasodharā ahaṃ vīra,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     pāde vandāmi cakkhuma.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1050">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d342">
+  342.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1050">
+     1050
+    </span>
+    <i>
+     Iddhīsu ca vasī homi,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     dibbāya sotadhātuyā;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Cetopariyañāṇassa,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     vasī homi mahāmuni.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1051">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d343">
+  343.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1051">
+     1051
+    </span>
+    <i>
+     Pubbenivāsaṃ jānāmi,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     dibbacakkhu visodhitaṃ;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Sabbāsavā parikkhīṇā,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     natthi dāni punabbhavo.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1052">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d344">
+  344.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1052">
+     1052
+    </span>
+    <i>
+     Atthadhammaniruttīsu,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     paṭibhāne tatheva ca;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Ñāṇaṃ mayhaṃ mahāvīra,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     uppannaṃ tava santike.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1053">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d345">
+  345.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1053">
+     1053
+    </span>
+    <i>
+     Pubbānaṃ lokanāthānaṃ,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     saṅgamaṃ te nidassitaṃ;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Adhikāraṃ bahuṃ mayhaṃ,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     tuyhatthāya mahāmune.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1054">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d346">
+  346.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1054">
+     1054
+    </span>
+    <i>
+     Yaṃ mayhaṃ pūritaṃ kammaṃ,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Kusalaṃ sarase mune;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Tuyhatthāya mahāvīra,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Puññaṃ upacitaṃ mayā.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1055">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d347">
+  347.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1055">
+     1055
+    </span>
+    <i>
+     Abhabbaṭṭhāne vajjetvā,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     vārayitvā anācaraṃ;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Tuyhatthāya mahāvīra,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     sañcattaṃ jīvitaṃ mayā.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1056">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d348">
+  348.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1056">
+     1056
+    </span>
+    <i>
+     Nekakoṭisahassāni,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     bhariyatthāyadāsi maṃ;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Na tattha vimanā homi,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     tuyhatthāya mahāmuni.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1057">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d349">
+  349.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1057">
+     1057
+    </span>
+    <i>
+     Nekakoṭisahassāni,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     upakārāyadāsi maṃ;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Na tattha vimanā homi,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     tuyhatthāya mahāmuni.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1058">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d350">
+  350.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1058">
+     1058
+    </span>
+    <i>
+     Nekakoṭisahassāni,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     bhojanatthāyadāsi maṃ;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Na tattha vimanā homi,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     tuyhatthāya mahāmuni.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1059">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d351">
+  351.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1059">
+     1059
+    </span>
+    <i>
+     Nekakoṭisahassāni,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     jīvitāni pariccajiṃ;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Bhayamokkhaṃ karissanti,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     dadāmi mama jīvitaṃ.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1060">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d352">
+  352.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1060">
+     1060
+    </span>
+    <i>
+     Aṅgagate alaṅkāre,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     vatthe nānāvidhe bahū;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Itthimaṇḍe na gūhāmi,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     tuyhatthāya mahāmuni.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1061">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d353">
+  353.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1061">
+     1061
+    </span>
+    <i>
+     Dhanadhaññapariccāgaṃ,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     gāmāni nigamāni ca;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Khettaṃ puttā ca dhītā ca,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     pariccattā mahāmuni.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1062">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d354">
+  354.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1062">
+     1062
+    </span>
+    <i>
+     Hatthī assā gavā cāpi,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     dāsiyo paricārikā;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Tuyhatthāya mahāvīra,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     pariccattā asaṅkhiyā.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1063">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d355">
+  355.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1063">
+     1063
+    </span>
+    <i>
+     Yaṃ mayhaṃ paṭimantesi,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     dānaṃ dassāmi yācake;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Vimanaṃ me na passāmi,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     dadato dānamuttamaṃ.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1064">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d356">
+  356.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1064">
+     1064
+    </span>
+    <i>
+     Nānāvidhaṃ bahuṃ dukkhaṃ,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     saṃsāre ca bahubbidhe;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Tuyhatthāya mahāvīra,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     anubhuttaṃ asaṅkhiyaṃ.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1065">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d357">
+  357.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1065">
+     1065
+    </span>
+    <i>
+     Sukhappattānumodāmi,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     na ca dukkhesu dummanā;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Sabbattha tulitā homi,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     tuyhatthāya mahāmuni.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1066">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d358">
+  358.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1066">
+     1066
+    </span>
+    <i>
+     Anumaggena sambuddho,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     yaṃ dhammaṃ abhinīhari;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Anubhotvā sukhaṃ dukkhaṃ,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     patto bodhiṃ mahāmuni.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1067">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d359">
+  359.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1067">
+     1067
+    </span>
+    <i>
+     Brahmadevañca sambuddhaṃ,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     gotamaṃ lokanāyakaṃ;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Aññesaṃ lokanāthānaṃ,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     saṅgamaṃ te bahuṃ mayā.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1068">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d360">
+  360.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1068">
+     1068
+    </span>
+    <i>
+     Adhikāraṃ bahuṃ mayhaṃ,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     tuyhatthāya mahāmuni;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Gavesato buddhadhamme,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     ahaṃ te paricārikā.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1069">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d361">
+  361.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1069">
+     1069
+    </span>
+    <i>
+     Kappe ca satasahasse,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     caturo ca asaṅkhiye;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Dīpaṅkaro mahāvīro,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     uppajji lokanāyako.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1070">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d362">
+  362.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1070">
+     1070
+    </span>
+    <i>
+     Paccantadesavisaye,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     nimantetvā tathāgataṃ;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Tassa āgamanaṃ maggaṃ,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     sodhenti tuṭṭhamānasā.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1071">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d363">
+  363.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1071">
+     1071
+    </span>
+    <i>
+     Tena kālena so āsi,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     sumedho nāma brāhmaṇo;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Maggañca paṭiyādesi,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     āyato sabbadassino.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1072">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d364">
+  364.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1072">
+     1072
+    </span>
+    <i>
+     Tena kālenahaṃ āsiṃ,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     kaññā brāhmaṇasambhavā;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Sumittā nāma nāmena,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     upagacchiṃ samāgamaṃ.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1073">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d365">
+  365.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1073">
+     1073
+    </span>
+    <i>
+     Aṭṭha uppalahatthāni,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     pūjanatthāya satthuno;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Ādāya janasammajjhe,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     addasaṃ isimuggataṃ.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1074">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d366">
+  366.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1074">
+     1074
+    </span>
+    <i>
+     Cirānugataṃ dayitaṃ,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     atikkantaṃ manoharaṃ;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Disvā tadā amaññissaṃ,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     saphalaṃ jīvitaṃ mama.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1075">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d367">
+  367.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1075">
+     1075
+    </span>
+    <i>
+     Parakkamaṃ taṃ saphalaṃ,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     addasaṃ isino tadā;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Pubbakammena sambuddhe,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     cittañcāpi pasīdi me.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1076">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d368">
+  368.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1076">
+     1076
+    </span>
+    <i>
+     Bhiyyo cittaṃ pasādesiṃ,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     ise uggatamānase;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Deyyaṃ aññaṃ na passāmi,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     demi pupphāni te isi.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1077">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d369">
+  369.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1077">
+     1077
+    </span>
+    <i>
+     ‘Pañca hatthā tava hontu,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     tayo hontu mamaṃ ise;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Tena saddhiṃ samā hontu,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     bodhatthāya tavaṃ ise’.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p class="text-center lead" id="p_20Ap2_1078">
+ <span class="badge rounded-pill text-bg-light me-1" id="1078">
+  1078
+ </span>
+ Catutthaṃ bhāṇavāraṃ.
+</p>
+<p id="p_20Ap2_1079">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d370">
+  370.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1079">
+     1079
+    </span>
+    <i>
+     Isi gahetvā pupphāni,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     āgacchantaṃ mahāyasaṃ;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Pūjesi janasammajjhe,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     bodhatthāya mahāisi.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1080">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d371">
+  371.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1080">
+     1080
+    </span>
+    <i>
+     Passitvā janasammajjhe,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     dīpaṅkaro mahāmuni;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Viyākāsi mahāvīro,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     isi muggatamānasaṃ.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1081">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d372">
+  372.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1081">
+     1081
+    </span>
+    <i>
+     Aparimeyye ito kappe,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     dīpaṅkaro mahāmuni;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Mama kammaṃ viyākāsi,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     ujubhāvaṃ mahāmuni.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1082">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d373">
+  373.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1082">
+     1082
+    </span>
+    <i>
+     ‘Samacittā samakammā,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     samakārī bhavissati;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Piyā hessati kammena,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     tuyhatthāya mahāisi.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1083">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d374">
+  374.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1083">
+     1083
+    </span>
+    <i>
+     Sudassanā supiyā ca,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     manāpā piyavādinī;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Tassa dhammesu dāyādā,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     viharissati iddhikā.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1084">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d375">
+  375.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1084">
+     1084
+    </span>
+    <i>
+     Yathāpi bhaṇḍasāmuggaṃ,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     anurakkhati sāmino;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Evaṃ kusaladhammānaṃ,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     anurakkhissate ayaṃ.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1085">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d376">
+  376.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1085">
+     1085
+    </span>
+    <i>
+     Tassa te anukampantī,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     pūrayissati pāramī;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Sīhova pañjaraṃ bhetvā,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     pāpuṇissati bodhiyaṃ’.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1086">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d377">
+  377.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1086">
+     1086
+    </span>
+    <i>
+     Aparimeyye ito kappe,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     yaṃ maṃ buddho viyākarī;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Taṃ vācaṃ anumodentī,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     evaṃkārī bhaviṃ ahaṃ.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1087">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d378">
+  378.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1087">
+     1087
+    </span>
+    <i>
+     Tassa kammassa sukatassa,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     tattha cittaṃ pasādayiṃ;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Devamanussakaṃ yoniṃ,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     anubhotvā asaṅkhiyaṃ.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1088">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d379">
+  379.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1088">
+     1088
+    </span>
+    <i>
+     Sukhadukkhenubhotvāhaṃ,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     devesu mānusesu ca;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Pacchime bhave sampatte,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     ajāyiṃ sākiye kule.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1089">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d380">
+  380.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1089">
+     1089
+    </span>
+    <i>
+     Rūpavatī bhogavatī,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     yasasīlavatī tato;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Sabbaṅgasampadā homi,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     kulesu abhisakkatā.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1090">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d381">
+  381.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1090">
+     1090
+    </span>
+    <i>
+     Lābhaṃ silokaṃ sakkāraṃ,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     lokadhammasamāgamaṃ;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Cittañca dukkhitaṃ natthi,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     vasāmi akutobhayā.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1091">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d382">
+  382.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1091">
+     1091
+    </span>
+    <i>
+     Vuttañhetaṃ bhagavatā,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     ‘rañño antepure tadā;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Khattiyānaṃ pure vīra,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     upakārañca niddisi.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1092">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d383">
+  383.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1092">
+     1092
+    </span>
+    <i>
+     Upakārā ca yā nārī,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     yā ca nārī sukhe dukhe;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Atthakkhāyī ca yā nārī,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     yā ca nārīnukampikā’.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1093">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d384">
+  384.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1093">
+     1093
+    </span>
+    <i>
+     Pañcakoṭisatā buddhā,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     navakoṭisatāni ca;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Etesaṃ devadevānaṃ,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     mahādānaṃ pavattayiṃ.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1094">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d385">
+  385.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1094">
+     1094
+    </span>
+    <i>
+     Adhikāraṃ mahā mayhaṃ,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     dhammarāja suṇohi me;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Ekādasakoṭisatā,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     buddhā dvādasa koṭiyo.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1095">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d386">
+  386.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1095">
+     1095
+    </span>
+    <i>
+     Etesaṃ devadevānaṃ,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     mahādānaṃ pavattayiṃ;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Adhikāraṃ mahā mayhaṃ,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     dhammarāja suṇohi me.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1096">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d387">
+  387.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1096">
+     1096
+    </span>
+    <i>
+     Vīsakoṭisatā buddhā,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     tiṃsakoṭisatāni ca;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Etesaṃ devadevānaṃ,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     mahādānaṃ pavattayiṃ.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1097">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d388">
+  388.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1097">
+     1097
+    </span>
+    <i>
+     Adhikāraṃ mahā mayhaṃ,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     dhammarāja suṇohi me;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Cattālīsakoṭisatā,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     paññāsa koṭisatāni ca.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1098">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d389">
+  389.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1098">
+     1098
+    </span>
+    <i>
+     Etesaṃ devadevānaṃ,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     mahādānaṃ pavattayiṃ;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Adhikāraṃ mahā mayhaṃ,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     dhammarāja suṇohi me.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1099">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d390">
+  390.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1099">
+     1099
+    </span>
+    <i>
+     Saṭṭhikoṭisatā buddhā,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     sattatikoṭisatāni ca;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Etesaṃ devadevānaṃ,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     mahādānaṃ pavattayiṃ.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1100">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d391">
+  391.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1100">
+     1100
+    </span>
+    <i>
+     Adhikāraṃ mahā mayhaṃ,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     dhammarāja suṇohi me;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Asītikoṭisatā buddhā,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     navutikoṭisatāni ca.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1101">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d392">
+  392.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1101">
+     1101
+    </span>
+    <i>
+     Etesaṃ devadevānaṃ,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     mahādānaṃ pavattayiṃ;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Adhikāraṃ mahā mayhaṃ,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     dhammarāja suṇohi me.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1102">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d393">
+  393.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1102">
+     1102
+    </span>
+    <i>
+     Koṭisatasahassāni,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     honti lokagganāyakā;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Etesaṃ devadevānaṃ,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     mahādānaṃ pavattayiṃ.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1103">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d394">
+  394.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1103">
+     1103
+    </span>
+    <i>
+     Adhikāraṃ mahā mayhaṃ,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     dhammarāja suṇohi me;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Navakoṭisahassāni,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     apare lokanāyakā.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1104">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d395">
+  395.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1104">
+     1104
+    </span>
+    <i>
+     Etesaṃ devadevānaṃ,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     mahādānaṃ pavattayiṃ;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Adhikāraṃ mahā mayhaṃ,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     dhammarāja suṇohi me.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1105">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d396">
+  396.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1105">
+     1105
+    </span>
+    <i>
+     Koṭisatasahassāni,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     pañcāsītimahesinaṃ;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Pañcāsītikoṭisatā,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     sattatiṃsā ca koṭiyo.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1106">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d397">
+  397.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1106">
+     1106
+    </span>
+    <i>
+     Etesaṃ devadevānaṃ,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     mahādānaṃ pavattayiṃ;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Adhikāraṃ mahā mayhaṃ,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     dhammarāja suṇohi me.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1107">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d398">
+  398.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1107">
+     1107
+    </span>
+    <i>
+     Paccekabuddhā vītarāgā,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     aṭṭhaṭṭhamakakoṭiyo;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Adhikāraṃ mahā mayhaṃ,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     dhammarāja suṇohi me.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1108">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d399">
+  399.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1108">
+     1108
+    </span>
+    <i>
+     Khīṇāsavā vītamalā,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     asaṅkhiyā buddhasāvakā;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Adhikāraṃ mahā mayhaṃ,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     dhammarāja suṇohi me.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1109">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d400">
+  400.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1109">
+     1109
+    </span>
+    <i>
+     Evaṃ dhamme suciṇṇānaṃ,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     sadā dhammassa cārinaṃ;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Dhammacārī sukhaṃ seti,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     asmiṃ loke paramhi ca.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1110">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d401">
+  401.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1110">
+     1110
+    </span>
+    <i>
+     Dhammaṃ care sucaritaṃ,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     na naṃ duccaritaṃ care;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Dhammacārī sukhaṃ seti,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     asmiṃ loke paramhi ca.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1111">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d402">
+  402.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1111">
+     1111
+    </span>
+    <i>
+     Nibbinditvāna saṃsāre,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     pabbajiṃ anagāriyaṃ;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Sahassaparivārena,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     pabbajitvā akiñcanā.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1112">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d403">
+  403.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1112">
+     1112
+    </span>
+    <i>
+     Agāraṃ vijahitvāna,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     pabbajiṃ anagāriyaṃ;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Aḍḍhamāse asampatte,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     catusaccamapāpuṇiṃ.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1113">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d404">
+  404.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1113">
+     1113
+    </span>
+    <i>
+     Cīvaraṃ piṇḍapātañca,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     paccayaṃ sayanāsanaṃ;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Upanenti bahū janā,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     sāgareyeva ūmiyo.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1114">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d405">
+  405.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1114">
+     1114
+    </span>
+    <i>
+     Kilesā jhāpitā mayhaṃ,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     …pe…
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     viharāmi anāsavā.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1115">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d406">
+  406.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1115">
+     1115
+    </span>
+    <i>
+     Svāgataṃ vata me āsi,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     …pe…
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     kataṃ buddhassa sāsanaṃ.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1116">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d407">
+  407.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1116">
+     1116
+    </span>
+    <i>
+     Paṭisambhidā catasso,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     …pe…
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     kataṃ buddhassa sāsanaṃ.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1117">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d408">
+  408.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1117">
+     1117
+    </span>
+    <i>
+     Evaṃ bahuvidhaṃ dukkhaṃ,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     sampattī ca bahubbidhā;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Visuddhibhāvaṃ sampattā,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     labhāmi sabbasampadā.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1118">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d409">
+  409.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1118">
+     1118
+    </span>
+    <i>
+     Yā dadāti sakattānaṃ,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     puññatthāya mahesino;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Sahāyasampadā honti,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     nibbānapadamasaṅkhataṃ.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1119">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d410">
+  410.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="1119">
+     1119
+    </span>
+    <i>
+     Parikkhīṇaṃ atītañca,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Paccuppannaṃ anāgataṃ;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Sabbakammaṃ mamaṃ khīṇaṃ,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Pāde vandāmi cakkhuma”.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_20Ap2_1120">
+ <span class="badge rounded-pill text-bg-light me-1" id="1120">
+  1120
+ </span>
+ Itthaṃ sudaṃ yasodharā bhikkhunī bhagavato sammukhā imā gāthāyo abhāsitthāti.
+</p>
+<p class="text-center lead" id="p_20Ap2_1121">
+ <span class="badge rounded-pill text-bg-light me-1" id="1121">
+  1121
+ </span>
+ Yasodharātheriyāpadānaṃ aṭṭhamaṃ.
+</p>
+<div class="fixed_bottom container">
+ <footer class="row align-items-center py-4 my-4 border-top">
+  <a class="col order-1 btn btn-outline-secondary" href="/tipitaka/20Ap2/3/3.7.html" id="previous">
+   3.7 Bhaddākāpilānītherīapadāna
+  </a>
+  <a class="col order-2 btn btn-outline-secondary" href="/tipitaka/20Ap2/3.html" id="up">
+   up
+  </a>
+  <a class="col order-3 btn btn-outline-secondary" href="/tipitaka/20Ap2/3/3.9.html" id="next">
+   3.9 Yasodharāpamukhadasabhikkhunīsahassaapadāna
+  </a>
+ </footer>
+</div>
+  
     </div>
-   </div>
   </main>
-  <script crossorigin="anonymous" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
-  </script>
-  <script src="/scripts/sidebars.js">
-  </script>
- </body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="/scripts/sidebars.js"></script>
+</body>
+
 </html>

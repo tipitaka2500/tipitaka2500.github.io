@@ -20,7 +20,7 @@ This work has been marked as dedicated to the public domain. See the [CC0 Deed](
 
 ## How was this site created
 
-This is is based on using a Python script to convert the content in a Github repository containing a copy of the [original website contents](https://github.com/yuttadhammo/World-Tipitaka) from XML into HTML files, and then removing the original Javascript navigation and replacing with a Bootstrap sidebar. The files are then moved from a numeric naming scheme to a semantic naming scheme.
+The site contents are based on using a Python script to convert the content in a Github repository containing a copy of the [original website contents](https://github.com/yuttadhammo/World-Tipitaka) from XML into HTML files, and then removing the original Javascript navigation and replacing with a Bootstrap sidebar. The files are then moved from a numeric naming scheme to a semantic naming scheme. FInally, the bespoke HTML and CSS are converted into standard HTML conventions and vanilla Bootstrap styling.
 
 The scripts to generate this website are contained in https://github.com/tidipa/convert-scripts
 
@@ -34,3 +34,4 @@ The scripts to generate this website are contained in https://github.com/tidipa/
 * v2.4: Enabled deep links for division numbering (d[0-9]+) and paragraph numbering, changed colour scheme to Rosely
 * v2.5: Handle ENDH3, ENDBOOK, G, bold and italic, leaving crappy table handling of verse for now
 * v2.6: Fixed dark mode not working
+* v2.7: Handle SUMMARY, firstLetter, gathaQuote, RLAP. Unhandled: paliSectionName, smallFont as I don't know how to deal with them differently. Add titles to files with no titles. Removed extraneous text.

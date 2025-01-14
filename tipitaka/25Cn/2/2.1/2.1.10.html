@@ -1,1428 +1,1089 @@
-<!DOCTYPE html>
-<html data-bs-theme="auto" lang="en">
- <head>
-  <script src="/scripts/color-modes.js">
-  </script>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <meta content="chris@christham.net" name="author"/>
-  <title>
-   tipitaka2500.github.io
-  </title>
-  <meta content="The Buddhist Era 2500 Great International Council Pāḷi Tipiṭaka, Roman Script 2005 as an HTML website." name="description"/>
-  <link href="https://tipitaka2500.github.io" rel="canonical"/>
-  <link href="https://cdn.jsdelivr.net/npm/@docsearch/css@3" rel="stylesheet"/>
-  <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" rel="stylesheet"/>
+
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+
+<head>
+  <script src="/scripts/color-modes.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="chris@christham.net">
+  <title>tipitaka2500.github.io</title>
+  <meta name="description"
+    content="The Buddhist Era 2500 Great International Council Pāḷi Tipiṭaka, Roman Script 2005 as an HTML website.">
+  <link rel="canonical" href="https://tipitaka2500.github.io">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <!-- Favicons -->
-  <link href="/images/logo128.png" rel="apple-touch-icon" sizes="128x128"/>
-  <link href="/images/logo.png" rel="icon" sizes="16x16" type="image/png"/>
-  <link href="/images/logo24.png" rel="icon" sizes="24x24" type="image/png"/>
-  <link href="/images/logo48.png" rel="icon" sizes="48x48" type="image/png"/>
-  <link href="/images/logo128.png" rel="icon" sizes="128x128" type="image/png"/>
-  <link href="/images/logo.ico" rel="icon"/>
-  <meta content="#712cf9" name="theme-color"/>
-  <link href="/css/styles.css" rel="stylesheet" type="text/css"/>
+  <link rel="apple-touch-icon" href="/images/logo128.png" sizes="128x128">
+  <link rel="icon" href="/images/logo.png" sizes="16x16" type="image/png">
+  <link rel="icon" href="/images/logo24.png" sizes="24x24" type="image/png">
+  <link rel="icon" href="/images/logo48.png" sizes="48x48" type="image/png">
+  <link rel="icon" href="/images/logo128.png" sizes="128x128" type="image/png">
+  <link rel="icon" href="/images/logo.ico">
+  <meta name="theme-color" content="#712cf9">
+  <link rel="stylesheet" type="text/css" href="/css/styles.css">
   <!-- Custom styles for this template -->
-  <link href="/css/sidebars.css" rel="stylesheet"/>
- </head>
- <body>
-  <svg class="d-none" xmlns="http://www.w3.org/2000/svg">
-   <symbol id="check2" viewbox="0 0 16 16">
-    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z">
-    </path>
-   </symbol>
-   <symbol id="circle-half" viewbox="0 0 16 16">
-    <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z">
-    </path>
-   </symbol>
-   <symbol id="moon-stars-fill" viewbox="0 0 16 16">
-    <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z">
-    </path>
-    <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z">
-    </path>
-   </symbol>
-   <symbol id="sun-fill" viewbox="0 0 16 16">
-    <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z">
-    </path>
-   </symbol>
+  <link href="/css/sidebars.css" rel="stylesheet">
+</head>
+
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+    <symbol id="check2" viewBox="0 0 16 16">
+      <path
+        d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
+    </symbol>
+    <symbol id="circle-half" viewBox="0 0 16 16">
+      <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z" />
+    </symbol>
+    <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+      <path
+        d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z" />
+      <path
+        d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z" />
+    </symbol>
+    <symbol id="sun-fill" viewBox="0 0 16 16">
+      <path
+        d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z" />
+    </symbol>
   </svg>
+
   <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
-   <button aria-expanded="false" aria-label="Toggle theme (auto)" class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center" data-bs-toggle="dropdown" id="bd-theme" type="button">
-    <svg class="bi my-1 theme-icon-active" height="1em" width="1em">
-     <use href="#circle-half">
-     </use>
-    </svg>
-    <span class="visually-hidden" id="bd-theme-text">
-     Toggle theme
-    </span>
-   </button>
-   <ul aria-labelledby="bd-theme-text" class="dropdown-menu dropdown-menu-end shadow">
-    <li>
-     <button aria-pressed="false" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" type="button">
-      <svg class="bi me-2 opacity-50" height="1em" width="1em">
-       <use href="#sun-fill">
-       </use>
+    <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center" id="bd-theme" type="button"
+      aria-expanded="false" data-bs-toggle="dropdown" aria-label="Toggle theme (auto)">
+      <svg class="bi my-1 theme-icon-active" width="1em" height="1em">
+        <use href="#circle-half"></use>
       </svg>
-      Light
-      <svg class="bi ms-auto d-none" height="1em" width="1em">
-       <use href="#check2">
-       </use>
-      </svg>
-     </button>
-    </li>
-    <li>
-     <button aria-pressed="false" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" type="button">
-      <svg class="bi me-2 opacity-50" height="1em" width="1em">
-       <use href="#moon-stars-fill">
-       </use>
-      </svg>
-      Dark
-      <svg class="bi ms-auto d-none" height="1em" width="1em">
-       <use href="#check2">
-       </use>
-      </svg>
-     </button>
-    </li>
-    <li>
-     <button aria-pressed="true" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" type="button">
-      <svg class="bi me-2 opacity-50" height="1em" width="1em">
-       <use href="#circle-half">
-       </use>
-      </svg>
-      Auto
-      <svg class="bi ms-auto d-none" height="1em" width="1em">
-       <use href="#check2">
-       </use>
-      </svg>
-     </button>
-    </li>
-   </ul>
-  </div>
-  <main class="d-flex flex-nowrap">
-   <div class="flex-shrink-0 p-3 overflow-scroll" style="width: 300px;">
-    <a class="d-flex align-items-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom" href="/">
-     <img alt="Tipitaka2500" id="bootstrap" src="/images/logo48.png" width="24"/>
-     <span class="fs-5 ms-2 fw-semibold">
-      tipitaka2500.github.io
-     </span>
-    </a>
-    <ul class="list-unstyled ps-0">
-     <li class="mb-1">
-      <button aria-expanded="false" class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-target="#v-collapse" data-bs-toggle="collapse">
-       Vinayapiṭaka (V)
-      </button>
-      <div class="collapse" id="v-collapse">
-       <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-        <li>
-         <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/1V.html">
-          Pārājikapāḷi (1V)
-         </a>
-        </li>
-        <li>
-         <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/2V.html">
-          Pācittiyapāḷi (2V)
-         </a>
-        </li>
-        <li>
-         <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/3V.html">
-          Mahāvaggapāḷi (3V)
-         </a>
-        </li>
-        <li>
-         <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/4V.html">
-          Cūḷavaggapāḷi (4V)
-         </a>
-        </li>
-        <li>
-         <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/5V.html">
-          Parivārapāḷi (5V)
-         </a>
-        </li>
-       </ul>
-      </div>
-     </li>
-     <li class="border-top my-2">
-     </li>
-     <li class="mb-1">
-      <button aria-expanded="false" class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-target="#s-collapse" data-bs-toggle="collapse">
-       Suttantapiṭaka (Sutta)
-      </button>
-      <div class="collapse" id="s-collapse">
-       <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-        <li class="mb-1 ms-3">
-         <button aria-expanded="false" class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-target="#d-collapse" data-bs-toggle="collapse">
-          Dīghanikāya (D)
-         </button>
-         <div class="collapse" id="d-collapse">
-          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/6D.html">
-             Sīlakkhandhavaggapāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/7D.html">
-             Mahāvaggapāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/8D.html">
-             Pāthikavaggapāḷi
-            </a>
-           </li>
-          </ul>
-         </div>
-        </li>
-        <li class="mb-1 ms-3">
-         <button aria-expanded="false" class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-target="#m-collapse" data-bs-toggle="collapse">
-          Majjhimanikāya (M)
-         </button>
-         <div class="collapse" id="m-collapse">
-          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/9M.html">
-             Mūlapaṇṇāsapāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/10M.html">
-             Majjhimapaṇṇāsapāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/11M.html">
-             Uparipaṇṇāsapāḷi
-            </a>
-           </li>
-          </ul>
-         </div>
-        </li>
-        <li class="mb-1 ms-3">
-         <button aria-expanded="false" class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-target="#sy-collapse" data-bs-toggle="collapse">
-          Saṃyuttanikāya (S)
-         </button>
-         <div class="collapse" id="sy-collapse">
-          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/12S1.html">
-             Sagāthāvaggasaṃyuttapāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/12S2.html">
-             Nidānavaggasaṃyuttapāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/13S3.html">
-             Khandhavaggasaṃyuttapāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/13S4.html">
-             Saḷāyatanavaggasaṃyuttapāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/14S5.html">
-             Mahāvaggasaṃyuttapāḷi
-            </a>
-           </li>
-          </ul>
-         </div>
-        </li>
-        <li class="mb-1 ms-3">
-         <button aria-expanded="false" class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-target="#a-collapse" data-bs-toggle="collapse">
-          Aṅguttaranikāya (A)
-         </button>
-         <div class="collapse" id="a-collapse">
-          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/15A1.html">
-             Ekakanipātapāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/15A2.html">
-             Dukanipātapāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/15A3.html">
-             Tikanipātapāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/15A4.html">
-             Catukkanipātapāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/16A5.html">
-             Pañcakanipātapāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/16A6.html">
-             Chakkanipātapāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/16A7.html">
-             Sattakanipātapā
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/17A8.html">
-             Aṭṭhakanipātapāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/17A9.html">
-             Navakanipātapāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/17A10.html">
-             Dasakanipātapāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/17A11.html">
-             Ekādasakanipātapāḷi
-            </a>
-           </li>
-          </ul>
-         </div>
-        </li>
-        <li class="mb-1 ms-3">
-         <button aria-expanded="false" class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-target="#k-collapse" data-bs-toggle="collapse">
-          Khuddakanikāya (Khu)
-         </button>
-         <div class="collapse" id="k-collapse">
-          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/18Kh.html">
-             Khuddakapāṭhapāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/18Dh.html">
-             Dhammapadapāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/18Ud.html">
-             Udānapāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/18It.html">
-             Itivuttakapāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/19Vv.html">
-             Vimānavatthupāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/19Pv.html">
-             Petavatthupāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/19Th1.html">
-             Theragāthāpāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/19Th2.html">
-             Therīgāthāpāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/20Ap1.html">
-             Therāpadānapāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/20Ap2.html">
-             Therīapadānapāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/21Bu.html">
-             Buddhavaṃsapāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/21Cp.html">
-             Cariyāpiṭakapāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/22J.html">
-             Jātakapāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/23J.html">
-             Jātakapāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/23Mn.html">
-             Mahāniddesapāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/25Cn.html">
-             Cūḷaniddesapāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/26Ps.html">
-             Paṭisambhidāmaggapāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/27Ne.html">
-             Nettipāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/27Pe.html">
-             Peṭakopadesapāḷi
-            </a>
-           </li>
-           <li>
-            <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/28Mi.html">
-             Milindapañhapāḷi
-            </a>
-           </li>
-          </ul>
-         </div>
-        </li>
-       </ul>
-       <li class="border-top my-2">
-       </li>
-       <li class="mb-1">
-        <button aria-expanded="false" class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-target="#ab-collapse" data-bs-toggle="collapse">
-         Abhidhammapiṭaka (Abhi)
+      <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+      <li>
+        <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light"
+          aria-pressed="false">
+          <svg class="bi me-2 opacity-50" width="1em" height="1em">
+            <use href="#sun-fill"></use>
+          </svg>
+          Light
+          <svg class="bi ms-auto d-none" width="1em" height="1em">
+            <use href="#check2"></use>
+          </svg>
         </button>
-        <div class="collapse" id="ab-collapse">
-         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-          <li>
-           <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/29Dhs.html">
-            Dhammasaṅgaṇīpāḷi
-           </a>
-          </li>
-          <li>
-           <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/30Vbh.html">
-            Dhammapadapāḷi
-           </a>
-          </li>
-          <li>
-           <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/31Dht.html">
-            Dhātukathāpāḷi
-           </a>
-          </li>
-          <li>
-           <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/31Pu.html">
-            Puggalapaññattipāḷi
-           </a>
-          </li>
-          <li>
-           <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/32Kv.html">
-            Kathāvatthupāḷi
-           </a>
-          </li>
-         </ul>
-        </div>
-       </li>
-       <li class="border-top my-2">
-       </li>
-       <li class="mb-1">
-        <button aria-expanded="false" class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-target="#y-collapse" data-bs-toggle="collapse">
-         Yamaka (Y)
+      </li>
+      <li>
+        <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark"
+          aria-pressed="false">
+          <svg class="bi me-2 opacity-50" width="1em" height="1em">
+            <use href="#moon-stars-fill"></use>
+          </svg>
+          Dark
+          <svg class="bi ms-auto d-none" width="1em" height="1em">
+            <use href="#check2"></use>
+          </svg>
         </button>
-        <div class="collapse" id="y-collapse">
-         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-          <li>
-           <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/33Y1.html">
-            Mūlayamakapāḷi
-           </a>
-          </li>
-          <li>
-           <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/33Y2.html">
-            Khandhayamakapāḷi
-           </a>
-          </li>
-          <li>
-           <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/33Y3.html">
-            Āyatanayamakapāḷi
-           </a>
-          </li>
-          <li>
-           <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/33Y4.html">
-            Dhātuyamakapāḷi
-           </a>
-          </li>
-          <li>
-           <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/33Y5.html">
-            Saccayamakapāḷi
-           </a>
-          </li>
-          <li>
-           <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/34Y6.html">
-            Saṅkhārayamakapāḷi
-           </a>
-          </li>
-          <li>
-           <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/34Y7.html">
-            Anusayayamakapāḷi
-           </a>
-          </li>
-          <li>
-           <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/34Y8.html">
-            Cittayamakapāḷi
-           </a>
-          </li>
-          <li>
-           <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/35Y9.html">
-            Dhammayamakapāḷi
-           </a>
-          </li>
-          <li>
-           <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/35Y10.html">
-            Indriyayamakapāḷi
-           </a>
-          </li>
-         </ul>
-        </div>
-       </li>
-       <li class="border-top my-2">
-       </li>
-       <li class="mb-1">
-        <button aria-expanded="false" class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-target="#p-collapse" data-bs-toggle="collapse">
-         Paṭṭhāna (P)
+      </li>
+      <li>
+        <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto"
+          aria-pressed="true">
+          <svg class="bi me-2 opacity-50" width="1em" height="1em">
+            <use href="#circle-half"></use>
+          </svg>
+          Auto
+          <svg class="bi ms-auto d-none" width="1em" height="1em">
+            <use href="#check2"></use>
+          </svg>
         </button>
-        <div class="collapse" id="p-collapse">
-         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-          <li class="mb-1 ms-3">
-           <button aria-expanded="false" class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-target="#dh-collapse" data-bs-toggle="collapse">
-            Dhammānuloma
-           </button>
-           <div class="collapse" id="dh-collapse">
-            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-             <li>
-              <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/36P1.html">
-               Tikapaṭṭhānapāḷi
-              </a>
-             </li>
-             <li>
-              <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/37P1.html">
-               Tikapaṭṭhānapāḷi
-              </a>
-             </li>
-             <li>
-              <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/38P2.html">
-               Dukapaṭṭhānapāḷi
-              </a>
-             </li>
-             <li>
-              <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/39P3.html">
-               Dukatikapaṭṭhānapāḷi
-              </a>
-             </li>
-             <li>
-              <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/39P4.html">
-               Tikadukapaṭṭhānapāḷi
-              </a>
-             </li>
-             <li>
-              <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/39P5.html">
-               Tikatikapaṭṭhānapāḷi
-              </a>
-             </li>
-             <li>
-              <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/39P6.html">
-               Dukadukapaṭṭhānapāḷi
-              </a>
-             </li>
-            </ul>
-           </div>
-          </li>
-          <li class="mb-1 ms-3">
-           <button aria-expanded="false" class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-target="#dp-collapse" data-bs-toggle="collapse">
-            Dhammapaccanīya
-           </button>
-           <div class="collapse" id="dp-collapse">
-            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-             <li>
-              <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/40P7.html">
-               Tikapaṭṭhānapāḷi
-              </a>
-             </li>
-             <li>
-              <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/40P8.html">
-               Dukapaṭṭhānapāḷi
-              </a>
-             </li>
-             <li>
-              <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/40P9.html">
-               Dukatikapaṭṭhānapāḷi
-              </a>
-             </li>
-             <li>
-              <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/40P10.html">
-               Tikadukapaṭṭhānapāḷi
-              </a>
-             </li>
-             <li>
-              <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/40P11.html">
-               Tikatikapaṭṭhānapāḷi
-              </a>
-             </li>
-             <li>
-              <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/40P12.html">
-               Dukadukapaṭṭhānapāḷi
-              </a>
-             </li>
-            </ul>
-           </div>
-          </li>
-          <li class="mb-1 ms-3">
-           <button aria-expanded="false" class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-target="#dl-collapse" data-bs-toggle="collapse">
-            Dhammānulomapaccanīya
-           </button>
-           <div class="collapse" id="dl-collapse">
-            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-             <li>
-              <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/40P13.html">
-               Tikapaṭṭhānapāḷi
-              </a>
-             </li>
-             <li>
-              <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/40P14.html">
-               Dukapaṭṭhānapāḷi
-              </a>
-             </li>
-             <li>
-              <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/40P15.html">
-               Dukatikapaṭṭhānapāḷi
-              </a>
-             </li>
-             <li>
-              <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/40P16.html">
-               Tikadukapaṭṭhānapāḷi
-              </a>
-             </li>
-             <li>
-              <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/40P17.html">
-               Tikatikapaṭṭhānapāḷi
-              </a>
-             </li>
-             <li>
-              <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/40P18.html">
-               Dukadukapaṭṭhānapāḷi
-              </a>
-             </li>
-            </ul>
-           </div>
-          </li>
-          <li class="mb-1 ms-3">
-           <button aria-expanded="false" class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-target="#dy-collapse" data-bs-toggle="collapse">
-            Dhammapaccanīyānuloma
-           </button>
-           <div class="collapse" id="dy-collapse">
-            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-             <li>
-              <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/40P19.html">
-               Tikapaṭṭhānapāḷi
-              </a>
-             </li>
-             <li>
-              <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/40P20.html">
-               Dukapaṭṭhānapāḷi
-              </a>
-             </li>
-             <li>
-              <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/40P21.html">
-               Dukatikapaṭṭhānapāḷi
-              </a>
-             </li>
-             <li>
-              <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/40P22.html">
-               Tikadukapaṭṭhānapāḷi
-              </a>
-             </li>
-             <li>
-              <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/40P23.html">
-               Tikatikapaṭṭhānapāḷi
-              </a>
-             </li>
-             <li>
-              <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="/tipitaka/40P24.html">
-               Dukadukapaṭṭhānapāḷi
-              </a>
-             </li>
-            </ul>
-           </div>
-          </li>
-         </ul>
-        </div>
-       </li>
-      </div>
-     </li>
+      </li>
     </ul>
-   </div>
-   <div class="container overflow-scroll">
-    <nav aria-label="breadcrumb">
-     <ol class="breadcrumb">
-      <li class="breadcrumb-item">
-       <a href="/">
-        Home
-       </a>
-      </li>
-      <li class="breadcrumb-item">
-       <a href="/tipitaka/25Cn.html">
-        25Cn Cūḷaniddesapāḷi
-       </a>
-      </li>
-      <li class="breadcrumb-item">
-       <a href="/tipitaka/25Cn/2.html">
-        2 Pārāyanavagganiddesa
-       </a>
-      </li>
-      <li class="breadcrumb-item">
-       <a href="/tipitaka/25Cn/2/2.1.html">
-        2.1 Pucchāniddesa
-       </a>
-      </li>
-     </ol>
-    </nav>
-    <div class="container">
-     <div class="m-4 p-4 text-center bg-body-tertiary rounded-3">
-      <h1 class="text-body-emphasis">
-       2.1.10 Kappamāṇavapucchāniddesa
-      </h1>
-     </div>
+  </div>
+
+  <main class="d-flex flex-nowrap" >
+    <div class="flex-shrink-0 p-3 overflow-scroll" style="width: 300px;">
+      <a href="/" class="d-flex align-items-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom">
+        <img src="/images/logo48.png" alt="Tipitaka2500" id="bootstrap" width="24" />
+        <span class="fs-5 ms-2 fw-semibold">tipitaka2500.github.io</span>
+      </a>
+      <ul class="list-unstyled ps-0">
+        <li class="mb-1">
+          <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+            data-bs-toggle="collapse" data-bs-target="#v-collapse" aria-expanded="false">
+            Vinayapiṭaka (V)
+          </button>
+          <div class="collapse" id="v-collapse">
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+              <li><a href="/tipitaka/1V.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Pārājikapāḷi (1V)</a></li>
+              <li><a href="/tipitaka/2V.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Pācittiyapāḷi (2V)</a></li>
+              <li><a href="/tipitaka/3V.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Mahāvaggapāḷi (3V)</a></li>
+              <li><a href="/tipitaka/4V.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Cūḷavaggapāḷi (4V)</a></li>
+              <li><a href="/tipitaka/5V.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Parivārapāḷi (5V)</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="border-top my-2"></li>
+        <li class="mb-1">
+          <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+            data-bs-toggle="collapse" data-bs-target="#s-collapse" aria-expanded="false">
+            Suttantapiṭaka (Sutta)
+          </button>
+          <div class="collapse" id="s-collapse">
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+              <li class="mb-1 ms-3">
+                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                  data-bs-toggle="collapse" data-bs-target="#d-collapse" aria-expanded="false">
+                  Dīghanikāya (D)
+                </button>
+                <div class="collapse" id="d-collapse">
+                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li><a href="/tipitaka/6D.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Sīlakkhandhavaggapāḷi</a></li>
+                    <li><a href="/tipitaka/7D.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Mahāvaggapāḷi</a></li>
+                    <li><a href="/tipitaka/8D.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Pāthikavaggapāḷi</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="mb-1 ms-3">
+                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                  data-bs-toggle="collapse" data-bs-target="#m-collapse" aria-expanded="false">
+                  Majjhimanikāya (M)
+                </button>
+                <div class="collapse" id="m-collapse">
+                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li><a href="/tipitaka/9M.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Mūlapaṇṇāsapāḷi</a></li>
+                    <li><a href="/tipitaka/10M.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Majjhimapaṇṇāsapāḷi</a></li>
+                    <li><a href="/tipitaka/11M.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Uparipaṇṇāsapāḷi</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="mb-1 ms-3">
+                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                  data-bs-toggle="collapse" data-bs-target="#sy-collapse" aria-expanded="false">
+                  Saṃyuttanikāya (S)
+                </button>
+                <div class="collapse" id="sy-collapse">
+                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li><a href="/tipitaka/12S1.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Sagāthāvaggasaṃyuttapāḷi</a></li>
+                    <li><a href="/tipitaka/12S2.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Nidānavaggasaṃyuttapāḷi</a></li>
+                    <li><a href="/tipitaka/13S3.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Khandhavaggasaṃyuttapāḷi</a></li>
+                    <li><a href="/tipitaka/13S4.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Saḷāyatanavaggasaṃyuttapāḷi</a></li>
+                    <li><a href="/tipitaka/14S5.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Mahāvaggasaṃyuttapāḷi</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="mb-1 ms-3">
+                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                  data-bs-toggle="collapse" data-bs-target="#a-collapse" aria-expanded="false">
+                  Aṅguttaranikāya (A)
+                </button>
+                <div class="collapse" id="a-collapse">
+                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li><a href="/tipitaka/15A1.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Ekakanipātapāḷi</a></li>
+                    <li><a href="/tipitaka/15A2.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dukanipātapāḷi</a></li>
+                    <li><a href="/tipitaka/15A3.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Tikanipātapāḷi</a></li>
+                    <li><a href="/tipitaka/15A4.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Catukkanipātapāḷi</a></li>
+                    <li><a href="/tipitaka/16A5.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Pañcakanipātapāḷi</a></li>
+                    <li><a href="/tipitaka/16A6.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Chakkanipātapāḷi</a></li>
+                    <li><a href="/tipitaka/16A7.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Sattakanipātapā</a></li>
+                    <li><a href="/tipitaka/17A8.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Aṭṭhakanipātapāḷi</a></li>
+                    <li><a href="/tipitaka/17A9.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Navakanipātapāḷi</a></li>
+                    <li><a href="/tipitaka/17A10.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dasakanipātapāḷi</a></li>
+                    <li><a href="/tipitaka/17A11.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Ekādasakanipātapāḷi</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="mb-1 ms-3">
+                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                  data-bs-toggle="collapse" data-bs-target="#k-collapse" aria-expanded="false">
+                  Khuddakanikāya (Khu)
+                </button>
+                <div class="collapse" id="k-collapse">
+                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li><a href="/tipitaka/18Kh.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Khuddakapāṭhapāḷi</a></li>
+                    <li><a href="/tipitaka/18Dh.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dhammapadapāḷi</a></li>
+                    <li><a href="/tipitaka/18Ud.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Udānapāḷi</a></li>
+                    <li><a href="/tipitaka/18It.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Itivuttakapāḷi</a></li>
+                    <li><a href="/tipitaka/19Vv.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Vimānavatthupāḷi</a></li>
+                    <li><a href="/tipitaka/19Pv.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Petavatthupāḷi</a></li>
+                    <li><a href="/tipitaka/19Th1.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Theragāthāpāḷi</a></li>
+                    <li><a href="/tipitaka/19Th2.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Therīgāthāpāḷi</a></li>
+                    <li><a href="/tipitaka/20Ap1.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Therāpadānapāḷi</a></li>
+                    <li><a href="/tipitaka/20Ap2.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Therīapadānapāḷi</a></li>
+                    <li><a href="/tipitaka/21Bu.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Buddhavaṃsapāḷi</a></li>
+                    <li><a href="/tipitaka/21Cp.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Cariyāpiṭakapāḷi</a></li>
+                    <li><a href="/tipitaka/22J.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Jātakapāḷi</a></li>
+                    <li><a href="/tipitaka/23J.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Jātakapāḷi</a></li>
+                    <li><a href="/tipitaka/23Mn.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Mahāniddesapāḷi</a></li>
+                    <li><a href="/tipitaka/25Cn.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Cūḷaniddesapāḷi</a></li>
+                    <li><a href="/tipitaka/26Ps.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Paṭisambhidāmaggapāḷi</a></li>
+                    <li><a href="/tipitaka/27Ne.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Nettipāḷi</a></li>
+                    <li><a href="/tipitaka/27Pe.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Peṭakopadesapāḷi</a></li>
+                    <li><a href="/tipitaka/28Mi.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Milindapañhapāḷi</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+            <li class="border-top my-2"></li>
+            <li class="mb-1">
+              <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                data-bs-toggle="collapse" data-bs-target="#ab-collapse" aria-expanded="false">
+                Abhidhammapiṭaka (Abhi)
+              </button>
+              <div class="collapse" id="ab-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  <li><a href="/tipitaka/29Dhs.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dhammasaṅgaṇīpāḷi</a></li>
+                  <li><a href="/tipitaka/30Vbh.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dhammapadapāḷi</a></li>
+                  <li><a href="/tipitaka/31Dht.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dhātukathāpāḷi</a></li>
+                  <li><a href="/tipitaka/31Pu.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Puggalapaññattipāḷi</a></li>
+                  <li><a href="/tipitaka/32Kv.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Kathāvatthupāḷi</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="border-top my-2"></li>
+            <li class="mb-1">
+              <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                data-bs-toggle="collapse" data-bs-target="#y-collapse" aria-expanded="false">
+                Yamaka (Y)
+              </button>
+              <div class="collapse" id="y-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  <li><a href="/tipitaka/33Y1.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Mūlayamakapāḷi</a></li>
+                  <li><a href="/tipitaka/33Y2.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Khandhayamakapāḷi</a></li>
+                  <li><a href="/tipitaka/33Y3.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Āyatanayamakapāḷi</a></li>
+                  <li><a href="/tipitaka/33Y4.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dhātuyamakapāḷi</a></li>
+                  <li><a href="/tipitaka/33Y5.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Saccayamakapāḷi</a></li>
+                  <li><a href="/tipitaka/34Y6.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Saṅkhārayamakapāḷi</a></li>
+                  <li><a href="/tipitaka/34Y7.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Anusayayamakapāḷi</a></li>
+                  <li><a href="/tipitaka/34Y8.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Cittayamakapāḷi</a></li>
+                  <li><a href="/tipitaka/35Y9.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dhammayamakapāḷi</a></li>
+                  <li><a href="/tipitaka/35Y10.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Indriyayamakapāḷi</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="border-top my-2"></li>
+            <li class="mb-1">
+              <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                data-bs-toggle="collapse" data-bs-target="#p-collapse" aria-expanded="false">
+                Paṭṭhāna (P)
+              </button>
+              <div class="collapse" id="p-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  <li class="mb-1 ms-3" >
+                    <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                      data-bs-toggle="collapse" data-bs-target="#dh-collapse" aria-expanded="false">
+                      Dhammānuloma
+                    </button>
+                    <div class="collapse" id="dh-collapse">
+                      <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                        <li><a href="/tipitaka/36P1.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Tikapaṭṭhānapāḷi</a></li>
+                        <li><a href="/tipitaka/37P1.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Tikapaṭṭhānapāḷi</a></li>
+                        <li><a href="/tipitaka/38P2.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dukapaṭṭhānapāḷi</a></li>
+                        <li><a href="/tipitaka/39P3.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dukatikapaṭṭhānapāḷi</a></li>
+                        <li><a href="/tipitaka/39P4.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Tikadukapaṭṭhānapāḷi</a></li>
+                        <li><a href="/tipitaka/39P5.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Tikatikapaṭṭhānapāḷi</a></li>
+                        <li><a href="/tipitaka/39P6.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dukadukapaṭṭhānapāḷi</a></li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li class="mb-1 ms-3">
+                    <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                      data-bs-toggle="collapse" data-bs-target="#dp-collapse" aria-expanded="false">
+                      Dhammapaccanīya
+                    </button>
+                    <div class="collapse" id="dp-collapse">
+                      <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                        <li><a href="/tipitaka/40P7.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Tikapaṭṭhānapāḷi</a></li>
+                        <li><a href="/tipitaka/40P8.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dukapaṭṭhānapāḷi</a></li>
+                        <li><a href="/tipitaka/40P9.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dukatikapaṭṭhānapāḷi</a></li>
+                        <li><a href="/tipitaka/40P10.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Tikadukapaṭṭhānapāḷi</a></li>
+                        <li><a href="/tipitaka/40P11.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Tikatikapaṭṭhānapāḷi</a></li>
+                        <li><a href="/tipitaka/40P12.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dukadukapaṭṭhānapāḷi</a></li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li class="mb-1 ms-3">
+                    <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                      data-bs-toggle="collapse" data-bs-target="#dl-collapse" aria-expanded="false">
+                      Dhammānulomapaccanīya
+                    </button>
+                    <div class="collapse" id="dl-collapse">
+                      <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                        <li><a href="/tipitaka/40P13.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Tikapaṭṭhānapāḷi</a></li>
+                        <li><a href="/tipitaka/40P14.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dukapaṭṭhānapāḷi</a></li>
+                        <li><a href="/tipitaka/40P15.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dukatikapaṭṭhānapāḷi</a></li>
+                        <li><a href="/tipitaka/40P16.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Tikadukapaṭṭhānapāḷi</a></li>
+                        <li><a href="/tipitaka/40P17.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Tikatikapaṭṭhānapāḷi</a></li>
+                        <li><a href="/tipitaka/40P18.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dukadukapaṭṭhānapāḷi</a></li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li class="mb-1 ms-3">
+                    <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                      data-bs-toggle="collapse" data-bs-target="#dy-collapse" aria-expanded="false">
+                      Dhammapaccanīyānuloma
+                    </button>
+                    <div class="collapse" id="dy-collapse">
+                      <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                        <li><a href="/tipitaka/40P19.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Tikapaṭṭhānapāḷi</a></li>
+                        <li><a href="/tipitaka/40P20.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dukapaṭṭhānapāḷi</a></li>
+                        <li><a href="/tipitaka/40P21.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dukatikapaṭṭhānapāḷi</a></li>
+                        <li><a href="/tipitaka/40P22.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Tikadukapaṭṭhānapāḷi</a></li>
+                        <li><a href="/tipitaka/40P23.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Tikatikapaṭṭhānapāḷi</a></li>
+                        <li><a href="/tipitaka/40P24.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dukadukapaṭṭhānapāḷi</a></li>
+                      </ul>
+                    </div>
+                  </li>      
+                </ul>
+              </div>
+            </li>
+          </div>
+        </li>
+      </ul>
     </div>
-    <h3 class="text-center">
-     Pārāyanavagganiddesa
-    </h3>
-    <h3 class="text-center">
-     Pucchāniddesa
-    </h3>
-    <h3 class="text-center">
-     Kappamāṇavapucchāniddesa
-    </h3>
-    <p id="p_25Cn_724">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d61">
-      61.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="724">
-         724
-        </span>
-        <i>
-         <b>
-          Majjhe sarasmiṃ tiṭṭhataṃ,
-          <span class="gathaQuote">
-           (iccāyasmā kappo)
-          </span>
-         </b>
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         <b>
-          Oghe jāte mahabbhaye;
-         </b>
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         <b>
-          Jarāmaccuparetānaṃ,
-         </b>
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         <b>
-          Dīpaṃ pabrūhi mārisa;
-         </b>
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         <b>
-          Tvañca me dīpamakkhāhi,
-         </b>
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         <b>
-          Yathāyidaṃ nāparaṃ siyā.
-         </b>
-         (1)
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_25Cn_725">
-     <span class="badge rounded-pill text-bg-light me-1" id="725">
-      725
-     </span>
+
+    <div class="container overflow-scroll">
+<nav aria-label="breadcrumb">
+ <ol class="breadcrumb">
+  <li class="breadcrumb-item">
+   <a href="/">
+    Home
+   </a>
+  </li>
+  <li class="breadcrumb-item">
+   <a href="/tipitaka/25Cn.html">
+    25Cn Cūḷaniddesapāḷi
+   </a>
+  </li>
+  <li class="breadcrumb-item">
+   <a href="/tipitaka/25Cn/2.html">
+    2 Pārāyanavagganiddesa
+   </a>
+  </li>
+  <li class="breadcrumb-item">
+   <a href="/tipitaka/25Cn/2/2.1.html">
+    2.1 Pucchāniddesa
+   </a>
+  </li>
+ </ol>
+</nav>
+<div class="container">
+ <div class="m-4 p-4 text-center bg-body-tertiary rounded-3">
+  <h1 class="text-body-emphasis">
+   2.1.10 Kappamāṇavapucchāniddesa
+  </h1>
+ </div>
+</div>
+<h3 class="text-center">
+ Pārāyanavagganiddesa
+</h3>
+<h3 class="text-center">
+ Pucchāniddesa
+</h3>
+<h3 class="text-center">
+ Kappamāṇavapucchāniddesa
+</h3>
+<p id="p_25Cn_724">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d61">
+  61.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="724">
+     724
+    </span>
+    <i>
      <b>
-      Majjhe sarasmiṃ tiṭṭhatan
+      Majjhe sarasmiṃ tiṭṭhataṃ,
+      <em class="gathaQuote">
+       (iccāyasmā kappo)
+      </em>
      </b>
-     ti saro vuccati saṃsāro āgamanaṃ gamanaṃ gamanāgamanaṃ kālaṃ gati bhavābhavo cuti ca upapatti ca nibbatti ca bhedo ca jāti ca jarā ca maraṇañca. Saṃsārassa purimāpi koṭi na paññāyati, pacchimāpi koṭi na paññāyati; majjheva saṃsāre sattā ṭhitā patiṭṭhitā allīnā upagatā ajjhositā adhimuttā.
-    </p>
-    <p id="p_25Cn_726">
-     <span class="badge rounded-pill text-bg-light me-1" id="726">
-      726
-     </span>
-     Kathaṃ saṃsārassa purimā koṭi na paññāyati? Ettakā jātiyo vaṭṭaṃ vatti, tato paraṃ na vattatīti hevaṃ natthi, evampi saṃsārassa purimā koṭi na paññāyati. Ettakāni jātisatāni vaṭṭaṃ vatti, tato paraṃ na vattatīti hevaṃ natthi, evampi saṃsārassa purimā koṭi na paññāyati. Ettakāni jātisahassāni vaṭṭaṃ vatti, tato paraṃ na vattatīti hevaṃ natthi, evampi saṃsārassa purimā koṭi na paññāyati. Ettakāni jātisatasahassāni vaṭṭaṃ vatti, tato paraṃ na vattatīti hevaṃ natthi, evampi saṃsārassa purimā koṭi na paññāyati. Ettakā jātikoṭiyo vaṭṭaṃ vatti, tato paraṃ na vattatīti hevaṃ natthi, evampi saṃsārassa purimā koṭi na paññāyati. Ettakāni jātikoṭisatāni vaṭṭaṃ vatti, tato paraṃ na vattatīti hevaṃ natthi, evampi saṃsārassa purimā koṭi na paññāyati. Ettakāni jātikoṭisahassāni vaṭṭaṃ vatti, tato paraṃ na vattatīti, hevaṃ natthi. Evampi saṃsārassa purimā koṭi na paññāyati. Ettakāni jātikoṭisatasahassāni vaṭṭaṃ vatti, tato paraṃ na vattatīti hevaṃ natthi, evampi saṃsārassa purimā koṭi na paññāyati.
-    </p>
-    <p id="p_25Cn_727">
-     <span class="badge rounded-pill text-bg-light me-1" id="727">
-      727
-     </span>
-     Ettakāni vassāni vaṭṭaṃ vatti, tato paraṃ na vattatīti hevaṃ natthi, evampi saṃsārassa purimā koṭi na paññāyati. Ettakāni vassasatāni vaṭṭaṃ vatti, tato paraṃ na vattatīti hevaṃ natthi, evampi saṃsārassa purimā koṭi na paññāyati. Ettakāni vassasahassāni vaṭṭaṃ vatti, tato paraṃ na vattatīti hevaṃ natthi, evampi saṃsārassa purimā koṭi na paññāyati. Ettakāni vassasatasahassāni vaṭṭaṃ vatti, tato paraṃ na vattatīti hevaṃ natthi, evampi saṃsārassa purimā koṭi na paññāyati. Ettakā vassakoṭiyo vaṭṭaṃ vatti, tato paraṃ na vattatīti hevaṃ natthi, evampi saṃsārassa purimā koṭi na paññāyati. Ettakāni vassakoṭisatāni vaṭṭaṃ vatti, tato paraṃ na vattatīti hevaṃ natthi, evampi saṃsārassa purimā koṭi na paññāyati. Ettakāni vassakoṭisahassāni vaṭṭaṃ vatti, tato paraṃ na vattatīti hevaṃ natthi, evampi saṃsārassa purimā koṭi na paññāyati. Ettakāni vassakoṭisatasahassāni vaṭṭaṃ vatti, tato paraṃ na vattatīti hevaṃ natthi, evampi saṃsārassa purimā koṭi na paññāyati.
-    </p>
-    <p id="p_25Cn_728">
-     <span class="badge rounded-pill text-bg-light me-1" id="728">
-      728
-     </span>
-     Ettakāni kappāni vaṭṭaṃ vatti, tato paraṃ na vattatīti hevaṃ natthi, evampi saṃsārassa purimā koṭi na paññāyati. Ettakāni kappasatāni vaṭṭaṃ vatti, tato paraṃ na vattatīti hevaṃ natthi, evampi saṃsārassa purimā koṭi na paññāyati. Ettakāni kappasahassāni vaṭṭaṃ vatti, tato paraṃ na vattatīti hevaṃ natthi, evampi saṃsārassa purimā koṭi na paññāyati. Ettakāni kappasatasahassāni vaṭṭaṃ vatti, tato paraṃ na vattatīti hevaṃ natthi, evampi saṃsārassa purimā koṭi na paññāyati. Ettakā kappakoṭiyo vaṭṭaṃ vatti, tato paraṃ na vattatīti hevaṃ natthi, evampi saṃsārassa purimā koṭi na paññāyati. Ettakāni kappakoṭisatāni vaṭṭaṃ vatti, tato paraṃ na vattatīti hevaṃ natthi, evampi saṃsārassa purimā koṭi na paññāyati. Ettakāni kappakoṭisahassāni vaṭṭaṃ vatti, tato paraṃ na vattatīti hevaṃ natthi, evampi saṃsārassa purimā koṭi na paññāyati. Ettakāni kappakoṭisatasahassāni vaṭṭaṃ vatti, tato paraṃ na vattatīti hevaṃ natthi, evampi saṃsārassa purimā koṭi na paññāyati.
-    </p>
-    <p id="p_25Cn_729">
-     <span class="badge rounded-pill text-bg-light me-1" id="729">
-      729
-     </span>
-     Vuttañhetaṃ bhagavatā—  “anamataggoyaṃ, bhikkhave, saṃsāro, pubbā koṭi na paññāyati avijjānīvaraṇānaṃ sattānaṃ taṇhāsaṃyojanānaṃ sandhāvataṃ saṃsarataṃ. Evaṃ dīgharattaṃ kho, bhikkhave, dukkhaṃ paccanubhūtaṃ tibbaṃ paccanubhūtaṃ byasanaṃ paccanubhūtaṃ, kaṭasī vaḍḍhitā. Yāvañcidaṃ, bhikkhave, alameva sabbasaṅkhāresu nibbindituṃ alaṃ virajjituṃ alaṃ vimuccitun”ti. Evampi saṃsārassa purimā koṭi na paññāyati.
-    </p>
-    <p id="p_25Cn_730">
-     <span class="badge rounded-pill text-bg-light me-1" id="730">
-      730
-     </span>
-     Kathaṃ saṃsārassa pacchimā koṭi na paññāyati? Ettakā jātiyo vaṭṭaṃ vattissati, tato paraṃ na vattissatīti hevaṃ natthi, evampi saṃsārassa pacchimā koṭi na paññāyati. Ettakāni jātisatāni, ettakāni jātisahassāni, ettakāni jātisatasahassāni…pe…  ettakā jātikoṭiyo, ettakāni jātikoṭisatāni, ettakāni jātikoṭisahassāni, ettakāni jātikoṭisatasahassāni, ettakāni vassāni, ettakāni vassasatāni, ettakāni vassasahassāni, ettakāni vassasatasahassāni, ettakā vassakoṭiyo, ettakāni vassakoṭisatāni, ettakāni vassakoṭisahassāni, ettakāni vassakoṭisatasahassāni, ettakāni kappāni, ettakāni kappasatāni, ettakāni kappasahassāni, ettakāni kappasatasahassāni, ettakā kappakoṭiyo, ettakāni kappakoṭisatāni, ettakāni kappakoṭisahassāni, ettakāni kappakoṭisatasahassāni vaṭṭaṃ vattissati, tato paraṃ na vattissatīti hevaṃ natthi, evampi saṃsārassa pacchimā koṭi na paññāyati. Evampi saṃsārassa purimāpi koṭi na paññāyati, pacchimāpi koṭi na paññāyati, majjheva saṃsāre sattā ṭhitā patiṭṭhitā allīnā upagatā ajjhositā adhimuttāti—  majjhe sarasmiṃ tiṭṭhataṃ.
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
      <b>
-      Iccāyasmā kappo
+      Oghe jāte mahabbhaye;
      </b>
-     ti.
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
      <b>
-      Iccā
+      Jarāmaccuparetānaṃ,
      </b>
-     ti padasandhi…pe… .
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
      <b>
-      Āyasmā
+      Dīpaṃ pabrūhi mārisa;
      </b>
-     ti piyavacanaṃ…pe… .
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
      <b>
-      Kappo
+      Tvañca me dīpamakkhāhi,
      </b>
-     ti tassa brāhmaṇassa nāmaṃ…pe…  abhilāpoti—  iccāyasmā kappo.
-    </p>
-    <p id="p_25Cn_731">
-     <span class="badge rounded-pill text-bg-light me-1" id="731">
-      731
-     </span>
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
      <b>
-      Oghe jāte mahabbhaye
+      Yathāyidaṃ nāparaṃ siyā.
      </b>
-     ti kāmoghe bhavoghe diṭṭhoghe avijjoghe jāte sañjāte nibbatte abhinibbatte pātubhūte.
+     (1)
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_25Cn_725">
+ <span class="badge rounded-pill text-bg-light me-1" id="725">
+  725
+ </span>
+ <b>
+  Majjhe sarasmiṃ tiṭṭhatan
+ </b>
+ ti saro vuccati saṃsāro āgamanaṃ gamanaṃ gamanāgamanaṃ kālaṃ gati bhavābhavo cuti ca upapatti ca nibbatti ca bhedo ca jāti ca jarā ca maraṇañca. Saṃsārassa purimāpi koṭi na paññāyati, pacchimāpi koṭi na paññāyati; majjheva saṃsāre sattā ṭhitā patiṭṭhitā allīnā upagatā ajjhositā adhimuttā.
+</p>
+<p id="p_25Cn_726">
+ <span class="badge rounded-pill text-bg-light me-1" id="726">
+  726
+ </span>
+ Kathaṃ saṃsārassa purimā koṭi na paññāyati? Ettakā jātiyo vaṭṭaṃ vatti, tato paraṃ na vattatīti hevaṃ natthi, evampi saṃsārassa purimā koṭi na paññāyati. Ettakāni jātisatāni vaṭṭaṃ vatti, tato paraṃ na vattatīti hevaṃ natthi, evampi saṃsārassa purimā koṭi na paññāyati. Ettakāni jātisahassāni vaṭṭaṃ vatti, tato paraṃ na vattatīti hevaṃ natthi, evampi saṃsārassa purimā koṭi na paññāyati. Ettakāni jātisatasahassāni vaṭṭaṃ vatti, tato paraṃ na vattatīti hevaṃ natthi, evampi saṃsārassa purimā koṭi na paññāyati. Ettakā jātikoṭiyo vaṭṭaṃ vatti, tato paraṃ na vattatīti hevaṃ natthi, evampi saṃsārassa purimā koṭi na paññāyati. Ettakāni jātikoṭisatāni vaṭṭaṃ vatti, tato paraṃ na vattatīti hevaṃ natthi, evampi saṃsārassa purimā koṭi na paññāyati. Ettakāni jātikoṭisahassāni vaṭṭaṃ vatti, tato paraṃ na vattatīti, hevaṃ natthi. Evampi saṃsārassa purimā koṭi na paññāyati. Ettakāni jātikoṭisatasahassāni vaṭṭaṃ vatti, tato paraṃ na vattatīti hevaṃ natthi, evampi saṃsārassa purimā koṭi na paññāyati.
+</p>
+<p id="p_25Cn_727">
+ <span class="badge rounded-pill text-bg-light me-1" id="727">
+  727
+ </span>
+ Ettakāni vassāni vaṭṭaṃ vatti, tato paraṃ na vattatīti hevaṃ natthi, evampi saṃsārassa purimā koṭi na paññāyati. Ettakāni vassasatāni vaṭṭaṃ vatti, tato paraṃ na vattatīti hevaṃ natthi, evampi saṃsārassa purimā koṭi na paññāyati. Ettakāni vassasahassāni vaṭṭaṃ vatti, tato paraṃ na vattatīti hevaṃ natthi, evampi saṃsārassa purimā koṭi na paññāyati. Ettakāni vassasatasahassāni vaṭṭaṃ vatti, tato paraṃ na vattatīti hevaṃ natthi, evampi saṃsārassa purimā koṭi na paññāyati. Ettakā vassakoṭiyo vaṭṭaṃ vatti, tato paraṃ na vattatīti hevaṃ natthi, evampi saṃsārassa purimā koṭi na paññāyati. Ettakāni vassakoṭisatāni vaṭṭaṃ vatti, tato paraṃ na vattatīti hevaṃ natthi, evampi saṃsārassa purimā koṭi na paññāyati. Ettakāni vassakoṭisahassāni vaṭṭaṃ vatti, tato paraṃ na vattatīti hevaṃ natthi, evampi saṃsārassa purimā koṭi na paññāyati. Ettakāni vassakoṭisatasahassāni vaṭṭaṃ vatti, tato paraṃ na vattatīti hevaṃ natthi, evampi saṃsārassa purimā koṭi na paññāyati.
+</p>
+<p id="p_25Cn_728">
+ <span class="badge rounded-pill text-bg-light me-1" id="728">
+  728
+ </span>
+ Ettakāni kappāni vaṭṭaṃ vatti, tato paraṃ na vattatīti hevaṃ natthi, evampi saṃsārassa purimā koṭi na paññāyati. Ettakāni kappasatāni vaṭṭaṃ vatti, tato paraṃ na vattatīti hevaṃ natthi, evampi saṃsārassa purimā koṭi na paññāyati. Ettakāni kappasahassāni vaṭṭaṃ vatti, tato paraṃ na vattatīti hevaṃ natthi, evampi saṃsārassa purimā koṭi na paññāyati. Ettakāni kappasatasahassāni vaṭṭaṃ vatti, tato paraṃ na vattatīti hevaṃ natthi, evampi saṃsārassa purimā koṭi na paññāyati. Ettakā kappakoṭiyo vaṭṭaṃ vatti, tato paraṃ na vattatīti hevaṃ natthi, evampi saṃsārassa purimā koṭi na paññāyati. Ettakāni kappakoṭisatāni vaṭṭaṃ vatti, tato paraṃ na vattatīti hevaṃ natthi, evampi saṃsārassa purimā koṭi na paññāyati. Ettakāni kappakoṭisahassāni vaṭṭaṃ vatti, tato paraṃ na vattatīti hevaṃ natthi, evampi saṃsārassa purimā koṭi na paññāyati. Ettakāni kappakoṭisatasahassāni vaṭṭaṃ vatti, tato paraṃ na vattatīti hevaṃ natthi, evampi saṃsārassa purimā koṭi na paññāyati.
+</p>
+<p id="p_25Cn_729">
+ <span class="badge rounded-pill text-bg-light me-1" id="729">
+  729
+ </span>
+ Vuttañhetaṃ bhagavatā—  “anamataggoyaṃ, bhikkhave, saṃsāro, pubbā koṭi na paññāyati avijjānīvaraṇānaṃ sattānaṃ taṇhāsaṃyojanānaṃ sandhāvataṃ saṃsarataṃ. Evaṃ dīgharattaṃ kho, bhikkhave, dukkhaṃ paccanubhūtaṃ tibbaṃ paccanubhūtaṃ byasanaṃ paccanubhūtaṃ, kaṭasī vaḍḍhitā. Yāvañcidaṃ, bhikkhave, alameva sabbasaṅkhāresu nibbindituṃ alaṃ virajjituṃ alaṃ vimuccitun”ti. Evampi saṃsārassa purimā koṭi na paññāyati.
+</p>
+<p id="p_25Cn_730">
+ <span class="badge rounded-pill text-bg-light me-1" id="730">
+  730
+ </span>
+ Kathaṃ saṃsārassa pacchimā koṭi na paññāyati? Ettakā jātiyo vaṭṭaṃ vattissati, tato paraṃ na vattissatīti hevaṃ natthi, evampi saṃsārassa pacchimā koṭi na paññāyati. Ettakāni jātisatāni, ettakāni jātisahassāni, ettakāni jātisatasahassāni…pe…  ettakā jātikoṭiyo, ettakāni jātikoṭisatāni, ettakāni jātikoṭisahassāni, ettakāni jātikoṭisatasahassāni, ettakāni vassāni, ettakāni vassasatāni, ettakāni vassasahassāni, ettakāni vassasatasahassāni, ettakā vassakoṭiyo, ettakāni vassakoṭisatāni, ettakāni vassakoṭisahassāni, ettakāni vassakoṭisatasahassāni, ettakāni kappāni, ettakāni kappasatāni, ettakāni kappasahassāni, ettakāni kappasatasahassāni, ettakā kappakoṭiyo, ettakāni kappakoṭisatāni, ettakāni kappakoṭisahassāni, ettakāni kappakoṭisatasahassāni vaṭṭaṃ vattissati, tato paraṃ na vattissatīti hevaṃ natthi, evampi saṃsārassa pacchimā koṭi na paññāyati. Evampi saṃsārassa purimāpi koṭi na paññāyati, pacchimāpi koṭi na paññāyati, majjheva saṃsāre sattā ṭhitā patiṭṭhitā allīnā upagatā ajjhositā adhimuttāti—  majjhe sarasmiṃ tiṭṭhataṃ.
+ <b>
+  Iccāyasmā kappo
+ </b>
+ ti.
+ <b>
+  Iccā
+ </b>
+ ti padasandhi…pe… .
+ <b>
+  Āyasmā
+ </b>
+ ti piyavacanaṃ…pe… .
+ <b>
+  Kappo
+ </b>
+ ti tassa brāhmaṇassa nāmaṃ…pe…  abhilāpoti—  iccāyasmā kappo.
+</p>
+<p id="p_25Cn_731">
+ <span class="badge rounded-pill text-bg-light me-1" id="731">
+  731
+ </span>
+ <b>
+  Oghe jāte mahabbhaye
+ </b>
+ ti kāmoghe bhavoghe diṭṭhoghe avijjoghe jāte sañjāte nibbatte abhinibbatte pātubhūte.
+ <b>
+  Mahabbhaye
+ </b>
+ ti jātibhaye jarābhaye byādhibhaye maraṇabhayeti—  oghe jāte mahabbhaye.
+</p>
+<p id="p_25Cn_732">
+ <span class="badge rounded-pill text-bg-light me-1" id="732">
+  732
+ </span>
+ <b>
+  Jarāmaccuparetānan
+ </b>
+ ti jarāya phuṭṭhānaṃ paretānaṃ samohitānaṃ samannāgatānaṃ. Maccunā phuṭṭhānaṃ paretānaṃ samohitānaṃ samannāgatānaṃ, jātiyā anugatānaṃ jarāya anusaṭānaṃ byādhinā abhibhūtānaṃ maraṇena abbhāhatānaṃ atāṇānaṃ aleṇānaṃ asaraṇānaṃ asaraṇībhūtānanti—  jarāmaccuparetānaṃ.
+</p>
+<p id="p_25Cn_733">
+ <span class="badge rounded-pill text-bg-light me-1" id="733">
+  733
+ </span>
+ <b>
+  Dīpaṃ pabrūhi mārisā
+ </b>
+ ti dīpaṃ tāṇaṃ leṇaṃ saraṇaṃ gatiṃ parāyanaṃ brūhi ācikkhāhi desehi paññapehi paṭṭhapehi vivarāhi vibhajāhi uttānīkarohi pakāsehi.
+ <b>
+  Mārisā
+ </b>
+ ti piyavacanaṃ garuvacanaṃ sagāravasappatissādhivacanametaṃ mārisāti—  dīpaṃ pabrūhi mārisa.
+</p>
+<p id="p_25Cn_734">
+ <span class="badge rounded-pill text-bg-light me-1" id="734">
+  734
+ </span>
+ <b>
+  Tvañca me dīpamakkhāhī
+ </b>
+ ti.
+ <b>
+  Tvan
+ </b>
+ ti bhagavantaṃ bhaṇati.
+ <b>
+  Dīpamakkhāhī
+ </b>
+ ti dīpaṃ tāṇaṃ leṇaṃ saraṇaṃ gatiṃ parāyanaṃ akkhāhi ācikkhāhi desehi paññapehi paṭṭhapehi vivarāhi vibhajāhi uttānīkarohi pakāsehīti—  tvañca me dīpamakkhāhi.
+</p>
+<p id="p_25Cn_735">
+ <span class="badge rounded-pill text-bg-light me-1" id="735">
+  735
+ </span>
+ <b>
+  Yathāyidaṃ nāparaṃ siyā
+ </b>
+ ti yathayidaṃ dukkhaṃ idheva nirujjheyya vūpasameyya atthaṃ gaccheyya paṭippassambheyya punapaṭisandhikaṃ dukkhaṃ na nibbatteyya, kāmadhātuyā vā rūpadhātuyā vā arūpadhātuyā vā kāmabhave vā rūpabhave vā arūpabhave vā saññābhave vā asaññābhave vā nevasaññānāsaññābhave vā ekavokārabhave vā catuvokārabhave vā pañcavokārabhave vā punagatiyā vā upapattiyā vā paṭisandhiyā vā bhave vā saṃsāre vā vaṭṭe vā na janeyya na sañjaneyya na nibbatteyya nābhinibbatteyya. Idheva nirujjheyya vūpasameyya atthaṃ gaccheyya paṭippassambheyyāti—  yathāyidaṃ nāparaṃ siyā. Tenāha so brāhmaṇo—
+</p>
+<p id="p_25Cn_736">
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="736">
+     736
+    </span>
+    <i>
+     “Majjhe sarasmiṃ tiṭṭhataṃ,
+     <em class="gathaQuote">
+      (iccāyasmā kappo)
+     </em>
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Oghe jāte mahabbhaye;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Jarāmaccuparetānaṃ,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Dīpaṃ pabrūhi mārisa;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Tvañca me dīpamakkhāhi,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Yathāyidaṃ nāparaṃ siyā”ti.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_25Cn_737">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d62">
+  62.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="737">
+     737
+    </span>
+    <i>
      <b>
-      Mahabbhaye
+      Majjhe sarasmiṃ tiṭṭhataṃ,
+      <em class="gathaQuote">
+       (kappāti bhagavā)
+      </em>
      </b>
-     ti jātibhaye jarābhaye byādhibhaye maraṇabhayeti—  oghe jāte mahabbhaye.
-    </p>
-    <p id="p_25Cn_732">
-     <span class="badge rounded-pill text-bg-light me-1" id="732">
-      732
-     </span>
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
      <b>
-      Jarāmaccuparetānan
+      Oghe jāte mahabbhaye;
      </b>
-     ti jarāya phuṭṭhānaṃ paretānaṃ samohitānaṃ samannāgatānaṃ. Maccunā phuṭṭhānaṃ paretānaṃ samohitānaṃ samannāgatānaṃ, jātiyā anugatānaṃ jarāya anusaṭānaṃ byādhinā abhibhūtānaṃ maraṇena abbhāhatānaṃ atāṇānaṃ aleṇānaṃ asaraṇānaṃ asaraṇībhūtānanti—  jarāmaccuparetānaṃ.
-    </p>
-    <p id="p_25Cn_733">
-     <span class="badge rounded-pill text-bg-light me-1" id="733">
-      733
-     </span>
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
      <b>
-      Dīpaṃ pabrūhi mārisā
+      Jarāmaccuparetānaṃ,
      </b>
-     ti dīpaṃ tāṇaṃ leṇaṃ saraṇaṃ gatiṃ parāyanaṃ brūhi ācikkhāhi desehi paññapehi paṭṭhapehi vivarāhi vibhajāhi uttānīkarohi pakāsehi.
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
      <b>
-      Mārisā
+      Dīpaṃ pabrūmi kappa te.
      </b>
-     ti piyavacanaṃ garuvacanaṃ sagāravasappatissādhivacanametaṃ mārisāti—  dīpaṃ pabrūhi mārisa.
-    </p>
-    <p id="p_25Cn_734">
-     <span class="badge rounded-pill text-bg-light me-1" id="734">
-      734
-     </span>
+     (2)
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_25Cn_738">
+ <span class="badge rounded-pill text-bg-light me-1" id="738">
+  738
+ </span>
+ <b>
+  Majjhe sarasmiṃ tiṭṭhatan
+ </b>
+ ti saro vuccati saṃsāro āgamanaṃ gamanaṃ gamanāgamanaṃ kālaṃ gati bhavābhavo, cuti ca upapatti ca nibbatti ca bhedo ca jāti ca jarā ca maraṇañca. Saṃsārassa purimāpi koṭi na paññāyati, pacchimāpi koṭi na paññāyati. Majjheva saṃsāre sattā ṭhitā patiṭṭhitā allīnā upagatā ajjhositā adhimuttā.
+</p>
+<p id="p_25Cn_739">
+ <span class="badge rounded-pill text-bg-light me-1" id="739">
+  739
+ </span>
+ Kathaṃ saṃsārassa purimā koṭi na paññāyati…pe…  evaṃ saṃsārassa purimā koṭi na paññāyati. Kathaṃ saṃsārassa pacchimā koṭi na paññāyati…pe…  evaṃ saṃsārassa pacchimā koṭi na paññāyati. Evaṃ saṃsārassa purimāpi koṭi na paññāyati, pacchimāpi koṭi na paññāyati. Majjheva saṃsāre sattā ṭhitā patiṭṭhitā allīnā upagatā ajjhositā adhimuttāti—  majjhe sarasmiṃ tiṭṭhataṃ.
+ <b>
+  Kappāti bhagavā
+ </b>
+ ti.
+ <b>
+  Kappā
+ </b>
+ ti bhagavā taṃ brāhmaṇaṃ nāmena ālapati.
+ <b>
+  Bhagavā
+ </b>
+ ti gāravādhivacanametaṃ…pe…  sacchikā paññatti, yadidaṃ bhagavāti—  kappāti bhagavā.
+</p>
+<p id="p_25Cn_740">
+ <span class="badge rounded-pill text-bg-light me-1" id="740">
+  740
+ </span>
+ <b>
+  Oghe jāte mahabbhaye
+ </b>
+ ti kāmoghe bhavoghe diṭṭhoghe avijjoghe jāte sañjāte nibbatte abhinibbatte pātubhūte.
+ <b>
+  Mahabbhaye
+ </b>
+ ti jātibhaye jarābhaye byādhibhaye maraṇabhayeti—  oghe jāte mahabbhaye.
+</p>
+<p id="p_25Cn_741">
+ <span class="badge rounded-pill text-bg-light me-1" id="741">
+  741
+ </span>
+ <b>
+  Jarāmaccuparetānan
+ </b>
+ ti jarāya phuṭṭhānaṃ paretānaṃ samohitānaṃ samannāgatānaṃ, maccunā phuṭṭhānaṃ paretānaṃ samohitānaṃ samannāgatānaṃ jātiyā anugatānaṃ jarāya anusaṭānaṃ byādhinā abhibhūtānaṃ maraṇena abbhāhatānaṃ atāṇānaṃ aleṇānaṃ asaraṇānaṃ asaraṇībhūtānanti—  jarāmaccuparetānaṃ.
+</p>
+<p id="p_25Cn_742">
+ <span class="badge rounded-pill text-bg-light me-1" id="742">
+  742
+ </span>
+ <b>
+  Dīpaṃ pabrūmi kappa te
+ </b>
+ ti dīpaṃ tāṇaṃ leṇaṃ saraṇaṃ gatiṃ parāyanaṃ brūmi ācikkhāmi desemi paññapemi paṭṭhapemi vivarāmi vibhajāmi uttānīkaromi pakāsemīti—  dīpaṃ pabrūmi kappa te. Tenāha bhagavā—
+</p>
+<p id="p_25Cn_743">
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="743">
+     743
+    </span>
+    <i>
+     “Majjhe sarasmiṃ tiṭṭhataṃ,
+     <em class="gathaQuote">
+      (kappāti bhagavā)
+     </em>
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Oghe jāte mahabbhaye;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Jarāmaccuparetānaṃ,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Dīpaṃ pabrūmi kappa te”ti.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_25Cn_744">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d63">
+  63.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="744">
+     744
+    </span>
+    <i>
      <b>
-      Tvañca me dīpamakkhāhī
+      Akiñcanaṃ anādānaṃ,
      </b>
-     ti.
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
      <b>
-      Tvan
+      etaṃ dīpaṃ anāparaṃ;
      </b>
-     ti bhagavantaṃ bhaṇati.
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
      <b>
-      Dīpamakkhāhī
+      Nibbānaṃ iti naṃ brūmi,
      </b>
-     ti dīpaṃ tāṇaṃ leṇaṃ saraṇaṃ gatiṃ parāyanaṃ akkhāhi ācikkhāhi desehi paññapehi paṭṭhapehi vivarāhi vibhajāhi uttānīkarohi pakāsehīti—  tvañca me dīpamakkhāhi.
-    </p>
-    <p id="p_25Cn_735">
-     <span class="badge rounded-pill text-bg-light me-1" id="735">
-      735
-     </span>
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
      <b>
-      Yathāyidaṃ nāparaṃ siyā
+      jarāmaccuparikkhayaṃ.
      </b>
-     ti yathayidaṃ dukkhaṃ idheva nirujjheyya vūpasameyya atthaṃ gaccheyya paṭippassambheyya punapaṭisandhikaṃ dukkhaṃ na nibbatteyya, kāmadhātuyā vā rūpadhātuyā vā arūpadhātuyā vā kāmabhave vā rūpabhave vā arūpabhave vā saññābhave vā asaññābhave vā nevasaññānāsaññābhave vā ekavokārabhave vā catuvokārabhave vā pañcavokārabhave vā punagatiyā vā upapattiyā vā paṭisandhiyā vā bhave vā saṃsāre vā vaṭṭe vā na janeyya na sañjaneyya na nibbatteyya nābhinibbatteyya. Idheva nirujjheyya vūpasameyya atthaṃ gaccheyya paṭippassambheyyāti—  yathāyidaṃ nāparaṃ siyā. Tenāha so brāhmaṇo—
-    </p>
-    <p id="p_25Cn_736">
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="736">
-         736
-        </span>
-        <i>
-         “Majjhe sarasmiṃ tiṭṭhataṃ,
-         <span class="gathaQuote">
-          (iccāyasmā kappo)
-         </span>
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Oghe jāte mahabbhaye;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Jarāmaccuparetānaṃ,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Dīpaṃ pabrūhi mārisa;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Tvañca me dīpamakkhāhi,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Yathāyidaṃ nāparaṃ siyā”ti.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_25Cn_737">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d62">
-      62.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="737">
-         737
-        </span>
-        <i>
-         <b>
-          Majjhe sarasmiṃ tiṭṭhataṃ,
-          <span class="gathaQuote">
-           (kappāti bhagavā)
-          </span>
-         </b>
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         <b>
-          Oghe jāte mahabbhaye;
-         </b>
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         <b>
-          Jarāmaccuparetānaṃ,
-         </b>
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         <b>
-          Dīpaṃ pabrūmi kappa te.
-         </b>
-         (2)
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_25Cn_738">
-     <span class="badge rounded-pill text-bg-light me-1" id="738">
-      738
-     </span>
+     (3)
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_25Cn_745">
+ <span class="badge rounded-pill text-bg-light me-1" id="745">
+  745
+ </span>
+ <b>
+  Akiñcanaṃ anādānan
+ </b>
+ ti.
+ <b>
+  Kiñcanan
+ </b>
+ ti—  rāgakiñcanaṃ dosakiñcanaṃ mohakiñcanaṃ mānakiñcanaṃ diṭṭhikiñcanaṃ kilesakiñcanaṃ duccaritakiñcanaṃ; kiñcanappahānaṃ kiñcanavūpasamaṃ kiñcanapaṭinissaggaṃ kiñcanapaṭippassaddhiṃ amataṃ nibbānanti—  akiñcanaṃ.
+ <b>
+  Anādānan
+ </b>
+ ti
+ <b>
+  ādānaṃ
+ </b>
+ vuccati taṇhā. Yo rāgo sārāgo…pe…  abhijjhā lobho akusalamūlaṃ. Ādānappahānaṃ ādānavūpasamaṃ ādānapaṭinissaggaṃ ādānapaṭippassaddhiṃ amataṃ nibbānanti—  akiñcanaṃ anādānaṃ.
+</p>
+<p id="p_25Cn_746">
+ <span class="badge rounded-pill text-bg-light me-1" id="746">
+  746
+ </span>
+ <b>
+  Etaṃ dīpaṃ anāparan
+ </b>
+ ti etaṃ dīpaṃ tāṇaṃ leṇaṃ saraṇaṃ gati parāyanaṃ.
+ <b>
+  Anāparan
+ </b>
+ ti tamhā paro añño dīpo natthi. Atha kho so evaṃ dīpo aggo ca seṭṭho ca viseṭṭho ca pāmokkho ca uttamo ca pavaro cāti—  etaṃ dīpaṃ anāparaṃ.
+</p>
+<p id="p_25Cn_747">
+ <span class="badge rounded-pill text-bg-light me-1" id="747">
+  747
+ </span>
+ <b>
+  Nibbānaṃ iti naṃ brūmī
+ </b>
+ ti vānaṃ vuccati taṇhā. Yo rāgo sārāgo…pe…  abhijjhā lobho akusalamūlaṃ. Vānappahānaṃ vānavūpasamaṃ vānapaṭinissaggaṃ vānapaṭippassaddhiṃ amataṃ nibbānaṃ.
+ <b>
+  Itī
+ </b>
+ ti padasandhi padasaṃsaggo padapāripūrī akkharasamavāyo byañjanasiliṭṭhatā padānupubbatāpetaṃ—  itīti.
+ <b>
+  Brūmī
+ </b>
+ ti brūmi ācikkhāmi desemi paññapemi paṭṭhapemi vivarāmi vibhajāmi uttānīkaromi pakāsemīti—  nibbānaṃ iti naṃ brūmi.
+</p>
+<p id="p_25Cn_748">
+ <span class="badge rounded-pill text-bg-light me-1" id="748">
+  748
+ </span>
+ <b>
+  Jarāmaccuparikkhayan
+ </b>
+ ti jarāmaraṇassa pahānaṃ vūpasamaṃ paṭinissaggaṃ paṭippassaddhiṃ amataṃ nibbānanti—  jarāmaccuparikkhayaṃ. Tenāha bhagavā—
+</p>
+<p id="p_25Cn_749">
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="749">
+     749
+    </span>
+    <i>
+     “Akiñcanaṃ anādānaṃ,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     etaṃ dīpaṃ anāparaṃ;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Nibbānaṃ iti naṃ brūmi,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     jarāmaccuparikkhayan”ti.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_25Cn_750">
+ <span class="badge rounded-pill text-bg-secondary me-2" id="d64">
+  64.
+ </span>
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="750">
+     750
+    </span>
+    <i>
      <b>
-      Majjhe sarasmiṃ tiṭṭhatan
+      Etadaññāya ye satā,
      </b>
-     ti saro vuccati saṃsāro āgamanaṃ gamanaṃ gamanāgamanaṃ kālaṃ gati bhavābhavo, cuti ca upapatti ca nibbatti ca bhedo ca jāti ca jarā ca maraṇañca. Saṃsārassa purimāpi koṭi na paññāyati, pacchimāpi koṭi na paññāyati. Majjheva saṃsāre sattā ṭhitā patiṭṭhitā allīnā upagatā ajjhositā adhimuttā.
-    </p>
-    <p id="p_25Cn_739">
-     <span class="badge rounded-pill text-bg-light me-1" id="739">
-      739
-     </span>
-     Kathaṃ saṃsārassa purimā koṭi na paññāyati…pe…  evaṃ saṃsārassa purimā koṭi na paññāyati. Kathaṃ saṃsārassa pacchimā koṭi na paññāyati…pe…  evaṃ saṃsārassa pacchimā koṭi na paññāyati. Evaṃ saṃsārassa purimāpi koṭi na paññāyati, pacchimāpi koṭi na paññāyati. Majjheva saṃsāre sattā ṭhitā patiṭṭhitā allīnā upagatā ajjhositā adhimuttāti—  majjhe sarasmiṃ tiṭṭhataṃ.
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
      <b>
-      Kappāti bhagavā
+      Diṭṭhadhammābhinibbutā;
      </b>
-     ti.
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
      <b>
-      Kappā
+      Na te māravasānugā,
      </b>
-     ti bhagavā taṃ brāhmaṇaṃ nāmena ālapati.
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
      <b>
-      Bhagavā
+      Na te mārassa paddhagū.
      </b>
-     ti gāravādhivacanametaṃ…pe…  sacchikā paññatti, yadidaṃ bhagavāti—  kappāti bhagavā.
-    </p>
-    <p id="p_25Cn_740">
-     <span class="badge rounded-pill text-bg-light me-1" id="740">
-      740
-     </span>
-     <b>
-      Oghe jāte mahabbhaye
-     </b>
-     ti kāmoghe bhavoghe diṭṭhoghe avijjoghe jāte sañjāte nibbatte abhinibbatte pātubhūte.
-     <b>
-      Mahabbhaye
-     </b>
-     ti jātibhaye jarābhaye byādhibhaye maraṇabhayeti—  oghe jāte mahabbhaye.
-    </p>
-    <p id="p_25Cn_741">
-     <span class="badge rounded-pill text-bg-light me-1" id="741">
-      741
-     </span>
-     <b>
-      Jarāmaccuparetānan
-     </b>
-     ti jarāya phuṭṭhānaṃ paretānaṃ samohitānaṃ samannāgatānaṃ, maccunā phuṭṭhānaṃ paretānaṃ samohitānaṃ samannāgatānaṃ jātiyā anugatānaṃ jarāya anusaṭānaṃ byādhinā abhibhūtānaṃ maraṇena abbhāhatānaṃ atāṇānaṃ aleṇānaṃ asaraṇānaṃ asaraṇībhūtānanti—  jarāmaccuparetānaṃ.
-    </p>
-    <p id="p_25Cn_742">
-     <span class="badge rounded-pill text-bg-light me-1" id="742">
-      742
-     </span>
-     <b>
-      Dīpaṃ pabrūmi kappa te
-     </b>
-     ti dīpaṃ tāṇaṃ leṇaṃ saraṇaṃ gatiṃ parāyanaṃ brūmi ācikkhāmi desemi paññapemi paṭṭhapemi vivarāmi vibhajāmi uttānīkaromi pakāsemīti—  dīpaṃ pabrūmi kappa te. Tenāha bhagavā—
-    </p>
-    <p id="p_25Cn_743">
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="743">
-         743
-        </span>
-        <i>
-         “Majjhe sarasmiṃ tiṭṭhataṃ,
-         <span class="gathaQuote">
-          (kappāti bhagavā)
-         </span>
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Oghe jāte mahabbhaye;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Jarāmaccuparetānaṃ,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Dīpaṃ pabrūmi kappa te”ti.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_25Cn_744">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d63">
-      63.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="744">
-         744
-        </span>
-        <i>
-         <b>
-          Akiñcanaṃ anādānaṃ,
-         </b>
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         <b>
-          etaṃ dīpaṃ anāparaṃ;
-         </b>
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         <b>
-          Nibbānaṃ iti naṃ brūmi,
-         </b>
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         <b>
-          jarāmaccuparikkhayaṃ.
-         </b>
-         (3)
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_25Cn_745">
-     <span class="badge rounded-pill text-bg-light me-1" id="745">
-      745
-     </span>
-     <b>
-      Akiñcanaṃ anādānan
-     </b>
-     ti.
-     <b>
-      Kiñcanan
-     </b>
-     ti—  rāgakiñcanaṃ dosakiñcanaṃ mohakiñcanaṃ mānakiñcanaṃ diṭṭhikiñcanaṃ kilesakiñcanaṃ duccaritakiñcanaṃ; kiñcanappahānaṃ kiñcanavūpasamaṃ kiñcanapaṭinissaggaṃ kiñcanapaṭippassaddhiṃ amataṃ nibbānanti—  akiñcanaṃ.
-     <b>
-      Anādānan
-     </b>
-     ti
-     <b>
-      ādānaṃ
-     </b>
-     vuccati taṇhā. Yo rāgo sārāgo…pe…  abhijjhā lobho akusalamūlaṃ. Ādānappahānaṃ ādānavūpasamaṃ ādānapaṭinissaggaṃ ādānapaṭippassaddhiṃ amataṃ nibbānanti—  akiñcanaṃ anādānaṃ.
-    </p>
-    <p id="p_25Cn_746">
-     <span class="badge rounded-pill text-bg-light me-1" id="746">
-      746
-     </span>
-     <b>
-      Etaṃ dīpaṃ anāparan
-     </b>
-     ti etaṃ dīpaṃ tāṇaṃ leṇaṃ saraṇaṃ gati parāyanaṃ.
-     <b>
-      Anāparan
-     </b>
-     ti tamhā paro añño dīpo natthi. Atha kho so evaṃ dīpo aggo ca seṭṭho ca viseṭṭho ca pāmokkho ca uttamo ca pavaro cāti—  etaṃ dīpaṃ anāparaṃ.
-    </p>
-    <p id="p_25Cn_747">
-     <span class="badge rounded-pill text-bg-light me-1" id="747">
-      747
-     </span>
-     <b>
-      Nibbānaṃ iti naṃ brūmī
-     </b>
-     ti vānaṃ vuccati taṇhā. Yo rāgo sārāgo…pe…  abhijjhā lobho akusalamūlaṃ. Vānappahānaṃ vānavūpasamaṃ vānapaṭinissaggaṃ vānapaṭippassaddhiṃ amataṃ nibbānaṃ.
-     <b>
-      Itī
-     </b>
-     ti padasandhi padasaṃsaggo padapāripūrī akkharasamavāyo byañjanasiliṭṭhatā padānupubbatāpetaṃ—  itīti.
-     <b>
-      Brūmī
-     </b>
-     ti brūmi ācikkhāmi desemi paññapemi paṭṭhapemi vivarāmi vibhajāmi uttānīkaromi pakāsemīti—  nibbānaṃ iti naṃ brūmi.
-    </p>
-    <p id="p_25Cn_748">
-     <span class="badge rounded-pill text-bg-light me-1" id="748">
-      748
-     </span>
-     <b>
-      Jarāmaccuparikkhayan
-     </b>
-     ti jarāmaraṇassa pahānaṃ vūpasamaṃ paṭinissaggaṃ paṭippassaddhiṃ amataṃ nibbānanti—  jarāmaccuparikkhayaṃ. Tenāha bhagavā—
-    </p>
-    <p id="p_25Cn_749">
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="749">
-         749
-        </span>
-        <i>
-         “Akiñcanaṃ anādānaṃ,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         etaṃ dīpaṃ anāparaṃ;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Nibbānaṃ iti naṃ brūmi,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         jarāmaccuparikkhayan”ti.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_25Cn_750">
-     <span class="badge rounded-pill text-bg-secondary me-2" id="d64">
-      64.
-     </span>
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="750">
-         750
-        </span>
-        <i>
-         <b>
-          Etadaññāya ye satā,
-         </b>
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         <b>
-          Diṭṭhadhammābhinibbutā;
-         </b>
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         <b>
-          Na te māravasānugā,
-         </b>
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         <b>
-          Na te mārassa paddhagū.
-         </b>
-         (4)
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_25Cn_751">
-     <span class="badge rounded-pill text-bg-light me-1" id="751">
-      751
-     </span>
-     <b>
-      Etadaññāya ye satā
-     </b>
-     ti.
-     <b>
-      Etan
-     </b>
-     ti amataṃ nibbānaṃ. Yo so sabbasaṅkhārasamatho sabbūpadhipaṭinissaggo taṇhakkhayo virāgo nirodho nibbānaṃ.
-     <b>
-      Aññāyā
-     </b>
-     ti aññāya jānitvā tulayitvā tīrayitvā vibhāvayitvā vibhūtaṃ katvā, “sabbe saṅkhārā aniccā”ti…pe…  “yaṃ kiñci samudayadhammaṃ, sabbaṃ taṃ nirodhadhamman”ti aññāya jānitvā tulayitvā tīrayitvā vibhāvayitvā vibhūtaṃ katvā.
-     <b>
-      Ye
-     </b>
-     ti arahanto khīṇāsavā.
-     <b>
-      Satā
-     </b>
-     ti catūhi kāraṇehi satā—  kāye kāyānupassanāsatipaṭṭhānaṃ bhāventā satā…pe…  te vuccanti satāti—  etadaññāya ye satā.
-    </p>
-    <p id="p_25Cn_752">
-     <span class="badge rounded-pill text-bg-light me-1" id="752">
-      752
-     </span>
-     <b>
-      Diṭṭhadhammābhinibbutā
-     </b>
-     ti.
-     <b>
-      Diṭṭhadhammā
-     </b>
-     ti diṭṭhadhammā ñātadhammā tulitadhammā tīritadhammā vibhūtadhammā vibhāvitadhammā.
-     <b>
-      Abhinibbutā
-     </b>
-     ti rāgassa nibbāpitattā nibbutā, dosassa…pe…  sabbākusalābhisaṅkhārānaṃ santattā samitattā vūpasamitattā nijjhātattā nibbutattā paṭippassaddhattā santā upasantā vūpasantā nibbutā paṭippassaddhāti—  diṭṭhadhammābhinibbutā.
-    </p>
-    <p id="p_25Cn_753">
-     <span class="badge rounded-pill text-bg-light me-1" id="753">
-      753
-     </span>
-     <b>
-      Na te māravasānugā
-     </b>
-     ti.
-     <b>
-      Māro
-     </b>
-     ti yo so māro kaṇho adhipati antagū namuci pamattabandhu.
-     <b>
-      Na te māravasānugā
-     </b>
-     ti na te mārassa vase vattanti, nāpi māro tesu vasaṃ vatteti. Te mārañca mārapakkhañca mārapāsañca mārabaḷisañca mārāmisañca māravisayañca māranivāsañca māragocarañca mārabandhanañca abhibhuyya abhibhavitvā ajjhottharitvā pariyādiyitvā madditvā caranti viharanti iriyanti vattenti pālenti yapenti yāpentīti—  na te māravasānugā.
-    </p>
-    <p id="p_25Cn_754">
-     <span class="badge rounded-pill text-bg-light me-1" id="754">
-      754
-     </span>
-     <b>
-      Na te mārassa paddhagū
-     </b>
-     ti na te mārassa paddhā paddhacarā paricārikā siyā; buddhassa te bhagavato paddhā paddhacarā paricārikā siyāti—  na te mārassa paddhagū. Tenāha bhagavā—
-    </p>
-    <p id="p_25Cn_755">
-     <table class="singleColumn">
-      <tr>
-       <td>
-        <span class="badge rounded-pill text-bg-light me-1" id="755">
-         755
-        </span>
-        <i>
-         “Etadaññāya ye satā,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         diṭṭhadhammābhinibbutā;
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         Na te māravasānugā,
-        </i>
-       </td>
-      </tr>
-      <tr>
-       <td>
-        <i>
-         na te mārassa paddhagū”ti.
-        </i>
-       </td>
-      </tr>
-     </table>
-    </p>
-    <p id="p_25Cn_756">
-     <span class="badge rounded-pill text-bg-light me-1" id="756">
-      756
-     </span>
-     Saha gāthāpariyosānā…pe…  satthā me bhante bhagavā, sāvakohamasmīti.
-    </p>
-    <p class="text-center lead" id="p_25Cn_757">
-     <span class="badge rounded-pill text-bg-light me-1" id="757">
-      757
-     </span>
-     Kappamāṇavapucchāniddeso dasamo.
-    </p>
-    <div class="fixed_bottom container">
-     <footer class="row align-items-center py-4 my-4 border-top">
-      <a class="col order-1 btn btn-outline-secondary" href="/tipitaka/25Cn/2/2.1/2.1.9.html" id="previous">
-       2.1.9 Todeyyamāṇavapucchāniddesa
-      </a>
-      <a class="col order-2 btn btn-outline-secondary" href="/tipitaka/25Cn/2/2.1.html" id="up">
-       up
-      </a>
-      <a class="col order-3 btn btn-outline-secondary" href="/tipitaka/25Cn/2/2.1/2.1.11.html" id="next">
-       2.1.11 Jatukaṇṇimāṇavapucchāniddesa
-      </a>
-     </footer>
+     (4)
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_25Cn_751">
+ <span class="badge rounded-pill text-bg-light me-1" id="751">
+  751
+ </span>
+ <b>
+  Etadaññāya ye satā
+ </b>
+ ti.
+ <b>
+  Etan
+ </b>
+ ti amataṃ nibbānaṃ. Yo so sabbasaṅkhārasamatho sabbūpadhipaṭinissaggo taṇhakkhayo virāgo nirodho nibbānaṃ.
+ <b>
+  Aññāyā
+ </b>
+ ti aññāya jānitvā tulayitvā tīrayitvā vibhāvayitvā vibhūtaṃ katvā, “sabbe saṅkhārā aniccā”ti…pe…  “yaṃ kiñci samudayadhammaṃ, sabbaṃ taṃ nirodhadhamman”ti aññāya jānitvā tulayitvā tīrayitvā vibhāvayitvā vibhūtaṃ katvā.
+ <b>
+  Ye
+ </b>
+ ti arahanto khīṇāsavā.
+ <b>
+  Satā
+ </b>
+ ti catūhi kāraṇehi satā—  kāye kāyānupassanāsatipaṭṭhānaṃ bhāventā satā…pe…  te vuccanti satāti—  etadaññāya ye satā.
+</p>
+<p id="p_25Cn_752">
+ <span class="badge rounded-pill text-bg-light me-1" id="752">
+  752
+ </span>
+ <b>
+  Diṭṭhadhammābhinibbutā
+ </b>
+ ti.
+ <b>
+  Diṭṭhadhammā
+ </b>
+ ti diṭṭhadhammā ñātadhammā tulitadhammā tīritadhammā vibhūtadhammā vibhāvitadhammā.
+ <b>
+  Abhinibbutā
+ </b>
+ ti rāgassa nibbāpitattā nibbutā, dosassa…pe…  sabbākusalābhisaṅkhārānaṃ santattā samitattā vūpasamitattā nijjhātattā nibbutattā paṭippassaddhattā santā upasantā vūpasantā nibbutā paṭippassaddhāti—  diṭṭhadhammābhinibbutā.
+</p>
+<p id="p_25Cn_753">
+ <span class="badge rounded-pill text-bg-light me-1" id="753">
+  753
+ </span>
+ <b>
+  Na te māravasānugā
+ </b>
+ ti.
+ <b>
+  Māro
+ </b>
+ ti yo so māro kaṇho adhipati antagū namuci pamattabandhu.
+ <b>
+  Na te māravasānugā
+ </b>
+ ti na te mārassa vase vattanti, nāpi māro tesu vasaṃ vatteti. Te mārañca mārapakkhañca mārapāsañca mārabaḷisañca mārāmisañca māravisayañca māranivāsañca māragocarañca mārabandhanañca abhibhuyya abhibhavitvā ajjhottharitvā pariyādiyitvā madditvā caranti viharanti iriyanti vattenti pālenti yapenti yāpentīti—  na te māravasānugā.
+</p>
+<p id="p_25Cn_754">
+ <span class="badge rounded-pill text-bg-light me-1" id="754">
+  754
+ </span>
+ <b>
+  Na te mārassa paddhagū
+ </b>
+ ti na te mārassa paddhā paddhacarā paricārikā siyā; buddhassa te bhagavato paddhā paddhacarā paricārikā siyāti—  na te mārassa paddhagū. Tenāha bhagavā—
+</p>
+<p id="p_25Cn_755">
+ <table class="singleColumn">
+  <tr>
+   <td>
+    <span class="badge rounded-pill text-bg-light me-1" id="755">
+     755
+    </span>
+    <i>
+     “Etadaññāya ye satā,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     diṭṭhadhammābhinibbutā;
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     Na te māravasānugā,
+    </i>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <i>
+     na te mārassa paddhagū”ti.
+    </i>
+   </td>
+  </tr>
+ </table>
+</p>
+<p id="p_25Cn_756">
+ <span class="badge rounded-pill text-bg-light me-1" id="756">
+  756
+ </span>
+ Saha gāthāpariyosānā…pe…  satthā me bhante bhagavā, sāvakohamasmīti.
+</p>
+<p class="text-center lead" id="p_25Cn_757">
+ <span class="badge rounded-pill text-bg-light me-1" id="757">
+  757
+ </span>
+ Kappamāṇavapucchāniddeso dasamo.
+</p>
+<div class="fixed_bottom container">
+ <footer class="row align-items-center py-4 my-4 border-top">
+  <a class="col order-1 btn btn-outline-secondary" href="/tipitaka/25Cn/2/2.1/2.1.9.html" id="previous">
+   2.1.9 Todeyyamāṇavapucchāniddesa
+  </a>
+  <a class="col order-2 btn btn-outline-secondary" href="/tipitaka/25Cn/2/2.1.html" id="up">
+   up
+  </a>
+  <a class="col order-3 btn btn-outline-secondary" href="/tipitaka/25Cn/2/2.1/2.1.11.html" id="next">
+   2.1.11 Jatukaṇṇimāṇavapucchāniddesa
+  </a>
+ </footer>
+</div>
+  
     </div>
-   </div>
   </main>
-  <script crossorigin="anonymous" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
-  </script>
-  <script src="/scripts/sidebars.js">
-  </script>
- </body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="/scripts/sidebars.js"></script>
+</body>
+
 </html>
