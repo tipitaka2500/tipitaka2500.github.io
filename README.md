@@ -35,3 +35,4 @@ The scripts to generate this website are contained in https://github.com/tidipa/
 * v2.5: Handle ENDH3, ENDBOOK, G, bold and italic, leaving crappy table handling of verse for now
 * v2.6: Fixed dark mode not working
 * v2.7: Handle SUMMARY, firstLetter, gathaQuote, RLAP. Unhandled: paliSectionName, smallFont as I don't know how to deal with them differently. Add titles to files with no titles. Removed extraneous text.
+* v2.8: Corrected some mistakes in the menu
