@@ -1,0 +1,258 @@
+---
+import fs from 'node:fs';
+import path from 'node:path';
+import Layout from '../layouts/Layout.astro';
+
+const metaPath = path.resolve(process.cwd(), 'public/data/verses/meta.json');
+const meta = JSON.parse(fs.readFileSync(metaPath, 'utf-8'));
+const books = meta.books as Array<{
+  code: string;
+  name: string;
+  full_name: string;
+  thai: string;
+  pitaka: string;
+  url: string;
+}>;
+const counts = meta.counts as Record<string, number>;
+---
+
+<Layout
+  title="Index of Verses (Gāthā) — Tipiṭaka Indices"
+  description="Browse and search all 28,395 Pāḷi verses (Gāthā) in Roman and Thai script across the Tipiṭaka."
+  currentBook="verses"
+  lang="en"
+>
+  <main class="index-page">
+    <div class="index-hero">
+      <h1>Index of Verses (Gāthā)</h1>
+      <p>
+        Explore and search all {meta.total.toLocaleString()} verse paragraphs across {books.length}{' '}
+        books of the Tipiṭaka in both Roman Pāḷi and Thai Pāḷi script, linked directly to their
+        canonical context.
+      </p>
+    </div>
+
+    <div class="index-toolbar" role="search" aria-label="Filter Index of Verses">
+      <div class="form-group">
+        <label for="verses-book-select" class="form-label">Book ({books.length} Books with Verses)</label>
+        <select id="verses-book-select" class="form-select">
+          {
+            books.map((b) => (
+              <option value={b.code} selected={b.code === '18Dh'}>
+                {b.code} — {b.name} ({counts[b.code]?.toLocaleString()} verses)
+              </option>
+            ))
+          }
+          <option value="ALL">All {books.length} Books ({meta.total.toLocaleString()} verses)</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="verses-script-select" class="form-label">Script Display</label>
+        <select id="verses-script-select" class="form-select">
+          <option value="both">Roman &amp; Thai Pāḷi Side-by-Side</option>
+          <option value="roman">Roman Pāḷi Only</option>
+          <option value="thai">Thai Pāḷi Only</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="verses-search-input" class="form-label">
+          Search Verse Text, Section, or Citation
+        </label>
+        <input
+          type="search"
+          id="verses-search-input"
+          class="form-input"
+          placeholder="e.g. manopubbaṅgamā, appamādo, 18Dh:0002…"
+          autocomplete="off"
+          spellcheck="false"
+        />
+      </div>
+    </div>
+
+    <div class="index-stats-bar">
+      <div id="verses-status" aria-live="polite">Loading verses…</div>
+      <div id="verses-book-links"></div>
+    </div>
+
+    <div id="verses-list"></div>
+    <div id="verses-sentinel" class="load-more-sentinel"></div>
+  </main>
+
+  <script is:inline define:vars={{ books }}>
+    (() => {
+      const bookSelect = document.getElementById('verses-book-select');
+      const scriptSelect = document.getElementById('verses-script-select');
+      const searchInput = document.getElementById('verses-search-input');
+      const statusEl = document.getElementById('verses-status');
+      const bookLinksEl = document.getElementById('verses-book-links');
+      const listEl = document.getElementById('verses-list');
+      const sentinel = document.getElementById('verses-sentinel');
+
+      const cache = new Map();
+      let currentFiltered = [];
+      let renderedCount = 0;
+      const PAGE_SIZE = 80;
+
+      function stripDiacritics(str) {
+        return (str || '')
+          .normalize('NFKD')
+          .replace(/[\u0300-\u036f]/g, '')
+          .toLowerCase();
+      }
+
+      function escapeHtml(str) {
+        return String(str || '')
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;');
+      }
+
+      async function fetchBookVerses(code) {
+        if (cache.has(code)) return cache.get(code);
+        const res = await fetch(`/data/verses/${code}.json`);
+        const data = await res.json();
+        cache.set(code, data);
+        return data;
+      }
+
+      async function getActiveItems(bookCode) {
+        if (bookCode === 'ALL') {
+          statusEl.textContent = `Loading verses across all ${books.length} books…`;
+          const allArrays = await Promise.all(books.map((b) => fetchBookVerses(b.code)));
+          return allArrays.flat();
+        }
+        return fetchBookVerses(bookCode);
+      }
+
+      function renderBatch() {
+        const scriptMode = scriptSelect.value;
+        const nextEnd = Math.min(renderedCount + PAGE_SIZE, currentFiltered.length);
+        if (renderedCount >= nextEnd) {
+          sentinel.textContent =
+            currentFiltered.length === 0
+              ? 'No matching verses found.'
+              : `Showing all ${currentFiltered.length.toLocaleString()} verses.`;
+          return;
+        }
+
+        const cardsHtml = [];
+        for (let i = renderedCount; i < nextEnd; i++) {
+          const v = currentFiltered[i];
+          const romanBlock =
+            scriptMode !== 'thai'
+              ? `<div class="verse-roman" lang="pi">${escapeHtml(v.rv || '—')}</div>`
+              : '';
+          const thaiBlock =
+            scriptMode !== 'roman'
+              ? `<div class="verse-thai" lang="pi">${escapeHtml(v.tv || '—')}</div>`
+              : '';
+
+          cardsHtml.push(`
+            <article class="index-card">
+              <div class="index-card-header">
+                <div>
+                  <a href="${escapeHtml(v.u)}" class="index-card-title">${escapeHtml(v.p)}</a>
+                  ${v.d ? `<span class="badge-code">Div ${escapeHtml(v.d)}</span>` : ''}
+                  ${v.rs ? `<span class="index-card-meta"> · ${escapeHtml(v.rs)}</span>` : ''}
+                  ${v.ts ? `<span class="index-card-meta" lang="pi"> (${escapeHtml(v.ts)})</span>` : ''}
+                </div>
+                <a href="${escapeHtml(v.u)}" class="badge-pill">Read in Context →</a>
+              </div>
+              <div class="verse-grid">
+                ${romanBlock}
+                ${thaiBlock}
+              </div>
+            </article>
+          `);
+        }
+
+        listEl.insertAdjacentHTML('beforeend', cardsHtml.join(''));
+        renderedCount = nextEnd;
+        sentinel.textContent =
+          renderedCount < currentFiltered.length
+            ? `Showing ${renderedCount.toLocaleString()} of ${currentFiltered.length.toLocaleString()} verses — scroll for more…`
+            : `Showing all ${currentFiltered.length.toLocaleString()} verses.`;
+      }
+
+      async function updateView() {
+        const bookCode = bookSelect.value;
+        const scriptMode = scriptSelect.value;
+        const q = searchInput.value.trim();
+        const qNorm = stripDiacritics(q);
+
+        const params = new URLSearchParams();
+        if (bookCode && bookCode !== '18Dh') params.set('book', bookCode);
+        if (scriptMode !== 'both') params.set('script', scriptMode);
+        if (q) params.set('q', q);
+        const newUrl = `${window.location.pathname}${params.toString() ? '?' + params.toString() : ''}`;
+        window.history.replaceState(null, '', newUrl);
+
+        const items = await getActiveItems(bookCode);
+        currentFiltered = items.filter((v) => {
+          if (!qNorm) return true;
+          return (
+            stripDiacritics(v.rv).includes(qNorm) ||
+            (v.tv && v.tv.includes(q)) ||
+            stripDiacritics(v.p).includes(qNorm) ||
+            stripDiacritics(v.rs).includes(qNorm) ||
+            (v.ts && v.ts.includes(q))
+          );
+        });
+
+        listEl.innerHTML = '';
+        renderedCount = 0;
+
+        const bookMeta = books.find((b) => b.code === bookCode);
+        if (bookMeta) {
+          bookLinksEl.innerHTML = `
+            <a href="${bookMeta.url}" class="badge-pill">Open ${bookMeta.code} Reader →</a>
+            <a href="/toc.html?book=${bookMeta.code}" class="badge-pill">TOC</a>
+            <a href="/notes.html?book=${bookMeta.code}" class="badge-pill">Notes</a>
+            <a href="/concordances.html?book=${bookMeta.code}" class="badge-pill">Concordance</a>
+          `;
+        } else {
+          bookLinksEl.innerHTML = '';
+        }
+
+        statusEl.textContent = `Found ${currentFiltered.length.toLocaleString()} verse${currentFiltered.length === 1 ? '' : 's'}.`;
+        renderBatch();
+      }
+
+      const initParams = new URLSearchParams(window.location.search);
+      if (initParams.get('book')) {
+        bookSelect.value = initParams.get('book');
+      } else if (initParams.get('q')) {
+        bookSelect.value = 'ALL';
+      }
+      if (initParams.get('script')) scriptSelect.value = initParams.get('script');
+      if (initParams.get('q')) searchInput.value = initParams.get('q');
+
+      let debounceTimer = null;
+      bookSelect.addEventListener('change', updateView);
+      scriptSelect.addEventListener('change', () => {
+        listEl.innerHTML = '';
+        renderedCount = 0;
+        renderBatch();
+      });
+      searchInput.addEventListener('input', () => {
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(updateView, 180);
+      });
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          if (entries.some((e) => e.isIntersecting) && renderedCount < currentFiltered.length) {
+            renderBatch();
+          }
+        },
+        { rootMargin: '300px' }
+      );
+      observer.observe(sentinel);
+
+      updateView();
+    })();
+  </script>
+</Layout>

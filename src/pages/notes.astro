@@ -1,0 +1,349 @@
+---
+import fs from 'node:fs';
+import path from 'node:path';
+import Layout from '../layouts/Layout.astro';
+
+const metaPath = path.resolve(process.cwd(), 'public/data/notes/meta.json');
+const meta = JSON.parse(fs.readFileSync(metaPath, 'utf-8'));
+const books = meta.books as Array<{
+  code: string;
+  name: string;
+  full_name: string;
+  thai: string;
+  pitaka: string;
+  url: string;
+}>;
+const counts = meta.counts as Record<string, number>;
+const editions = meta.editions as Array<{
+  edition_code: string;
+  pali_abbr: string;
+  thai_abbr: string;
+  title_pali: string;
+  title_thai: string;
+  country: string;
+  year_be: string;
+  year_ce: string;
+}>;
+---
+
+<Layout
+  title="Critical Apparatus & Notes — Tipiṭaka Indices"
+  description="Browse and search all 26,529 critical apparatus notes, manuscript variants, and cross-references across the World Tipiṭaka Edition."
+  currentBook="notes"
+  lang="en"
+>
+  <main class="index-page">
+    <div class="index-hero">
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.75rem;">
+        <div>
+          <h1>Critical Apparatus &amp; Notes</h1>
+          <p>
+            Search all {meta.total.toLocaleString()} textual variants, manuscript collations, and
+            canonical cross-references across {books.length} books of the Tipiṭaka.
+          </p>
+        </div>
+        <button type="button" class="btn-chip" id="open-editions-guide">
+          Edition Abbreviations Guide ({editions.length})
+        </button>
+      </div>
+    </div>
+
+    <div class="index-toolbar" role="search" aria-label="Filter Critical Apparatus Notes">
+      <div class="form-group">
+        <label for="notes-book-select" class="form-label">Book ({books.length} Books)</label>
+        <select id="notes-book-select" class="form-select">
+          {
+            books.map((b, i) => (
+              <option value={b.code} selected={i === 0}>
+                {b.code} — {b.name} ({counts[b.code]?.toLocaleString()} notes)
+              </option>
+            ))
+          }
+          <option value="ALL">All {books.length} Books ({meta.total.toLocaleString()} notes)</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="notes-type-select" class="form-label">Note Type</label>
+        <select id="notes-type-select" class="form-select">
+          <option value="ALL">All Note Types</option>
+          <option value="Word Variant">Word Variant (22,946)</option>
+          <option value="Cross Reference">Cross Reference (2,832)</option>
+          <option value="Close">Close Reading / Editorial (708)</option>
+          <option value="Open">Open Reading / Editorial (43)</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="notes-edition-select" class="form-label">Edition / Witness Filter</label>
+        <select id="notes-edition-select" class="form-select">
+          <option value="ALL">All Editions</option>
+          <option value="sī">sī — Sīhaḷa (Sri Lankan)</option>
+          <option value="syā">syā1–3 — Syāmaraṭṭha (Thai Royal)</option>
+          <option value="pā">pā1–2 — Pāḷi Text Society (PTS)</option>
+          <option value="ka">ka — Kambuja (Cambodian)</option>
+          <option value="ma">ma — Maramma (Burmese)</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="notes-search-input" class="form-label">
+          Search Target Word, Variant, or Citation
+        </label>
+        <input
+          type="search"
+          id="notes-search-input"
+          class="form-input"
+          placeholder="e.g. verañjāyaṁ, 1V:2, 24Mn:1898…"
+          autocomplete="off"
+          spellcheck="false"
+        />
+      </div>
+    </div>
+
+    <div class="index-stats-bar">
+      <div id="notes-status" aria-live="polite">Loading critical apparatus notes…</div>
+      <div id="notes-book-links"></div>
+    </div>
+
+    <div class="index-table-wrapper">
+      <table class="index-table">
+        <caption id="notes-table-caption">Critical apparatus notes</caption>
+        <thead>
+          <tr>
+            <th scope="col">Paragraph &amp; Note #</th>
+            <th scope="col">Target Word</th>
+            <th scope="col">Type</th>
+            <th scope="col">Critical Apparatus Reading &amp; Cross-References</th>
+          </tr>
+        </thead>
+        <tbody id="notes-tbody"></tbody>
+      </table>
+    </div>
+    <div id="notes-sentinel" class="load-more-sentinel"></div>
+
+    <dialog id="editions-guide-dialog" class="modal-dialog" aria-labelledby="editions-guide-title">
+      <div class="modal-header">
+        <h2 id="editions-guide-title" class="modal-title">Critical Apparatus Edition Abbreviations</h2>
+        <button type="button" class="modal-close-btn" id="close-editions-guide" aria-label="Close dialog">
+          ✕
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="index-table-wrapper">
+          <table class="index-table">
+            <caption>Tipiṭaka Editions Collated in Critical Notes</caption>
+            <thead>
+              <tr>
+                <th scope="col">Code</th>
+                <th scope="col">Pāḷi / Thai Abbr.</th>
+                <th scope="col">Edition Title</th>
+                <th scope="col">Country &amp; Year</th>
+              </tr>
+            </thead>
+            <tbody>
+              {
+                editions.map((ed) => (
+                  <tr>
+                    <td>
+                      <span class="badge-code">{ed.edition_code}</span>
+                    </td>
+                    <td>
+                      <strong>{ed.pali_abbr || '—'}</strong> / {ed.thai_abbr || '—'}
+                    </td>
+                    <td>
+                      <div>{ed.title_pali}</div>
+                      <div class="quick-jump-sub">{ed.title_thai}</div>
+                    </td>
+                    <td>
+                      {ed.country} ({ed.year_ce || ed.year_be})
+                    </td>
+                  </tr>
+                ))
+              }
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </dialog>
+  </main>
+
+  <script is:inline define:vars={{ books }}>
+    (() => {
+      const bookSelect = document.getElementById('notes-book-select');
+      const typeSelect = document.getElementById('notes-type-select');
+      const editionSelect = document.getElementById('notes-edition-select');
+      const searchInput = document.getElementById('notes-search-input');
+      const statusEl = document.getElementById('notes-status');
+      const bookLinksEl = document.getElementById('notes-book-links');
+      const captionEl = document.getElementById('notes-table-caption');
+      const tbody = document.getElementById('notes-tbody');
+      const sentinel = document.getElementById('notes-sentinel');
+
+      const guideDialog = document.getElementById('editions-guide-dialog');
+      const openGuideBtn = document.getElementById('open-editions-guide');
+      const closeGuideBtn = document.getElementById('close-editions-guide');
+      if (openGuideBtn && guideDialog) {
+        openGuideBtn.addEventListener('click', () => guideDialog.showModal());
+      }
+      if (closeGuideBtn && guideDialog) {
+        closeGuideBtn.addEventListener('click', () => guideDialog.close());
+      }
+      if (guideDialog) {
+        guideDialog.addEventListener('click', (e) => {
+          if (e.target === guideDialog) guideDialog.close();
+        });
+      }
+
+      const cache = new Map();
+      let currentFiltered = [];
+      let renderedCount = 0;
+      const PAGE_SIZE = 120;
+
+      function stripDiacritics(str) {
+        return (str || '')
+          .normalize('NFKD')
+          .replace(/[\u0300-\u036f]/g, '')
+          .toLowerCase();
+      }
+
+      function escapeHtml(str) {
+        return String(str || '')
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;');
+      }
+
+      async function fetchBookNotes(code) {
+        if (cache.has(code)) return cache.get(code);
+        const res = await fetch(`/data/notes/${code}.json`);
+        const data = await res.json();
+        cache.set(code, data);
+        return data;
+      }
+
+      async function getActiveItems(bookCode) {
+        if (bookCode === 'ALL') {
+          statusEl.textContent = `Loading notes across all ${books.length} books…`;
+          const allArrays = await Promise.all(books.map((b) => fetchBookNotes(b.code)));
+          return allArrays.flat();
+        }
+        return fetchBookNotes(bookCode);
+      }
+
+      function renderBatch() {
+        const nextEnd = Math.min(renderedCount + PAGE_SIZE, currentFiltered.length);
+        if (renderedCount >= nextEnd) {
+          sentinel.textContent =
+            currentFiltered.length === 0
+              ? 'No matching notes found.'
+              : `Showing all ${currentFiltered.length.toLocaleString()} notes.`;
+          return;
+        }
+
+        const rowsHtml = [];
+        for (let i = renderedCount; i < nextEnd; i++) {
+          const n = currentFiltered[i];
+          rowsHtml.push(`
+            <tr>
+              <td style="white-space: nowrap">
+                <a href="${escapeHtml(n.u)}" class="index-card-title">${escapeHtml(n.pa)}</a>
+                <a href="${escapeHtml(n.fu)}" class="badge-pill" title="Jump to footnote [${escapeHtml(n.id)}]">[${escapeHtml(n.id)}]</a>
+              </td>
+              <td lang="pi"><strong>${escapeHtml(n.w || '—')}</strong></td>
+              <td style="white-space: nowrap"><span class="badge-code">${escapeHtml(n.t)}</span></td>
+              <td lang="pi">${n.h}</td>
+            </tr>
+          `);
+        }
+
+        tbody.insertAdjacentHTML('beforeend', rowsHtml.join(''));
+        renderedCount = nextEnd;
+        sentinel.textContent =
+          renderedCount < currentFiltered.length
+            ? `Showing ${renderedCount.toLocaleString()} of ${currentFiltered.length.toLocaleString()} notes — scroll for more…`
+            : `Showing all ${currentFiltered.length.toLocaleString()} notes.`;
+      }
+
+      async function updateView() {
+        const bookCode = bookSelect.value;
+        const noteType = typeSelect.value;
+        const edFilter = editionSelect.value;
+        const q = searchInput.value.trim();
+        const qNorm = stripDiacritics(q);
+
+        const params = new URLSearchParams();
+        if (bookCode && bookCode !== '1V') params.set('book', bookCode);
+        if (noteType !== 'ALL') params.set('type', noteType);
+        if (edFilter !== 'ALL') params.set('ed', edFilter);
+        if (q) params.set('q', q);
+        const newUrl = `${window.location.pathname}${params.toString() ? '?' + params.toString() : ''}`;
+        window.history.replaceState(null, '', newUrl);
+
+        const items = await getActiveItems(bookCode);
+        currentFiltered = items.filter((n) => {
+          if (noteType !== 'ALL' && n.t !== noteType) return false;
+          if (edFilter !== 'ALL' && !(n.tx && n.tx.includes(edFilter))) return false;
+          if (!qNorm) return true;
+          return (
+            stripDiacritics(n.w).includes(qNorm) ||
+            stripDiacritics(n.tx).includes(qNorm) ||
+            stripDiacritics(n.pa).includes(qNorm) ||
+            stripDiacritics(n.p).includes(qNorm)
+          );
+        });
+
+        tbody.innerHTML = '';
+        renderedCount = 0;
+
+        const bookMeta = books.find((b) => b.code === bookCode);
+        if (bookMeta) {
+          captionEl.textContent = `Critical Apparatus Notes in ${bookMeta.name} (${bookMeta.code})`;
+          bookLinksEl.innerHTML = `
+            <a href="${bookMeta.url}" class="badge-pill">Open ${bookMeta.code} Reader →</a>
+            <a href="/toc.html?book=${bookMeta.code}" class="badge-pill">TOC</a>
+            <a href="/concordances.html?book=${bookMeta.code}" class="badge-pill">Concordance</a>
+          `;
+        } else {
+          captionEl.textContent = `Critical Apparatus Notes across All Books`;
+          bookLinksEl.innerHTML = '';
+        }
+
+        statusEl.textContent = `Found ${currentFiltered.length.toLocaleString()} note${currentFiltered.length === 1 ? '' : 's'}.`;
+        renderBatch();
+      }
+
+      const initParams = new URLSearchParams(window.location.search);
+      if (initParams.get('book')) {
+        bookSelect.value = initParams.get('book');
+      } else if (initParams.get('q') || initParams.get('type') || initParams.get('ed')) {
+        bookSelect.value = 'ALL';
+      }
+      if (initParams.get('type')) typeSelect.value = initParams.get('type');
+      if (initParams.get('ed')) editionSelect.value = initParams.get('ed');
+      if (initParams.get('q')) searchInput.value = initParams.get('q');
+
+      let debounceTimer = null;
+      bookSelect.addEventListener('change', updateView);
+      typeSelect.addEventListener('change', updateView);
+      editionSelect.addEventListener('change', updateView);
+      searchInput.addEventListener('input', () => {
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(updateView, 180);
+      });
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          if (entries.some((e) => e.isIntersecting) && renderedCount < currentFiltered.length) {
+            renderBatch();
+          }
+        },
+        { rootMargin: '300px' }
+      );
+      observer.observe(sentinel);
+
+      updateView();
+    })();
+  </script>
+</Layout>

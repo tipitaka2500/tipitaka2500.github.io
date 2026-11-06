@@ -1,0 +1,355 @@
+---
+import fs from 'node:fs';
+import path from 'node:path';
+import Layout from '../layouts/Layout.astro';
+
+const metaPath = path.resolve(process.cwd(), 'public/data/concordances/meta.json');
+const meta = JSON.parse(fs.readFileSync(metaPath, 'utf-8'));
+const books = meta.books as Array<{
+  code: string;
+  name: string;
+  full_name: string;
+  thai: string;
+  pitaka: string;
+  url: string;
+}>;
+const counts = meta.counts as Record<string, number>;
+const editions = meta.editions as Array<{
+  edition_code: string;
+  name_en: string;
+  name_thai: string;
+  script: string;
+  country: string;
+  publisher: string;
+  volumes: number;
+  years_be: string;
+  years_ce: string;
+}>;
+---
+
+<Layout
+  title="Page Concordances — Tipiṭaka Indices"
+  description="Cross-reference 164,784 page concordances between the World Tipiṭaka Edition and PTS, Chaṭṭhasaṅgīti, Syāmaraṭṭha, Buddhajayantī, and VRI printed editions."
+  currentBook="concordances"
+  lang="en"
+>
+  <main class="index-page">
+    <div class="index-hero">
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.75rem;">
+        <div>
+          <h1>Page Concordances</h1>
+          <p>
+            Cross-reference {meta.total.toLocaleString()} paragraph-to-printed-page concordances
+            across all 88 books with PTS, Chaṭṭhasaṅgīti, Syāmaraṭṭha, Buddhajayantī, and VRI
+            editions.
+          </p>
+        </div>
+        <button type="button" class="btn-chip" id="open-conc-editions-guide">
+          Printed Editions Details ({editions.length})
+        </button>
+      </div>
+    </div>
+
+    <div class="index-toolbar" role="search" aria-label="Filter Page Concordances">
+      <div class="form-group">
+        <label for="conc-book-select" class="form-label">Book (88 Books)</label>
+        <select id="conc-book-select" class="form-select">
+          {
+            books.map((b, i) => (
+              <option value={b.code} selected={i === 0}>
+                {b.code} — {b.name} ({counts[b.code]?.toLocaleString()})
+              </option>
+            ))
+          }
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="conc-edition-select" class="form-label">Printed Edition</label>
+        <select id="conc-edition-select" class="form-select">
+          <option value="ALL">All Printed Editions</option>
+          {
+            editions.map((ed) => (
+              <option value={ed.edition_code}>
+                {ed.edition_code} — {ed.name_en} ({ed.script})
+              </option>
+            ))
+          }
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="conc-page-input" class="form-label">Edition Volume or Page #</label>
+        <input
+          type="search"
+          id="conc-page-input"
+          class="form-input"
+          placeholder="e.g. page 12, vol 3.1…"
+          autocomplete="off"
+          spellcheck="false"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="conc-search-input" class="form-label">Paragraph, Division, or Section</label>
+        <input
+          type="search"
+          id="conc-search-input"
+          class="form-input"
+          placeholder="e.g. 1V:0002, Verañjakaṇḍa…"
+          autocomplete="off"
+          spellcheck="false"
+        />
+      </div>
+    </div>
+
+    <div class="index-stats-bar">
+      <div id="conc-status" aria-live="polite">Loading page concordances…</div>
+      <div id="conc-book-links"></div>
+    </div>
+
+    <div class="index-table-wrapper">
+      <table class="index-table">
+        <caption id="conc-table-caption">Page concordances for selected book</caption>
+        <thead>
+          <tr>
+            <th scope="col">Paragraph</th>
+            <th scope="col">Division</th>
+            <th scope="col">Section</th>
+            <th scope="col">Edition</th>
+            <th scope="col">Volume</th>
+            <th scope="col">Printed Page(s)</th>
+          </tr>
+        </thead>
+        <tbody id="conc-tbody"></tbody>
+      </table>
+    </div>
+    <div id="conc-sentinel" class="load-more-sentinel"></div>
+
+    <dialog id="conc-editions-dialog" class="modal-dialog" aria-labelledby="conc-editions-title">
+      <div class="modal-header">
+        <h2 id="conc-editions-title" class="modal-title">Printed Tipiṭaka Editions in Concordance</h2>
+        <button type="button" class="modal-close-btn" id="close-conc-editions-guide" aria-label="Close dialog">
+          ✕
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="index-table-wrapper">
+          <table class="index-table">
+            <caption>Bibliographical Details of Collated Printed Editions</caption>
+            <thead>
+              <tr>
+                <th scope="col">Code</th>
+                <th scope="col">Edition Name</th>
+                <th scope="col">Script &amp; Country</th>
+                <th scope="col">Volumes &amp; Years</th>
+              </tr>
+            </thead>
+            <tbody>
+              {
+                editions.map((ed) => (
+                  <tr>
+                    <td>
+                      <span class="badge-code">{ed.edition_code}</span>
+                    </td>
+                    <td>
+                      <div><strong>{ed.name_en}</strong></div>
+                      <div class="quick-jump-sub">{ed.name_thai} · {ed.publisher}</div>
+                    </td>
+                    <td>
+                      {ed.script} ({ed.country})
+                    </td>
+                    <td>
+                      {ed.volumes} vols · {ed.years_ce} (B.E. {ed.years_be})
+                    </td>
+                  </tr>
+                ))
+              }
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </dialog>
+  </main>
+
+  <script is:inline define:vars={{ books, editions }}>
+    (() => {
+      const bookSelect = document.getElementById('conc-book-select');
+      const editionSelect = document.getElementById('conc-edition-select');
+      const pageInput = document.getElementById('conc-page-input');
+      const searchInput = document.getElementById('conc-search-input');
+      const statusEl = document.getElementById('conc-status');
+      const bookLinksEl = document.getElementById('conc-book-links');
+      const captionEl = document.getElementById('conc-table-caption');
+      const tbody = document.getElementById('conc-tbody');
+      const sentinel = document.getElementById('conc-sentinel');
+
+      const edMap = Object.fromEntries(editions.map((e) => [e.edition_code, e.name_en]));
+
+      const guideDialog = document.getElementById('conc-editions-dialog');
+      const openGuideBtn = document.getElementById('open-conc-editions-guide');
+      const closeGuideBtn = document.getElementById('close-conc-editions-guide');
+      if (openGuideBtn && guideDialog) {
+        openGuideBtn.addEventListener('click', () => guideDialog.showModal());
+      }
+      if (closeGuideBtn && guideDialog) {
+        closeGuideBtn.addEventListener('click', () => guideDialog.close());
+      }
+      if (guideDialog) {
+        guideDialog.addEventListener('click', (e) => {
+          if (e.target === guideDialog) guideDialog.close();
+        });
+      }
+
+      const cache = new Map();
+      let currentFiltered = [];
+      let renderedCount = 0;
+      const PAGE_SIZE = 150;
+
+      function stripDiacritics(str) {
+        return (str || '')
+          .normalize('NFKD')
+          .replace(/[\u0300-\u036f]/g, '')
+          .toLowerCase();
+      }
+
+      function escapeHtml(str) {
+        return String(str || '')
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;');
+      }
+
+      async function fetchBookConc(code) {
+        if (cache.has(code)) return cache.get(code);
+        const res = await fetch(`/data/concordances/${code}.json`);
+        const data = await res.json();
+        cache.set(code, data);
+        return data;
+      }
+
+      function renderBatch() {
+        const nextEnd = Math.min(renderedCount + PAGE_SIZE, currentFiltered.length);
+        if (renderedCount >= nextEnd) {
+          sentinel.textContent =
+            currentFiltered.length === 0
+              ? 'No matching concordance entries found.'
+              : `Showing all ${currentFiltered.length.toLocaleString()} entries.`;
+          return;
+        }
+
+        const rowsHtml = [];
+        for (let i = renderedCount; i < nextEnd; i++) {
+          const c = currentFiltered[i];
+          const edLabel = edMap[c.ec] || c.ec;
+          rowsHtml.push(`
+            <tr>
+              <td style="white-space: nowrap">
+                <a href="${escapeHtml(c.u)}" class="index-card-title">${escapeHtml(c.p)}</a>
+              </td>
+              <td style="white-space: nowrap">${escapeHtml(c.d || '—')}</td>
+              <td>
+                <div>${escapeHtml(c.rs || '—')}</div>
+                <div class="quick-jump-sub" lang="pi">${escapeHtml(c.ts || '')}</div>
+              </td>
+              <td style="white-space: nowrap">
+                <span class="badge-code" title="${escapeHtml(edLabel)}">${escapeHtml(c.ec)}</span>
+                <span class="index-card-meta">${escapeHtml(edLabel)}</span>
+              </td>
+              <td style="white-space: nowrap">${escapeHtml(c.v || '—')}</td>
+              <td style="white-space: nowrap"><strong>p. ${escapeHtml(c.ep || '—')}</strong></td>
+            </tr>
+          `);
+        }
+
+        tbody.insertAdjacentHTML('beforeend', rowsHtml.join(''));
+        renderedCount = nextEnd;
+        sentinel.textContent =
+          renderedCount < currentFiltered.length
+            ? `Showing ${renderedCount.toLocaleString()} of ${currentFiltered.length.toLocaleString()} entries — scroll for more…`
+            : `Showing all ${currentFiltered.length.toLocaleString()} entries.`;
+      }
+
+      async function updateView() {
+        const bookCode = bookSelect.value;
+        const edCode = editionSelect.value;
+        const pageQ = pageInput.value.trim().toLowerCase();
+        const q = searchInput.value.trim();
+        const qNorm = stripDiacritics(q);
+
+        const params = new URLSearchParams();
+        if (bookCode && bookCode !== '1V') params.set('book', bookCode);
+        if (edCode !== 'ALL') params.set('ed', edCode);
+        if (pageQ) params.set('page', pageQ);
+        if (q) params.set('q', q);
+        const newUrl = `${window.location.pathname}${params.toString() ? '?' + params.toString() : ''}`;
+        window.history.replaceState(null, '', newUrl);
+
+        statusEl.textContent = `Loading concordances for ${bookCode}…`;
+        const items = await fetchBookConc(bookCode);
+        currentFiltered = items.filter((c) => {
+          if (edCode !== 'ALL' && c.ec !== edCode) return false;
+          if (pageQ) {
+            const matchEp = c.ep && c.ep.toLowerCase().includes(pageQ);
+            const matchVol = c.v && c.v.toLowerCase().includes(pageQ);
+            if (!matchEp && !matchVol) return false;
+          }
+          if (!qNorm) return true;
+          return (
+            stripDiacritics(c.p).includes(qNorm) ||
+            stripDiacritics(c.d).includes(qNorm) ||
+            stripDiacritics(c.rs).includes(qNorm) ||
+            (c.ts && c.ts.includes(q))
+          );
+        });
+
+        tbody.innerHTML = '';
+        renderedCount = 0;
+
+        const bookMeta = books.find((b) => b.code === bookCode);
+        if (bookMeta) {
+          captionEl.textContent = `Page Concordances for ${bookMeta.name} (${bookMeta.code}) — ${bookMeta.thai}`;
+          bookLinksEl.innerHTML = `
+            <a href="${bookMeta.url}" class="badge-pill">Open ${bookMeta.code} Reader →</a>
+            <a href="/toc.html?book=${bookMeta.code}" class="badge-pill">TOC</a>
+            <a href="/notes.html?book=${bookMeta.code}" class="badge-pill">Notes</a>
+          `;
+        }
+
+        statusEl.textContent = `Found ${currentFiltered.length.toLocaleString()} concordance entr${currentFiltered.length === 1 ? 'y' : 'ies'}.`;
+        renderBatch();
+      }
+
+      const initParams = new URLSearchParams(window.location.search);
+      if (initParams.get('book')) bookSelect.value = initParams.get('book');
+      if (initParams.get('ed')) editionSelect.value = initParams.get('ed');
+      if (initParams.get('page')) pageInput.value = initParams.get('page');
+      if (initParams.get('q')) searchInput.value = initParams.get('q');
+
+      let debounceTimer = null;
+      bookSelect.addEventListener('change', updateView);
+      editionSelect.addEventListener('change', updateView);
+      pageInput.addEventListener('input', () => {
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(updateView, 180);
+      });
+      searchInput.addEventListener('input', () => {
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(updateView, 180);
+      });
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          if (entries.some((e) => e.isIntersecting) && renderedCount < currentFiltered.length) {
+            renderBatch();
+          }
+        },
+        { rootMargin: '300px' }
+      );
+      observer.observe(sentinel);
+
+      updateView();
+    })();
+  </script>
+</Layout>

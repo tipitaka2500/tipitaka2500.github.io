@@ -1,0 +1,117 @@
+---
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  const tipitakaDir = path.join(process.cwd(), 'tipitaka');
+  const entries = await fs.readdir(tipitakaDir, { recursive: true });
+  return entries
+    .filter((entry) => entry.endsWith('.html'))
+    .map((entry) => ({
+      params: {
+        slug: entry.split(path.sep).join('/').slice(0, -5),
+      },
+    }));
+}
+
+function unescapeHtml(str: string): string {
+  return str
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'");
+}
+
+const rawSlug = Astro.params.slug || '';
+const cleanSlug = rawSlug.replace(/\.html$/, '');
+const filePath = path.join(process.cwd(), 'tipitaka', `${cleanSlug}.html`);
+
+const rawHtml = await fs.readFile(filePath, 'utf-8');
+
+const titleMatch = rawHtml.match(/<title>(.*?)<\/title>/s);
+const rawTitle = titleMatch ? titleMatch[1].trim() : cleanSlug;
+const pageTitle = unescapeHtml(rawTitle);
+
+const tocMatch = rawHtml.match(/<meta\s+name="toc-section-path"\s+content="([^"]*)"/i);
+const tocSectionPath = tocMatch ? tocMatch[1] : '';
+
+const bodyMatch = rawHtml.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
+const bodyContent = bodyMatch ? bodyMatch[1].trim() : rawHtml;
+
+const currentBook = cleanSlug.split('/')[0] || '';
+
+// Extract breadcrumbs for SEO & JSON-LD BreadcrumbList
+const breadcrumbs: Array<{ name: string; url: string }> = [];
+const bcOlMatch = rawHtml.match(/<ol\s+class="breadcrumb"[^>]*>([\s\S]*?)<\/ol>/i);
+if (bcOlMatch) {
+  const liRegex = /<a\s+href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/gi;
+  let m: RegExpExecArray | null;
+  while ((m = liRegex.exec(bcOlMatch[1])) !== null) {
+    breadcrumbs.push({
+      url: m[1].trim(),
+      name: unescapeHtml(m[2].replace(/<[^>]+>/g, '').trim()),
+    });
+  }
+}
+breadcrumbs.push({
+  url: `/tipitaka/${cleanSlug}.html`,
+  name: pageTitle.split(' — ')[0] || pageTitle,
+});
+
+// Extract first Pāḷi paragraph snippet from <main> for meta description
+const mainMatch = rawHtml.match(/<main>([\s\S]*?)<\/main>/i);
+let textSnippet = '';
+if (mainMatch) {
+  const pMatches = mainMatch[1].match(/<p[^>]*>([\s\S]*?)<\/p>/gi) || [];
+  const sampleParts: string[] = [];
+  for (const pHtml of pMatches.slice(0, 2)) {
+    const cleaned = unescapeHtml(
+      pHtml
+        .replace(/<sup[^>]*>[\s\S]*?<\/sup>/gi, '')
+        .replace(/<span\s+class="(?:division|paragraph)-number"[^>]*>[\s\S]*?<\/span>/gi, '')
+        .replace(/<[^>]+>/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim()
+    );
+    if (cleaned && !cleaned.startsWith('Namo tassa')) {
+      sampleParts.push(cleaned);
+    }
+  }
+  textSnippet = sampleParts.join(' ').slice(0, 165);
+}
+
+const bookBreadcrumb = breadcrumbs.length > 1 ? breadcrumbs[1].name : currentBook;
+const seoTitle =
+  pageTitle.includes(currentBook)
+    ? `${pageTitle} | The World Tipiṭaka Edition`
+    : `${pageTitle} (${bookBreadcrumb}) | The World Tipiṭaka Edition`;
+
+const breadcrumbTrail = breadcrumbs
+  .slice(1)
+  .map((b) => b.name)
+  .join(' › ');
+const seoDescription = textSnippet
+  ? `${breadcrumbTrail}: “${textSnippet}…” — World Tipiṭaka Edition (Mahāsaṅgīti Tipiṭaka Buddhavasse 2500) in Roman Pāḷi.`
+  : `${breadcrumbTrail} (${pageTitle}) — World Tipiṭaka Edition (Mahāsaṅgīti Tipiṭaka Buddhavasse 2500) in Roman Pāḷi.`;
+
+const prevMatch = rawHtml.match(/<a\s+href="([^"]+)"\s+id="previous"/i);
+const nextMatch = rawHtml.match(/<a\s+href="([^"]+)"\s+id="next"/i);
+const prevUrl = prevMatch ? prevMatch[1] : '';
+const nextUrl = nextMatch ? nextMatch[1] : '';
+---
+
+<Layout
+  title={seoTitle}
+  description={seoDescription}
+  currentBook={currentBook}
+  tocSectionPath={tocSectionPath}
+  lang="pi"
+  ogType="article"
+  prevUrl={prevUrl}
+  nextUrl={nextUrl}
+  breadcrumbs={breadcrumbs}
+>
+  <div class="tipitaka-content" set:html={bodyContent} />
+</Layout>

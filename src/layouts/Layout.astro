@@ -1,0 +1,739 @@
+---
+import Sidebar from '../components/Sidebar.astro';
+import '../styles/global.css';
+
+interface BreadcrumbItem {
+  name: string;
+  url: string;
+}
+
+interface Props {
+  title: string;
+  description?: string;
+  currentBook?: string;
+  tocSectionPath?: string;
+  lang?: string;
+  ogType?: 'website' | 'article' | 'book';
+  ogImage?: string;
+  ogImageAlt?: string;
+  keywords?: string;
+  prevUrl?: string;
+  nextUrl?: string;
+  breadcrumbs?: BreadcrumbItem[];
+}
+
+const {
+  title,
+  description = 'The World Tipiṭaka Edition (Mahāsaṅgīti Tipiṭaka Buddhavasse 2500): complete 40-volume Roman-script Pāḷi Tipiṭaka (2005 / 2020 Edition) with critical apparatus footnotes, cross-references, page concordances, and indices.',
+  currentBook = '',
+  tocSectionPath = '',
+  lang = 'en',
+  ogType = 'website',
+  ogImage = '/images/tipitaka-volumes.jpg',
+  ogImageAlt = 'The 40 volumes of the Roman-script World Tipiṭaka Edition (Mahāsaṅgīti Tipiṭaka Buddhavasse 2500) arranged in a circle',
+  keywords = 'Pāḷi Tipiṭaka, World Tipiṭaka Edition, Mahāsaṅgīti Tipiṭaka Buddhavasse 2500, Chaṭṭhasaṅgīti, Theravāda Buddhist Canon, Vinayapiṭaka, Suttantapiṭaka, Abhidhammapiṭaka, Roman Script Pāḷi, Sajjhāya, OpenPāḷi',
+  prevUrl = '',
+  nextUrl = '',
+  breadcrumbs = [],
+} = Astro.props;
+
+const siteOrigin = (Astro.site ? Astro.site.origin : 'https://tipitaka2500.github.io').replace(
+  /\/$/,
+  ''
+);
+const rawPathname = Astro.url.pathname || '/';
+const normalizedPath =
+  rawPathname === '/' || rawPathname === '/index.html'
+    ? '/'
+    : rawPathname.endsWith('.html')
+      ? rawPathname
+      : `${rawPathname.replace(/\/$/, '')}.html`;
+const canonicalUrl = `${siteOrigin}${normalizedPath}`;
+const ogImageUrl = ogImage.startsWith('http') ? ogImage : `${siteOrigin}${ogImage}`;
+
+const jsonLdGraph: Record<string, unknown>[] = [
+  {
+    '@type': 'WebSite',
+    '@id': `${siteOrigin}/#website`,
+    url: `${siteOrigin}/`,
+    name: 'The World Tipiṭaka Edition (Mahāsaṅgīti Tipiṭaka Buddhavasse 2500)',
+    alternateName: 'tipitaka2500.github.io',
+    description:
+      'Complete 40-volume Roman-script Pāḷi Tipiṭaka from the B.E. 2500 (1957) Great International Buddhist Council, updated to the 2020 Edition with critical apparatus footnotes, cross-references, page concordances, and Pāḷi indices.',
+    inLanguage: ['pi', 'en'],
+    license: 'https://creativecommons.org/publicdomain/zero/1.0/',
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: `${siteOrigin}/words.html?q={search_term_string}`,
+      },
+      'query-input': 'required name=search_term_string',
+    },
+  },
+  {
+    '@type': ogType === 'article' ? 'Chapter' : 'WebPage',
+    '@id': `${canonicalUrl}#webpage`,
+    url: canonicalUrl,
+    name: title,
+    description,
+    inLanguage: lang,
+    isPartOf: { '@id': `${siteOrigin}/#website` },
+    primaryImageOfPage: {
+      '@type': 'ImageObject',
+      url: ogImageUrl,
+      width: 743,
+      height: 575,
+      caption: ogImageAlt,
+    },
+  },
+];
+
+if (breadcrumbs.length > 0) {
+  jsonLdGraph.push({
+    '@type': 'BreadcrumbList',
+    '@id': `${canonicalUrl}#breadcrumb`,
+    itemListElement: breadcrumbs.map((b, idx) => ({
+      '@type': 'ListItem',
+      position: idx + 1,
+      name: b.name,
+      item: b.url.startsWith('http') ? b.url : `${siteOrigin}${b.url}`,
+    })),
+  });
+}
+
+const jsonLdString = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@graph': jsonLdGraph,
+});
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <script is:inline>
+      try {
+        document.querySelector('meta[name="color-scheme"]').content =
+          localStorage.getItem('color-scheme') ?? 'light dark';
+      } catch {}
+    </script>
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="author" content="Chris Tham (chris@christham.net)" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <link rel="canonical" href={canonicalUrl} />
+    {prevUrl && <link rel="prev" href={prevUrl.startsWith('http') ? prevUrl : `${siteOrigin}${prevUrl}`} />}
+    {nextUrl && <link rel="next" href={nextUrl.startsWith('http') ? nextUrl : `${siteOrigin}${nextUrl}`} />}
+    {tocSectionPath && <meta name="toc-section-path" content={tocSectionPath} />}
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={ogType} />
+    <meta
+      property="og:site_name"
+      content="The World Tipiṭaka Edition (Mahāsaṅgīti Tipiṭaka Buddhavasse 2500)"
+    />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:secure_url" content={ogImageUrl} />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="743" />
+    <meta property="og:image:height" content="575" />
+    <meta property="og:image:alt" content={ogImageAlt} />
+    <meta property="og:locale" content={lang === 'pi' ? 'pi_IN' : 'en_US'} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+    <meta name="twitter:image:alt" content={ogImageAlt} />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json" set:html={jsonLdString} />
+
+    <link rel="apple-touch-icon" href="/images/logo128.png" sizes="128x128" />
+    <link rel="icon" href="/images/logo.png" sizes="16x16" type="image/png" />
+    <link rel="icon" href="/images/logo24.png" sizes="24x24" type="image/png" />
+    <link rel="icon" href="/images/logo48.png" sizes="48x48" type="image/png" />
+    <link rel="icon" href="/images/logo128.png" sizes="128x128" type="image/png" />
+    <link rel="icon" href="/images/logo.ico" />
+    <meta name="theme-color" content="#b565a7" />
+  </head>
+  <body>
+    <svg xmlns="http://www.w3.org/2000/svg" class="visually-hidden" aria-hidden="true">
+      <symbol id="check2" viewBox="0 0 16 16">
+        <path
+          fill="currentColor"
+          d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"
+        ></path>
+      </symbol>
+      <symbol id="circle-half" viewBox="0 0 16 16">
+        <path fill="currentColor" d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"></path>
+      </symbol>
+      <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+        <path
+          fill="currentColor"
+          d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"
+        ></path>
+        <path
+          fill="currentColor"
+          d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"
+        ></path>
+      </symbol>
+      <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path
+          fill="currentColor"
+          d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"
+        ></path>
+      </symbol>
+    </svg>
+
+    <div class="theme-toggle-widget">
+      <details class="theme-toggle-details" id="theme-details">
+        <summary class="theme-toggle-btn" aria-label="Toggle color scheme">
+          <svg width="16" height="16" aria-hidden="true">
+            <use href="#circle-half" id="active-theme-icon"></use>
+          </svg>
+          <span class="visually-hidden">Toggle theme</span>
+        </summary>
+        <ul class="theme-menu" aria-label="Color scheme options">
+          <li>
+            <button type="button" class="theme-option" data-scheme-value="light" aria-pressed="false">
+              <svg class="theme-icon" width="16" height="16" aria-hidden="true">
+                <use href="#sun-fill"></use>
+              </svg>
+              Light
+              <svg class="check-icon" width="16" height="16" aria-hidden="true">
+                <use href="#check2"></use>
+              </svg>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="theme-option" data-scheme-value="dark" aria-pressed="false">
+              <svg class="theme-icon" width="16" height="16" aria-hidden="true">
+                <use href="#moon-stars-fill"></use>
+              </svg>
+              Dark
+              <svg class="check-icon" width="16" height="16" aria-hidden="true">
+                <use href="#check2"></use>
+              </svg>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="theme-option" data-scheme-value="light dark" aria-pressed="true">
+              <svg class="theme-icon" width="16" height="16" aria-hidden="true">
+                <use href="#circle-half"></use>
+              </svg>
+              Auto
+              <svg class="check-icon" width="16" height="16" aria-hidden="true">
+                <use href="#check2"></use>
+              </svg>
+            </button>
+          </li>
+        </ul>
+      </details>
+    </div>
+
+    <div class="app-shell">
+      <input type="checkbox" id="sidebar-drawer-toggle" class="sidebar-drawer-checkbox" aria-hidden="true" />
+      <header class="mobile-header">
+        <label for="sidebar-drawer-toggle" class="mobile-menu-btn" aria-label="Toggle Tipiṭaka navigation">
+          <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+            <path
+              fill-rule="evenodd"
+              d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
+            ></path>
+          </svg>
+        </label>
+        <a href="/" class="mobile-brand">
+          <img src="/images/logo48.png" alt="Tipitaka2500" width="22" height="22" />
+          <span>tipitaka2500.github.io</span>
+        </a>
+      </header>
+      <label for="sidebar-drawer-toggle" class="sidebar-backdrop" aria-hidden="true"></label>
+      <Sidebar currentBook={currentBook} />
+      <div class="content-pane">
+        <div class="content-container">
+          <slot />
+        </div>
+      </div>
+    </div>
+
+    <dialog id="quick-jump-dialog" class="modal-dialog" aria-labelledby="quick-jump-title">
+      <div class="modal-header">
+        <h2 id="quick-jump-title" class="modal-title">Quick Jump &amp; Citation Lookup</h2>
+        <button type="button" class="modal-close-btn" id="close-quick-jump" aria-label="Close dialog">
+          ✕
+        </button>
+      </div>
+      <div class="modal-body">
+        <label for="quick-jump-input" class="form-label">
+          Enter a citation (e.g. <code>1V:18</code>, <code>18Dh:1</code>, <code>24Mn:1898</code>), book code, or Pāḷi title:
+        </label>
+        <input
+          type="search"
+          id="quick-jump-input"
+          class="form-input"
+          placeholder="Type 18Dh:1, Dhammapada, 1V:2, or a Pāḷi word…"
+          autocomplete="off"
+          spellcheck="false"
+        />
+        <div id="quick-jump-status" class="visually-hidden" aria-live="polite"></div>
+        <div id="quick-jump-results" class="quick-jump-results"></div>
+      </div>
+    </dialog>
+
+    <div id="reader-popover" class="reader-popover" role="region" aria-label="Reference details" hidden></div>
+
+    <script is:inline>
+      (() => {
+        const meta = document.querySelector('meta[name="color-scheme"]');
+        const activeIcon = document.getElementById('active-theme-icon');
+        const detailsEl = document.getElementById('theme-details');
+        const buttons = document.querySelectorAll('[data-scheme-value]');
+        const iconMap = {
+          light: '#sun-fill',
+          dark: '#moon-stars-fill',
+          'light dark': '#circle-half',
+        };
+
+        function syncUI(scheme) {
+          if (meta) meta.content = scheme;
+          if (activeIcon) activeIcon.setAttribute('href', iconMap[scheme] || '#circle-half');
+          buttons.forEach((btn) => {
+            const isSelected = btn.getAttribute('data-scheme-value') === scheme;
+            btn.setAttribute('aria-pressed', isSelected ? 'true' : 'false');
+          });
+        }
+
+        let currentScheme = 'light dark';
+        try {
+          currentScheme = localStorage.getItem('color-scheme') ?? 'light dark';
+        } catch {}
+        syncUI(currentScheme);
+
+        buttons.forEach((btn) => {
+          btn.addEventListener('click', () => {
+            const chosen = btn.getAttribute('data-scheme-value') || 'light dark';
+            const systemScheme = window.matchMedia('(prefers-color-scheme: dark)').matches
+              ? 'dark'
+              : 'light';
+            try {
+              if (chosen === 'light dark' || chosen === systemScheme) {
+                localStorage.removeItem('color-scheme');
+              } else {
+                localStorage.setItem('color-scheme', chosen);
+              }
+            } catch {}
+            syncUI(chosen);
+            if (detailsEl) detailsEl.removeAttribute('open');
+          });
+        });
+
+        document.addEventListener('click', (e) => {
+          if (detailsEl && detailsEl.hasAttribute('open') && !detailsEl.contains(e.target)) {
+            detailsEl.removeAttribute('open');
+          }
+        });
+      })();
+
+      (() => {
+        // Edition abbreviation tooltips for footnotes
+        const EDITION_GLOSSARY = {
+          'sī': 'Sīhaḷa (Sri Lankan Buddhajayantī / Sinhala script edition)',
+          'syā1': 'Syāmaraṭṭha 1st Edition (Thai Royal Edition)',
+          'syā2': 'Syāmaraṭṭha 2nd Edition (Thai Royal Edition)',
+          'syā3': 'Syāmaraṭṭha 3rd Edition (Thai Royal Edition)',
+          'syā1-3': 'Syāmaraṭṭha 1st–3rd Editions (Thai Royal Edition)',
+          'syā1-2': 'Syāmaraṭṭha 1st–2nd Editions',
+          'syā2-3': 'Syāmaraṭṭha 2nd–3rd Editions',
+          'pā1': 'Pāḷi Text Society (PTS 1st Edition)',
+          'pā2': 'Pāḷi Text Society (PTS 2nd Edition)',
+          'pā1-2': 'Pāḷi Text Society (PTS 1st–2nd Editions)',
+          'ka': 'Kambuja (Cambodian Tipiṭaka Edition)',
+          'ma': 'Maramma (Burmese Chaṭṭhasaṅgīti / Mandalay Edition)',
+          'ka-ma': 'Kambuja & Maramma (Cambodian & Burmese Editions)',
+          'sī-pā1': 'Sīhaḷa & PTS Editions',
+          'sī-syā1-3-pā1': 'Sīhaḷa, Syāmaraṭṭha & PTS Editions',
+          'PTS': 'Pāḷi Text Society Edition',
+        };
+
+        function stripDiacritics(str) {
+          return (str || '')
+            .normalize('NFKD')
+            .replace(/[\u0300-\u036f]/g, '')
+            .toLowerCase();
+        }
+
+        // 1. Quick Jump Modal (<dialog>)
+        const dialog = document.getElementById('quick-jump-dialog');
+        const openBtn = document.getElementById('open-quick-jump');
+        const closeBtn = document.getElementById('close-quick-jump');
+        const input = document.getElementById('quick-jump-input');
+        const resultsEl = document.getElementById('quick-jump-results');
+        const statusEl = document.getElementById('quick-jump-status');
+
+        let quickJumpData = null;
+        async function ensureQuickJumpData() {
+          if (quickJumpData) return quickJumpData;
+          try {
+            const res = await fetch('/data/toc/quick_jump.json');
+            quickJumpData = await res.json();
+          } catch {
+            quickJumpData = { books: [], ranges: {} };
+          }
+          return quickJumpData;
+        }
+
+        function resolveCitationUrl(data, bookCode, pnum) {
+          const ranges = data.ranges[bookCode];
+          if (!ranges) return null;
+          for (const [start, end, shortPage] of ranges) {
+            if (pnum >= start && pnum <= end) {
+              return `/tipitaka/${shortPage}.html#p_${bookCode}_${pnum}`;
+            }
+          }
+          return `/tipitaka/${bookCode}.html`;
+        }
+
+        async function renderQuickJump(rawQuery) {
+          const data = await ensureQuickJumpData();
+          const q = (rawQuery || '').trim();
+          const qNorm = stripDiacritics(q);
+          const htmlParts = [];
+
+          // Check if query matches a canonical citation like `18Dh:1` or `1V:18` or `24Mn 1898`
+          const citeMatch = q.match(/^([0-9]+[A-Za-z]+[0-9]*)\s*[:.]\s*(\d+)$/i);
+          if (citeMatch) {
+            const rawBook = citeMatch[1];
+            const pnum = parseInt(citeMatch[2], 10);
+            const matchedBook = data.books.find(
+              (b) => b.code.toLowerCase() === rawBook.toLowerCase()
+            );
+            if (matchedBook && pnum > 0) {
+              const targetUrl = resolveCitationUrl(data, matchedBook.code, pnum);
+              const padded = String(pnum).padStart(4, '0');
+              htmlParts.push(`
+                <div class="quick-jump-group">
+                  <div class="quick-jump-group-title">Direct Citation Match</div>
+                  <a href="${targetUrl}" class="quick-jump-item quick-jump-item-primary">
+                    <div>
+                      <strong>${matchedBook.code}:${pnum}</strong> — ${matchedBook.name}
+                      <div class="quick-jump-sub">${matchedBook.thai} · Jump directly to paragraph #p_${matchedBook.code}_${pnum}</div>
+                    </div>
+                    <span class="badge-pill">Open Text →</span>
+                  </a>
+                  <div class="quick-jump-actions">
+                    <a href="/concordances.html?book=${matchedBook.code}&q=${encodeURIComponent(matchedBook.code + ':' + padded)}">Page Concordances for ${matchedBook.code}:${padded}</a>
+                    <a href="/notes.html?book=${matchedBook.code}&q=${encodeURIComponent(matchedBook.code + ':' + pnum)}">Notes for ${matchedBook.code}:${pnum}</a>
+                  </div>
+                </div>
+              `);
+            }
+          }
+
+          // Filter books
+          const matchingBooks = data.books
+            .filter((b) => {
+              if (!qNorm) return true;
+              return (
+                stripDiacritics(b.code).includes(qNorm) ||
+                stripDiacritics(b.name).includes(qNorm) ||
+                stripDiacritics(b.full_name).includes(qNorm) ||
+                (b.thai && b.thai.includes(q))
+              );
+            })
+            .slice(0, qNorm ? 12 : 8);
+
+          if (matchingBooks.length > 0) {
+            htmlParts.push(`
+              <div class="quick-jump-group">
+                <div class="quick-jump-group-title">${qNorm ? 'Matching Books' : 'Tipiṭaka Books (type code or title)'}</div>
+                ${matchingBooks
+                  .map(
+                    (b) => `
+                  <div class="quick-jump-book-row">
+                    <a href="${b.url}" class="quick-jump-item">
+                      <div>
+                        <strong>${b.name}</strong> <span class="badge-code">${b.code}</span>
+                        <div class="quick-jump-sub">${b.thai} · Paragraphs ${b.from_abbrv}–${b.to_abbrv}</div>
+                      </div>
+                    </a>
+                    <div class="quick-jump-mini-links">
+                      <a href="/toc.html?book=${b.code}" title="Table of Contents">TOC</a>
+                      <a href="/verses.html?book=${b.code}" title="Verses in ${b.code}">Verses</a>
+                      <a href="/notes.html?book=${b.code}" title="Critical Notes in ${b.code}">Notes</a>
+                      <a href="/concordances.html?book=${b.code}" title="Concordances in ${b.code}">Concordance</a>
+                    </div>
+                  </div>
+                `
+                  )
+                  .join('')}
+              </div>
+            `);
+          }
+
+          if (q) {
+            const enc = encodeURIComponent(q);
+            htmlParts.push(`
+              <div class="quick-jump-group">
+                <div class="quick-jump-group-title">Search Across Indices for “${q.replace(/[<>&"]/g, '')}”</div>
+                <div class="quick-jump-index-grid">
+                  <a href="/words.html?q=${enc}" class="quick-jump-index-link">Search Pāḷi Word Index →</a>
+                  <a href="/verses.html?q=${enc}" class="quick-jump-index-link">Search Verses (Gāthā) →</a>
+                  <a href="/toc.html?q=${enc}" class="quick-jump-index-link">Search Table of Contents →</a>
+                  <a href="/notes.html?q=${enc}" class="quick-jump-index-link">Search Critical Apparatus →</a>
+                </div>
+              </div>
+            `);
+          }
+
+          resultsEl.innerHTML = htmlParts.join('');
+          if (statusEl) {
+            statusEl.textContent = `${matchingBooks.length} matching books shown.`;
+          }
+        }
+
+        function openQuickJump(initialValue = '') {
+          if (!dialog) return;
+          dialog.showModal();
+          if (input) {
+            if (initialValue) input.value = initialValue;
+            input.focus();
+            input.select();
+            renderQuickJump(input.value);
+          }
+        }
+
+        if (openBtn) {
+          openBtn.addEventListener('click', () => openQuickJump());
+        }
+        if (closeBtn && dialog) {
+          closeBtn.addEventListener('click', () => dialog.close());
+        }
+        if (dialog) {
+          dialog.addEventListener('click', (e) => {
+            if (e.target === dialog) dialog.close();
+          });
+        }
+        if (input) {
+          input.addEventListener('input', () => renderQuickJump(input.value));
+          input.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+              const firstLink = resultsEl.querySelector('a.quick-jump-item');
+              if (firstLink) {
+                window.location.href = firstLink.getAttribute('href');
+                dialog.close();
+              }
+            }
+          });
+        }
+
+        // Global keyboard shortcuts (Cmd/Ctrl+K or '/' for Quick Jump, Alt+Arrows for section pagination)
+        document.addEventListener('keydown', (e) => {
+          if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+            e.preventDefault();
+            openQuickJump();
+            return;
+          }
+          const tag = (e.target && e.target.tagName) || '';
+          const isEditing = tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || (e.target && e.target.isContentEditable);
+          if (!isEditing && e.key === '/' && !e.metaKey && !e.ctrlKey && !e.altKey) {
+            e.preventDefault();
+            openQuickJump();
+            return;
+          }
+          if (!isEditing && e.altKey && !e.metaKey && !e.ctrlKey) {
+            const pagNav = document.querySelector('.tipitaka-content footer nav[aria-label="Pagination"]');
+            if (!pagNav) return;
+            if (e.key === 'ArrowLeft') {
+              const prev = pagNav.querySelector('a[rel="prev"]');
+              if (prev) window.location.href = prev.getAttribute('href');
+            } else if (e.key === 'ArrowRight') {
+              const next = pagNav.querySelector('a[rel="next"]');
+              if (next) window.location.href = next.getAttribute('href');
+            } else if (e.key === 'ArrowUp') {
+              const up = pagNav.querySelector('a[rel="up"]');
+              if (up) window.location.href = up.getAttribute('href');
+            }
+          }
+        });
+
+        // 2. Reader Interactivity on /tipitaka/ pages
+        const tipitakaRoot = document.querySelector('.tipitaka-content');
+        const popover = document.getElementById('reader-popover');
+        if (!tipitakaRoot || !popover) return;
+
+        // Annotate edition abbreviations in footnotes with <abbr title="...">
+        const footnoteItems = tipitakaRoot.querySelectorAll('section.footnotes li');
+        footnoteItems.forEach((li) => {
+          const walker = document.createTreeWalker(li, NodeFilter.SHOW_TEXT);
+          const textNodes = [];
+          while (walker.nextNode()) textNodes.push(walker.currentNode);
+          textNodes.forEach((node) => {
+            const val = node.nodeValue;
+            if (!val) return;
+            const replaced = val.replace(
+              /\b(sī-syā1-3-pā1|sī-pā1|syā1-3|syā1-2|syā2-3|syā1|syā2|syā3|pā1-2|pā1|pā2|ka-ma|sī|ka|ma|PTS)\b/g,
+              (match) => {
+                const desc = EDITION_GLOSSARY[match];
+                return desc ? `<abbr class="edition-abbr" title="${desc}">${match}</abbr>` : match;
+              }
+            );
+            if (replaced !== val) {
+              const span = document.createElement('span');
+              span.innerHTML = replaced;
+              node.parentNode.replaceChild(span, node);
+            }
+          });
+        });
+
+        function showPopoverNear(anchorEl, htmlContent) {
+          popover.innerHTML = htmlContent;
+          popover.hidden = false;
+          const rect = anchorEl.getBoundingClientRect();
+          const popRect = popover.getBoundingClientRect();
+          let top = rect.bottom + 8;
+          let left = rect.left;
+          if (left + popRect.width > window.innerWidth - 16) {
+            left = Math.max(16, window.innerWidth - popRect.width - 16);
+          }
+          if (top + popRect.height > window.innerHeight - 16) {
+            top = Math.max(16, rect.top - popRect.height - 8);
+          }
+          popover.style.top = `${top}px`;
+          popover.style.left = `${left}px`;
+        }
+
+        function hidePopover() {
+          popover.hidden = true;
+        }
+
+        // Footnote inline preview on click/hover
+        const fnLinks = tipitakaRoot.querySelectorAll('sup.footnote-ref a[href^="#fn-"]');
+        fnLinks.forEach((a) => {
+          a.addEventListener('click', (e) => {
+            const targetId = a.getAttribute('href').slice(1);
+            const fnLi = document.getElementById(targetId);
+            if (!fnLi) return;
+            e.preventDefault();
+            e.stopPropagation();
+
+            // Extract book and paragraph from #fn-p_1V_2_1
+            const m = targetId.match(/^fn-p_([0-9A-Za-z]+)_(\d+)_(\d+)$/);
+            const citeLabel = m ? `${m[1]}:${m[2]} Note [${m[3]}]` : `Footnote`;
+            const notesUrl = m
+              ? `/notes.html?book=${m[1]}&q=${encodeURIComponent(m[1] + ':' + m[2])}`
+              : '/notes.html';
+
+            showPopoverNear(
+              a,
+              `
+              <div class="reader-popover-header">
+                <strong>${citeLabel}</strong>
+                <button type="button" class="reader-popover-close" aria-label="Close">✕</button>
+              </div>
+              <div class="reader-popover-body">${fnLi.innerHTML}</div>
+              <div class="reader-popover-footer">
+                <a href="#${targetId}" class="reader-popover-jump">Jump to footnote ↓</a>
+                <a href="${notesUrl}">Open in Critical Apparatus →</a>
+              </div>
+            `
+            );
+          });
+        });
+
+        // Paragraph number badges: make interactive with citation tools
+        const paraBadges = tipitakaRoot.querySelectorAll('.paragraph-number');
+        paraBadges.forEach((badge) => {
+          const parentP = badge.closest('[id^="p_"], [id^="h_"]');
+          if (!parentP) return;
+          const pid = parentP.id; // e.g. p_1V_2
+          const m = pid.match(/^(?:p|h)_([0-9A-Za-z]+)_(\d+)$/);
+          if (!m) return;
+          const bookCode = m[1];
+          const pnum = parseInt(m[2], 10);
+          const padded = String(pnum).padStart(4, '0');
+          const canonical = `${bookCode}:${pnum}`;
+          const canonicalPadded = `${bookCode}:${padded}`;
+
+          badge.setAttribute('role', 'button');
+          badge.setAttribute('tabindex', '0');
+          badge.setAttribute('title', `Citation ${canonical} — click for reference tools`);
+          badge.classList.add('interactive-badge');
+
+          function openBadgePopover(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            const permalink = `${window.location.origin}${window.location.pathname}#${pid}`;
+            showPopoverNear(
+              badge,
+              `
+              <div class="reader-popover-header">
+                <strong>Paragraph ${canonical}</strong>
+                <button type="button" class="reader-popover-close" aria-label="Close">✕</button>
+              </div>
+              <div class="reader-popover-body">
+                <div class="reader-popover-actions">
+                  <button type="button" class="btn-chip" data-copy-url="${permalink}">Copy Permalink (#${pid})</button>
+                  <button type="button" class="btn-chip" data-copy-url="${canonical}">Copy Citation (${canonical})</button>
+                </div>
+                <div class="reader-popover-links">
+                  <a href="/concordances.html?book=${bookCode}&q=${encodeURIComponent(canonicalPadded)}">Page Concordances (${canonicalPadded}) →</a>
+                  <a href="/notes.html?book=${bookCode}&q=${encodeURIComponent(canonical)}">Critical Apparatus Notes (${canonical}) →</a>
+                  <a href="/verses.html?book=${bookCode}&q=${encodeURIComponent(canonicalPadded)}">Check Verses Index →</a>
+                </div>
+              </div>
+            `
+            );
+          }
+
+          badge.addEventListener('click', openBadgePopover);
+          badge.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') openBadgePopover(e);
+          });
+        });
+
+        popover.addEventListener('click', (e) => {
+          const closeEl = e.target.closest('.reader-popover-close');
+          if (closeEl) {
+            hidePopover();
+            return;
+          }
+          const jumpEl = e.target.closest('.reader-popover-jump');
+          if (jumpEl) {
+            hidePopover();
+            return;
+          }
+          const copyBtn = e.target.closest('[data-copy-url]');
+          if (copyBtn) {
+            const text = copyBtn.getAttribute('data-copy-url');
+            navigator.clipboard?.writeText(text);
+            const orig = copyBtn.textContent;
+            copyBtn.textContent = 'Copied!';
+            setTimeout(() => {
+              copyBtn.textContent = orig;
+            }, 1200);
+          }
+        });
+
+        document.addEventListener('click', (e) => {
+          if (!popover.hidden && !popover.contains(e.target)) {
+            hidePopover();
+          }
+        });
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && !popover.hidden) {
+            hidePopover();
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>

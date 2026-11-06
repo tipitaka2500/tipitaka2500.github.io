@@ -1,0 +1,710 @@
+---
+import fs from 'node:fs';
+import path from 'node:path';
+import Layout from '../layouts/Layout.astro';
+
+const metaPath = path.resolve(process.cwd(), 'public/data/toc/meta.json');
+const meta = JSON.parse(fs.readFileSync(metaPath, 'utf-8'));
+const books = meta.books as Array<{
+  code: string;
+  name: string;
+  full_name: string;
+  thai: string;
+  pitaka: string;
+  url: string;
+  from_abbrv: string;
+  to_abbrv: string;
+}>;
+
+const EDITIONS_TABLE = [
+  {
+    no: 1,
+    script: 'Siam (Thai)',
+    vols: '39',
+    concCode: 'C',
+    noteCode: 'syā1',
+    title: 'Chulachomklao of Siam Pāḷi Tipiṭaka',
+    subtitle: 'Pāḷi Tipiṭaka of King Chulachomklao the Great of Siam (Rama V)',
+    years: 'B.E. 2436 (1893)',
+    place: 'Bangkok, Siam (Thailand)',
+  },
+  {
+    no: 2,
+    script: 'Thai',
+    vols: '45',
+    concCode: '—',
+    noteCode: 'syā2',
+    title: 'Syāmaraṭṭhassa Tepiṭakaṁ (1st Royal Thai Script)',
+    subtitle: 'Pāḷi Tipiṭaka of Siam (King Rama VII Edition)',
+    years: 'B.E. 2469–2471 (1926–1928)',
+    place: 'Bangkok, Thailand',
+  },
+  {
+    no: 3,
+    script: 'Thai',
+    vols: '45',
+    concCode: 'S',
+    noteCode: 'syā3 / syā1-3',
+    title: 'Syāmaraṭṭhassa Tepiṭakaṁ',
+    subtitle: 'Pāḷi Tipiṭaka of Siam in Thai Script (Mahāmakuta Edition)',
+    years: 'B.E. 2538 (1995)',
+    place: 'Bangkok, Thailand',
+  },
+  {
+    no: 4,
+    script: 'Thai',
+    vols: '45',
+    concCode: 'B (Thai) / Mc',
+    noteCode: '—',
+    title: 'Mahācūḷātepiṭakaṁ / Buddhajayantī Thai Edition',
+    subtitle: 'Pāḷi Tipiṭaka of Mahachulalongkornrajavidyalaya',
+    years: 'B.E. 2500–2533 (1957–1990)',
+    place: 'Bangkok, Thailand',
+  },
+  {
+    no: 5,
+    script: 'Thai',
+    vols: '45',
+    concCode: 'D',
+    noteCode: '—',
+    title: 'Dayyaraṭṭhassa Saṅgītitepiṭakaṁ',
+    subtitle: 'Pāḷi Tipiṭaka of Thailand Council in Thai Script',
+    years: 'B.E. 2530 (1987)',
+    place: 'Bangkok, Thailand',
+  },
+  {
+    no: 6,
+    script: 'Burmese',
+    vols: '40',
+    concCode: 'Ch1',
+    noteCode: 'cha1',
+    title: 'Chaṭṭhasaṅgīti Piṭakaṁ (1st Printing)',
+    subtitle: 'Pāḷi Tipiṭaka of the Sixth Council in Burmese Script (1st ed.)',
+    years: 'B.E. 2496–2499 (1952–1955)',
+    place: 'Yangon, Myanmar',
+  },
+  {
+    no: 7,
+    script: 'Burmese',
+    vols: '40',
+    concCode: 'Ch2',
+    noteCode: 'cha2',
+    title: 'Chaṭṭhasaṅgīti Piṭakaṁ (2nd Printing)',
+    subtitle: 'Pāḷi Tipiṭaka of the Sixth Council in Burmese Script (2nd ed.)',
+    years: 'B.E. 2500–2506 (1956–1962)',
+    place: 'Yangon, Myanmar',
+  },
+  {
+    no: 8,
+    script: 'Burmese',
+    vols: '40',
+    concCode: '—',
+    noteCode: 'cha3 / ma / ka-ma',
+    title: 'Maramma Tipiṭaka / Later Chaṭṭhasaṅgīti Printings',
+    subtitle: 'Burmese Pañcamasaṅgīti & 1997 Chaṭṭhasaṅgīti reprints in notes',
+    years: 'B.E. 2541 (1997)',
+    place: 'Yangon / Mandalay, Myanmar',
+  },
+  {
+    no: 9,
+    script: 'Sinhala',
+    vols: '52',
+    concCode: 'B (Sinhala)',
+    noteCode: 'sī / ka-sī',
+    title: 'Buddhajayantītripiṭakagranthamālā',
+    subtitle: 'Buddhajayantī Tipiṭaka Series & earlier Sinhala editions',
+    years: 'B.E. 2501–2531 (1957–1989)',
+    place: 'Colombo, Sri Lanka',
+  },
+  {
+    no: 10,
+    script: 'Mūla (Khmer)',
+    vols: '112',
+    concCode: 'Kh',
+    noteCode: 'ka / kam / ka-ma',
+    title: 'Phratraitipiṭakapāḷi (Kambuja Tipiṭaka)',
+    subtitle: 'Pāḷi Tipiṭaka of Cambodia in Khmer Mūla Script',
+    years: 'B.E. 2501–2512 (1958–1969)',
+    place: 'Phnom Penh, Cambodia',
+  },
+  {
+    no: 11,
+    script: 'Laotian',
+    vols: '3',
+    concCode: 'L',
+    noteCode: '—',
+    title: 'Lāvaraṭṭhassa Tepiṭakapāḷi',
+    subtitle: 'Pāḷi Tipiṭaka of Laos in Laotian Script',
+    years: 'B.E. 2500 (1957–1969)',
+    place: 'Vientiane, Laos',
+  },
+  {
+    no: 12,
+    script: 'Devanāgarī',
+    vols: '41',
+    concCode: 'N',
+    noteCode: '—',
+    title: 'Nālandā-Devanāgarī-Pāḷi-Series Tipiṭaka',
+    subtitle: 'The Pāḷi Tipiṭaka of Nālandā in Devanāgarī Script',
+    years: 'B.E. 2500–2505 (1956–1961)',
+    place: 'Varanasi / Nalanda, India',
+  },
+  {
+    no: 13,
+    script: 'Devanāgarī',
+    vols: '55 / 140',
+    concCode: 'V',
+    noteCode: '—',
+    title: 'Vipassanā Research Institute (VRI) Tipiṭaka',
+    subtitle: 'Chaṭṭhasaṅgīti Tipiṭaka of VRI in Devanāgarī Script',
+    years: 'B.E. 2537–2542 (1993–1998)',
+    place: 'Igatpuri, India',
+  },
+  {
+    no: 14,
+    script: 'Roman',
+    vols: '56',
+    concCode: 'P1',
+    noteCode: 'pā1 / pā1-2',
+    title: 'Pāli Text Society (1st Edition)',
+    subtitle: 'The Pāli Text Society Series in Roman Script (1st ed.)',
+    years: 'B.E. 2424–2535 (1881–1992)',
+    place: 'London / Oxford, UK',
+  },
+  {
+    no: 15,
+    script: 'Roman',
+    vols: '5',
+    concCode: 'P2',
+    noteCode: 'pā2 / pā1-2',
+    title: 'Pāli Text Society (2nd Edition)',
+    subtitle: 'The Pāli Text Society Series in Roman Script (2nd ed.)',
+    years: 'B.E. 2517–2541 (1974–1998)',
+    place: 'London / Oxford, UK',
+  },
+  {
+    no: 16,
+    script: 'Roman',
+    vols: '40',
+    concCode: 'M',
+    noteCode: '—',
+    title: 'Mahāsaṅgīti Tipiṭaka Buddhavasse 2500 (This Website)',
+    subtitle: 'The World Tipiṭaka Edition in Roman Script (2005 / 2020)',
+    years: 'B.E. 2545, 2548, 2563 (2002–2020)',
+    place: 'Bangkok, Thailand',
+  },
+];
+---
+
+<Layout
+  title="Quick Guide to Using This Site & the World Tipiṭaka"
+  description="Interactive Quick Guide to the World Tipiṭaka Edition on tipitaka2500.github.io: volume and book codes, paragraph citations, footnotes, page concordances, edition abbreviations, and Pāḷi pronunciation."
+  currentBook="guide"
+  lang="en"
+>
+  <main class="index-page">
+    <div class="index-hero">
+      <h1>Quick Guide to the World Tipiṭaka &amp; This Website</h1>
+      <p>
+        How to read canonical citations, navigate the 40 volumes and 88 books, use interactive
+        badges and footnotes, cross-reference printed editions, and pronounce Roman and IPA Pāḷi
+        (adapted from the <a href="https://www.sajjhaya.org/node/181" target="_blank" rel="noopener noreferrer">Dhamma Society Quick Guide ↗</a>).
+      </p>
+    </div>
+
+    <!-- Section 1: Keyboard Shortcuts & Site Navigation -->
+    <article class="index-card" style="padding: 1.5rem; margin-bottom: 1.25rem;">
+      <h2 style="margin-top: 0; color: var(--text-emphasis);">
+        1. Quick Navigation &amp; Keyboard Shortcuts
+      </h2>
+      <div class="verse-grid">
+        <div>
+          <h3 style="margin-top: 0; font-size: 1rem; color: var(--text-emphasis);">
+            Instant Citation &amp; Book Lookup
+          </h3>
+          <p style="font-size: 0.92rem;">
+            Press <kbd class="quick-jump-kbd">⌘K</kbd> (or <kbd class="quick-jump-kbd">Ctrl+K</kbd>
+            / <kbd class="quick-jump-kbd">/</kbd>) anywhere on the site—or click the search button at
+            the top of the sidebar—to open the <strong>Quick Jump &amp; Citation Lookup</strong>
+            dialog:
+          </p>
+          <ul style="font-size: 0.92rem; margin-bottom: 0;">
+            <li>
+              <strong>Jump to an exact paragraph:</strong> Type <code>1V:2</code>,
+              <code>18Dh:1</code>, or <code>24Mn:1898</code> and press <kbd class="quick-jump-kbd">Enter</kbd>
+              to jump straight to that paragraph in the text.
+            </li>
+            <li>
+              <strong>Find any book:</strong> Type a book code (<code>6D</code>, <code>19Th1</code>,
+              <code>40P24</code>) or title (<code>Dhammapada</code>, <code>Mahāvagga</code>,
+              <code>Paṭṭhāna</code>).
+            </li>
+            <li>
+              <strong>Search across all 5 indices:</strong> Type any Pāḷi word or phrase to search
+              the Word Index, Verses, TOC, or Critical Notes with one click.
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h3 style="margin-top: 0; font-size: 1rem; color: var(--text-emphasis);">
+            Reader Keyboard &amp; URL Conventions
+          </h3>
+          <ul style="font-size: 0.92rem; margin-bottom: 0;">
+            <li>
+              <kbd class="quick-jump-kbd">Alt + ←</kbd> / <kbd class="quick-jump-kbd">Alt + →</kbd>:
+              Navigate to the <strong>Previous</strong> or <strong>Next</strong> canonical section.
+            </li>
+            <li>
+              <kbd class="quick-jump-kbd">Alt + ↑</kbd>: Navigate <strong>Up</strong> to the parent
+              section or book index.
+            </li>
+            <li>
+              <strong>Book URL:</strong> <code>/tipitaka/&#123;BookCode&#125;.html</code> (e.g.{' '}
+              <a href="/tipitaka/1V.html">/tipitaka/1V.html</a>,{' '}
+              <a href="/tipitaka/18Dh.html">/tipitaka/18Dh.html</a>).
+            </li>
+            <li>
+              <strong>Section URL:</strong> <code>/tipitaka/&#123;BookCode&#125;/&#123;SectionPath&#125;.html</code>{' '}
+              (e.g. <a href="/tipitaka/1V/1.html">/tipitaka/1V/1.html</a>).
+            </li>
+            <li>
+              <strong>Paragraph Anchor:</strong> <code>#p_&#123;BookCode&#125;_&#123;ParagraphNo&#125;</code>{' '}
+              (e.g. <a href="/tipitaka/1V/1.html#p_1V_2">/tipitaka/1V/1.html#p_1V_2</a>).
+            </li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <!-- Section 2: Anatomy of a Tipitaka Page (Plate 3) -->
+    <article class="index-card" style="padding: 1.5rem; margin-bottom: 1.25rem;">
+      <h2 style="margin-top: 0; color: var(--text-emphasis);">
+        2. Anatomy of a Tipiṭaka Page &amp; Interactive Elements (Plate 3)
+      </h2>
+      <p>
+        In the printed 40-volume World Tipiṭaka Edition, each page displays division numbers,
+        paragraph numbers, superscript footnote numbers, and marginal page concordances. On this
+        website, the reading view is kept clean and distraction-free while every reference element
+        is <strong>interactive</strong>:
+      </p>
+
+      <div
+        class="tipitaka-content"
+        style="padding: 1.15rem 1.35rem; margin: 1rem 0; border: 1px solid var(--primary-color); border-radius: 0.5rem; background-color: var(--badge-light-bg);"
+      >
+        <div style="font-size: 0.78rem; font-weight: 700; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 0.5rem;">
+          Live Example from Pārājikapāḷi — Verañjakaṇḍa (<a href="/tipitaka/1V/1.html#p_1V_2">1V:2</a>)
+        </div>
+        <main>
+          <p style="margin-bottom: 0.5rem;">
+            <span class="division-number" title="Division Number (book_div)">1.</span>
+            <span
+              class="paragraph-number interactive-badge"
+              title="Paragraph Number (1V:2) — Click on any reading page for citation tools"
+            >
+              2
+            </span>
+            Tena samayena buddho bhagavā verañjāyaṁ<sup class="footnote-ref"><a href="/tipitaka/1V/1.html#fn-p_1V_2_1">[1]</a></sup>
+            viharati naḷerupucimandamūle mahatā bhikkhusaṅghena saddhiṁ pañcamattehi
+            bhikkhusatehi. Assosi kho verañjo brāhmaṇo: “samaṇo khalu, bho, gotamo sakyaputto
+            sakyakulā pabbajito…”
+          </p>
+        </main>
+      </div>
+
+      <div class="index-table-wrapper">
+        <table class="index-table">
+          <caption>How Print Reference Elements Map to Interactive Features on This Website</caption>
+          <thead>
+            <tr>
+              <th scope="col">Element</th>
+              <th scope="col">Example</th>
+              <th scope="col">What It Means &amp; How to Use It Here</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Division Number Badge</strong></td>
+              <td>
+                <span
+                  style="display: inline-block; padding: 0.25em 0.6em; font-size: 0.78em; font-weight: 700; border-radius: 50rem; background-color: var(--badge-secondary-bg); color: var(--badge-secondary-color);"
+                >
+                  1.
+                </span>
+              </td>
+              <td>
+                Indicates the canonical text division (<em>khandhaka</em>, <em>sutta</em>,
+                <em>sikkhāpada</em>, or <em>vatthu</em> number) within the book.
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Paragraph Number Badge</strong></td>
+              <td>
+                <span class="badge-pill">2</span>
+              </td>
+              <td>
+                Indicates the sequential paragraph number within the book (e.g. <code>1V:2</code> or
+                <code>1V:0002</code>). <strong>Click any paragraph badge</strong> on a reading page
+                to open a popover to <strong>Copy Permalink</strong> (<code>#p_1V_2</code>),{' '}
+                <strong>Copy Citation</strong> (<code>1V:2</code>), or open that paragraph in{' '}
+                <a href="/concordances.html?book=1V&q=1V%3A0002">Page Concordances</a>,{' '}
+                <a href="/notes.html?book=1V&q=1V%3A2">Critical Notes</a>, or{' '}
+                <a href="/verses.html?book=1V&q=1V%3A0002">Verses</a>.
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Footnote Reference</strong></td>
+              <td>
+                <code>verañjāyaṁ<sup>[1]</sup></code>
+              </td>
+              <td>
+                Indicates a critical apparatus note in the <em>Tipiṭaka Studies Reference</em>.{' '}
+                <strong>Click <code>[1]</code></strong> on any reading page to preview the note in a
+                floating card without scrolling to the bottom of the page. Edition abbreviations
+                (such as <abbr class="edition-abbr" title="Sīhaḷa (Sri Lankan Edition)">sī</abbr>,{' '}
+                <abbr class="edition-abbr" title="Syāmaraṭṭha 1st–3rd Editions">syā1-3</abbr>,{' '}
+                <abbr class="edition-abbr" title="Pāḷi Text Society 1st Edition">pā1</abbr>) show
+                explanatory tooltips on hover.
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Cross-Reference Link</strong></td>
+              <td>
+                <a href="/tipitaka/24Mn/1/16.html#p_24Mn_1898">24Mn:1898</a>,{' '}
+                <a href="/tipitaka/1V/1/2/1.html#p_1V_28">1V.15/1</a>
+              </td>
+              <td>
+                Cross-references inside footnotes (both colon-style <code>Book:Paragraph</code> and
+                dot/slash-style <code>Book.Division/Paragraph</code>) are hyperlinked directly to
+                the target page and paragraph on this website.
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Page Concordances</strong></td>
+              <td>
+                <code>1B2, 1C1, 1Ch¹1, 3P¹1, 1S1, 87V1</code>
+              </td>
+              <td>
+                In the printed books, marginal codes show the volume and page in other Tipiṭaka
+                editions (e.g. <code>1B2</code> = Vol. 1, Page 2 of the Buddhajayantī Edition;{' '}
+                <code>3P¹1</code> = Vol. 3, Page 1 of the PTS 1st Edition). On this website, click
+                any paragraph badge or visit <a href="/concordances.html">Page Concordances</a> to
+                filter and search all 164,784 concordance mappings.
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Pāḷi Word Index</strong></td>
+              <td>
+                <code>aggisālā [aggisālā] — 15</code>
+              </td>
+              <td>
+                In the printed volumes, the end-of-volume index lists every word’s headword, IPA
+                pronunciation, and occurrences. On this website, visit the{' '}
+                <a href="/words.html?q=aggisala">Pāḷi Word Index</a> to search all 146,693 headwords
+                across all 88 books with clickable occurrence badges.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+
+    <!-- Section 3: Editions & Abbreviations (Plates 4 & 5) -->
+    <article class="index-card" style="padding: 1.5rem; margin-bottom: 1.25rem;">
+      <h2 style="margin-top: 0; color: var(--text-emphasis);">
+        3. Reference to Pāḷi Tipiṭaka Editions in Various Scripts (Plates 4 &amp; 5)
+      </h2>
+      <p>
+        The table below explains the abbreviations used in both the{' '}
+        <a href="/concordances.html">Page Concordances</a> (<strong>Concordance Code</strong>) and
+        the <a href="/notes.html">Critical Apparatus Footnotes</a> (<strong>Note Abbr.</strong>)
+        across the international Tipiṭaka editions collated by the World Tipiṭaka Project:
+      </p>
+      <div class="index-table-wrapper">
+        <table class="index-table">
+          <caption>Abbreviations of Collated Pāḷi Tipiṭaka Editions in Various National Scripts</caption>
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Script</th>
+              <th scope="col">Vols.</th>
+              <th scope="col">Concordance Code</th>
+              <th scope="col">Footnote Abbr.</th>
+              <th scope="col">Tipiṭaka Edition Title</th>
+              <th scope="col">Years (B.E. / C.E.)</th>
+              <th scope="col">Published In</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              EDITIONS_TABLE.map((ed) => (
+                <tr>
+                  <td>{ed.no}</td>
+                  <td style="white-space: nowrap;">{ed.script}</td>
+                  <td style="white-space: nowrap;">{ed.vols}</td>
+                  <td style="white-space: nowrap;">
+                    <span class="badge-code">{ed.concCode}</span>
+                  </td>
+                  <td style="white-space: nowrap;">
+                    <code>{ed.noteCode}</code>
+                  </td>
+                  <td>
+                    <div>
+                      <strong>{ed.title}</strong>
+                    </div>
+                    <div class="quick-jump-sub">{ed.subtitle}</div>
+                  </td>
+                  <td style="white-space: nowrap;">{ed.years}</td>
+                  <td>{ed.place}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </article>
+
+    <!-- Section 4: Guide to Pali Pronunciation & Phonetics (Plates 7 & 8) -->
+    <article class="index-card" style="padding: 1.5rem; margin-bottom: 1.25rem;">
+      <h2 style="margin-top: 0; color: var(--text-emphasis);">
+        4. Guide to Pāḷi Pronunciation: The 41 Pāḷi Sounds (Plates 7 &amp; 8)
+      </h2>
+      <p>
+        According to the ancient <em>Kaccāyana Pāḷi Grammar</em> (<em>Akkharāpādayo ekacattālīsaṁ</em>),
+        Pāḷi comprises <strong>41 sounds</strong>: <strong>8 vowels</strong> (<em>sara</em>) and{' '}
+        <strong>33 consonants</strong> (<em>vyañjana</em>, divided into 25 classified{' '}
+        <em>vagga</em> consonants and 8 unclassified <em>avagga</em> consonants). Both Roman Pāḷi
+        and International Phonetic Alphabet (IPA) transcriptions are used side-by-side in our{' '}
+        <a href="/words.html">Pāḷi Word Index</a>:
+      </p>
+
+      <div class="index-table-wrapper" style="margin-bottom: 1rem;">
+        <table class="index-table">
+          <caption>The 8 Pāḷi Vowels (Sara) — Short (Lahu) vs. Long (Garu)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Articulation Place</th>
+              <th scope="col">Short Vowel (Lahu — 1 Metre)</th>
+              <th scope="col">Long Vowel (Garu — 2 Metres)</th>
+              <th scope="col">Pronunciation Note</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Velar (Kaṇṭhaja — Throat)</strong></td>
+              <td><code>a</code> &nbsp; <code>[a]</code></td>
+              <td><code>ā</code> &nbsp; <code>[aː]</code></td>
+              <td>Open vowel as in <em>hut</em> (short) vs. <em>father</em> (long)</td>
+            </tr>
+            <tr>
+              <td><strong>Palatal (Tāluja — Hard Palate)</strong></td>
+              <td><code>i</code> &nbsp; <code>[i]</code></td>
+              <td><code>ī</code> &nbsp; <code>[iː]</code></td>
+              <td>Close front vowel as in <em>bit</em> (short) vs. <em>machine</em> (long)</td>
+            </tr>
+            <tr>
+              <td><strong>Labial (Oṭṭhaja — Lips)</strong></td>
+              <td><code>u</code> &nbsp; <code>[u]</code></td>
+              <td><code>ū</code> &nbsp; <code>[uː]</code></td>
+              <td>Close back rounded vowel as in <em>put</em> (short) vs. <em>rule</em> (long)</td>
+            </tr>
+            <tr>
+              <td><strong>Palato-Velar (Kaṇṭhatāluja)</strong></td>
+              <td><code>e</code> (before double consonant)</td>
+              <td><code>e</code> &nbsp; <code>[eː]</code></td>
+              <td>Naturally long <code>[eː]</code> as in <em>they</em>; short before two consonants (e.g. <em>mettā</em>)</td>
+            </tr>
+            <tr>
+              <td><strong>Labio-Velar (Kaṇṭhoṭṭhaja)</strong></td>
+              <td><code>o</code> (before double consonant)</td>
+              <td><code>o</code> &nbsp; <code>[oː]</code></td>
+              <td>Naturally long <code>[oː]</code> as in <em>go</em>; short before two consonants (e.g. <em>bhoggo</em>)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="index-table-wrapper" style="margin-bottom: 1rem;">
+        <table class="index-table">
+          <caption>The 33 Pāḷi Consonants (Vyañjana) by Place (Ṭhāna) &amp; Manner (Karaṇa) of Articulation (Plate 8)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Place of Articulation (Ṭhāna)</th>
+              <th scope="col">Voiceless Unaspirated (Aghosa Sithila)</th>
+              <th scope="col">Voiceless Aspirated (Aghosa Dhanita)</th>
+              <th scope="col">Voiced Unaspirated (Ghosa Sithila)</th>
+              <th scope="col">Voiced Aspirated (Ghosa Dhanita)</th>
+              <th scope="col">Nasal (Nāsikaṭṭhānaja)</th>
+              <th scope="col">Avagga (Liquids, Approximants &amp; Fricatives)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Velar (Kaṇṭhaja)</strong></td>
+              <td><code>k</code> <code>[k]</code></td>
+              <td><code>kh</code> <code>[kʰ]</code></td>
+              <td><code>g</code> <code>[g]</code></td>
+              <td><code>gh</code> <code>[ɡʱ]</code></td>
+              <td><code>ṅ</code> <code>[ŋ]</code></td>
+              <td><code>h</code> <code>[ɦ]</code> (Glottal)</td>
+            </tr>
+            <tr>
+              <td><strong>Palatal (Tāluja)</strong></td>
+              <td><code>c</code> <code>[c]</code></td>
+              <td><code>ch</code> <code>[cʰ]</code></td>
+              <td><code>j</code> <code>[ɟ]</code></td>
+              <td><code>jh</code> <code>[ɟʱ]</code></td>
+              <td><code>ñ</code> <code>[ɲ]</code></td>
+              <td><code>y</code> <code>[j]</code></td>
+            </tr>
+            <tr>
+              <td><strong>Post-Alveolar / Retroflex (Muddhaja)</strong></td>
+              <td><code>ṭ</code> <code>[ʈ]</code></td>
+              <td><code>ṭh</code> <code>[ʈʰ]</code></td>
+              <td><code>ḍ</code> <code>[ɖ]</code></td>
+              <td><code>ḍh</code> <code>[ɖʱ]</code></td>
+              <td><code>ṇ</code> <code>[ɳ]</code></td>
+              <td><code>r</code> <code>[ɻ]</code>, &nbsp; <code>ḷ</code> <code>[ɭ]</code></td>
+            </tr>
+            <tr>
+              <td><strong>Dental (Dantaja)</strong></td>
+              <td><code>t</code> <code>[t̪]</code></td>
+              <td><code>th</code> <code>[t̪ʰ]</code></td>
+              <td><code>d</code> <code>[d̪]</code></td>
+              <td><code>dh</code> <code>[d̪ʱ]</code></td>
+              <td><code>n</code> <code>[n̪]</code></td>
+              <td><code>l</code> <code>[l̪]</code>, &nbsp; <code>s</code> <code>[s̪]</code></td>
+            </tr>
+            <tr>
+              <td><strong>Bilabial / Labio-Dental (Oṭṭhaja)</strong></td>
+              <td><code>p</code> <code>[p]</code></td>
+              <td><code>ph</code> <code>[pʰ]</code></td>
+              <td><code>b</code> <code>[b]</code></td>
+              <td><code>bh</code> <code>[bʱ]</code></td>
+              <td><code>m</code> <code>[m]</code></td>
+              <td><code>v</code> <code>[ʋ]</code> (Labio-dental)</td>
+            </tr>
+            <tr>
+              <td><strong>Niggahīta (Pure Nasal)</strong></td>
+              <td colspan="5" style="color: var(--text-secondary);">
+                Nasalized resonance following a short vowel (<code>aṁ</code>, <code>iṁ</code>, <code>uṁ</code>)
+              </td>
+              <td><code>ṁ</code> <code>[ã / ŋ]</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="index-table-wrapper">
+        <table class="index-table">
+          <caption>Non-Cluster (Geminate) vs. Cluster Consonants in Pāḷi Pronunciation (Plate 7)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Non-Cluster Sound (Geminate / Final Arrest)</th>
+              <th scope="col">IPA &amp; Syllabic Division</th>
+              <th scope="col">Cluster Sound Only (Onset Consonant Cluster)</th>
+              <th scope="col">IPA &amp; Syllabic Division</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td lang="pi"><strong>kallaṁ</strong> (กัลล์)</td>
+              <td><code>[kal̪-l̪aṁ]</code> — first <code>l</code> closes syllable</td>
+              <td lang="pi"><strong>kalyā</strong> (กัลยา)</td>
+              <td><code>[ka-l̪jaː]</code> — <code>ly</code> forms a cluster onset</td>
+            </tr>
+            <tr>
+              <td lang="pi"><strong>akkhittā</strong> (อักขิต์ตา)</td>
+              <td><code>[ak-kʰit̪-t̪aː]</code> — geminate stops</td>
+              <td lang="pi"><strong>hitvā</strong> (หิตวา)</td>
+              <td><code>[ɦi-t̪ʋaː]</code> — <code>tv</code> forms a cluster onset</td>
+            </tr>
+            <tr>
+              <td lang="pi"><strong>mettā</strong> (เมต์ตา)</td>
+              <td><code>[met̪-t̪aː]</code> — short <code>e</code> before geminate <code>tt</code></td>
+              <td lang="pi"><strong>petvā</strong> (เปตวา)</td>
+              <td><code>[peː-t̪ʋaː]</code> — long <code>eː</code> before cluster <code>tv</code></td>
+            </tr>
+            <tr>
+              <td lang="pi"><strong>bhoggo</strong> (โภค์โค)</td>
+              <td><code>[bʱog-goː]</code> — short <code>o</code> before geminate <code>gg</code></td>
+              <td lang="pi"><strong>ārogyā</strong> (อาโรคยา)</td>
+              <td><code>[aː-roː-gjaː]</code> — long <code>oː</code> before cluster <code>gy</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+
+    <!-- Section 5: Complete 40-Volume / 88-Book Reference Table (Plates 1 & 2) -->
+    <article class="index-card" style="padding: 1.5rem;">
+      <h2 style="margin-top: 0; color: var(--text-emphasis);">
+        5. Complete Directory of the 40 Volumes &amp; 88 Books (Plates 1 &amp; 2)
+      </h2>
+      <p>
+        In every book code (such as <code>1V</code>, <code>12S1</code>, or <code>40P24</code>), the
+        leading number (<code>1</code>–<code>40</code>) indicates the <strong>Volume Number</strong>{' '}
+        in the 40-volume printed edition, while the letters and trailing number identify the
+        specific <strong>Pāḷi Book</strong> (<code>1</code>–<code>88</code>) and its canonical
+        paragraph range:
+      </p>
+      <div class="index-table-wrapper">
+        <table class="index-table">
+          <caption>All 88 Books of the World Tipiṭaka Edition with Paragraph Ranges &amp; Direct Links</caption>
+          <thead>
+            <tr>
+              <th scope="col">Pāḷi #</th>
+              <th scope="col">Book Code</th>
+              <th scope="col">Paragraph Range</th>
+              <th scope="col">Book Title (Roman &amp; Thai Pāḷi)</th>
+              <th scope="col">Quick Links</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              books.map((b, idx) => (
+                <tr>
+                  <td>{idx + 1}</td>
+                  <td style="white-space: nowrap;">
+                    <a href={b.url} class="badge-code">
+                      {b.code}
+                    </a>
+                  </td>
+                  <td style="white-space: nowrap;">
+                    <code>
+                      {b.from_abbrv}–{b.to_abbrv.split(':')[1] || b.to_abbrv}
+                    </code>
+                  </td>
+                  <td>
+                    <div>
+                      <a href={b.url} class="index-card-title">
+                        {b.name}
+                      </a>
+                    </div>
+                    <div class="quick-jump-sub" lang="pi">
+                      {b.thai}
+                    </div>
+                  </td>
+                  <td style="white-space: nowrap;">
+                    <a href={b.url} class="badge-pill">
+                      Read
+                    </a>{' '}
+                    <a href={`/toc.html?book=${b.code}`} class="badge-pill">
+                      TOC
+                    </a>{' '}
+                    <a href={`/notes.html?book=${b.code}`} class="badge-pill">
+                      Notes
+                    </a>{' '}
+                    <a href={`/concordances.html?book=${b.code}`} class="badge-pill">
+                      Concordance
+                    </a>
+                  </td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </article>
+  </main>
+</Layout>

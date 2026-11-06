@@ -1,1175 +1,268 @@
-
-<!doctype html>
-<html lang="en" data-bs-theme="auto">
-
-<head>
-  <script src="/scripts/color-modes.js"></script>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="author" content="chris@christham.net">
-  <title>tipitaka2500.github.io</title>
-  <meta name="description"
-    content="The Buddhist Era 2500 Great International Council Pāḷi Tipiṭaka, Roman Script 2005 as an HTML website.">
-  <link rel="canonical" href="https://tipitaka2500.github.io">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <!-- Favicons -->
-  <link rel="apple-touch-icon" href="/images/logo128.png" sizes="128x128">
-  <link rel="icon" href="/images/logo.png" sizes="16x16" type="image/png">
-  <link rel="icon" href="/images/logo24.png" sizes="24x24" type="image/png">
-  <link rel="icon" href="/images/logo48.png" sizes="48x48" type="image/png">
-  <link rel="icon" href="/images/logo128.png" sizes="128x128" type="image/png">
-  <link rel="icon" href="/images/logo.ico">
-  <meta name="theme-color" content="#712cf9">
-  <link rel="stylesheet" type="text/css" href="/css/styles.css">
-  <!-- Custom styles for this template -->
-  <link href="/css/sidebars.css" rel="stylesheet">
-</head>
-
-<body>
-  <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
-    <symbol id="check2" viewBox="0 0 16 16">
-      <path
-        d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
-    </symbol>
-    <symbol id="circle-half" viewBox="0 0 16 16">
-      <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z" />
-    </symbol>
-    <symbol id="moon-stars-fill" viewBox="0 0 16 16">
-      <path
-        d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z" />
-      <path
-        d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z" />
-    </symbol>
-    <symbol id="sun-fill" viewBox="0 0 16 16">
-      <path
-        d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z" />
-    </symbol>
-  </svg>
-
-  <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
-    <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center" id="bd-theme" type="button"
-      aria-expanded="false" data-bs-toggle="dropdown" aria-label="Toggle theme (auto)">
-      <svg class="bi my-1 theme-icon-active" width="1em" height="1em">
-        <use href="#circle-half"></use>
-      </svg>
-      <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
-    </button>
-    <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
-      <li>
-        <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light"
-          aria-pressed="false">
-          <svg class="bi me-2 opacity-50" width="1em" height="1em">
-            <use href="#sun-fill"></use>
-          </svg>
-          Light
-          <svg class="bi ms-auto d-none" width="1em" height="1em">
-            <use href="#check2"></use>
-          </svg>
-        </button>
-      </li>
-      <li>
-        <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark"
-          aria-pressed="false">
-          <svg class="bi me-2 opacity-50" width="1em" height="1em">
-            <use href="#moon-stars-fill"></use>
-          </svg>
-          Dark
-          <svg class="bi ms-auto d-none" width="1em" height="1em">
-            <use href="#check2"></use>
-          </svg>
-        </button>
-      </li>
-      <li>
-        <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto"
-          aria-pressed="true">
-          <svg class="bi me-2 opacity-50" width="1em" height="1em">
-            <use href="#circle-half"></use>
-          </svg>
-          Auto
-          <svg class="bi ms-auto d-none" width="1em" height="1em">
-            <use href="#check2"></use>
-          </svg>
-        </button>
-      </li>
-    </ul>
-  </div>
-
-  <main class="d-flex flex-nowrap" >
-    <div class="flex-shrink-0 p-3 overflow-scroll" style="width: 300px;">
-      <a href="/" class="d-flex align-items-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom">
-        <img src="/images/logo48.png" alt="Tipitaka2500" id="logo" width="24" />
-        <span class="fs-5 ms-2 fw-semibold">tipitaka2500.github.io</span>
-      </a>
-      <ul class="list-unstyled ps-0">
-        <li class="mb-1">
-          <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-            data-bs-toggle="collapse" data-bs-target="#v-collapse" aria-expanded="false">
-            Vinayapiṭaka (V)
-          </button>
-          <div class="collapse" id="v-collapse">
-            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-              <li><a href="/tipitaka/1V.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Pārājikapāḷi (1V)</a></li>
-              <li><a href="/tipitaka/2V.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Pācittiyapāḷi (2V)</a></li>
-              <li><a href="/tipitaka/3V.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Mahāvaggapāḷi (3V)</a></li>
-              <li><a href="/tipitaka/4V.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Cūḷavaggapāḷi (4V)</a></li>
-              <li><a href="/tipitaka/5V.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Parivārapāḷi (5V)</a></li>
-            </ul>
-          </div>
-        </li>
-        <li class="border-top my-2"></li>
-        <li class="mb-1">
-          <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-            data-bs-toggle="collapse" data-bs-target="#s-collapse" aria-expanded="false">
-            Suttantapiṭaka (Sutta)
-          </button>
-          <div class="collapse" id="s-collapse">
-            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-              <li class="mb-1 ms-3">
-                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-                  data-bs-toggle="collapse" data-bs-target="#d-collapse" aria-expanded="false">
-                  Dīghanikāya (D)
-                </button>
-                <div class="collapse" id="d-collapse">
-                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                    <li><a href="/tipitaka/6D.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Sīlakkhandhavaggapāḷi</a></li>
-                    <li><a href="/tipitaka/7D.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Mahāvaggapāḷi</a></li>
-                    <li><a href="/tipitaka/8D.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Pāthikavaggapāḷi</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mb-1 ms-3">
-                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-                  data-bs-toggle="collapse" data-bs-target="#m-collapse" aria-expanded="false">
-                  Majjhimanikāya (M)
-                </button>
-                <div class="collapse" id="m-collapse">
-                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                    <li><a href="/tipitaka/9M.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Mūlapaṇṇāsapāḷi</a></li>
-                    <li><a href="/tipitaka/10M.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Majjhimapaṇṇāsapāḷi</a></li>
-                    <li><a href="/tipitaka/11M.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Uparipaṇṇāsapāḷi</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mb-1 ms-3">
-                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-                  data-bs-toggle="collapse" data-bs-target="#sy-collapse" aria-expanded="false">
-                  Saṃyuttanikāya (S)
-                </button>
-                <div class="collapse" id="sy-collapse">
-                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                    <li><a href="/tipitaka/12S1.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Sagāthāvaggasaṃyuttapāḷi</a></li>
-                    <li><a href="/tipitaka/12S2.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Nidānavaggasaṃyuttapāḷi</a></li>
-                    <li><a href="/tipitaka/13S3.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Khandhavaggasaṃyuttapāḷi</a></li>
-                    <li><a href="/tipitaka/13S4.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Saḷāyatanavaggasaṃyuttapāḷi</a></li>
-                    <li><a href="/tipitaka/14S5.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Mahāvaggasaṃyuttapāḷi</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mb-1 ms-3">
-                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-                  data-bs-toggle="collapse" data-bs-target="#a-collapse" aria-expanded="false">
-                  Aṅguttaranikāya (A)
-                </button>
-                <div class="collapse" id="a-collapse">
-                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                    <li><a href="/tipitaka/15A1.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Ekakanipātapāḷi</a></li>
-                    <li><a href="/tipitaka/15A2.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dukanipātapāḷi</a></li>
-                    <li><a href="/tipitaka/15A3.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Tikanipātapāḷi</a></li>
-                    <li><a href="/tipitaka/15A4.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Catukkanipātapāḷi</a></li>
-                    <li><a href="/tipitaka/16A5.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Pañcakanipātapāḷi</a></li>
-                    <li><a href="/tipitaka/16A6.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Chakkanipātapāḷi</a></li>
-                    <li><a href="/tipitaka/16A7.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Sattakanipātapā</a></li>
-                    <li><a href="/tipitaka/17A8.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Aṭṭhakanipātapāḷi</a></li>
-                    <li><a href="/tipitaka/17A9.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Navakanipātapāḷi</a></li>
-                    <li><a href="/tipitaka/17A10.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dasakanipātapāḷi</a></li>
-                    <li><a href="/tipitaka/17A11.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Ekādasakanipātapāḷi</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mb-1 ms-3">
-                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-                  data-bs-toggle="collapse" data-bs-target="#k-collapse" aria-expanded="false">
-                  Khuddakanikāya (Khu)
-                </button>
-                <div class="collapse" id="k-collapse">
-                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                    <li><a href="/tipitaka/18Kh.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Khuddakapāṭhapāḷi</a></li>
-                    <li><a href="/tipitaka/18Dh.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dhammapadapāḷi</a></li>
-                    <li><a href="/tipitaka/18Ud.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Udānapāḷi</a></li>
-                    <li><a href="/tipitaka/18It.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Itivuttakapāḷi</a></li>
-                    <li><a href="/tipitaka/18Sn.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Suttanipātapāḷi</a></li>
-                    <li><a href="/tipitaka/19Vv.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Vimānavatthupāḷi</a></li>
-                    <li><a href="/tipitaka/19Pv.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Petavatthupāḷi</a></li>
-                    <li><a href="/tipitaka/19Th1.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Theragāthāpāḷi</a></li>
-                    <li><a href="/tipitaka/19Th2.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Therīgāthāpāḷi</a></li>
-                    <li><a href="/tipitaka/20Ap1.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Therāpadānapāḷi</a></li>
-                    <li><a href="/tipitaka/20Ap2.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Therīapadānapāḷi</a></li>
-                    <li><a href="/tipitaka/21Bu.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Buddhavaṃsapāḷi</a></li>
-                    <li><a href="/tipitaka/21Cp.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Cariyāpiṭakapāḷi</a></li>
-                    <li><a href="/tipitaka/22J.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Jātakapāḷi</a></li>
-                    <li><a href="/tipitaka/23J.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Jātakapāḷi</a></li>
-                    <li><a href="/tipitaka/24Mn.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Mahāniddesapāḷi</a></li>
-                    <li><a href="/tipitaka/25Cn.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Cūḷaniddesapāḷi</a></li>
-                    <li><a href="/tipitaka/26Ps.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Paṭisambhidāmaggapāḷi</a></li>
-                    <li><a href="/tipitaka/27Ne.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Nettipāḷi</a></li>
-                    <li><a href="/tipitaka/27Pe.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Peṭakopadesapāḷi</a></li>
-                    <li><a href="/tipitaka/28Mi.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Milindapañhapāḷi</a></li>
-                  </ul>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </li>
-        <li class="border-top my-2"></li>
-        <li class="mb-1">
-          <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-            data-bs-toggle="collapse" data-bs-target="#ab-collapse" aria-expanded="false">
-            Abhidhammapiṭaka (Abhi)
-          </button>
-          <div class="collapse" id="ab-collapse">
-            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-              <li><a href="/tipitaka/29Dhs.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dhammasaṅgaṇīpāḷi</a></li>
-              <li><a href="/tipitaka/30Vbh.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dhammapadapāḷi</a></li>
-              <li><a href="/tipitaka/31Dht.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dhātukathāpāḷi</a></li>
-              <li><a href="/tipitaka/31Pu.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Puggalapaññattipāḷi</a></li>
-              <li><a href="/tipitaka/32Kv.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Kathāvatthupāḷi</a></li>
-              <li class="mb-1 ms-3">
-                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-                  data-bs-toggle="collapse" data-bs-target="#y-collapse" aria-expanded="false">
-                  Yamaka (Y)
-                </button>
-                <div class="collapse" id="y-collapse">
-                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                    <li><a href="/tipitaka/33Y1.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Mūlayamakapāḷi</a></li>
-                    <li><a href="/tipitaka/33Y2.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Khandhayamakapāḷi</a></li>
-                    <li><a href="/tipitaka/33Y3.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Āyatanayamakapāḷi</a></li>
-                    <li><a href="/tipitaka/33Y4.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dhātuyamakapāḷi</a></li>
-                    <li><a href="/tipitaka/33Y5.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Saccayamakapāḷi</a></li>
-                    <li><a href="/tipitaka/34Y6.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Saṅkhārayamakapāḷi</a></li>
-                    <li><a href="/tipitaka/34Y7.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Anusayayamakapāḷi</a></li>
-                    <li><a href="/tipitaka/34Y8.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Cittayamakapāḷi</a></li>
-                    <li><a href="/tipitaka/35Y9.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dhammayamakapāḷi</a></li>
-                    <li><a href="/tipitaka/35Y10.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Indriyayamakapāḷi</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mb-1 ms-3">
-                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-                  data-bs-toggle="collapse" data-bs-target="#p-collapse" aria-expanded="false">
-                  Paṭṭhāna (P)
-                </button>
-                <div class="collapse" id="p-collapse">
-                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                    <li class="mb-1 ms-3" >
-                      <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-                        data-bs-toggle="collapse" data-bs-target="#dh-collapse" aria-expanded="false">
-                        Dhammānuloma
-                      </button>
-                      <div class="collapse" id="dh-collapse">
-                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                          <li><a href="/tipitaka/36P1.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Tikapaṭṭhānapāḷi</a></li>
-                          <li><a href="/tipitaka/37P1.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Tikapaṭṭhānapāḷi</a></li>
-                          <li><a href="/tipitaka/38P2.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dukapaṭṭhānapāḷi</a></li>
-                          <li><a href="/tipitaka/39P3.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dukatikapaṭṭhānapāḷi</a></li>
-                          <li><a href="/tipitaka/39P4.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Tikadukapaṭṭhānapāḷi</a></li>
-                          <li><a href="/tipitaka/39P5.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Tikatikapaṭṭhānapāḷi</a></li>
-                          <li><a href="/tipitaka/39P6.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dukadukapaṭṭhānapāḷi</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mb-1 ms-3">
-                      <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-                        data-bs-toggle="collapse" data-bs-target="#dp-collapse" aria-expanded="false">
-                        Dhammapaccanīya
-                      </button>
-                      <div class="collapse" id="dp-collapse">
-                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                          <li><a href="/tipitaka/40P7.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Tikapaṭṭhānapāḷi</a></li>
-                          <li><a href="/tipitaka/40P8.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dukapaṭṭhānapāḷi</a></li>
-                          <li><a href="/tipitaka/40P9.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dukatikapaṭṭhānapāḷi</a></li>
-                          <li><a href="/tipitaka/40P10.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Tikadukapaṭṭhānapāḷi</a></li>
-                          <li><a href="/tipitaka/40P11.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Tikatikapaṭṭhānapāḷi</a></li>
-                          <li><a href="/tipitaka/40P12.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dukadukapaṭṭhānapāḷi</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mb-1 ms-3">
-                      <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-                        data-bs-toggle="collapse" data-bs-target="#dl-collapse" aria-expanded="false">
-                        Dhammānulomapaccanīya
-                      </button>
-                      <div class="collapse" id="dl-collapse">
-                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                          <li><a href="/tipitaka/40P13.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Tikapaṭṭhānapāḷi</a></li>
-                          <li><a href="/tipitaka/40P14.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dukapaṭṭhānapāḷi</a></li>
-                          <li><a href="/tipitaka/40P15.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dukatikapaṭṭhānapāḷi</a></li>
-                          <li><a href="/tipitaka/40P16.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Tikadukapaṭṭhānapāḷi</a></li>
-                          <li><a href="/tipitaka/40P17.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Tikatikapaṭṭhānapāḷi</a></li>
-                          <li><a href="/tipitaka/40P18.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dukadukapaṭṭhānapāḷi</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mb-1 ms-3">
-                      <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-                        data-bs-toggle="collapse" data-bs-target="#dy-collapse" aria-expanded="false">
-                        Dhammapaccanīyānuloma
-                      </button>
-                      <div class="collapse" id="dy-collapse">
-                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                          <li><a href="/tipitaka/40P19.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Tikapaṭṭhānapāḷi</a></li>
-                          <li><a href="/tipitaka/40P20.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dukapaṭṭhānapāḷi</a></li>
-                          <li><a href="/tipitaka/40P21.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dukatikapaṭṭhānapāḷi</a></li>
-                          <li><a href="/tipitaka/40P22.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Tikadukapaṭṭhānapāḷi</a></li>
-                          <li><a href="/tipitaka/40P23.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Tikatikapaṭṭhānapāḷi</a></li>
-                          <li><a href="/tipitaka/40P24.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dukadukapaṭṭhānapāḷi</a></li>
-                        </ul>
-                      </div>
-                    </li>      
-                  </ul>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </li>
-      </ul>
-    </div>
-
-    <div class="container overflow-scroll">
-<nav aria-label="breadcrumb">
- <ol class="breadcrumb">
-  <li class="breadcrumb-item">
-   <a href="/">
-    Home
-   </a>
-  </li>
-  <li class="breadcrumb-item">
-   <a href="/tipitaka/32Kv.html">
-    32Kv Kathāvatthupāḷi
-   </a>
-  </li>
-  <li class="breadcrumb-item">
-   <a href="/tipitaka/32Kv/1.html">
-    1 Mahāpaṇṇāsaka
-   </a>
-  </li>
-  <li class="breadcrumb-item">
-   <a href="/tipitaka/32Kv/1/1.1.html">
-    1.1 Paṭhamavagga
-   </a>
-  </li>
-  <li class="breadcrumb-item">
-   <a href="/tipitaka/32Kv/1/1.1/1.1.6.html">
-    1.1.6 Sabbamatthītikathā
-   </a>
-  </li>
- </ol>
-</nav>
-<div class="container">
- <div class="m-4 p-4 text-center bg-body-tertiary rounded-3">
-  <h1 class="text-body-emphasis">
-   1.1.6.2 Kālasaṃsandana
-  </h1>
- </div>
-</div>
-<h3 class="text-center">
- Mahāpaṇṇāsaka
-</h3>
-<h3 class="text-center">
- Paṭhamavagga
-</h3>
-<h3 class="text-center">
- Sabbamatthītikathā
-</h3>
-<h3 class="text-center">
- Kālasaṃsandana
-</h3>
-<p id="p_32Kv_624">
- <span class="badge rounded-pill text-bg-secondary me-2" id="d283">
-  283.
- </span>
- <span class="badge rounded-pill text-bg-light me-1" id="624">
-  624
- </span>
- ๐ Atītaṃ atthīti? Āmantā. Nanu atītaṃ niruddhaṃ vigataṃ vipariṇataṃ atthaṅgataṃ abbhatthaṅgatanti? Āmantā. Hañci atītaṃ niruddhaṃ vigataṃ vipariṇataṃ atthaṅgataṃ abbhatthaṅgataṃ, no ca vata re vattabbe—  “atītaṃ atthī”ti.
-</p>
-<h3 class="text-center">
- Mahāpaṇṇāsaka
-</h3>
-<h3 class="text-center">
- Paṭhamavagga
-</h3>
-<h3 class="text-center">
- Sabbamatthītikathā
-</h3>
-<h3 class="text-center">
- Kālasaṃsandana
-</h3>
-<p id="p_32Kv_625">
- <span class="badge rounded-pill text-bg-light me-1" id="625">
-  625
- </span>
- ๐ Anāgataṃ atthīti? Āmantā. Nanu anāgataṃ ajātaṃ abhūtaṃ asañjātaṃ anibbattaṃ anabhinibbattaṃ apātubhūtanti? Āmantā. Hañci anāgataṃ ajātaṃ abhūtaṃ asañjātaṃ anibbattaṃ anabhinibbattaṃ apātubhūtaṃ, no ca vata re vattabbe—  “anāgataṃ atthī”ti.
-</p>
-<h3 class="text-center">
- Mahāpaṇṇāsaka
-</h3>
-<h3 class="text-center">
- Paṭhamavagga
-</h3>
-<h3 class="text-center">
- Sabbamatthītikathā
-</h3>
-<h3 class="text-center">
- Kālasaṃsandana
-</h3>
-<p id="p_32Kv_626">
- <span class="badge rounded-pill text-bg-light me-1" id="626">
-  626
- </span>
- ๐ Paccuppannaṃ atthi paccuppannaṃ aniruddhaṃ avigataṃ avipariṇataṃ na atthaṅgataṃ na abbhatthaṅgatanti? Āmantā. Atītaṃ atthi atītaṃ aniruddhaṃ avigataṃ avipariṇataṃ na atthaṅgataṃ na abbhatthaṅgatanti? Na hevaṃ vattabbe…pe…  paccuppannaṃ atthi paccuppannaṃ jātaṃ bhūtaṃ sañjātaṃ nibbattaṃ abhinibbattaṃ pātubhūtanti? Āmantā. Anāgataṃ atthi anāgataṃ jātaṃ bhūtaṃ sañjātaṃ nibbattaṃ abhinibbattaṃ pātubhūtanti? Na hevaṃ vattabbe…pe… .
-</p>
-<h3 class="text-center">
- Mahāpaṇṇāsaka
-</h3>
-<h3 class="text-center">
- Paṭhamavagga
-</h3>
-<h3 class="text-center">
- Sabbamatthītikathā
-</h3>
-<h3 class="text-center">
- Kālasaṃsandana
-</h3>
-<p id="p_32Kv_627">
- <span class="badge rounded-pill text-bg-light me-1" id="627">
-  627
- </span>
- ๐ Atītaṃ atthi atītaṃ niruddhaṃ vigataṃ vipariṇataṃ atthaṅgataṃ abbhatthaṅgatanti? Āmantā. Paccuppannaṃ atthi paccuppannaṃ niruddhaṃ vigataṃ vipariṇataṃ atthaṅgataṃ abbhatthaṅgatanti? Na hevaṃ vattabbe…pe…  anāgataṃ atthi anāgataṃ ajātaṃ abhūtaṃ asañjātaṃ anibbattaṃ anabhinibbattaṃ apātubhūtanti? Āmantā. Paccuppannaṃ atthi paccuppannaṃ ajātaṃ abhūtaṃ asañjātaṃ anibbattaṃ anabhinibbattaṃ apātubhūtanti? Na hevaṃ vattabbe.
-</p>
-<h3 class="text-center">
- Mahāpaṇṇāsaka
-</h3>
-<h3 class="text-center">
- Paṭhamavagga
-</h3>
-<h3 class="text-center">
- Sabbamatthītikathā
-</h3>
-<h3 class="text-center">
- Kālasaṃsandana
-</h3>
-<p id="p_32Kv_628">
- <span class="badge rounded-pill text-bg-secondary me-2" id="d284">
-  284.
- </span>
- <span class="badge rounded-pill text-bg-light me-1" id="628">
-  628
- </span>
- ๐ Atītaṃ rūpaṃ atthīti? Āmantā. Nanu atītaṃ rūpaṃ niruddhaṃ vigataṃ vipariṇataṃ atthaṅgataṃ abbhatthaṅgatanti? Āmantā. Hañci atītaṃ rūpaṃ niruddhaṃ…pe…  abbhatthaṅgataṃ, no ca vata re vattabbe—  “atītaṃ rūpaṃ atthī”ti.
-</p>
-<h3 class="text-center">
- Mahāpaṇṇāsaka
-</h3>
-<h3 class="text-center">
- Paṭhamavagga
-</h3>
-<h3 class="text-center">
- Sabbamatthītikathā
-</h3>
-<h3 class="text-center">
- Kālasaṃsandana
-</h3>
-<p id="p_32Kv_629">
- <span class="badge rounded-pill text-bg-light me-1" id="629">
-  629
- </span>
- ๐ Anāgataṃ rūpaṃ atthīti? Āmantā. Nanu anāgataṃ rūpaṃ ajātaṃ abhūtaṃ asañjātaṃ anibbattaṃ anabhinibbattaṃ apātubhūtanti? Āmantā. Hañci anāgataṃ rūpaṃ ajātaṃ…pe…  apātubhūtaṃ, no ca vata re vattabbe—  “anāgataṃ rūpaṃ atthī”ti.
-</p>
-<h3 class="text-center">
- Mahāpaṇṇāsaka
-</h3>
-<h3 class="text-center">
- Paṭhamavagga
-</h3>
-<h3 class="text-center">
- Sabbamatthītikathā
-</h3>
-<h3 class="text-center">
- Kālasaṃsandana
-</h3>
-<p id="p_32Kv_630">
- <span class="badge rounded-pill text-bg-light me-1" id="630">
-  630
- </span>
- ๐ Paccuppannaṃ rūpaṃ atthi paccuppannaṃ rūpaṃ aniruddhaṃ avigataṃ avipariṇataṃ na atthaṅgataṃ na abbhatthaṅgatanti? Āmantā. Atītaṃ rūpaṃ atthi atītaṃ rūpaṃ aniruddhaṃ avigataṃ avipariṇataṃ na atthaṅgataṃ na abbhatthaṅgatanti? Na hevaṃ vattabbe.
-</p>
-<h3 class="text-center">
- Mahāpaṇṇāsaka
-</h3>
-<h3 class="text-center">
- Paṭhamavagga
-</h3>
-<h3 class="text-center">
- Sabbamatthītikathā
-</h3>
-<h3 class="text-center">
- Kālasaṃsandana
-</h3>
-<p id="p_32Kv_631">
- <span class="badge rounded-pill text-bg-light me-1" id="631">
-  631
- </span>
- ๐ Paccuppannaṃ rūpaṃ atthi paccuppannaṃ rūpaṃ jātaṃ bhūtaṃ sañjātaṃ nibbattaṃ abhinibbattaṃ pātubhūtanti? Āmantā. Anāgataṃ rūpaṃ atthi anāgataṃ rūpaṃ jātaṃ bhūtaṃ sañjātaṃ nibbattaṃ abhinibbattaṃ pātubhūtanti? Na hevaṃ vattabbe.
-</p>
-<h3 class="text-center">
- Mahāpaṇṇāsaka
-</h3>
-<h3 class="text-center">
- Paṭhamavagga
-</h3>
-<h3 class="text-center">
- Sabbamatthītikathā
-</h3>
-<h3 class="text-center">
- Kālasaṃsandana
-</h3>
-<p id="p_32Kv_632">
- <span class="badge rounded-pill text-bg-light me-1" id="632">
-  632
- </span>
- ๐ Atītaṃ rūpaṃ atthi atītaṃ rūpaṃ niruddhaṃ vigataṃ vipariṇataṃ atthaṅgataṃ abbhatthaṅgatanti? Āmantā. Paccuppannaṃ rūpaṃ atthi paccuppannaṃ rūpaṃ niruddhaṃ vigataṃ vipariṇataṃ atthaṅgataṃ abbhatthaṅgatanti? Na hevaṃ vattabbe.
-</p>
-<h3 class="text-center">
- Mahāpaṇṇāsaka
-</h3>
-<h3 class="text-center">
- Paṭhamavagga
-</h3>
-<h3 class="text-center">
- Sabbamatthītikathā
-</h3>
-<h3 class="text-center">
- Kālasaṃsandana
-</h3>
-<p id="p_32Kv_633">
- <span class="badge rounded-pill text-bg-light me-1" id="633">
-  633
- </span>
- ๐ Anāgataṃ rūpaṃ atthi anāgataṃ rūpaṃ ajātaṃ abhūtaṃ asañjātaṃ anibbattaṃ anabhinibbattaṃ apātubhūtanti? Āmantā. Paccuppannaṃ rūpaṃ atthi paccuppannaṃ rūpaṃ ajātaṃ abhūtaṃ asañjātaṃ anibbattaṃ anabhinibbattaṃ apātubhūtanti? Na hevaṃ vattabbe.
-</p>
-<h3 class="text-center">
- Mahāpaṇṇāsaka
-</h3>
-<h3 class="text-center">
- Paṭhamavagga
-</h3>
-<h3 class="text-center">
- Sabbamatthītikathā
-</h3>
-<h3 class="text-center">
- Kālasaṃsandana
-</h3>
-<p id="p_32Kv_634">
- <span class="badge rounded-pill text-bg-light me-1" id="634">
-  634
- </span>
- ๐ Atītā vedanā atthi…pe…  saññā atthi, saṅkhārā atthi, viññāṇaṃ atthīti? Āmantā. Nanu atītaṃ viññāṇaṃ niruddhaṃ vigataṃ vipariṇataṃ atthaṅgataṃ abbhatthaṅgatanti? Āmantā. Hañci atītaṃ viññāṇaṃ niruddhaṃ…pe…  abbhatthaṅgataṃ, no ca vata re vattabbe—  “atītaṃ viññāṇaṃ atthī”ti.
-</p>
-<h3 class="text-center">
- Mahāpaṇṇāsaka
-</h3>
-<h3 class="text-center">
- Paṭhamavagga
-</h3>
-<h3 class="text-center">
- Sabbamatthītikathā
-</h3>
-<h3 class="text-center">
- Kālasaṃsandana
-</h3>
-<p id="p_32Kv_635">
- <span class="badge rounded-pill text-bg-light me-1" id="635">
-  635
- </span>
- ๐ Anāgataṃ viññāṇaṃ atthīti? Āmantā. Nanu anāgataṃ viññāṇaṃ ajātaṃ abhūtaṃ asañjātaṃ anibbattaṃ anabhinibbattaṃ apātubhūtanti? Āmantā. Hañci anāgataṃ viññāṇaṃ ajātaṃ…pe…  apātubhūtaṃ, no ca vata re vattabbe—  “anāgataṃ viññāṇaṃ atthī”ti.
-</p>
-<h3 class="text-center">
- Mahāpaṇṇāsaka
-</h3>
-<h3 class="text-center">
- Paṭhamavagga
-</h3>
-<h3 class="text-center">
- Sabbamatthītikathā
-</h3>
-<h3 class="text-center">
- Kālasaṃsandana
-</h3>
-<p id="p_32Kv_636">
- <span class="badge rounded-pill text-bg-light me-1" id="636">
-  636
- </span>
- ๐ Paccuppannaṃ viññāṇaṃ atthi paccuppannaṃ viññāṇaṃ aniruddhaṃ…pe…  na abbhatthaṅgatanti? Āmantā. Atītaṃ viññāṇaṃ atthi atītaṃ viññāṇaṃ aniruddhaṃ…pe…  na abbhatthaṅgatanti? Na hevaṃ vattabbe.
-</p>
-<h3 class="text-center">
- Mahāpaṇṇāsaka
-</h3>
-<h3 class="text-center">
- Paṭhamavagga
-</h3>
-<h3 class="text-center">
- Sabbamatthītikathā
-</h3>
-<h3 class="text-center">
- Kālasaṃsandana
-</h3>
-<p id="p_32Kv_637">
- <span class="badge rounded-pill text-bg-light me-1" id="637">
-  637
- </span>
- ๐ Paccuppannaṃ viññāṇaṃ atthi paccuppannaṃ viññāṇaṃ jātaṃ…pe…  pātubhūtanti? Āmantā. Anāgataṃ viññāṇaṃ atthi anāgataṃ viññāṇaṃ jātaṃ…pe…  pātubhūtanti? Na hevaṃ vattabbe.
-</p>
-<h3 class="text-center">
- Mahāpaṇṇāsaka
-</h3>
-<h3 class="text-center">
- Paṭhamavagga
-</h3>
-<h3 class="text-center">
- Sabbamatthītikathā
-</h3>
-<h3 class="text-center">
- Kālasaṃsandana
-</h3>
-<p id="p_32Kv_638">
- <span class="badge rounded-pill text-bg-light me-1" id="638">
-  638
- </span>
- ๐ Atītaṃ viññāṇaṃ atthi atītaṃ viññāṇaṃ niruddhaṃ…pe…  abbhatthaṅgatanti? Āmantā. Paccuppannaṃ viññāṇaṃ atthi paccuppannaṃ viññāṇaṃ niruddhaṃ…pe…  abbhatthaṅgatanti? Na hevaṃ vattabbe. Anāgataṃ viññāṇaṃ atthi anāgataṃ viññāṇaṃ ajātaṃ…pe…  apātubhūtanti? Āmantā.
-</p>
-<h3 class="text-center">
- Mahāpaṇṇāsaka
-</h3>
-<h3 class="text-center">
- Paṭhamavagga
-</h3>
-<h3 class="text-center">
- Sabbamatthītikathā
-</h3>
-<h3 class="text-center">
- Kālasaṃsandana
-</h3>
-<p id="p_32Kv_639">
- <span class="badge rounded-pill text-bg-light me-1" id="639">
-  639
- </span>
- ๐ Paccuppannaṃ viññāṇaṃ atthi paccuppannaṃ viññāṇaṃ ajātaṃ…pe…  apātubhūtanti? Na hevaṃ vattabbe.
-</p>
-<h3 class="text-center">
- Mahāpaṇṇāsaka
-</h3>
-<h3 class="text-center">
- Paṭhamavagga
-</h3>
-<h3 class="text-center">
- Sabbamatthītikathā
-</h3>
-<h3 class="text-center">
- Kālasaṃsandana
-</h3>
-<p id="p_32Kv_640">
- <span class="badge rounded-pill text-bg-secondary me-2" id="d285">
-  285.
- </span>
- <span class="badge rounded-pill text-bg-light me-1" id="640">
-  640
- </span>
- ๐ “Paccuppannan”ti vā “rūpan”ti vā, “rūpan”ti vā “paccuppannan”ti vā paccuppannaṃ rūpaṃ appiyaṃ karitvā esese ekaṭṭhe same samabhāge tajjāteti? Āmantā. Paccuppannaṃ rūpaṃ nirujjhamānaṃ paccuppannabhāvaṃ jahatīti? Āmantā. Rūpabhāvaṃ jahatīti? Na hevaṃ vattabbe…pe… .
-</p>
-<h3 class="text-center">
- Mahāpaṇṇāsaka
-</h3>
-<h3 class="text-center">
- Paṭhamavagga
-</h3>
-<h3 class="text-center">
- Sabbamatthītikathā
-</h3>
-<h3 class="text-center">
- Kālasaṃsandana
-</h3>
-<p id="p_32Kv_641">
- <span class="badge rounded-pill text-bg-light me-1" id="641">
-  641
- </span>
- ๐ “Paccuppannan”ti vā “rūpan”ti vā, “rūpan”ti vā “paccuppannan”ti vā paccuppannaṃ rūpaṃ appiyaṃ karitvā esese ekaṭṭhe same samabhāge tajjāteti? Āmantā. Paccuppannaṃ rūpaṃ nirujjhamānaṃ rūpabhāvaṃ na jahatīti? Āmantā. Paccuppannabhāvaṃ na jahatīti? Na hevaṃ vattabbe…pe… .
-</p>
-<h3 class="text-center">
- Mahāpaṇṇāsaka
-</h3>
-<h3 class="text-center">
- Paṭhamavagga
-</h3>
-<h3 class="text-center">
- Sabbamatthītikathā
-</h3>
-<h3 class="text-center">
- Kālasaṃsandana
-</h3>
-<p id="p_32Kv_642">
- <span class="badge rounded-pill text-bg-light me-1" id="642">
-  642
- </span>
- × “Odātan”ti vā “vatthan”ti vā, “vatthan”ti vā “odātan”ti vā odātaṃ vatthaṃ appiyaṃ karitvā esese ekaṭṭhe same samabhāge tajjāteti? Āmantā. Odātaṃ vatthaṃ rajjamānaṃ odātabhāvaṃ jahatīti? Āmantā. Vatthabhāvaṃ jahatīti? Na hevaṃ vattabbe.
-</p>
-<h3 class="text-center">
- Mahāpaṇṇāsaka
-</h3>
-<h3 class="text-center">
- Paṭhamavagga
-</h3>
-<h3 class="text-center">
- Sabbamatthītikathā
-</h3>
-<h3 class="text-center">
- Kālasaṃsandana
-</h3>
-<p id="p_32Kv_643">
- <span class="badge rounded-pill text-bg-light me-1" id="643">
-  643
- </span>
- × “Odātan”ti vā “vatthan”ti vā, “vatthan”ti vā “odātan”ti vā odātaṃ vatthaṃ appiyaṃ karitvā esese ekaṭṭhe same samabhāge tajjāteti? Āmantā. Odātaṃ vatthaṃ rajjamānaṃ vatthabhāvaṃ na jahatīti? Āmantā. Odātabhāvaṃ na jahatīti? Na hevaṃ vattabbe. …pe… .
-</p>
-<h3 class="text-center">
- Mahāpaṇṇāsaka
-</h3>
-<h3 class="text-center">
- Paṭhamavagga
-</h3>
-<h3 class="text-center">
- Sabbamatthītikathā
-</h3>
-<h3 class="text-center">
- Kālasaṃsandana
-</h3>
-<p id="p_32Kv_644">
- <span class="badge rounded-pill text-bg-secondary me-2" id="d286">
-  286.
- </span>
- <span class="badge rounded-pill text-bg-light me-1" id="644">
-  644
- </span>
- ๐ Rūpaṃ rūpabhāvaṃ na jahatīti? Āmantā. Rūpaṃ niccaṃ dhuvaṃ sassataṃ avipariṇāmadhammanti? Na hevaṃ vattabbe. Nanu rūpaṃ rūpabhāvaṃ na jahatīti rūpaṃ aniccaṃ adhuvaṃ asassataṃ vipariṇāmadhammanti? Āmantā. Hañci rūpaṃ aniccaṃ adhuvaṃ asassataṃ vipariṇāmadhammaṃ, no ca vata re vattabbe—  “rūpaṃ rūpabhāvaṃ na jahatī”ti.
-</p>
-<h3 class="text-center">
- Mahāpaṇṇāsaka
-</h3>
-<h3 class="text-center">
- Paṭhamavagga
-</h3>
-<h3 class="text-center">
- Sabbamatthītikathā
-</h3>
-<h3 class="text-center">
- Kālasaṃsandana
-</h3>
-<p id="p_32Kv_645">
- <span class="badge rounded-pill text-bg-light me-1" id="645">
-  645
- </span>
- ๐ Nibbānaṃ nibbānabhāvaṃ na jahatīti nibbānaṃ niccaṃ dhuvaṃ sassataṃ avipariṇāmadhammanti? Āmantā. Rūpaṃ rūpabhāvaṃ na jahatīti rūpaṃ niccaṃ dhuvaṃ sassataṃ avipariṇāmadhammanti? Na hevaṃ vattabbe…pe…  rūpaṃ rūpabhāvaṃ na jahati rūpaṃ aniccaṃ adhuvaṃ asassataṃ vipariṇāmadhammanti? Āmantā. Nibbānaṃ nibbānabhāvaṃ na jahati nibbānaṃ aniccaṃ adhuvaṃ asassataṃ vipariṇāmadhammanti? Na hevaṃ vattabbe…pe… .
-</p>
-<h3 class="text-center">
- Mahāpaṇṇāsaka
-</h3>
-<h3 class="text-center">
- Paṭhamavagga
-</h3>
-<h3 class="text-center">
- Sabbamatthītikathā
-</h3>
-<h3 class="text-center">
- Kālasaṃsandana
-</h3>
-<p id="p_32Kv_646">
- <span class="badge rounded-pill text-bg-light me-1" id="646">
-  646
- </span>
- ๐ Atītaṃ atthi atītaṃ atītabhāvaṃ na jahatīti? Āmantā. Anāgataṃ atthi anāgataṃ anāgatabhāvaṃ na jahatīti? Na hevaṃ vattabbe. Atītaṃ atthi atītaṃ atītabhāvaṃ na jahatīti? Āmantā. Paccuppannaṃ atthi paccuppannaṃ paccuppannabhāvaṃ na jahatīti? Na hevaṃ vattabbe…pe… .
-</p>
-<h3 class="text-center">
- Mahāpaṇṇāsaka
-</h3>
-<h3 class="text-center">
- Paṭhamavagga
-</h3>
-<h3 class="text-center">
- Sabbamatthītikathā
-</h3>
-<h3 class="text-center">
- Kālasaṃsandana
-</h3>
-<p id="p_32Kv_647">
- <span class="badge rounded-pill text-bg-light me-1" id="647">
-  647
- </span>
- ๐ Anāgataṃ atthi anāgataṃ anāgatabhāvaṃ jahatīti? Āmantā. Atītaṃ atthi atītaṃ atītabhāvaṃ jahatīti? Na hevaṃ vattabbe…pe… .
-</p>
-<h3 class="text-center">
- Mahāpaṇṇāsaka
-</h3>
-<h3 class="text-center">
- Paṭhamavagga
-</h3>
-<h3 class="text-center">
- Sabbamatthītikathā
-</h3>
-<h3 class="text-center">
- Kālasaṃsandana
-</h3>
-<p id="p_32Kv_648">
- <span class="badge rounded-pill text-bg-light me-1" id="648">
-  648
- </span>
- ๐ Paccuppannaṃ atthi paccuppannaṃ paccuppannabhāvaṃ jahatīti? Āmantā. Atītaṃ atthi atītaṃ atītabhāvaṃ jahatīti? Na hevaṃ vattabbe.
-</p>
-<h3 class="text-center">
- Mahāpaṇṇāsaka
-</h3>
-<h3 class="text-center">
- Paṭhamavagga
-</h3>
-<h3 class="text-center">
- Sabbamatthītikathā
-</h3>
-<h3 class="text-center">
- Kālasaṃsandana
-</h3>
-<p id="p_32Kv_649">
- <span class="badge rounded-pill text-bg-light me-1" id="649">
-  649
- </span>
- ๐ Atītaṃ atthi atītaṃ atītabhāvaṃ na jahatīti? Āmantā. Atītaṃ niccaṃ dhuvaṃ sassataṃ avipariṇāmadhammanti? Na hevaṃ vattabbe…pe…  nanu atītaṃ aniccaṃ adhuvaṃ asassataṃ vipariṇāmadhammanti? Āmantā. Hañci atītaṃ aniccaṃ adhuvaṃ asassataṃ vipariṇāmadhammaṃ, no ca vata re vattabbe—  “atītaṃ atthi atītaṃ atītabhāvaṃ na jahatī”ti.
-</p>
-<h3 class="text-center">
- Mahāpaṇṇāsaka
-</h3>
-<h3 class="text-center">
- Paṭhamavagga
-</h3>
-<h3 class="text-center">
- Sabbamatthītikathā
-</h3>
-<h3 class="text-center">
- Kālasaṃsandana
-</h3>
-<p id="p_32Kv_650">
- <span class="badge rounded-pill text-bg-light me-1" id="650">
-  650
- </span>
- ๐ Nibbānaṃ atthi nibbānaṃ nibbānabhāvaṃ na jahatīti nibbānaṃ niccaṃ dhuvaṃ sassataṃ avipariṇāmadhammanti? Āmantā. Atītaṃ atthi atītaṃ atītabhāvaṃ na jahatīti atītaṃ niccaṃ dhuvaṃ sassataṃ avipariṇāmadhammanti? Na hevaṃ vattabbe…pe… .
-</p>
-<h3 class="text-center">
- Mahāpaṇṇāsaka
-</h3>
-<h3 class="text-center">
- Paṭhamavagga
-</h3>
-<h3 class="text-center">
- Sabbamatthītikathā
-</h3>
-<h3 class="text-center">
- Kālasaṃsandana
-</h3>
-<p id="p_32Kv_651">
- <span class="badge rounded-pill text-bg-light me-1" id="651">
-  651
- </span>
- ๐ Atītaṃ atthi atītaṃ atītabhāvaṃ na jahati atītaṃ aniccaṃ adhuvaṃ asassataṃ vipariṇāmadhammanti? Āmantā. Nibbānaṃ atthi nibbānaṃ nibbānabhāvaṃ na jahati nibbānaṃ aniccaṃ adhuvaṃ asassataṃ vipariṇāmadhammanti? Na hevaṃ vattabbe…pe… .
-</p>
-<h3 class="text-center">
- Mahāpaṇṇāsaka
-</h3>
-<h3 class="text-center">
- Paṭhamavagga
-</h3>
-<h3 class="text-center">
- Sabbamatthītikathā
-</h3>
-<h3 class="text-center">
- Kālasaṃsandana
-</h3>
-<p id="p_32Kv_652">
- <span class="badge rounded-pill text-bg-secondary me-2" id="d287">
-  287.
- </span>
- <span class="badge rounded-pill text-bg-light me-1" id="652">
-  652
- </span>
- ๐ Atītaṃ rūpaṃ atthi atītaṃ rūpaṃ atītabhāvaṃ na jahatīti? Āmantā. Anāgataṃ rūpaṃ atthi anāgataṃ rūpaṃ anāgatabhāvaṃ na jahatīti? Na hevaṃ vattabbe…pe…  atītaṃ rūpaṃ atthi atītaṃ rūpaṃ atītabhāvaṃ na jahatīti? Āmantā. Paccuppannaṃ rūpaṃ atthi paccuppannaṃ rūpaṃ paccuppannabhāvaṃ na jahatīti? Na hevaṃ vattabbe…pe… .
-</p>
-<h3 class="text-center">
- Mahāpaṇṇāsaka
-</h3>
-<h3 class="text-center">
- Paṭhamavagga
-</h3>
-<h3 class="text-center">
- Sabbamatthītikathā
-</h3>
-<h3 class="text-center">
- Kālasaṃsandana
-</h3>
-<p id="p_32Kv_653">
- <span class="badge rounded-pill text-bg-light me-1" id="653">
-  653
- </span>
- ๐ Anāgataṃ rūpaṃ atthi anāgataṃ rūpaṃ anāgatabhāvaṃ jahatīti? Āmantā. Atītaṃ rūpaṃ atthi atītaṃ rūpaṃ atītabhāvaṃ jahatīti? Na hevaṃ vattabbe…pe… .
-</p>
-<h3 class="text-center">
- Mahāpaṇṇāsaka
-</h3>
-<h3 class="text-center">
- Paṭhamavagga
-</h3>
-<h3 class="text-center">
- Sabbamatthītikathā
-</h3>
-<h3 class="text-center">
- Kālasaṃsandana
-</h3>
-<p id="p_32Kv_654">
- <span class="badge rounded-pill text-bg-light me-1" id="654">
-  654
- </span>
- ๐ Paccuppannaṃ rūpaṃ atthi paccuppannaṃ rūpaṃ paccuppannabhāvaṃ jahatīti? Āmantā. Atītaṃ rūpaṃ atthi atītaṃ rūpaṃ atītabhāvaṃ jahatīti? Na hevaṃ vattabbe…pe… .
-</p>
-<h3 class="text-center">
- Mahāpaṇṇāsaka
-</h3>
-<h3 class="text-center">
- Paṭhamavagga
-</h3>
-<h3 class="text-center">
- Sabbamatthītikathā
-</h3>
-<h3 class="text-center">
- Kālasaṃsandana
-</h3>
-<p id="p_32Kv_655">
- <span class="badge rounded-pill text-bg-light me-1" id="655">
-  655
- </span>
- ๐ Atītaṃ rūpaṃ atthi atītaṃ rūpaṃ atītabhāvaṃ na jahatīti? Āmantā. Atītaṃ rūpaṃ niccaṃ dhuvaṃ sassataṃ avipariṇāmadhammanti? Na hevaṃ vattabbe…pe…  nanu atītaṃ rūpaṃ aniccaṃ adhuvaṃ asassataṃ vipariṇāmadhammanti? Āmantā. Hañci atītaṃ rūpaṃ aniccaṃ…pe…  vipariṇāmadhammaṃ, no ca vata re vattabbe—  “atītaṃ rūpaṃ atthi atītaṃ rūpaṃ atītabhāvaṃ na jahatī”ti.
-</p>
-<h3 class="text-center">
- Mahāpaṇṇāsaka
-</h3>
-<h3 class="text-center">
- Paṭhamavagga
-</h3>
-<h3 class="text-center">
- Sabbamatthītikathā
-</h3>
-<h3 class="text-center">
- Kālasaṃsandana
-</h3>
-<p id="p_32Kv_656">
- <span class="badge rounded-pill text-bg-light me-1" id="656">
-  656
- </span>
- ๐ Nibbānaṃ atthi nibbānaṃ nibbānabhāvaṃ na jahati nibbānaṃ niccaṃ dhuvaṃ sassataṃ avipariṇāmadhammanti? Āmantā. Atītaṃ rūpaṃ atthi atītaṃ rūpaṃ atītabhāvaṃ na jahati atītaṃ rūpaṃ niccaṃ dhuvaṃ sassataṃ avipariṇāmadhammanti? Na hevaṃ vattabbe…pe… .
-</p>
-<h3 class="text-center">
- Mahāpaṇṇāsaka
-</h3>
-<h3 class="text-center">
- Paṭhamavagga
-</h3>
-<h3 class="text-center">
- Sabbamatthītikathā
-</h3>
-<h3 class="text-center">
- Kālasaṃsandana
-</h3>
-<p id="p_32Kv_657">
- <span class="badge rounded-pill text-bg-light me-1" id="657">
-  657
- </span>
- ๐ Atītaṃ rūpaṃ atthi atītaṃ rūpaṃ atītabhāvaṃ na jahati atītaṃ rūpaṃ aniccaṃ adhuvaṃ asassataṃ vipariṇāmadhammanti? Āmantā. Nibbānaṃ atthi nibbānaṃ nibbānabhāvaṃ na jahati nibbānaṃ aniccaṃ adhuvaṃ asassataṃ vipariṇāmadhammanti? Na hevaṃ vattabbe…pe… .
-</p>
-<h3 class="text-center">
- Mahāpaṇṇāsaka
-</h3>
-<h3 class="text-center">
- Paṭhamavagga
-</h3>
-<h3 class="text-center">
- Sabbamatthītikathā
-</h3>
-<h3 class="text-center">
- Kālasaṃsandana
-</h3>
-<p id="p_32Kv_658">
- <span class="badge rounded-pill text-bg-light me-1" id="658">
-  658
- </span>
- ๐ Atītā vedanā atthi…  atītā saññā atthi…  atītā saṅkhārā atthi…  atītaṃ viññāṇaṃ atthi atītaṃ viññāṇaṃ atītabhāvaṃ na jahatīti? Āmantā. Anāgataṃ viññāṇaṃ atthi anāgataṃ viññāṇaṃ anāgatabhāvaṃ na jahatīti? Na hevaṃ vattabbe…pe…  atītaṃ viññāṇaṃ atthi atītaṃ viññāṇaṃ atītabhāvaṃ na jahatīti? Āmantā. Paccuppannaṃ viññāṇaṃ atthi paccuppannaṃ viññāṇaṃ paccuppannabhāvaṃ na jahatīti? Na hevaṃ vattabbe…pe… .
-</p>
-<h3 class="text-center">
- Mahāpaṇṇāsaka
-</h3>
-<h3 class="text-center">
- Paṭhamavagga
-</h3>
-<h3 class="text-center">
- Sabbamatthītikathā
-</h3>
-<h3 class="text-center">
- Kālasaṃsandana
-</h3>
-<p id="p_32Kv_659">
- <span class="badge rounded-pill text-bg-light me-1" id="659">
-  659
- </span>
- ๐ Anāgataṃ viññāṇaṃ atthi anāgataṃ viññāṇaṃ anāgatabhāvaṃ jahatīti? Āmantā. Atītaṃ viññāṇaṃ atthi atītaṃ viññāṇaṃ atītabhāvaṃ jahatīti? Na hevaṃ vattabbe…pe… .
-</p>
-<h3 class="text-center">
- Mahāpaṇṇāsaka
-</h3>
-<h3 class="text-center">
- Paṭhamavagga
-</h3>
-<h3 class="text-center">
- Sabbamatthītikathā
-</h3>
-<h3 class="text-center">
- Kālasaṃsandana
-</h3>
-<p id="p_32Kv_660">
- <span class="badge rounded-pill text-bg-light me-1" id="660">
-  660
- </span>
- ๐ Paccuppannaṃ viññāṇaṃ atthi paccuppannaṃ viññāṇaṃ paccuppannabhāvaṃ jahatīti? Āmantā. Atītaṃ viññāṇaṃ atthi atītaṃ viññāṇaṃ atītabhāvaṃ jahatīti? Na hevaṃ vattabbe…pe… .
-</p>
-<h3 class="text-center">
- Mahāpaṇṇāsaka
-</h3>
-<h3 class="text-center">
- Paṭhamavagga
-</h3>
-<h3 class="text-center">
- Sabbamatthītikathā
-</h3>
-<h3 class="text-center">
- Kālasaṃsandana
-</h3>
-<p id="p_32Kv_661">
- <span class="badge rounded-pill text-bg-light me-1" id="661">
-  661
- </span>
- ๐ Atītaṃ viññāṇaṃ atthi atītaṃ viññāṇaṃ atītabhāvaṃ na jahatīti? Āmantā. Atītaṃ viññāṇaṃ niccaṃ dhuvaṃ sassataṃ avipariṇāmadhammanti? Na hevaṃ vattabbe…pe…  nanu atītaṃ viññāṇaṃ aniccaṃ adhuvaṃ asassataṃ vipariṇāmadhammanti? Āmantā. Hañci atītaṃ viññāṇaṃ aniccaṃ adhuvaṃ asassataṃ vipariṇāmadhammaṃ, no ca vata re vattabbe—  “atītaṃ viññāṇaṃ atthi atītaṃ viññāṇaṃ atītabhāvaṃ na jahatī”ti.
-</p>
-<h3 class="text-center">
- Mahāpaṇṇāsaka
-</h3>
-<h3 class="text-center">
- Paṭhamavagga
-</h3>
-<h3 class="text-center">
- Sabbamatthītikathā
-</h3>
-<h3 class="text-center">
- Kālasaṃsandana
-</h3>
-<p id="p_32Kv_662">
- <span class="badge rounded-pill text-bg-light me-1" id="662">
-  662
- </span>
- ๐ Nibbānaṃ atthi nibbānaṃ nibbānabhāvaṃ na jahati nibbānaṃ niccaṃ dhuvaṃ sassataṃ avipariṇāmadhammanti? Āmantā. Atītaṃ viññāṇaṃ atthi atītaṃ viññāṇaṃ atītabhāvaṃ na jahati atītaṃ viññāṇaṃ niccaṃ dhuvaṃ sassataṃ avipariṇāmadhammanti? Na hevaṃ vattabbe…pe… .
-</p>
-<h3 class="text-center">
- Mahāpaṇṇāsaka
-</h3>
-<h3 class="text-center">
- Paṭhamavagga
-</h3>
-<h3 class="text-center">
- Sabbamatthītikathā
-</h3>
-<h3 class="text-center">
- Kālasaṃsandana
-</h3>
-<p id="p_32Kv_663">
- <span class="badge rounded-pill text-bg-light me-1" id="663">
-  663
- </span>
- ๐ Atītaṃ viññāṇaṃ atthi atītaṃ viññāṇaṃ atītabhāvaṃ na jahati atītaṃ viññāṇaṃ aniccaṃ adhuvaṃ asassataṃ vipariṇāmadhammanti? Āmantā. Nibbānaṃ atthi nibbānaṃ nibbānabhāvaṃ na jahati nibbānaṃ aniccaṃ adhuvaṃ asassataṃ vipariṇāmadhammanti? Na hevaṃ vattabbe…pe… .
-</p>
-<div class="fixed_bottom container">
- <ul class="list-group">
-  <li class="list-group-item list-group-item-action">
-   <a href="/tipitaka/32Kv/1/1.1/1.1.6/1.1.6.2/1.1.6.2.1.html">
-    1.1.6.2.1 Vacanasodhana
-   </a>
-  </li>
-  <li class="list-group-item list-group-item-action">
-   <a href="/tipitaka/32Kv/1/1.1/1.1.6/1.1.6.2/1.1.6.2.2.html">
-    1.1.6.2.2 Atītacakkhurūpādikathā
-   </a>
-  </li>
-  <li class="list-group-item list-group-item-action">
-   <a href="/tipitaka/32Kv/1/1.1/1.1.6/1.1.6.2/1.1.6.2.3.html">
-    1.1.6.2.3 Atītañāṇādikathā
-   </a>
-  </li>
-  <li class="list-group-item list-group-item-action">
-   <a href="/tipitaka/32Kv/1/1.1/1.1.6/1.1.6.2/1.1.6.2.4.html">
-    1.1.6.2.4 Arahantādikathā
-   </a>
-  </li>
-  <li class="list-group-item list-group-item-action">
-   <a href="/tipitaka/32Kv/1/1.1/1.1.6/1.1.6.2/1.1.6.2.5.html">
-    1.1.6.2.5 Atītahatthādikathā
-   </a>
-  </li>
-  <li class="list-group-item list-group-item-action">
-   <a href="/tipitaka/32Kv/1/1.1/1.1.6/1.1.6.2/1.1.6.2.6.html">
-    1.1.6.2.6 Atītakkhandhādisamodhānakathā
-   </a>
-  </li>
-  <li class="list-group-item list-group-item-action">
-   <a href="/tipitaka/32Kv/1/1.1/1.1.6/1.1.6.2/1.1.6.2.7.html">
-    1.1.6.2.7 Padasodhanakathā
-   </a>
-  </li>
-  <li class="list-group-item list-group-item-action">
-   <a href="/tipitaka/32Kv/1/1.1/1.1.6/1.1.6.2/1.1.6.2.8.html">
-    1.1.6.2.8 Suttasādhana
-   </a>
-  </li>
- </ul>
- <footer class="row align-items-center py-4 my-4 border-top">
-  <a class="col order-1 btn btn-outline-secondary" href="/tipitaka/32Kv/1/1.1/1.1.6/1.1.6.1.html" id="previous">
-   1.1.6.1 Vādayutti
-  </a>
-  <a class="col order-2 btn btn-outline-secondary" href="/tipitaka/32Kv/1/1.1/1.1.6.html" id="up">
-   up
-  </a>
-  <a class="col order-3 btn btn-outline-secondary" href="/tipitaka/32Kv/1/1.1/1.1.6/1.1.6.2/1.1.6.2.1.html" id="next">
-   1.1.6.2.1 Vacanasodhana
-  </a>
- </footer>
-</div>
-  
-    </div>
-  </main>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>
-  <script src="/scripts/sidebars.js"></script>
-</body>
-
+<!DOCTYPE html>
+<html lang="pi">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="toc-section-path" content="ABH/32Kv/1/1/6/2">
+    <title>1.1.6.2 Kālasaṃsandana — 1.1.6.2. กาลสํสัน์ทน</title>
+  </head>
+  <body>
+    <header>
+      <nav aria-label="Breadcrumb">
+        <ol class="breadcrumb">
+          <li><a href="/">Home</a></li>
+          <li><a href="/tipitaka/32Kv.html">32Kv Kathāvatthupāḷi</a></li>
+          <li><a href="/tipitaka/32Kv/1.html">1 Mahāpaṇṇāsaka</a></li>
+          <li><a href="/tipitaka/32Kv/1/1.1.html">1.1 Paṭhamavagga</a></li>
+          <li><a href="/tipitaka/32Kv/1/1.1/1.1.6.html">1.1.6 Sabbamatthītikathā</a></li>
+        </ol>
+      </nav>
+      <h1 class="pali-title" lang="pi">1.1.6.2 Kālasaṃsandana</h1>
+      <p class="thai-title" lang="th">1.1.6.2. กาลสํสัน์ทน</p>
+    </header>
+    <main>
+      <h3>Mahāpaṇṇāsaka</h3>
+      <h3>Paṭhamavagga</h3>
+      <h3>Sabbamatthītikathā</h3>
+      <h3>Kālasaṃsandana</h3>
+      <h3>Mahāpaṇṇāsaka</h3>
+      <h3>Paṭhamavagga</h3>
+      <h3>Sabbamatthītikathā</h3>
+      <h3>Kālasaṃsandana</h3>
+      <h3>Mahāpaṇṇāsaka</h3>
+      <h3>Paṭhamavagga</h3>
+      <h3>Sabbamatthītikathā</h3>
+      <h3>Kālasaṃsandana</h3>
+      <h3>Mahāpaṇṇāsaka</h3>
+      <h3>Paṭhamavagga</h3>
+      <h3>Sabbamatthītikathā</h3>
+      <h3>Kālasaṃsandana</h3>
+      <h3>Mahāpaṇṇāsaka</h3>
+      <h3>Paṭhamavagga</h3>
+      <h3>Sabbamatthītikathā</h3>
+      <h3>Kālasaṃsandana</h3>
+      <h3>Mahāpaṇṇāsaka</h3>
+      <h3>Paṭhamavagga</h3>
+      <h3>Sabbamatthītikathā</h3>
+      <h3>Kālasaṃsandana</h3>
+      <h3>Mahāpaṇṇāsaka</h3>
+      <h3>Paṭhamavagga</h3>
+      <h3>Sabbamatthītikathā</h3>
+      <h3>Kālasaṃsandana</h3>
+      <h3>Mahāpaṇṇāsaka</h3>
+      <h3>Paṭhamavagga</h3>
+      <h3>Sabbamatthītikathā</h3>
+      <h3>Kālasaṃsandana</h3>
+      <h3>Mahāpaṇṇāsaka</h3>
+      <h3>Paṭhamavagga</h3>
+      <h3>Sabbamatthītikathā</h3>
+      <h3>Kālasaṃsandana</h3>
+      <h3>Mahāpaṇṇāsaka</h3>
+      <h3>Paṭhamavagga</h3>
+      <h3>Sabbamatthītikathā</h3>
+      <h3>Kālasaṃsandana</h3>
+      <h3>Mahāpaṇṇāsaka</h3>
+      <h3>Paṭhamavagga</h3>
+      <h3>Sabbamatthītikathā</h3>
+      <h3>Kālasaṃsandana</h3>
+      <h3>Mahāpaṇṇāsaka</h3>
+      <h3>Paṭhamavagga</h3>
+      <h3>Sabbamatthītikathā</h3>
+      <h3>Kālasaṃsandana</h3>
+      <h3>Mahāpaṇṇāsaka</h3>
+      <h3>Paṭhamavagga</h3>
+      <h3>Sabbamatthītikathā</h3>
+      <h3>Kālasaṃsandana</h3>
+      <h3>Mahāpaṇṇāsaka</h3>
+      <h3>Paṭhamavagga</h3>
+      <h3>Sabbamatthītikathā</h3>
+      <h3>Kālasaṃsandana</h3>
+      <h3>Mahāpaṇṇāsaka</h3>
+      <h3>Paṭhamavagga</h3>
+      <h3>Sabbamatthītikathā</h3>
+      <h3>Kālasaṃsandana</h3>
+      <h3>Mahāpaṇṇāsaka</h3>
+      <h3>Paṭhamavagga</h3>
+      <h3>Sabbamatthītikathā</h3>
+      <h3>Kālasaṃsandana</h3>
+      <h3>Mahāpaṇṇāsaka</h3>
+      <h3>Paṭhamavagga</h3>
+      <h3>Sabbamatthītikathā</h3>
+      <h3>Kālasaṃsandana</h3>
+      <h3>Mahāpaṇṇāsaka</h3>
+      <h3>Paṭhamavagga</h3>
+      <h3>Sabbamatthītikathā</h3>
+      <h3>Kālasaṃsandana</h3>
+      <h3>Mahāpaṇṇāsaka</h3>
+      <h3>Paṭhamavagga</h3>
+      <h3>Sabbamatthītikathā</h3>
+      <h3>Kālasaṃsandana</h3>
+      <h3>Mahāpaṇṇāsaka</h3>
+      <h3>Paṭhamavagga</h3>
+      <h3>Sabbamatthītikathā</h3>
+      <h3>Kālasaṃsandana</h3>
+      <h3>Mahāpaṇṇāsaka</h3>
+      <h3>Paṭhamavagga</h3>
+      <h3>Sabbamatthītikathā</h3>
+      <h3>Kālasaṃsandana</h3>
+      <h3>Mahāpaṇṇāsaka</h3>
+      <h3>Paṭhamavagga</h3>
+      <h3>Sabbamatthītikathā</h3>
+      <h3>Kālasaṃsandana</h3>
+      <h3>Mahāpaṇṇāsaka</h3>
+      <h3>Paṭhamavagga</h3>
+      <h3>Sabbamatthītikathā</h3>
+      <h3>Kālasaṃsandana</h3>
+      <h3>Mahāpaṇṇāsaka</h3>
+      <h3>Paṭhamavagga</h3>
+      <h3>Sabbamatthītikathā</h3>
+      <h3>Kālasaṃsandana</h3>
+      <h3>Mahāpaṇṇāsaka</h3>
+      <h3>Paṭhamavagga</h3>
+      <h3>Sabbamatthītikathā</h3>
+      <h3>Kālasaṃsandana</h3>
+      <h3>Mahāpaṇṇāsaka</h3>
+      <h3>Paṭhamavagga</h3>
+      <h3>Sabbamatthītikathā</h3>
+      <h3>Kālasaṃsandana</h3>
+      <h3>Mahāpaṇṇāsaka</h3>
+      <h3>Paṭhamavagga</h3>
+      <h3>Sabbamatthītikathā</h3>
+      <h3>Kālasaṃsandana</h3>
+      <h3>Mahāpaṇṇāsaka</h3>
+      <h3>Paṭhamavagga</h3>
+      <h3>Sabbamatthītikathā</h3>
+      <h3>Kālasaṃsandana</h3>
+      <h3>Mahāpaṇṇāsaka</h3>
+      <h3>Paṭhamavagga</h3>
+      <h3>Sabbamatthītikathā</h3>
+      <h3>Kālasaṃsandana</h3>
+      <h3>Mahāpaṇṇāsaka</h3>
+      <h3>Paṭhamavagga</h3>
+      <h3>Sabbamatthītikathā</h3>
+      <h3>Kālasaṃsandana</h3>
+      <h3>Mahāpaṇṇāsaka</h3>
+      <h3>Paṭhamavagga</h3>
+      <h3>Sabbamatthītikathā</h3>
+      <h3>Kālasaṃsandana</h3>
+      <h3>Mahāpaṇṇāsaka</h3>
+      <h3>Paṭhamavagga</h3>
+      <h3>Sabbamatthītikathā</h3>
+      <h3>Kālasaṃsandana</h3>
+      <h3>Mahāpaṇṇāsaka</h3>
+      <h3>Paṭhamavagga</h3>
+      <h3>Sabbamatthītikathā</h3>
+      <h3>Kālasaṃsandana</h3>
+      <h3>Mahāpaṇṇāsaka</h3>
+      <h3>Paṭhamavagga</h3>
+      <h3>Sabbamatthītikathā</h3>
+      <h3>Kālasaṃsandana</h3>
+      <h3>Mahāpaṇṇāsaka</h3>
+      <h3>Paṭhamavagga</h3>
+      <h3>Sabbamatthītikathā</h3>
+      <h3>Kālasaṃsandana</h3>
+      <h3>Mahāpaṇṇāsaka</h3>
+      <h3>Paṭhamavagga</h3>
+      <h3>Sabbamatthītikathā</h3>
+      <h3>Kālasaṃsandana</h3>
+      <h3>Mahāpaṇṇāsaka</h3>
+      <h3>Paṭhamavagga</h3>
+      <h3>Sabbamatthītikathā</h3>
+      <h3>Kālasaṃsandana</h3>
+      <h3>Mahāpaṇṇāsaka</h3>
+      <h3>Paṭhamavagga</h3>
+      <h3>Sabbamatthītikathā</h3>
+      <h3>Kālasaṃsandana</h3>
+      <h3>Mahāpaṇṇāsaka</h3>
+      <h3>Paṭhamavagga</h3>
+      <h3>Sabbamatthītikathā</h3>
+      <h3>Kālasaṃsandana</h3>
+      <h3>Mahāpaṇṇāsaka</h3>
+      <h3>Paṭhamavagga</h3>
+      <h3>Sabbamatthītikathā</h3>
+      <h3>Kālasaṃsandana</h3>
+      <p id="p_32Kv_624"><span class="division-number" id="d283">283.</span> <span class="paragraph-number" id="624">624</span> ๐ Atītaṁ atthīti? Āmantā. Nanu atītaṁ niruddhaṁ vigataṁ vipariṇataṁ atthaṅgataṁ abbhatthaṅgatanti? Āmantā. Hañci atītaṁ niruddhaṁ vigataṁ vipariṇataṁ atthaṅgataṁ abbhatthaṅgataṁ, no ca vata re vattabbe— “atītaṁ atthī”ti.</p>
+      <p id="p_32Kv_625"><span class="paragraph-number" id="625">625</span> ๐ Anāgataṁ atthīti? Āmantā. Nanu anāgataṁ ajātaṁ abhūtaṁ asañjātaṁ anibbattaṁ anabhinibbattaṁ apātubhūtanti? Āmantā. Hañci anāgataṁ ajātaṁ abhūtaṁ asañjātaṁ anibbattaṁ anabhinibbattaṁ apātubhūtaṁ, no ca vata re vattabbe— “anāgataṁ atthī”ti.</p>
+      <p id="p_32Kv_626"><span class="paragraph-number" id="626">626</span> ๐ Paccuppannaṁ atthi paccuppannaṁ aniruddhaṁ avigataṁ avipariṇataṁ na atthaṅgataṁ na abbhatthaṅgatanti? Āmantā. Atītaṁ atthi atītaṁ aniruddhaṁ avigataṁ avipariṇataṁ na atthaṅgataṁ na abbhatthaṅgatanti? Na hevaṁ vattabbe…pe… paccuppannaṁ atthi paccuppannaṁ jātaṁ bhūtaṁ sañjātaṁ nibbattaṁ abhinibbattaṁ pātubhūtanti? Āmantā. Anāgataṁ atthi anāgataṁ jātaṁ bhūtaṁ sañjātaṁ nibbattaṁ abhinibbattaṁ pātubhūtanti? Na hevaṁ vattabbe…pe… .</p>
+      <p id="p_32Kv_627"><span class="paragraph-number" id="627">627</span> ๐ Atītaṁ atthi atītaṁ niruddhaṁ vigataṁ vipariṇataṁ atthaṅgataṁ abbhatthaṅgatanti? Āmantā. Paccuppannaṁ atthi paccuppannaṁ niruddhaṁ vigataṁ vipariṇataṁ atthaṅgataṁ abbhatthaṅgatanti? Na hevaṁ vattabbe…pe… anāgataṁ atthi anāgataṁ ajātaṁ abhūtaṁ asañjātaṁ anibbattaṁ anabhinibbattaṁ apātubhūtanti? Āmantā. Paccuppannaṁ atthi paccuppannaṁ ajātaṁ abhūtaṁ asañjātaṁ anibbattaṁ anabhinibbattaṁ apātubhūtanti? Na hevaṁ vattabbe.</p>
+      <p id="p_32Kv_628"><span class="division-number" id="d284">284.</span> <span class="paragraph-number" id="628">628</span> ๐ Atītaṁ rūpaṁ atthīti? Āmantā. Nanu atītaṁ rūpaṁ niruddhaṁ vigataṁ vipariṇataṁ atthaṅgataṁ abbhatthaṅgatanti? Āmantā. Hañci atītaṁ rūpaṁ niruddhaṁ…pe… abbhatthaṅgataṁ, no ca vata re vattabbe— “atītaṁ rūpaṁ atthī”ti.</p>
+      <p id="p_32Kv_629"><span class="paragraph-number" id="629">629</span> ๐ Anāgataṁ rūpaṁ atthīti? Āmantā. Nanu anāgataṁ rūpaṁ ajātaṁ abhūtaṁ asañjātaṁ anibbattaṁ anabhinibbattaṁ apātubhūtanti? Āmantā. Hañci anāgataṁ rūpaṁ ajātaṁ…pe… apātubhūtaṁ, no ca vata re vattabbe— “anāgataṁ rūpaṁ atthī”ti.</p>
+      <p id="p_32Kv_630"><span class="paragraph-number" id="630">630</span> ๐ Paccuppannaṁ rūpaṁ atthi paccuppannaṁ rūpaṁ aniruddhaṁ avigataṁ avipariṇataṁ na atthaṅgataṁ na abbhatthaṅgatanti? Āmantā. Atītaṁ rūpaṁ atthi atītaṁ rūpaṁ aniruddhaṁ avigataṁ avipariṇataṁ na atthaṅgataṁ na abbhatthaṅgatanti? Na hevaṁ vattabbe.</p>
+      <p id="p_32Kv_631"><span class="paragraph-number" id="631">631</span> ๐ Paccuppannaṁ rūpaṁ atthi paccuppannaṁ rūpaṁ jātaṁ bhūtaṁ sañjātaṁ nibbattaṁ abhinibbattaṁ pātubhūtanti? Āmantā. Anāgataṁ rūpaṁ atthi anāgataṁ rūpaṁ jātaṁ bhūtaṁ sañjātaṁ nibbattaṁ abhinibbattaṁ pātubhūtanti? Na hevaṁ vattabbe.</p>
+      <p id="p_32Kv_632"><span class="paragraph-number" id="632">632</span> ๐ Atītaṁ rūpaṁ atthi atītaṁ rūpaṁ niruddhaṁ vigataṁ vipariṇataṁ atthaṅgataṁ abbhatthaṅgatanti? Āmantā. Paccuppannaṁ rūpaṁ atthi paccuppannaṁ rūpaṁ niruddhaṁ vigataṁ vipariṇataṁ atthaṅgataṁ abbhatthaṅgatanti? Na hevaṁ vattabbe.</p>
+      <p id="p_32Kv_633"><span class="paragraph-number" id="633">633</span> ๐ Anāgataṁ rūpaṁ atthi anāgataṁ rūpaṁ ajātaṁ abhūtaṁ asañjātaṁ anibbattaṁ anabhinibbattaṁ apātubhūtanti? Āmantā. Paccuppannaṁ rūpaṁ atthi paccuppannaṁ rūpaṁ ajātaṁ abhūtaṁ asañjātaṁ anibbattaṁ anabhinibbattaṁ apātubhūtanti? Na hevaṁ vattabbe.</p>
+      <p id="p_32Kv_634"><span class="paragraph-number" id="634">634</span> ๐ Atītā vedanā atthi…pe… saññā atthi, saṅkhārā atthi, viññāṇaṁ atthīti? Āmantā. Nanu atītaṁ viññāṇaṁ niruddhaṁ vigataṁ vipariṇataṁ atthaṅgataṁ abbhatthaṅgatanti? Āmantā. Hañci atītaṁ viññāṇaṁ niruddhaṁ…pe… abbhatthaṅgataṁ, no ca vata re vattabbe— “atītaṁ viññāṇaṁ atthī”ti.</p>
+      <p id="p_32Kv_635"><span class="paragraph-number" id="635">635</span> ๐ Anāgataṁ viññāṇaṁ atthīti? Āmantā. Nanu anāgataṁ viññāṇaṁ ajātaṁ abhūtaṁ asañjātaṁ anibbattaṁ anabhinibbattaṁ apātubhūtanti? Āmantā. Hañci anāgataṁ viññāṇaṁ ajātaṁ…pe… apātubhūtaṁ, no ca vata re vattabbe— “anāgataṁ viññāṇaṁ atthī”ti.</p>
+      <p id="p_32Kv_636"><span class="paragraph-number" id="636">636</span> ๐ Paccuppannaṁ viññāṇaṁ atthi paccuppannaṁ viññāṇaṁ aniruddhaṁ…pe… na abbhatthaṅgatanti? Āmantā. Atītaṁ viññāṇaṁ atthi atītaṁ viññāṇaṁ aniruddhaṁ…pe… na abbhatthaṅgatanti? Na hevaṁ vattabbe.</p>
+      <p id="p_32Kv_637"><span class="paragraph-number" id="637">637</span> ๐ Paccuppannaṁ viññāṇaṁ atthi paccuppannaṁ viññāṇaṁ jātaṁ…pe… pātubhūtanti? Āmantā. Anāgataṁ viññāṇaṁ atthi anāgataṁ viññāṇaṁ jātaṁ…pe… pātubhūtanti? Na hevaṁ vattabbe.</p>
+      <p id="p_32Kv_638"><span class="paragraph-number" id="638">638</span> ๐ Atītaṁ viññāṇaṁ atthi atītaṁ viññāṇaṁ niruddhaṁ…pe… abbhatthaṅgatanti? Āmantā. Paccuppannaṁ viññāṇaṁ atthi paccuppannaṁ viññāṇaṁ niruddhaṁ…pe… abbhatthaṅgatanti? Na hevaṁ vattabbe. Anāgataṁ viññāṇaṁ atthi anāgataṁ viññāṇaṁ ajātaṁ…pe… apātubhūtanti? Āmantā.</p>
+      <p id="p_32Kv_639"><span class="paragraph-number" id="639">639</span> ๐ Paccuppannaṁ viññāṇaṁ atthi paccuppannaṁ viññāṇaṁ ajātaṁ…pe… apātubhūtanti? Na hevaṁ vattabbe.</p>
+      <p id="p_32Kv_640"><span class="division-number" id="d285">285.</span> <span class="paragraph-number" id="640">640</span> ๐ “Paccuppannan”ti vā “rūpan”ti vā, “rūpan”ti vā “paccuppannan”ti vā paccuppannaṁ rūpaṁ appiyaṁ karitvā esese ekaṭṭhe same samabhāge tajjāteti? Āmantā. Paccuppannaṁ rūpaṁ nirujjhamānaṁ paccuppannabhāvaṁ jahatīti? Āmantā. Rūpabhāvaṁ jahatīti? Na hevaṁ vattabbe…pe… .</p>
+      <p id="p_32Kv_641"><span class="paragraph-number" id="641">641</span> ๐ “Paccuppannan”ti vā “rūpan”ti vā, “rūpan”ti vā “paccuppannan”ti vā paccuppannaṁ rūpaṁ appiyaṁ karitvā esese ekaṭṭhe same samabhāge tajjāteti? Āmantā. Paccuppannaṁ rūpaṁ nirujjhamānaṁ rūpabhāvaṁ na jahatīti? Āmantā. Paccuppannabhāvaṁ na jahatīti? Na hevaṁ vattabbe…pe… .</p>
+      <p id="p_32Kv_642"><span class="paragraph-number" id="642">642</span> × “Odātan”ti vā “vatthan”ti vā, “vatthan”ti vā “odātan”ti vā odātaṁ vatthaṁ appiyaṁ karitvā esese ekaṭṭhe same samabhāge tajjāteti? Āmantā. Odātaṁ vatthaṁ rajjamānaṁ odātabhāvaṁ jahatīti? Āmantā. Vatthabhāvaṁ jahatīti? Na hevaṁ vattabbe.</p>
+      <p id="p_32Kv_643"><span class="paragraph-number" id="643">643</span> × “Odātan”ti vā “vatthan”ti vā, “vatthan”ti vā “odātan”ti vā odātaṁ vatthaṁ appiyaṁ karitvā esese ekaṭṭhe same samabhāge tajjāteti? Āmantā. Odātaṁ vatthaṁ rajjamānaṁ vatthabhāvaṁ na jahatīti? Āmantā. Odātabhāvaṁ na jahatīti? Na hevaṁ vattabbe. …pe… .</p>
+      <p id="p_32Kv_644"><span class="division-number" id="d286">286.</span> <span class="paragraph-number" id="644">644</span> ๐ Rūpaṁ rūpabhāvaṁ na jahatīti? Āmantā. Rūpaṁ niccaṁ dhuvaṁ sassataṁ avipariṇāmadhammanti? Na hevaṁ vattabbe. Nanu rūpaṁ rūpabhāvaṁ na jahatīti rūpaṁ aniccaṁ adhuvaṁ asassataṁ vipariṇāmadhammanti? Āmantā. Hañci rūpaṁ aniccaṁ adhuvaṁ asassataṁ vipariṇāmadhammaṁ, no ca vata re vattabbe— “rūpaṁ rūpabhāvaṁ na jahatī”ti.</p>
+      <p id="p_32Kv_645"><span class="paragraph-number" id="645">645</span> ๐ Nibbānaṁ nibbānabhāvaṁ na jahatīti<sup class="footnote-ref"><a href="#fn-p_32Kv_645_86" id="fnref-p_32Kv_645_86">[86]</a></sup> nibbānaṁ niccaṁ dhuvaṁ sassataṁ avipariṇāmadhammanti? Āmantā. Rūpaṁ rūpabhāvaṁ na jahatīti rūpaṁ niccaṁ dhuvaṁ sassataṁ avipariṇāmadhammanti? Na hevaṁ vattabbe…pe… rūpaṁ rūpabhāvaṁ na jahati<sup class="footnote-ref"><a href="#fn-p_32Kv_645_87" id="fnref-p_32Kv_645_87">[87]</a></sup> rūpaṁ aniccaṁ adhuvaṁ asassataṁ vipariṇāmadhammanti? Āmantā. Nibbānaṁ nibbānabhāvaṁ na jahati nibbānaṁ aniccaṁ adhuvaṁ asassataṁ vipariṇāmadhammanti? Na hevaṁ vattabbe…pe… .</p>
+      <p id="p_32Kv_646"><span class="paragraph-number" id="646">646</span> ๐ Atītaṁ atthi atītaṁ atītabhāvaṁ na jahatīti? Āmantā. Anāgataṁ atthi anāgataṁ anāgatabhāvaṁ na jahatīti? Na hevaṁ vattabbe. Atītaṁ atthi atītaṁ atītabhāvaṁ na jahatīti? Āmantā. Paccuppannaṁ atthi paccuppannaṁ paccuppannabhāvaṁ na jahatīti? Na hevaṁ vattabbe…pe… .</p>
+      <p id="p_32Kv_647"><span class="paragraph-number" id="647">647</span> ๐ Anāgataṁ atthi anāgataṁ anāgatabhāvaṁ jahatīti<sup class="footnote-ref"><a href="#fn-p_32Kv_647_88" id="fnref-p_32Kv_647_88">[88]</a></sup>? Āmantā. Atītaṁ atthi atītaṁ atītabhāvaṁ jahatīti<sup class="footnote-ref"><a href="#fn-p_32Kv_647_89" id="fnref-p_32Kv_647_89">[89]</a></sup>? Na hevaṁ vattabbe…pe… .</p>
+      <p id="p_32Kv_648"><span class="paragraph-number" id="648">648</span> ๐ Paccuppannaṁ atthi paccuppannaṁ paccuppannabhāvaṁ jahatīti<sup class="footnote-ref"><a href="#fn-p_32Kv_648_90" id="fnref-p_32Kv_648_90">[90]</a></sup>? Āmantā. Atītaṁ atthi atītaṁ atītabhāvaṁ jahatīti<sup class="footnote-ref"><a href="#fn-p_32Kv_648_91" id="fnref-p_32Kv_648_91">[91]</a></sup>? Na hevaṁ vattabbe.</p>
+      <p id="p_32Kv_649"><span class="paragraph-number" id="649">649</span> ๐ Atītaṁ atthi atītaṁ atītabhāvaṁ na jahatīti? Āmantā. Atītaṁ niccaṁ dhuvaṁ sassataṁ avipariṇāmadhammanti? Na hevaṁ vattabbe…pe… nanu atītaṁ aniccaṁ adhuvaṁ asassataṁ vipariṇāmadhammanti? Āmantā. Hañci atītaṁ aniccaṁ adhuvaṁ asassataṁ vipariṇāmadhammaṁ, no ca vata re vattabbe— “atītaṁ atthi atītaṁ atītabhāvaṁ na jahatī”ti.</p>
+      <p id="p_32Kv_650"><span class="paragraph-number" id="650">650</span> ๐ Nibbānaṁ atthi nibbānaṁ nibbānabhāvaṁ na jahatīti nibbānaṁ niccaṁ dhuvaṁ sassataṁ avipariṇāmadhammanti? Āmantā. Atītaṁ atthi atītaṁ atītabhāvaṁ na jahatīti atītaṁ niccaṁ dhuvaṁ sassataṁ avipariṇāmadhammanti? Na hevaṁ vattabbe…pe… .</p>
+      <p id="p_32Kv_651"><span class="paragraph-number" id="651">651</span> ๐ Atītaṁ atthi atītaṁ atītabhāvaṁ na jahati atītaṁ aniccaṁ adhuvaṁ asassataṁ vipariṇāmadhammanti? Āmantā. Nibbānaṁ atthi nibbānaṁ nibbānabhāvaṁ na jahati nibbānaṁ aniccaṁ adhuvaṁ asassataṁ vipariṇāmadhammanti? Na hevaṁ vattabbe…pe… .</p>
+      <p id="p_32Kv_652"><span class="division-number" id="d287">287.</span> <span class="paragraph-number" id="652">652</span> ๐ Atītaṁ rūpaṁ atthi atītaṁ rūpaṁ atītabhāvaṁ na jahatīti? Āmantā. Anāgataṁ rūpaṁ atthi anāgataṁ rūpaṁ anāgatabhāvaṁ na jahatīti? Na hevaṁ vattabbe…pe… atītaṁ rūpaṁ atthi atītaṁ rūpaṁ atītabhāvaṁ na jahatīti? Āmantā. Paccuppannaṁ rūpaṁ atthi paccuppannaṁ rūpaṁ paccuppannabhāvaṁ na jahatīti? Na hevaṁ vattabbe…pe… .</p>
+      <p id="p_32Kv_653"><span class="paragraph-number" id="653">653</span> ๐ Anāgataṁ rūpaṁ atthi anāgataṁ rūpaṁ anāgatabhāvaṁ jahatīti<sup class="footnote-ref"><a href="#fn-p_32Kv_653_92" id="fnref-p_32Kv_653_92">[92]</a></sup>? Āmantā. Atītaṁ rūpaṁ atthi atītaṁ rūpaṁ atītabhāvaṁ jahatīti<sup class="footnote-ref"><a href="#fn-p_32Kv_653_93" id="fnref-p_32Kv_653_93">[93]</a></sup>? Na hevaṁ vattabbe…pe… .</p>
+      <p id="p_32Kv_654"><span class="paragraph-number" id="654">654</span> ๐ Paccuppannaṁ rūpaṁ atthi paccuppannaṁ rūpaṁ paccuppannabhāvaṁ jahatīti<sup class="footnote-ref"><a href="#fn-p_32Kv_654_94" id="fnref-p_32Kv_654_94">[94]</a></sup>? Āmantā. Atītaṁ rūpaṁ atthi atītaṁ rūpaṁ atītabhāvaṁ jahatīti<sup class="footnote-ref"><a href="#fn-p_32Kv_654_95" id="fnref-p_32Kv_654_95">[95]</a></sup>? Na hevaṁ vattabbe…pe… .</p>
+      <p id="p_32Kv_655"><span class="paragraph-number" id="655">655</span> ๐ Atītaṁ rūpaṁ atthi atītaṁ rūpaṁ atītabhāvaṁ na jahatīti? Āmantā. Atītaṁ rūpaṁ niccaṁ dhuvaṁ sassataṁ avipariṇāmadhammanti? Na hevaṁ vattabbe…pe… nanu atītaṁ rūpaṁ aniccaṁ adhuvaṁ asassataṁ vipariṇāmadhammanti? Āmantā. Hañci atītaṁ rūpaṁ aniccaṁ…pe… vipariṇāmadhammaṁ, no ca vata re vattabbe— “atītaṁ rūpaṁ atthi atītaṁ rūpaṁ atītabhāvaṁ na jahatī”ti.</p>
+      <p id="p_32Kv_656"><span class="paragraph-number" id="656">656</span> ๐ Nibbānaṁ atthi nibbānaṁ nibbānabhāvaṁ na jahati<sup class="footnote-ref"><a href="#fn-p_32Kv_656_96" id="fnref-p_32Kv_656_96">[96]</a></sup> nibbānaṁ niccaṁ dhuvaṁ sassataṁ avipariṇāmadhammanti? Āmantā. Atītaṁ rūpaṁ atthi atītaṁ rūpaṁ atītabhāvaṁ na jahati<sup class="footnote-ref"><a href="#fn-p_32Kv_656_97" id="fnref-p_32Kv_656_97">[97]</a></sup> atītaṁ rūpaṁ niccaṁ dhuvaṁ sassataṁ avipariṇāmadhammanti? Na hevaṁ vattabbe…pe… .</p>
+      <p id="p_32Kv_657"><span class="paragraph-number" id="657">657</span> ๐ Atītaṁ rūpaṁ atthi atītaṁ rūpaṁ atītabhāvaṁ na jahati atītaṁ rūpaṁ aniccaṁ adhuvaṁ asassataṁ vipariṇāmadhammanti? Āmantā. Nibbānaṁ atthi nibbānaṁ nibbānabhāvaṁ na jahati nibbānaṁ aniccaṁ adhuvaṁ asassataṁ vipariṇāmadhammanti? Na hevaṁ vattabbe…pe… .</p>
+      <p id="p_32Kv_658"><span class="paragraph-number" id="658">658</span> ๐ Atītā vedanā atthi… atītā saññā atthi… atītā saṅkhārā atthi… atītaṁ viññāṇaṁ atthi atītaṁ viññāṇaṁ atītabhāvaṁ na jahatīti? Āmantā. Anāgataṁ viññāṇaṁ atthi anāgataṁ viññāṇaṁ anāgatabhāvaṁ na jahatīti? Na hevaṁ vattabbe…pe… atītaṁ viññāṇaṁ atthi atītaṁ viññāṇaṁ atītabhāvaṁ na jahatīti? Āmantā. Paccuppannaṁ viññāṇaṁ atthi paccuppannaṁ viññāṇaṁ paccuppannabhāvaṁ na jahatīti? Na hevaṁ vattabbe…pe… .</p>
+      <p id="p_32Kv_659"><span class="paragraph-number" id="659">659</span> ๐ Anāgataṁ viññāṇaṁ atthi anāgataṁ viññāṇaṁ anāgatabhāvaṁ jahatīti<sup class="footnote-ref"><a href="#fn-p_32Kv_659_98" id="fnref-p_32Kv_659_98">[98]</a></sup>? Āmantā. Atītaṁ viññāṇaṁ atthi atītaṁ viññāṇaṁ atītabhāvaṁ jahatīti<sup class="footnote-ref"><a href="#fn-p_32Kv_659_99" id="fnref-p_32Kv_659_99">[99]</a></sup>? Na hevaṁ vattabbe…pe… .</p>
+      <p id="p_32Kv_660"><span class="paragraph-number" id="660">660</span> ๐ Paccuppannaṁ viññāṇaṁ atthi paccuppannaṁ viññāṇaṁ paccuppannabhāvaṁ jahatīti<sup class="footnote-ref"><a href="#fn-p_32Kv_660_100" id="fnref-p_32Kv_660_100">[100]</a></sup>? Āmantā. Atītaṁ viññāṇaṁ atthi atītaṁ viññāṇaṁ atītabhāvaṁ jahatīti<sup class="footnote-ref"><a href="#fn-p_32Kv_660_101" id="fnref-p_32Kv_660_101">[101]</a></sup>? Na hevaṁ vattabbe…pe… .</p>
+      <p id="p_32Kv_661"><span class="paragraph-number" id="661">661</span> ๐ Atītaṁ viññāṇaṁ atthi atītaṁ viññāṇaṁ atītabhāvaṁ na jahatīti? Āmantā. Atītaṁ viññāṇaṁ niccaṁ dhuvaṁ sassataṁ avipariṇāmadhammanti? Na hevaṁ vattabbe…pe… nanu atītaṁ viññāṇaṁ aniccaṁ adhuvaṁ asassataṁ vipariṇāmadhammanti? Āmantā. Hañci atītaṁ viññāṇaṁ aniccaṁ adhuvaṁ asassataṁ vipariṇāmadhammaṁ, no ca vata re vattabbe— “atītaṁ viññāṇaṁ atthi atītaṁ viññāṇaṁ atītabhāvaṁ na jahatī”ti.</p>
+      <p id="p_32Kv_662"><span class="paragraph-number" id="662">662</span> ๐ Nibbānaṁ atthi nibbānaṁ nibbānabhāvaṁ na jahati<sup class="footnote-ref"><a href="#fn-p_32Kv_662_102" id="fnref-p_32Kv_662_102">[102]</a></sup> nibbānaṁ niccaṁ dhuvaṁ sassataṁ avipariṇāmadhammanti? Āmantā. Atītaṁ viññāṇaṁ atthi atītaṁ viññāṇaṁ atītabhāvaṁ na jahati<sup class="footnote-ref"><a href="#fn-p_32Kv_662_103" id="fnref-p_32Kv_662_103">[103]</a></sup> atītaṁ viññāṇaṁ niccaṁ dhuvaṁ sassataṁ avipariṇāmadhammanti? Na hevaṁ vattabbe…pe… .</p>
+      <p id="p_32Kv_663"><span class="paragraph-number" id="663">663</span> ๐ Atītaṁ viññāṇaṁ atthi atītaṁ viññāṇaṁ atītabhāvaṁ na jahati atītaṁ viññāṇaṁ aniccaṁ adhuvaṁ asassataṁ vipariṇāmadhammanti? Āmantā. Nibbānaṁ atthi nibbānaṁ nibbānabhāvaṁ na jahati nibbānaṁ aniccaṁ adhuvaṁ asassataṁ vipariṇāmadhammanti? Na hevaṁ vattabbe…pe… .</p>
+      <nav aria-label="Sections">
+        <ul class="sections">
+          <li><a href="/tipitaka/32Kv/1/1.1/1.1.6/1.1.6.2/1.1.6.2.1.html"><span class="pali" lang="pi">1.1.6.2.1 Vacanasodhana</span> <span class="thai" lang="th">(1.1.6.2.1. วจนโสธน)</span></a></li>
+          <li><a href="/tipitaka/32Kv/1/1.1/1.1.6/1.1.6.2/1.1.6.2.2.html"><span class="pali" lang="pi">1.1.6.2.2 Atītacakkhurūpādikathā</span> <span class="thai" lang="th">(1.1.6.2.2. อตีตจัก์ขุรูปาทิกถา)</span></a></li>
+          <li><a href="/tipitaka/32Kv/1/1.1/1.1.6/1.1.6.2/1.1.6.2.3.html"><span class="pali" lang="pi">1.1.6.2.3 Atītañāṇādikathā</span> <span class="thai" lang="th">(1.1.6.2.3. อตีตาณาทิกถา)</span></a></li>
+          <li><a href="/tipitaka/32Kv/1/1.1/1.1.6/1.1.6.2/1.1.6.2.4.html"><span class="pali" lang="pi">1.1.6.2.4 Arahantādikathā</span> <span class="thai" lang="th">(1.1.6.2.4. อรหัน์ตาทิกถา)</span></a></li>
+          <li><a href="/tipitaka/32Kv/1/1.1/1.1.6/1.1.6.2/1.1.6.2.5.html"><span class="pali" lang="pi">1.1.6.2.5 Atītahatthādikathā</span> <span class="thai" lang="th">(1.1.6.2.5. อตีตหัต์ถาทิกถา)</span></a></li>
+          <li><a href="/tipitaka/32Kv/1/1.1/1.1.6/1.1.6.2/1.1.6.2.6.html"><span class="pali" lang="pi">1.1.6.2.6 Atītakkhandhādisamodhānakathā</span> <span class="thai" lang="th">(1.1.6.2.6. อตีตัก์ขัน์ธาทิสโมธานกถา)</span></a></li>
+          <li><a href="/tipitaka/32Kv/1/1.1/1.1.6/1.1.6.2/1.1.6.2.7.html"><span class="pali" lang="pi">1.1.6.2.7 Padasodhanakathā</span> <span class="thai" lang="th">(1.1.6.2.7. ปทโสธนกถา)</span></a></li>
+          <li><a href="/tipitaka/32Kv/1/1.1/1.1.6/1.1.6.2/1.1.6.2.8.html"><span class="pali" lang="pi">1.1.6.2.8 Suttasādhana</span> <span class="thai" lang="th">(1.1.6.2.8. สุต์ตสาธน)</span></a></li>
+        </ul>
+      </nav>
+      <section class="footnotes" aria-label="Footnotes">
+        <hr>
+        <ol>
+          <li id="fn-p_32Kv_645_86" value="86"><strong>jahatīti</strong>: na jahati (syā1-3, ka-ma) <em>(Word Variant)</em> <a href="#fnref-p_32Kv_645_86" aria-label="Back to content">↩</a></li>
+          <li id="fn-p_32Kv_645_87" value="87"><strong>jahati</strong>: na jahatīti (sī, syā1-3, pā1), ka-sī, cha1-2 <em>(Word Variant)</em> <a href="#fnref-p_32Kv_645_87" aria-label="Back to content">↩</a></li>
+          <li id="fn-p_32Kv_647_88" value="88"><strong>jahatīti</strong>: na jahatīti (bahūsu) aṭṭhakathā <em>(Word Variant)</em> <a href="#fnref-p_32Kv_647_88" aria-label="Back to content">↩</a></li>
+          <li id="fn-p_32Kv_647_89" value="89"><strong>jahatīti</strong>: na jahatīti (bahūsu) aṭṭhakathā <em>(Word Variant)</em> <a href="#fnref-p_32Kv_647_89" aria-label="Back to content">↩</a></li>
+          <li id="fn-p_32Kv_648_90" value="90"><strong>jahatīti</strong>: na jahatīti (bahūsu) aṭṭhakathā <em>(Word Variant)</em> <a href="#fnref-p_32Kv_648_90" aria-label="Back to content">↩</a></li>
+          <li id="fn-p_32Kv_648_91" value="91"><strong>jahatīti</strong>: na jahatīti (bahūsu) aṭṭhakathā <em>(Word Variant)</em> <a href="#fnref-p_32Kv_648_91" aria-label="Back to content">↩</a></li>
+          <li id="fn-p_32Kv_653_92" value="92"><strong>jahatīti</strong>: na jahatīti (bahūsu) <em>(Word Variant)</em> <a href="#fnref-p_32Kv_653_92" aria-label="Back to content">↩</a></li>
+          <li id="fn-p_32Kv_653_93" value="93"><strong>jahatīti</strong>: na jahatīti (bahūsu) <em>(Word Variant)</em> <a href="#fnref-p_32Kv_653_93" aria-label="Back to content">↩</a></li>
+          <li id="fn-p_32Kv_654_94" value="94"><strong>jahatīti</strong>: na jahatīti (bahūsu) <em>(Word Variant)</em> <a href="#fnref-p_32Kv_654_94" aria-label="Back to content">↩</a></li>
+          <li id="fn-p_32Kv_654_95" value="95"><strong>jahatīti</strong>: na jahatīti (bahūsu) <em>(Word Variant)</em> <a href="#fnref-p_32Kv_654_95" aria-label="Back to content">↩</a></li>
+          <li id="fn-p_32Kv_656_96" value="96"><strong>jahati</strong>: na jahatīti (?) purimapañhehi <em>(Word Variant)</em> <a href="#fnref-p_32Kv_656_96" aria-label="Back to content">↩</a></li>
+          <li id="fn-p_32Kv_656_97" value="97"><strong>jahati</strong>: na jahatīti (?) purimañhehi <em>(Word Variant)</em> <a href="#fnref-p_32Kv_656_97" aria-label="Back to content">↩</a></li>
+          <li id="fn-p_32Kv_659_98" value="98"><strong>jahatīti</strong>: na jahatīti (bahūsu) <em>(Word Variant)</em> <a href="#fnref-p_32Kv_659_98" aria-label="Back to content">↩</a></li>
+          <li id="fn-p_32Kv_659_99" value="99"><strong>jahatīti</strong>: na jahatīti (bahūsu) <em>(Word Variant)</em> <a href="#fnref-p_32Kv_659_99" aria-label="Back to content">↩</a></li>
+          <li id="fn-p_32Kv_660_100" value="100"><strong>jahatīti</strong>: na jahatīti (bahūsu) <em>(Word Variant)</em> <a href="#fnref-p_32Kv_660_100" aria-label="Back to content">↩</a></li>
+          <li id="fn-p_32Kv_660_101" value="101"><strong>jahatīti</strong>: na jahatīti (bahūsu) <em>(Word Variant)</em> <a href="#fnref-p_32Kv_660_101" aria-label="Back to content">↩</a></li>
+          <li id="fn-p_32Kv_662_102" value="102"><strong>jahati</strong>: na jahatīti (?) purimapañhehi <em>(Word Variant)</em> <a href="#fnref-p_32Kv_662_102" aria-label="Back to content">↩</a></li>
+          <li id="fn-p_32Kv_662_103" value="103"><strong>jahati</strong>: na jahatīti (?) purimapañhehi <em>(Word Variant)</em> <a href="#fnref-p_32Kv_662_103" aria-label="Back to content">↩</a></li>
+        </ol>
+      </section>
+    </main>
+    <footer>
+      <nav aria-label="Pagination">
+        <a href="/tipitaka/32Kv/1/1.1/1.1.6/1.1.6.1.html" id="previous">1.1.6.1 Vādayutti</a>
+        <a href="/tipitaka/32Kv/1/1.1/1.1.6.html" id="up">up</a>
+        <a href="/tipitaka/32Kv/1/1.1/1.1.6/1.1.6.2/1.1.6.2.1.html" id="next">1.1.6.2.1 Vacanasodhana</a>
+      </nav>
+    </footer>
+  </body>
 </html>

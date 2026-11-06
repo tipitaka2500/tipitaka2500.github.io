@@ -1,0 +1,414 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const TIMELINE = [
+  {
+    period: '1887–1893',
+    title: 'Chulachomklao Pāḷi Tipiṭaka (Syām-Script Edition)',
+    details:
+      'King Chulalongkorn Chulachomklao (Rama V) of Siam published the 39-volume Chulachomklao Pāḷi Tipiṭaka in Siamese (Syām) script—the world’s first printed book-form set of the Pāḷi Tipiṭaka—presenting over 260 sets as a Royal Gift of Dhamma to leading institutions in more than 30 countries.',
+  },
+  {
+    period: '1952–1956',
+    title: 'The Great International Tipiṭaka Council (Chaṭṭhasaṅgīti)',
+    details:
+      'Convened at Kaba Aye in Yangon, Myanmar, bringing together 2,500 erudite Theravāda Buddhist monks and scholars from all Buddhist nations (including His Holiness Somdet Phra Ñāṇasaṁvara representing the Thai Saṅgha). The 1893 Syām-Script Edition served as one of the Council’s oldest and most important reference texts.',
+  },
+  {
+    period: '1956–1962',
+    title: '40-Volume Chaṭṭhasaṅgīti Pāḷi Tipiṭaka B.E. 2500 (Burmese Script)',
+    details:
+      'Completion of the authoritative 40-volume Burmese-script edition of the Sixth International Council, noting variant readings across Syām, Sinhala, Cambodian, Burmese, and PTS editions. In 1963, the President of Myanmar presented a complete 40-volume set to H.M. King Bhumibol Adulyadej (Rama IX) during his State Visit to Myanmar.',
+  },
+  {
+    period: '1999–2005',
+    title: '40-Volume Mahāsaṅgīti Tipiṭaka Buddhavasse 2500 (Roman-Script Edition)',
+    details:
+      'Initiated by the M.L. Maniratana Bunnag Dhamma Society Fund under the patronage of His Holiness Prince Krom Luang Vajirañāṇasaṁvara (the 19th Supreme Patriarch of Thailand). Over 500 scholars and committee members proofread, recited (4 complete cycles), collated against 18 international editions (over 2,000 volumes enshrined at Chulalongkorn University’s International Tipiṭaka Hall in 2000), and database-formatted all 2,708,706 Pāḷi words (20,606,104 Roman letters) into the world’s first complete 40-volume Roman-script edition.',
+  },
+  {
+    period: '2005–2010',
+    title: 'Global Inaugural Presentations, WebService & Syām-Script Phonetic Research',
+    details:
+      'H.R.H. Princess Galyani Vadhana (Honorary President since 2003) inaugurated the worldwide presentation in 2005 to Sri Lanka (Presidential Mansion, Colombo), Thailand (Constitutional Court, Bangkok), Sweden (Carolina Rediviva Library, Uppsala University), and in 2007 to the International Court of Justice at the Peace Palace in The Hague. The World Tipiṭaka WebService launched in 2008, and linguistic research began into the 1893 Syām-Script Edition to transcribe the Roman text into the Sajjhāya Phonetic and Monotone Music Notation editions.',
+  },
+  {
+    period: '2010–2016',
+    title: '80-Volume Sajjhāya Phonetic Recitation Commemorative Edition',
+    details:
+      'The World Tipiṭaka Foundation published the 80-volume Sajjhāya Phonetic Recitation Tipiṭaka—comprising the 40-volume “King Bhumibol Adulyadej” (B.P.R.) Pāḷi Phonetic Edition and the 40-volume “Queen Sirikit” (S.K.) Monotone Music Notation Edition—to commemorate Their Majesties’ 70-year reign, powered by the Syllabic Segmentation Programme (Patent No. 46390).',
+  },
+  {
+    period: '2017–2020',
+    title: 'Royal Audience, AI Digital Recitation Audio (1.6 TB) & 2020 Parallel Corpus',
+    details:
+      'H.M. King Maha Vajiralongkorn (Rama X), Royal Patron since 2002 and Publication Chairman, granted a royal audience on 28 December 2017 to accept the inaugural 80-volume Sajjhāya sets. The project synthesized 3,052 hours (1.6 Terabytes) of digital Sajjhāya recitation audio, registered over 2,000 copyrights for electronic typesetting programmes, and in 2020 completed a new electronic parallel corpus supporting Roman, Tai, Cyrillic (Kirillitsa), and Pinyin phonetic notations.',
+  },
+  {
+    period: '2020–2024',
+    title: 'International Recognition in Geneva & 2024 Royal Commemorative Edition',
+    details:
+      'Selected in 2020 by the National Research Council of Thailand as a distinguished research innovation, the Pāḷi Tipiṭaka Monotone Music Notation received a diploma and medal at the 48th International Exhibition of Inventions in Geneva, Switzerland (2023). The special 2023–2024 Edition was launched for H.M. King Vajiralongkorn’s 72nd Birthday Anniversary, presented as a Gift of Peace and Wisdom to over 30 nations.',
+  },
+];
+
+const SOURCE_NODES = [
+  {
+    ref: 'Main',
+    title: 'The World Tipiṭaka Project 1999–2024: From Roman-Script Transliteration to Sajjhāya Phonetic & Monotone Music Notation',
+    url: 'https://www.sajjhaya.org/node/360',
+  },
+  {
+    ref: '[1]',
+    title: 'The Sajjhāya Tepiṭaka B.E. 2559 (2016) Edition (Sammodanīyakathā)',
+    url: 'https://www.sajjhaya.org/node/350',
+  },
+  {
+    ref: '[2a]',
+    title: 'History of the World Tipiṭaka Project under Royal Patronage (1955–2020)',
+    url: 'https://www.sajjhaya.org/node/205',
+  },
+  {
+    ref: '[2b]',
+    title: 'The World Tipiṭaka Project B.E. 2542–2554 (1999–2011) & 40-Volume Roman-Script Edition',
+    url: 'https://www.sajjhaya.org/node/319',
+  },
+  {
+    ref: '[3]',
+    title: 'The World Tipiṭaka Introduction by Venerable Phra Dhammapiṭaka (P. A. Payutto), 2002',
+    url: 'https://www.sajjhaya.org/node/30',
+  },
+  {
+    ref: '[4]',
+    title: 'The World Tipiṭaka Project in Roman-Script Transliteration (2020 Edition)',
+    url: 'https://www.sajjhaya.org/node/361',
+  },
+  {
+    ref: '[5]',
+    title: 'Benediction by His Holiness Somdet Phra Ñāṇasaṁvara, the Supreme Patriarch of Thailand (1999)',
+    url: 'https://www.sajjhaya.org/node/311',
+  },
+  {
+    ref: '[6]',
+    title: 'The World Tipiṭaka: Problem-Solving Matrix (1999–2024)',
+    url: 'https://www.sajjhaya.org/node/334',
+  },
+  {
+    ref: '[7]',
+    title: 'King Bhumibol Adulyadej’s Commemorative Pāḷi Phonetic Edition (2019)',
+    url: 'https://www.sajjhaya.org/node/113',
+  },
+  {
+    ref: '[8]',
+    title: 'Queen Sirikit’s Commemorative Monotone Music Notation Edition (2019 / 2020)',
+    url: 'https://www.sajjhaya.org/node/183',
+  },
+  {
+    ref: '[9]',
+    title: 'H.M. King Vajiralongkorn’s Dhamma Message (2016) & Inaugural Presentation (2017)',
+    url: 'https://www.sajjhaya.org/node/5',
+  },
+  {
+    ref: '[10]',
+    title: 'The Digital Sajjhāya Recitation Audio & Principles of Pāḷi Phonetic Enunciation',
+    url: 'https://www.sajjhaya.org/node/41',
+  },
+  {
+    ref: '[11]',
+    title: 'The Innovation of the World Tipiṭaka Project (2023 / 2024)',
+    url: 'https://www.sajjhaya.org/node/20',
+  },
+  {
+    ref: '[12]',
+    title: 'Tipiṭaka: Peace for Europe & the World — Remarks by ICJ President Judge Rosalyn Higgins (2007)',
+    url: 'https://www.sajjhaya.org/node/362',
+  },
+  {
+    ref: '[13]',
+    title: 'H.R.H. Princess Galyani Vadhana’s Royal Message on the 2005 Worldwide Presentation',
+    url: 'https://www.sajjhaya.org/node/197',
+  },
+];
+---
+
+<Layout
+  title="The World Tipiṭaka Project (1999–2024) — History & Innovations"
+  description="Comprehensive history of The World Tipiṭaka Project (1999–2024): from the 1893 Chulachomklao Syām-Script Edition and 1957 Chaṭṭhasaṅgīti Council to the 2005/2020 Roman-Script Edition, Sajjhāya Phonetics, and Monotone Music Notation."
+  currentBook="project"
+  lang="en"
+>
+  <main class="index-page">
+    <div class="index-hero">
+      <h1>The World Tipiṭaka Project (1999–2024)</h1>
+      <p>
+        From the 40-Volume Roman-Script Transliteration (<em>Mahāsaṅgīti Tipiṭaka Buddhavasse 2500</em>)
+        to the <em>Sajjhāya</em> Phonetic Recitation and Monotone Music Notation Transcription.
+      </p>
+    </div>
+
+    <article class="index-card" style="padding: 1.5rem; margin-bottom: 1.25rem;">
+      <h2 style="margin-top: 0; color: var(--text-emphasis);">
+        Overview: Preserving the 2,500-Year Oral &amp; Textual Heritage
+      </h2>
+      <p>
+        Initiated in Bangkok in B.E. 2542 (1999) by the <strong>M.L. Maniratana Bunnag Dhamma Society Fund</strong>
+        (and continued by the <strong>World Tipiṭaka Foundation</strong>) under the supreme patronage
+        of <strong>His Holiness Somdet Phra Ñāṇasaṁvara (Prince Krom Luang Vajirañāṇasaṁvara)</strong>,
+        the 19th Supreme Patriarch of Thailand, the World Tipiṭaka Project was established upon
+        international request to publish the complete Theravāda Pāḷi Tipiṭaka in standard Roman
+        script and preserve its authentic phonetic recitation as a <em>Gift of Peace and Wisdom</em>
+        to the world.
+      </p>
+      <p>
+        As His Holiness the Supreme Patriarch recounted in his 1999 Benediction, before entering
+        Parinibbāna the Buddha declared to Venerable Ānanda (<em>Mahāparinibbānasutta</em>,
+        <a href="/tipitaka/7D/3.html#p_7D_484">7D:484</a>):
+      </p>
+      <blockquote
+        style="margin: 1rem 0; padding: 0.85rem 1.25rem; border-left: 4px solid var(--primary-color); background-color: var(--badge-light-bg); border-radius: 0 0.375rem 0.375rem 0;"
+      >
+        <p style="margin: 0 0 0.35rem; font-style: italic;" lang="pi">
+          “…yo vo, ānanda, mayā dhammo ca vinayo ca desito paññatto, so vo mamaccayena satthā…”
+        </p>
+        <p style="margin: 0; font-size: 0.92rem; color: var(--text-secondary);">
+          “Ānanda, the Dhamma (Doctrine) which I have expounded and the Vinaya (Discipline) which I
+          have established for you all—that Dhamma and Vinaya will be your Teacher after I am gone.”
+        </p>
+      </blockquote>
+      <p style="margin-bottom: 0;">
+        Spanning <strong>40 volumes</strong> (<strong>88 books</strong>, <strong>2,708,706 words</strong>,
+        <strong>9,442,442 syllables</strong>, and <strong>20,606,104 letters</strong> in Roman script),
+        the Tipiṭaka comprises three divisions recognized as the Heritage of Humanity:
+      </p>
+      <ul style="margin-bottom: 0; margin-top: 0.5rem;">
+        <li>
+          <strong>Vinayapiṭaka (5 volumes, Books 1V–5V):</strong> The Book on Monastic Discipline,
+          forming the foundation of humanity’s oldest continuously practiced legal and procedural
+          code.
+        </li>
+        <li>
+          <strong>Suttantapiṭaka (23 volumes, Books 6D–28Mi):</strong> The Book on the Discourses,
+          preserving the Buddha’s dialogues and the <em>Vipassanā</em> methodology for training and
+          liberating the mind.
+        </li>
+        <li>
+          <strong>Abhidhammapiṭaka (12 volumes, Books 29Dhs–40P24):</strong> The Book on Ultimate
+          Realities, a systematic analytical repository of Dhamma terminology and supramundane
+          phenomena of consciousness.
+        </li>
+      </ul>
+    </article>
+
+    <div class="index-table-wrapper" style="margin-bottom: 1.5rem;">
+      <table class="index-table">
+        <caption>Chronological Milestones of the World Tipiṭaka Project (1887–2024)</caption>
+        <thead>
+          <tr>
+            <th scope="col">Period</th>
+            <th scope="col">Milestone &amp; Edition</th>
+            <th scope="col">Historical Significance</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            TIMELINE.map((item) => (
+              <tr>
+                <td style="white-space: nowrap;">
+                  <span class="badge-code">{item.period}</span>
+                </td>
+                <td>
+                  <strong>{item.title}</strong>
+                </td>
+                <td>{item.details}</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+
+    <article class="index-card" style="padding: 1.5rem; margin-bottom: 1.25rem;">
+      <h2 style="margin-top: 0; color: var(--text-emphasis);">
+        Preparation of the Roman-Script Edition &amp; the Threefold International Standard
+      </h2>
+      <p>
+        The authoritative textual baseline of the World Tipiṭaka Edition is the
+        <strong>Chaṭṭhasaṅgīti (Sixth International Buddhist Council) Edition</strong> convened in
+        Yangon in B.E. 2500 (1956–1957) by 2,500 Theravāda scholar-monks. Because His Holiness
+        Somdet Phra Ñāṇasaṁvara had personally attended the Council as a representative Pāḷi scholar
+        from Thailand, he designated the commemorative Roman-script edition as
+        <strong>“Mahāsaṅgīti Tipiṭaka Buddhavasse 2500”</strong> (<em>The Buddhist Era 2500 Great
+        International Council Pāḷi Tipiṭaka, Roman Script 2005</em>) and nominated over 500 patrons,
+        advisors, and steering committee members to oversee its preparation.
+      </p>
+      <p>
+        As noted by <strong>Venerable Phra Dhammapiṭaka (P. A. Payutto)</strong> in his 2002
+        introduction, the working committee discovered discrepancies and printing anomalies across
+        different printings of the original manuscripts. To achieve unprecedented textual fidelity:
+      </p>
+      <ul>
+        <li style="margin-bottom: 0.45rem;">
+          <strong>Four Complete Canonical Recitations:</strong> Canonical Pāḷi experts recited the
+          entire 40-volume text four times between B.E. 2543–2545 (2000–2002) and B.E. 2549–2550
+          (2006–2007) to verify every Pāḷi sound and eliminate printing errors.
+        </li>
+        <li style="margin-bottom: 0.45rem;">
+          <strong>Collation Across 18 International Editions:</strong> Proofreaders cross-checked
+          the manuscript against 18 modern Tipiṭaka editions in national scripts (comprising over
+          2,000 volumes, later donated to and enshrined in the <em>International Tipiṭaka Hall</em>
+          at Chulalongkorn University).
+        </li>
+        <li style="margin-bottom: 0.45rem;">
+          <strong>100,000+ Hours of Dhamma Technology:</strong> A 50-member computer engineering
+          team together with volunteers from Chulalongkorn University invested over 80,000 hours
+          (2 years) creating the custom graphic layout and typesetting corpus, 20,000 hours (3 years)
+          preparing the 2003–2005 printing, and 4 additional years (2005–2009) building the XML
+          markup and the <strong>World Tipiṭaka Database</strong>.
+        </li>
+      </ul>
+      <p style="margin-bottom: 0.5rem;">
+        This 12-year foundational effort established a <strong>Threefold International Standard</strong>:
+      </p>
+      <ol style="margin-bottom: 0;">
+        <li>
+          <strong>Tipiṭaka Publication Standard:</strong> Open-source electronic typesetting in
+          standardized Roman script and International Phonetic Alphabet (IPA) characters.
+        </li>
+        <li>
+          <strong>Electronic Tipiṭaka Open Standard:</strong> The structured Pāḷi Tipiṭaka Database
+          and XML markup accessible to modern information technology worldwide.
+        </li>
+        <li>
+          <strong>Tipiṭaka Reference Standard:</strong> The 40-volume <em>International Tipiṭaka
+          Studies Reference</em> (including the critical apparatus notes, table of contents, index of
+          verses, page concordances across 8 printed editions, and Pāḷi word index).
+        </li>
+      </ol>
+    </article>
+
+    <article class="index-card" style="padding: 1.5rem; margin-bottom: 1.25rem;">
+      <h2 style="margin-top: 0; color: var(--text-emphasis);">
+        From Roman Script to the <em>Sajjhāya</em> Phonetic &amp; Monotone Music Notation Editions
+      </h2>
+      <p>
+        Although the Roman alphabet made the Pāḷi Tipiṭaka readable worldwide, the project observed
+        that readers unfamiliar with ancient Pāḷi grammar and syllabic segmentation struggled to
+        pronounce the Roman-script text accurately, often introducing local tonal inflections or
+        misreading syllable lengths.
+      </p>
+      <p>
+        Beginning in 2010, linguists led by <strong>Ācāriya Siri Petchai</strong> (Pāḷi Pariyatti 9),
+        <strong>Prof. Emeritus Dr. Vichin Panupong</strong>, <strong>Prof. Dr. Chidchanok Lursinsap</strong>,
+        <strong>Brig. Gen. Suradhaj Bunnag</strong>, <strong>Prof. Duangjai Thewtong</strong>, and
+        <strong>Assoc. Prof. Dr. Sasi Pongsarayuth</strong> turned to the clear phonetic orthography
+        of King Rama V’s <strong>1893 Syām-Script Chulachomklao Edition</strong> (specifically its
+        <em>Mai-A</em> short-vowel orthography) and cross-referenced every single one of the
+        <strong>9,442,442 syllables</strong> of the Tipiṭaka against the ancient
+        <strong>Kaccāyana Pāḷi Grammar</strong>.
+      </p>
+      <p>
+        Through this linguistic and computational “reverse engineering,” the project addressed four
+        essential principles of canonical Pāḷi recitation (<em>Sajjhāya</em>):
+      </p>
+      <ol>
+        <li style="margin-bottom: 0.45rem;">
+          <strong>Rhythmic Precision of Short and Long Vowels:</strong> Ensuring uniform, synchronized
+          chanting based strictly on vowel duration rather than arbitrary melodic tempo.
+        </li>
+        <li style="margin-bottom: 0.45rem;">
+          <strong><em>Lahu</em> (Quick) and <em>Garu</em> (Prolonged) Syllables:</strong> Explicitly
+          marking 1-metre quick syllables (<em>Lahu</em>) and 2-metre heavy/prolonged syllables
+          (<em>Garu</em>, including phonological shifts at verse-foot boundaries per
+          <em>Kaccāyana</em> and <em>Vuttodaya</em> rules) to prevent orthographic corruption
+          (<em>akkhara-vipatti</em>).
+        </li>
+        <li style="margin-bottom: 0.45rem;">
+          <strong><em>Ṭhāna-Karaṇa</em> (Places &amp; Manners of Articulation):</strong> Preserving
+          the exact oral articulation across all 41 Pāḷi sounds (from guttural to labial, aspirated
+          vs. unaspirated) as codified in <em>Kaccāyana-Pāḷi</em> (<em>Akkharāpādayo ekacattālīsaṁ</em>).
+        </li>
+        <li style="margin-bottom: 0.45rem;">
+          <strong>Monotone Non-Tonal Recitation:</strong> In accordance with the <em>Vinayapiṭaka
+          Cullavagga</em> prohibition against singing the Dhamma with drawn-out musical pitch
+          (<em>āyatakena gītassarena</em>), Pāḷi is an Indo-Aryan language without lexical tone.
+          <strong>Pāḷi Monotone Music Notation</strong> (comprising 95 custom symbols and
+          <strong>225,964,457 digitally typeset symbols</strong>) was created in 2015–2016 to
+          standardize <em>Lahu</em> and <em>Garu</em> rhythm without tonal distortion.
+        </li>
+      </ol>
+      <p style="margin-bottom: 0;">
+        Backed by <strong>World Tipiṭaka Patent No. 46390</strong> (2016) for automatic syllabic
+        segmentation and AI-assisted audio compilation, the project produced the
+        <strong>80-Volume Sajjhāya Phonetic Recitation Tipiṭaka</strong> alongside
+        <strong>3,052 hours (1.6 TB)</strong> of digital recitation audio, and in 2020 expanded the
+        electronic database into four parallel phonetic script notations:
+        <strong>Pāḷi-Roman</strong>, <strong>Pāḷi-Tai</strong>,
+        <strong>Pāḷi-Kirillitsa (Cyrillic)</strong>, and <strong>Pāḷi-Pinyin</strong>.
+      </p>
+    </article>
+
+    <article class="index-card" style="padding: 1.5rem; margin-bottom: 1.25rem;">
+      <h2 style="margin-top: 0; color: var(--text-emphasis);">
+        Global Presentations as a Royal Gift of Peace &amp; Wisdom
+      </h2>
+      <p>
+        Following the 1893 precedent of her grandfather King Chulalongkorn (Rama V),
+        <strong>Her Royal Highness Princess Galyani Vadhana Krom Luang Naradhiwas Rajanagarindra</strong>
+        (Honorary President of the World Tipiṭaka Project since 2003, honored by UNESCO as an Eminent
+        Personality of the World 2023–2024) led the inaugural worldwide presentations in 2005:
+      </p>
+      <ul>
+        <li style="margin-bottom: 0.4rem;">
+          <strong>Sri Lanka (6 March 2005):</strong> Presented to the President of Sri Lanka on a
+          royal pilgrimage to Colombo, enshrined at the Presidential Mansion in the land where the
+          Pāḷi Tipiṭaka was first committed to writing.
+        </li>
+        <li style="margin-bottom: 0.4rem;">
+          <strong>Kingdom of Thailand (15 August 2005):</strong> Presented to the Thai nation and
+          enshrined at the Constitutional Court of the Kingdom of Thailand in Bangkok.
+        </li>
+        <li style="margin-bottom: 0.4rem;">
+          <strong>Kingdom of Sweden (13 September 2005):</strong> Presented to Uppsala University as
+          the inaugural western repository, preserved in the Carolina Rediviva Library alongside King
+          Rama V’s 1893 Syām-Script edition.
+        </li>
+        <li style="margin-bottom: 0;">
+          <strong>International Court of Justice, The Hague (12 October 2007):</strong> Presented at
+          the Peace Palace and received by ICJ President Judge Rosalyn Higgins on the occasion of
+          H.M. King Bhumibol Adulyadej’s 80th Birthday Anniversary, followed by presentations to over
+          150 major libraries, courts, and universities across more than 30 countries.
+        </li>
+      </ul>
+    </article>
+
+    <div class="index-table-wrapper" style="margin-bottom: 1.5rem;">
+      <table class="index-table">
+        <caption>Primary Source Documents &amp; References on Sajjhāya.org</caption>
+        <thead>
+          <tr>
+            <th scope="col">Ref</th>
+            <th scope="col">Document Title</th>
+            <th scope="col">Source Link</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            SOURCE_NODES.map((node) => (
+              <tr>
+                <td style="white-space: nowrap;">
+                  <span class="badge-pill">{node.ref}</span>
+                </td>
+                <td>{node.title}</td>
+                <td style="white-space: nowrap;">
+                  <a href={node.url} target="_blank" rel="noopener noreferrer">
+                    {node.url.replace('https://www.', '')} ↗
+                  </a>
+                </td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+  </main>
+</Layout>

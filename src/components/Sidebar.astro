@@ -1,0 +1,325 @@
+---
+interface Props {
+  currentBook?: string;
+}
+
+const { currentBook = '' } = Astro.props;
+
+interface BookItem {
+  code: string;
+  title: string;
+  href: string;
+}
+
+interface NavGroup {
+  id: string;
+  label: string;
+  books?: BookItem[];
+  children?: NavGroup[];
+}
+
+const NAV_TREE: NavGroup[] = [
+  {
+    id: 'v-collapse',
+    label: 'Vinayapiṭaka (V)',
+    books: [
+      { code: '1V', title: 'Pārājikapāḷi (1V)', href: '/tipitaka/1V.html' },
+      { code: '2V', title: 'Pācittiyapāḷi (2V)', href: '/tipitaka/2V.html' },
+      { code: '3V', title: 'Mahāvaggapāḷi (3V)', href: '/tipitaka/3V.html' },
+      { code: '4V', title: 'Cūḷavaggapāḷi (4V)', href: '/tipitaka/4V.html' },
+      { code: '5V', title: 'Parivārapāḷi (5V)', href: '/tipitaka/5V.html' },
+    ],
+  },
+  {
+    id: 's-collapse',
+    label: 'Suttantapiṭaka (S)',
+    children: [
+      {
+        id: 'd-collapse',
+        label: 'Dīghanikāya (D)',
+        books: [
+          { code: '6D', title: 'Sīlakkhandhavaggapāḷi (6D)', href: '/tipitaka/6D.html' },
+          { code: '7D', title: 'Mahāvaggapāḷi (7D)', href: '/tipitaka/7D.html' },
+          { code: '8D', title: 'Pāthikavaggapāḷi (8D)', href: '/tipitaka/8D.html' },
+        ],
+      },
+      {
+        id: 'm-collapse',
+        label: 'Majjhimanikāya (M)',
+        books: [
+          { code: '9M', title: 'Mūlapaṇṇāsapāḷi (9M)', href: '/tipitaka/9M.html' },
+          { code: '10M', title: 'Majjhimapaṇṇāsapāḷi (10M)', href: '/tipitaka/10M.html' },
+          { code: '11M', title: 'Uparipaṇṇāsapāḷi (11M)', href: '/tipitaka/11M.html' },
+        ],
+      },
+      {
+        id: 'sy-collapse',
+        label: 'Saṁyuttanikāya (S)',
+        books: [
+          { code: '12S1', title: 'Sagāthāvaggasaṁyuttapāḷi (12S1)', href: '/tipitaka/12S1.html' },
+          { code: '12S2', title: 'Nidānavaggasaṁyuttapāḷi (12S2)', href: '/tipitaka/12S2.html' },
+          { code: '13S3', title: 'Khandhavaggasaṁyuttapāḷi (13S3)', href: '/tipitaka/13S3.html' },
+          { code: '13S4', title: 'Saḷāyatanavaggasaṁyuttapāḷi (13S4)', href: '/tipitaka/13S4.html' },
+          { code: '14S5', title: 'Mahāvaggasaṁyuttapāḷi (14S5)', href: '/tipitaka/14S5.html' },
+        ],
+      },
+      {
+        id: 'a-collapse',
+        label: 'Aṅguttaranikāya (A)',
+        books: [
+          { code: '15A1', title: 'Ekakanipātapāḷi (15A1)', href: '/tipitaka/15A1.html' },
+          { code: '15A2', title: 'Dukanipātapāḷi (15A2)', href: '/tipitaka/15A2.html' },
+          { code: '15A3', title: 'Tikanipātapāḷi (15A3)', href: '/tipitaka/15A3.html' },
+          { code: '15A4', title: 'Catukkanipātapāḷi (15A4)', href: '/tipitaka/15A4.html' },
+          { code: '16A5', title: 'Pañcakanipātapāḷi (16A5)', href: '/tipitaka/16A5.html' },
+          { code: '16A6', title: 'Chakkanipātapāḷi (16A6)', href: '/tipitaka/16A6.html' },
+          { code: '16A7', title: 'Sattakanipātapāḷi (16A7)', href: '/tipitaka/16A7.html' },
+          { code: '17A8', title: 'Aṭṭhakanipātapāḷi (17A8)', href: '/tipitaka/17A8.html' },
+          { code: '17A9', title: 'Navakanipātapāḷi (17A9)', href: '/tipitaka/17A9.html' },
+          { code: '17A10', title: 'Dasakanipātapāḷi (17A10)', href: '/tipitaka/17A10.html' },
+          { code: '17A11', title: 'Ekādasakanipātapāḷi (17A11)', href: '/tipitaka/17A11.html' },
+        ],
+      },
+      {
+        id: 'k-collapse',
+        label: 'Khuddakanikāya (Khu)',
+        books: [
+          { code: '18Kh', title: 'Khuddakapāṭhapāḷi (18Kh)', href: '/tipitaka/18Kh.html' },
+          { code: '18Dh', title: 'Dhammapadapāḷi (18Dh)', href: '/tipitaka/18Dh.html' },
+          { code: '18Ud', title: 'Udānapāḷi (18Ud)', href: '/tipitaka/18Ud.html' },
+          { code: '18It', title: 'Itivuttakapāḷi (18It)', href: '/tipitaka/18It.html' },
+          { code: '18Sn', title: 'Suttanipātapāḷi (18Sn)', href: '/tipitaka/18Sn.html' },
+          { code: '19Vv', title: 'Vimānavatthupāḷi (19Vv)', href: '/tipitaka/19Vv.html' },
+          { code: '19Pv', title: 'Petavatthupāḷi (19Pv)', href: '/tipitaka/19Pv.html' },
+          { code: '19Th1', title: 'Theragāthāpāḷi (19Th1)', href: '/tipitaka/19Th1.html' },
+          { code: '19Th2', title: 'Therīgāthāpāḷi (19Th2)', href: '/tipitaka/19Th2.html' },
+          { code: '20Ap1', title: 'Therāpadānapāḷi (20Ap1)', href: '/tipitaka/20Ap1.html' },
+          { code: '20Ap2', title: 'Therīapadānapāḷi (20Ap2)', href: '/tipitaka/20Ap2.html' },
+          { code: '21Bu', title: 'Buddhavaṁsapāḷi (21Bu)', href: '/tipitaka/21Bu.html' },
+          { code: '21Cp', title: 'Cariyāpiṭakapāḷi (21Cp)', href: '/tipitaka/21Cp.html' },
+          { code: '22J', title: 'Jātakapāḷi (22J)', href: '/tipitaka/22J.html' },
+          { code: '23J', title: 'Jātakapāḷi (23J)', href: '/tipitaka/23J.html' },
+          { code: '24Mn', title: 'Mahāniddesapāḷi (24Mn)', href: '/tipitaka/24Mn.html' },
+          { code: '25Cn', title: 'Cūḷaniddesapāḷi (25Cn)', href: '/tipitaka/25Cn.html' },
+          { code: '26Ps', title: 'Paṭisambhidāmaggapāḷi (26Ps)', href: '/tipitaka/26Ps.html' },
+          { code: '27Ne', title: 'Nettipāḷi (27Ne)', href: '/tipitaka/27Ne.html' },
+          { code: '27Pe', title: 'Peṭakopadesapāḷi (27Pe)', href: '/tipitaka/27Pe.html' },
+          { code: '28Mi', title: 'Milindapañhapāḷi (28Mi)', href: '/tipitaka/28Mi.html' },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'ab-collapse',
+    label: 'Abhidhammapiṭaka (ABH)',
+    books: [
+      { code: '29Dhs', title: 'Dhammasaṅgaṇīpāḷi (29Dhs)', href: '/tipitaka/29Dhs.html' },
+      { code: '30Vbh', title: 'Vibhaṅgapāḷi (30Vbh)', href: '/tipitaka/30Vbh.html' },
+      { code: '31Dht', title: 'Dhātukathāpāḷi (31Dht)', href: '/tipitaka/31Dht.html' },
+      { code: '31Pu', title: 'Puggalapaññattipāḷi (31Pu)', href: '/tipitaka/31Pu.html' },
+      { code: '32Kv', title: 'Kathāvatthupāḷi (32Kv)', href: '/tipitaka/32Kv.html' },
+    ],
+    children: [
+      {
+        id: 'y-collapse',
+        label: 'Yamaka (Y)',
+        books: [
+          { code: '33Y1', title: 'Mūlayamakapāḷi (33Y1)', href: '/tipitaka/33Y1.html' },
+          { code: '33Y2', title: 'Khandhayamakapāḷi (33Y2)', href: '/tipitaka/33Y2.html' },
+          { code: '33Y3', title: 'Āyatanayamakapāḷi (33Y3)', href: '/tipitaka/33Y3.html' },
+          { code: '33Y4', title: 'Dhātuyamakapāḷi (33Y4)', href: '/tipitaka/33Y4.html' },
+          { code: '33Y5', title: 'Saccayamakapāḷi (33Y5)', href: '/tipitaka/33Y5.html' },
+          { code: '34Y6', title: 'Saṅkhārayamakapāḷi (34Y6)', href: '/tipitaka/34Y6.html' },
+          { code: '34Y7', title: 'Anusayayamakapāḷi (34Y7)', href: '/tipitaka/34Y7.html' },
+          { code: '34Y8', title: 'Cittayamakapāḷi (34Y8)', href: '/tipitaka/34Y8.html' },
+          { code: '35Y9', title: 'Dhammayamakapāḷi (35Y9)', href: '/tipitaka/35Y9.html' },
+          { code: '35Y10', title: 'Indriyayamakapāḷi (35Y10)', href: '/tipitaka/35Y10.html' },
+        ],
+      },
+      {
+        id: 'p-collapse',
+        label: 'Paṭṭhāna (P)',
+        children: [
+          {
+            id: 'dh-collapse',
+            label: 'Dhammānuloma (1)',
+            books: [
+              { code: '36P1', title: 'Tikapaṭṭhānapāḷi (1) (36P1)', href: '/tipitaka/36P1.html' },
+              { code: '37P1', title: 'Tikapaṭṭhānapāḷi (1) (37P1)', href: '/tipitaka/37P1.html' },
+              { code: '38P2', title: 'Dukapaṭṭhānapāḷi (2) (38P2)', href: '/tipitaka/38P2.html' },
+              { code: '39P3', title: 'Dukatikapaṭṭhānapāḷi (3) (39P3)', href: '/tipitaka/39P3.html' },
+              { code: '39P4', title: 'Tikadukapaṭṭhānapāḷi (4) (39P4)', href: '/tipitaka/39P4.html' },
+              { code: '39P5', title: 'Tikatikapaṭṭhānapāḷi (5) (39P5)', href: '/tipitaka/39P5.html' },
+              { code: '39P6', title: 'Dukadukapaṭṭhānapāḷi (6) (39P6)', href: '/tipitaka/39P6.html' },
+            ],
+          },
+          {
+            id: 'dp-collapse',
+            label: 'Dhammapaccanīya (2)',
+            books: [
+              { code: '40P7', title: 'Tikapaṭṭhānapāḷi (1) (40P7)', href: '/tipitaka/40P7.html' },
+              { code: '40P8', title: 'Dukapaṭṭhānapāḷi (2) (40P8)', href: '/tipitaka/40P8.html' },
+              { code: '40P9', title: 'Dukatikapaṭṭhānapāḷi (3) (40P9)', href: '/tipitaka/40P9.html' },
+              { code: '40P10', title: 'Tikadukapaṭṭhānapāḷi (4) (40P10)', href: '/tipitaka/40P10.html' },
+              { code: '40P11', title: 'Tikatikapaṭṭhānapāḷi (5) (40P11)', href: '/tipitaka/40P11.html' },
+              { code: '40P12', title: 'Dukadukapaṭṭhānapāḷi (6) (40P12)', href: '/tipitaka/40P12.html' },
+            ],
+          },
+          {
+            id: 'dl-collapse',
+            label: 'Dhammānulomapaccanīya (3)',
+            books: [
+              { code: '40P13', title: 'Tikapaṭṭhānapāḷi (1) (40P13)', href: '/tipitaka/40P13.html' },
+              { code: '40P14', title: 'Dukapaṭṭhānapāḷi (2) (40P14)', href: '/tipitaka/40P14.html' },
+              { code: '40P15', title: 'Dukatikapaṭṭhānapāḷi (3) (40P15)', href: '/tipitaka/40P15.html' },
+              { code: '40P16', title: 'Tikadukapaṭṭhānapāḷi (4) (40P16)', href: '/tipitaka/40P16.html' },
+              { code: '40P17', title: 'Tikatikapaṭṭhānapāḷi (5) (40P17)', href: '/tipitaka/40P17.html' },
+              { code: '40P18', title: 'Dukadukapaṭṭhānapāḷi (6) (40P18)', href: '/tipitaka/40P18.html' },
+            ],
+          },
+          {
+            id: 'dy-collapse',
+            label: 'Dhammapaccanīyānuloma (4)',
+            books: [
+              { code: '40P19', title: 'Tikapaṭṭhānapāḷi (1) (40P19)', href: '/tipitaka/40P19.html' },
+              { code: '40P20', title: 'Dukapaṭṭhānapāḷi (2) (40P20)', href: '/tipitaka/40P20.html' },
+              { code: '40P21', title: 'Dukatikapaṭṭhānapāḷi (3) (40P21)', href: '/tipitaka/40P21.html' },
+              { code: '40P22', title: 'Tikadukapaṭṭhānapāḷi (4) (40P22)', href: '/tipitaka/40P22.html' },
+              { code: '40P23', title: 'Tikatikapaṭṭhānapāḷi (5) (40P23)', href: '/tipitaka/40P23.html' },
+              { code: '40P24', title: 'Dukadukapaṭṭhānapāḷi (6) (40P24)', href: '/tipitaka/40P24.html' },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+];
+
+function groupContainsBook(group: NavGroup, bookCode: string): boolean {
+  if (!bookCode) return false;
+  if (group.books?.some((b) => b.code === bookCode)) return true;
+  if (group.children?.some((c) => groupContainsBook(c, bookCode))) return true;
+  return false;
+}
+
+const INDEX_LINKS = [
+  { code: 'guide', title: 'Quick Guide', href: '/guide.html' },
+  { code: 'about', title: 'About This Website', href: '/about.html' },
+  { code: 'project', title: 'World Tipiṭaka Project', href: '/project.html' },
+  { code: 'toc', title: 'Table of Contents', href: '/toc.html' },
+  { code: 'verses', title: 'Index of Verses (Gāthā)', href: '/verses.html' },
+  { code: 'notes', title: 'Critical Apparatus Notes', href: '/notes.html' },
+  { code: 'concordances', title: 'Page Concordances', href: '/concordances.html' },
+  { code: 'words', title: 'Pāḷi Word Index', href: '/words.html' },
+];
+const isIndexPage = INDEX_LINKS.some((item) => item.code === currentBook);
+---
+
+<aside class="sidebar" aria-label="Tipiṭaka Navigation">
+  <a href="/" class="sidebar-brand">
+    <img src="/images/logo48.png" alt="Tipitaka2500" id="logo" width="24" height="24" />
+    <span class="sidebar-brand-text">tipitaka2500.github.io</span>
+  </a>
+
+  <button
+    type="button"
+    class="quick-jump-trigger"
+    id="open-quick-jump"
+    aria-label="Quick jump to book or paragraph citation (Command+K)"
+  >
+    <span class="quick-jump-trigger-label">Jump to book or ref (e.g. 18Dh:1)</span>
+    <kbd class="quick-jump-kbd">⌘K</kbd>
+  </button>
+
+  <ul class="sidebar-list">
+    <li class="sidebar-item">
+      <details open={isIndexPage || !currentBook}>
+        <summary class="btn-toggle">Indices &amp; Reference</summary>
+        <ul class="btn-toggle-nav">
+          {
+            INDEX_LINKS.map((item) => (
+              <li>
+                <a
+                  href={item.href}
+                  class:list={['sidebar-link', { active: currentBook === item.code }]}
+                  aria-current={currentBook === item.code ? 'page' : undefined}
+                >
+                  {item.title}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </details>
+    </li>
+    <li class="sidebar-divider" role="separator"></li>
+    {
+      NAV_TREE.map((pitaka, idx) => (
+        <>
+          {idx > 0 && <li class="sidebar-divider" role="separator" />}
+          <li class="sidebar-item">
+            <details open={groupContainsBook(pitaka, currentBook)}>
+              <summary class="btn-toggle">{pitaka.label}</summary>
+              <ul class="btn-toggle-nav">
+                {pitaka.books?.map((book) => (
+                  <li>
+                    <a
+                      href={book.href}
+                      class:list={['sidebar-link', { active: currentBook === book.code }]}
+                      aria-current={currentBook === book.code ? 'page' : undefined}
+                    >
+                      {book.title}
+                    </a>
+                  </li>
+                ))}
+                {pitaka.children?.map((subGroup) => (
+                  <li class="sidebar-subitem">
+                    <details open={groupContainsBook(subGroup, currentBook)}>
+                      <summary class="btn-toggle">{subGroup.label}</summary>
+                      <ul class="btn-toggle-nav">
+                        {subGroup.books?.map((book) => (
+                          <li>
+                            <a
+                              href={book.href}
+                              class:list={['sidebar-link', { active: currentBook === book.code }]}
+                              aria-current={currentBook === book.code ? 'page' : undefined}
+                            >
+                              {book.title}
+                            </a>
+                          </li>
+                        ))}
+                        {subGroup.children?.map((leafGroup) => (
+                          <li class="sidebar-subitem">
+                            <details open={groupContainsBook(leafGroup, currentBook)}>
+                              <summary class="btn-toggle">{leafGroup.label}</summary>
+                              <ul class="btn-toggle-nav">
+                                {leafGroup.books?.map((book) => (
+                                  <li>
+                                    <a
+                                      href={book.href}
+                                      class:list={[
+                                        'sidebar-link',
+                                        { active: currentBook === book.code },
+                                      ]}
+                                      aria-current={currentBook === book.code ? 'page' : undefined}
+                                    >
+                                      {book.title}
+                                    </a>
+                                  </li>
+                                ))}
+                              </ul>
+                            </details>
+                          </li>
+                        ))}
+                      </ul>
+                    </details>
+                  </li>
+                ))}
+              </ul>
+            </details>
+          </li>
+        </>
+      ))
+    }
+  </ul>
+</aside>

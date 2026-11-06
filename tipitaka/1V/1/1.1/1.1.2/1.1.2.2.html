@@ -1,1004 +1,140 @@
-
-<!doctype html>
-<html lang="en" data-bs-theme="auto">
-
-<head>
-  <script src="/scripts/color-modes.js"></script>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="author" content="chris@christham.net">
-  <title>tipitaka2500.github.io</title>
-  <meta name="description"
-    content="The Buddhist Era 2500 Great International Council Pāḷi Tipiṭaka, Roman Script 2005 as an HTML website.">
-  <link rel="canonical" href="https://tipitaka2500.github.io">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <!-- Favicons -->
-  <link rel="apple-touch-icon" href="/images/logo128.png" sizes="128x128">
-  <link rel="icon" href="/images/logo.png" sizes="16x16" type="image/png">
-  <link rel="icon" href="/images/logo24.png" sizes="24x24" type="image/png">
-  <link rel="icon" href="/images/logo48.png" sizes="48x48" type="image/png">
-  <link rel="icon" href="/images/logo128.png" sizes="128x128" type="image/png">
-  <link rel="icon" href="/images/logo.ico">
-  <meta name="theme-color" content="#712cf9">
-  <link rel="stylesheet" type="text/css" href="/css/styles.css">
-  <!-- Custom styles for this template -->
-  <link href="/css/sidebars.css" rel="stylesheet">
-</head>
-
-<body>
-  <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
-    <symbol id="check2" viewBox="0 0 16 16">
-      <path
-        d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
-    </symbol>
-    <symbol id="circle-half" viewBox="0 0 16 16">
-      <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z" />
-    </symbol>
-    <symbol id="moon-stars-fill" viewBox="0 0 16 16">
-      <path
-        d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z" />
-      <path
-        d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z" />
-    </symbol>
-    <symbol id="sun-fill" viewBox="0 0 16 16">
-      <path
-        d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z" />
-    </symbol>
-  </svg>
-
-  <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
-    <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center" id="bd-theme" type="button"
-      aria-expanded="false" data-bs-toggle="dropdown" aria-label="Toggle theme (auto)">
-      <svg class="bi my-1 theme-icon-active" width="1em" height="1em">
-        <use href="#circle-half"></use>
-      </svg>
-      <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
-    </button>
-    <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
-      <li>
-        <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light"
-          aria-pressed="false">
-          <svg class="bi me-2 opacity-50" width="1em" height="1em">
-            <use href="#sun-fill"></use>
-          </svg>
-          Light
-          <svg class="bi ms-auto d-none" width="1em" height="1em">
-            <use href="#check2"></use>
-          </svg>
-        </button>
-      </li>
-      <li>
-        <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark"
-          aria-pressed="false">
-          <svg class="bi me-2 opacity-50" width="1em" height="1em">
-            <use href="#moon-stars-fill"></use>
-          </svg>
-          Dark
-          <svg class="bi ms-auto d-none" width="1em" height="1em">
-            <use href="#check2"></use>
-          </svg>
-        </button>
-      </li>
-      <li>
-        <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto"
-          aria-pressed="true">
-          <svg class="bi me-2 opacity-50" width="1em" height="1em">
-            <use href="#circle-half"></use>
-          </svg>
-          Auto
-          <svg class="bi ms-auto d-none" width="1em" height="1em">
-            <use href="#check2"></use>
-          </svg>
-        </button>
-      </li>
-    </ul>
-  </div>
-
-  <main class="d-flex flex-nowrap" >
-    <div class="flex-shrink-0 p-3 overflow-scroll" style="width: 300px;">
-      <a href="/" class="d-flex align-items-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom">
-        <img src="/images/logo48.png" alt="Tipitaka2500" id="logo" width="24" />
-        <span class="fs-5 ms-2 fw-semibold">tipitaka2500.github.io</span>
-      </a>
-      <ul class="list-unstyled ps-0">
-        <li class="mb-1">
-          <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-            data-bs-toggle="collapse" data-bs-target="#v-collapse" aria-expanded="false">
-            Vinayapiṭaka (V)
-          </button>
-          <div class="collapse" id="v-collapse">
-            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-              <li><a href="/tipitaka/1V.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Pārājikapāḷi (1V)</a></li>
-              <li><a href="/tipitaka/2V.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Pācittiyapāḷi (2V)</a></li>
-              <li><a href="/tipitaka/3V.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Mahāvaggapāḷi (3V)</a></li>
-              <li><a href="/tipitaka/4V.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Cūḷavaggapāḷi (4V)</a></li>
-              <li><a href="/tipitaka/5V.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Parivārapāḷi (5V)</a></li>
-            </ul>
-          </div>
-        </li>
-        <li class="border-top my-2"></li>
-        <li class="mb-1">
-          <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-            data-bs-toggle="collapse" data-bs-target="#s-collapse" aria-expanded="false">
-            Suttantapiṭaka (Sutta)
-          </button>
-          <div class="collapse" id="s-collapse">
-            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-              <li class="mb-1 ms-3">
-                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-                  data-bs-toggle="collapse" data-bs-target="#d-collapse" aria-expanded="false">
-                  Dīghanikāya (D)
-                </button>
-                <div class="collapse" id="d-collapse">
-                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                    <li><a href="/tipitaka/6D.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Sīlakkhandhavaggapāḷi</a></li>
-                    <li><a href="/tipitaka/7D.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Mahāvaggapāḷi</a></li>
-                    <li><a href="/tipitaka/8D.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Pāthikavaggapāḷi</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mb-1 ms-3">
-                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-                  data-bs-toggle="collapse" data-bs-target="#m-collapse" aria-expanded="false">
-                  Majjhimanikāya (M)
-                </button>
-                <div class="collapse" id="m-collapse">
-                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                    <li><a href="/tipitaka/9M.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Mūlapaṇṇāsapāḷi</a></li>
-                    <li><a href="/tipitaka/10M.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Majjhimapaṇṇāsapāḷi</a></li>
-                    <li><a href="/tipitaka/11M.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Uparipaṇṇāsapāḷi</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mb-1 ms-3">
-                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-                  data-bs-toggle="collapse" data-bs-target="#sy-collapse" aria-expanded="false">
-                  Saṃyuttanikāya (S)
-                </button>
-                <div class="collapse" id="sy-collapse">
-                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                    <li><a href="/tipitaka/12S1.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Sagāthāvaggasaṃyuttapāḷi</a></li>
-                    <li><a href="/tipitaka/12S2.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Nidānavaggasaṃyuttapāḷi</a></li>
-                    <li><a href="/tipitaka/13S3.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Khandhavaggasaṃyuttapāḷi</a></li>
-                    <li><a href="/tipitaka/13S4.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Saḷāyatanavaggasaṃyuttapāḷi</a></li>
-                    <li><a href="/tipitaka/14S5.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Mahāvaggasaṃyuttapāḷi</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mb-1 ms-3">
-                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-                  data-bs-toggle="collapse" data-bs-target="#a-collapse" aria-expanded="false">
-                  Aṅguttaranikāya (A)
-                </button>
-                <div class="collapse" id="a-collapse">
-                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                    <li><a href="/tipitaka/15A1.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Ekakanipātapāḷi</a></li>
-                    <li><a href="/tipitaka/15A2.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dukanipātapāḷi</a></li>
-                    <li><a href="/tipitaka/15A3.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Tikanipātapāḷi</a></li>
-                    <li><a href="/tipitaka/15A4.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Catukkanipātapāḷi</a></li>
-                    <li><a href="/tipitaka/16A5.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Pañcakanipātapāḷi</a></li>
-                    <li><a href="/tipitaka/16A6.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Chakkanipātapāḷi</a></li>
-                    <li><a href="/tipitaka/16A7.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Sattakanipātapā</a></li>
-                    <li><a href="/tipitaka/17A8.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Aṭṭhakanipātapāḷi</a></li>
-                    <li><a href="/tipitaka/17A9.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Navakanipātapāḷi</a></li>
-                    <li><a href="/tipitaka/17A10.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dasakanipātapāḷi</a></li>
-                    <li><a href="/tipitaka/17A11.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Ekādasakanipātapāḷi</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mb-1 ms-3">
-                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-                  data-bs-toggle="collapse" data-bs-target="#k-collapse" aria-expanded="false">
-                  Khuddakanikāya (Khu)
-                </button>
-                <div class="collapse" id="k-collapse">
-                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                    <li><a href="/tipitaka/18Kh.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Khuddakapāṭhapāḷi</a></li>
-                    <li><a href="/tipitaka/18Dh.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dhammapadapāḷi</a></li>
-                    <li><a href="/tipitaka/18Ud.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Udānapāḷi</a></li>
-                    <li><a href="/tipitaka/18It.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Itivuttakapāḷi</a></li>
-                    <li><a href="/tipitaka/18Sn.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Suttanipātapāḷi</a></li>
-                    <li><a href="/tipitaka/19Vv.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Vimānavatthupāḷi</a></li>
-                    <li><a href="/tipitaka/19Pv.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Petavatthupāḷi</a></li>
-                    <li><a href="/tipitaka/19Th1.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Theragāthāpāḷi</a></li>
-                    <li><a href="/tipitaka/19Th2.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Therīgāthāpāḷi</a></li>
-                    <li><a href="/tipitaka/20Ap1.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Therāpadānapāḷi</a></li>
-                    <li><a href="/tipitaka/20Ap2.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Therīapadānapāḷi</a></li>
-                    <li><a href="/tipitaka/21Bu.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Buddhavaṃsapāḷi</a></li>
-                    <li><a href="/tipitaka/21Cp.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Cariyāpiṭakapāḷi</a></li>
-                    <li><a href="/tipitaka/22J.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Jātakapāḷi</a></li>
-                    <li><a href="/tipitaka/23J.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Jātakapāḷi</a></li>
-                    <li><a href="/tipitaka/24Mn.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Mahāniddesapāḷi</a></li>
-                    <li><a href="/tipitaka/25Cn.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Cūḷaniddesapāḷi</a></li>
-                    <li><a href="/tipitaka/26Ps.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Paṭisambhidāmaggapāḷi</a></li>
-                    <li><a href="/tipitaka/27Ne.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Nettipāḷi</a></li>
-                    <li><a href="/tipitaka/27Pe.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Peṭakopadesapāḷi</a></li>
-                    <li><a href="/tipitaka/28Mi.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Milindapañhapāḷi</a></li>
-                  </ul>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </li>
-        <li class="border-top my-2"></li>
-        <li class="mb-1">
-          <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-            data-bs-toggle="collapse" data-bs-target="#ab-collapse" aria-expanded="false">
-            Abhidhammapiṭaka (Abhi)
-          </button>
-          <div class="collapse" id="ab-collapse">
-            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-              <li><a href="/tipitaka/29Dhs.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dhammasaṅgaṇīpāḷi</a></li>
-              <li><a href="/tipitaka/30Vbh.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dhammapadapāḷi</a></li>
-              <li><a href="/tipitaka/31Dht.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dhātukathāpāḷi</a></li>
-              <li><a href="/tipitaka/31Pu.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Puggalapaññattipāḷi</a></li>
-              <li><a href="/tipitaka/32Kv.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Kathāvatthupāḷi</a></li>
-              <li class="mb-1 ms-3">
-                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-                  data-bs-toggle="collapse" data-bs-target="#y-collapse" aria-expanded="false">
-                  Yamaka (Y)
-                </button>
-                <div class="collapse" id="y-collapse">
-                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                    <li><a href="/tipitaka/33Y1.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Mūlayamakapāḷi</a></li>
-                    <li><a href="/tipitaka/33Y2.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Khandhayamakapāḷi</a></li>
-                    <li><a href="/tipitaka/33Y3.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Āyatanayamakapāḷi</a></li>
-                    <li><a href="/tipitaka/33Y4.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dhātuyamakapāḷi</a></li>
-                    <li><a href="/tipitaka/33Y5.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Saccayamakapāḷi</a></li>
-                    <li><a href="/tipitaka/34Y6.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Saṅkhārayamakapāḷi</a></li>
-                    <li><a href="/tipitaka/34Y7.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Anusayayamakapāḷi</a></li>
-                    <li><a href="/tipitaka/34Y8.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Cittayamakapāḷi</a></li>
-                    <li><a href="/tipitaka/35Y9.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dhammayamakapāḷi</a></li>
-                    <li><a href="/tipitaka/35Y10.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Indriyayamakapāḷi</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mb-1 ms-3">
-                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-                  data-bs-toggle="collapse" data-bs-target="#p-collapse" aria-expanded="false">
-                  Paṭṭhāna (P)
-                </button>
-                <div class="collapse" id="p-collapse">
-                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                    <li class="mb-1 ms-3" >
-                      <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-                        data-bs-toggle="collapse" data-bs-target="#dh-collapse" aria-expanded="false">
-                        Dhammānuloma
-                      </button>
-                      <div class="collapse" id="dh-collapse">
-                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                          <li><a href="/tipitaka/36P1.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Tikapaṭṭhānapāḷi</a></li>
-                          <li><a href="/tipitaka/37P1.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Tikapaṭṭhānapāḷi</a></li>
-                          <li><a href="/tipitaka/38P2.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dukapaṭṭhānapāḷi</a></li>
-                          <li><a href="/tipitaka/39P3.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dukatikapaṭṭhānapāḷi</a></li>
-                          <li><a href="/tipitaka/39P4.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Tikadukapaṭṭhānapāḷi</a></li>
-                          <li><a href="/tipitaka/39P5.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Tikatikapaṭṭhānapāḷi</a></li>
-                          <li><a href="/tipitaka/39P6.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dukadukapaṭṭhānapāḷi</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mb-1 ms-3">
-                      <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-                        data-bs-toggle="collapse" data-bs-target="#dp-collapse" aria-expanded="false">
-                        Dhammapaccanīya
-                      </button>
-                      <div class="collapse" id="dp-collapse">
-                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                          <li><a href="/tipitaka/40P7.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Tikapaṭṭhānapāḷi</a></li>
-                          <li><a href="/tipitaka/40P8.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dukapaṭṭhānapāḷi</a></li>
-                          <li><a href="/tipitaka/40P9.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dukatikapaṭṭhānapāḷi</a></li>
-                          <li><a href="/tipitaka/40P10.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Tikadukapaṭṭhānapāḷi</a></li>
-                          <li><a href="/tipitaka/40P11.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Tikatikapaṭṭhānapāḷi</a></li>
-                          <li><a href="/tipitaka/40P12.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dukadukapaṭṭhānapāḷi</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mb-1 ms-3">
-                      <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-                        data-bs-toggle="collapse" data-bs-target="#dl-collapse" aria-expanded="false">
-                        Dhammānulomapaccanīya
-                      </button>
-                      <div class="collapse" id="dl-collapse">
-                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                          <li><a href="/tipitaka/40P13.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Tikapaṭṭhānapāḷi</a></li>
-                          <li><a href="/tipitaka/40P14.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dukapaṭṭhānapāḷi</a></li>
-                          <li><a href="/tipitaka/40P15.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dukatikapaṭṭhānapāḷi</a></li>
-                          <li><a href="/tipitaka/40P16.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Tikadukapaṭṭhānapāḷi</a></li>
-                          <li><a href="/tipitaka/40P17.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Tikatikapaṭṭhānapāḷi</a></li>
-                          <li><a href="/tipitaka/40P18.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dukadukapaṭṭhānapāḷi</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mb-1 ms-3">
-                      <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-                        data-bs-toggle="collapse" data-bs-target="#dy-collapse" aria-expanded="false">
-                        Dhammapaccanīyānuloma
-                      </button>
-                      <div class="collapse" id="dy-collapse">
-                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                          <li><a href="/tipitaka/40P19.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Tikapaṭṭhānapāḷi</a></li>
-                          <li><a href="/tipitaka/40P20.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dukapaṭṭhānapāḷi</a></li>
-                          <li><a href="/tipitaka/40P21.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dukatikapaṭṭhānapāḷi</a></li>
-                          <li><a href="/tipitaka/40P22.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Tikadukapaṭṭhānapāḷi</a></li>
-                          <li><a href="/tipitaka/40P23.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Tikatikapaṭṭhānapāḷi</a></li>
-                          <li><a href="/tipitaka/40P24.html" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Dukadukapaṭṭhānapāḷi</a></li>
-                        </ul>
-                      </div>
-                    </li>      
-                  </ul>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </li>
-      </ul>
-    </div>
-
-    <div class="container overflow-scroll">
-<nav aria-label="breadcrumb">
- <ol class="breadcrumb">
-  <li class="breadcrumb-item">
-   <a href="/">
-    Home
-   </a>
-  </li>
-  <li class="breadcrumb-item">
-   <a href="/tipitaka/1V.html">
-    1V Pārājikapāḷi
-   </a>
-  </li>
-  <li class="breadcrumb-item">
-   <a href="/tipitaka/1V/1.html">
-    1 Mahāvibhaṅga
-   </a>
-  </li>
-  <li class="breadcrumb-item">
-   <a href="/tipitaka/1V/1/1.1.html">
-    1.1 Pārājikakaṇḍa
-   </a>
-  </li>
-  <li class="breadcrumb-item">
-   <a href="/tipitaka/1V/1/1.1/1.1.2.html">
-    1.1.2 Dutiyapārājikasikkhāpada
-   </a>
-  </li>
- </ol>
-</nav>
-<div class="container">
- <div class="m-4 p-4 text-center bg-body-tertiary rounded-3">
-  <h1 class="text-body-emphasis">
-   1.1.2.2 Vinītavatthu
-  </h1>
- </div>
-</div>
-<h3 class="text-center">
- Mahāvibhaṅga
-</h3>
-<h3 class="text-center">
- Pārājikakaṇḍa
-</h3>
-<h3 class="text-center">
- Dutiyapārājikasikkhāpada
-</h3>
-<h3 class="text-center">
- Vinītavatthu
-</h3>
-<p id="p_1V_292">
- <span class="badge rounded-pill text-bg-secondary me-2" id="d132">
-  132.
- </span>
- <span class="badge rounded-pill text-bg-light me-1" id="292">
-  292
- </span>
- Tena kho pana samayena chabbaggiyā bhikkhū rajakattharaṇaṃ gantvā rajakabhaṇḍikaṃ avahariṃsu. Tesaṃ kukkuccaṃ ahosi—  “bhagavatā sikkhāpadaṃ paññattaṃ. Kacci nu kho mayaṃ pārājikaṃ āpattiṃ āpannā”ti. Bhagavato etamatthaṃ ārocesuṃ. “Āpattiṃ tumhe, bhikkhave, āpannā pārājikan”ti. (1)
-</p>
-<p id="p_1V_293">
- <span class="badge rounded-pill text-bg-light me-1" id="293">
-  293
- </span>
- Tena kho pana samayena aññataro bhikkhu rajakattharaṇaṃ gantvā mahagghaṃ dussaṃ passitvā theyyacittaṃ uppādesi. Tassa kukkuccaṃ ahosi—  “bhagavatā sikkhāpadaṃ paññattaṃ, kacci nu kho ahaṃ pārājikaṃ āpattiṃ āpanno”ti? Bhagavato etamatthaṃ ārocesi. “Anāpatti, bhikkhu, cittuppāde”ti. (2)
-</p>
-<p id="p_1V_294">
- <span class="badge rounded-pill text-bg-light me-1" id="294">
-  294
- </span>
- Tena kho pana samayena aññataro bhikkhu rajakattharaṇaṃ gantvā mahagghaṃ dussaṃ passitvā theyyacitto āmasi. Tassa kukkuccaṃ ahosi…pe…  “anāpatti, bhikkhu, pārājikassa. Āpatti dukkaṭassā”ti. (3)
-</p>
-<p id="p_1V_295">
- <span class="badge rounded-pill text-bg-light me-1" id="295">
-  295
- </span>
- Tena kho pana samayena aññataro bhikkhu rajakattharaṇaṃ gantvā mahagghaṃ dussaṃ passitvā theyyacitto phandāpesi. Tassa kukkuccaṃ ahosi…pe…  “anāpatti, bhikkhu, pārājikassa. Āpatti thullaccayassā”ti. (4)
-</p>
-<p id="p_1V_296">
- <span class="badge rounded-pill text-bg-light me-1" id="296">
-  296
- </span>
- Tena kho pana samayena aññataro bhikkhu rajakattharaṇaṃ gantvā mahagghaṃ dussaṃ passitvā theyyacitto ṭhānā cāvesi. Tassa kukkuccaṃ ahosi…pe…  “āpattiṃ tvaṃ, bhikkhu, āpanno pārājikan”ti. (5)
-</p>
-<p id="p_1V_297">
- <span class="badge rounded-pill text-bg-secondary me-2" id="d133">
-  133.
- </span>
- <span class="badge rounded-pill text-bg-light me-1" id="297">
-  297
- </span>
- Tena kho pana samayena aññataro piṇḍacāriko bhikkhu mahagghaṃ uttarattharaṇaṃ passitvā theyyacittaṃ uppādesi…pe…  theyyacitto āmasi…pe…  theyyacitto phandāpesi…pe…  theyyacitto ṭhānā cāvesi. Tassa kukkuccaṃ ahosi…pe…  “āpattiṃ tvaṃ, bhikkhu, āpanno pārājikan”ti. (6--9)
-</p>
-<p id="p_1V_298">
- <span class="badge rounded-pill text-bg-secondary me-2" id="d134">
-  134.
- </span>
- <span class="badge rounded-pill text-bg-light me-1" id="298">
-  298
- </span>
- Tena kho pana samayena aññataro bhikkhu divā bhaṇḍaṃ passitvā nimittaṃ akāsi—  “rattiṃ avaharissāmī”ti. So taṃ maññamāno taṃ avahari…pe…  taṃ maññamāno aññaṃ avahari…pe…  aññaṃ maññamāno taṃ avahari…pe…  aññaṃ maññamāno aññaṃ avahari. Tassa kukkuccaṃ ahosi…pe…  “āpattiṃ tvaṃ, bhikkhu, āpanno pārājikan”ti. (10--13)
-</p>
-<p id="p_1V_299">
- <span class="badge rounded-pill text-bg-light me-1" id="299">
-  299
- </span>
- Tena kho pana samayena aññataro bhikkhu divā bhaṇḍaṃ passitvā nimittaṃ akāsi—  “rattiṃ avaharissāmī”ti. So taṃ maññamāno attano bhaṇḍaṃ avahari. Tassa kukkuccaṃ ahosi…pe…  “anāpatti, bhikkhu, pārājikassa. Āpatti dukkaṭassā”ti. (14)
-</p>
-<p id="p_1V_300">
- <span class="badge rounded-pill text-bg-light me-1" id="300">
-  300
- </span>
- Tena kho pana samayena aññataro bhikkhu aññassa bhaṇḍaṃ haranto sīse bhāraṃ theyyacitto āmasi…pe…  theyyacitto phandāpesi…pe…  theyyacitto khandhaṃ oropesi…pe…  khandhe bhāraṃ theyyacitto āmasi…pe…  theyyacitto phandāpesi…pe…  theyyacitto kaṭiṃ oropesi…pe…  kaṭiyā bhāraṃ theyyacitto āmasi…pe…  theyyacitto phandāpesi…pe…  theyyacitto hatthena aggahesi…pe…  hatthe bhāraṃ theyyacitto bhūmiyaṃ nikkhipi…pe…  theyyacitto bhūmito aggahesi. Tassa kukkuccaṃ ahosi…pe…  “āpattiṃ tvaṃ, bhikkhu, āpanno pārājikan”ti. (15--25)
-</p>
-<p id="p_1V_301">
- <span class="badge rounded-pill text-bg-secondary me-2" id="d135">
-  135.
- </span>
- <span class="badge rounded-pill text-bg-light me-1" id="301">
-  301
- </span>
- Tena kho pana samayena aññataro bhikkhu ajjhokāse cīvaraṃ pattharitvā vihāraṃ pāvisi. Aññataro bhikkhu—  “māyidaṃ cīvaraṃ nassī”ti, paṭisāmesi. So nikkhamitvā taṃ bhikkhuṃ pucchi—  “āvuso, mayhaṃ cīvaraṃ kena avahaṭan”ti? So evamāha—  “mayā avahaṭan”ti. “So taṃ ādiyi, assamaṇosi tvan”ti. Tassa kukkuccaṃ ahosi…pe… . Bhagavato etamatthaṃ ārocesi. “Kiṃcitto tvaṃ, bhikkhū”ti? “Niruttipatho ahaṃ, bhagavā”ti. “Anāpatti, bhikkhu, niruttipathe”ti. (26)
-</p>
-<p id="p_1V_302">
- <span class="badge rounded-pill text-bg-light me-1" id="302">
-  302
- </span>
- Tena kho pana samayena aññataro bhikkhu pīṭhe cīvaraṃ nikkhipitvā. Pīṭhe nisīdanaṃ nikkhipitvā…  heṭṭhāpīṭhe pattaṃ nikkhipitvā vihāraṃ pāvisi. Aññataro bhikkhu—  “māyaṃ patto nassī”ti paṭisāmesi. So nikkhamitvā taṃ bhikkhuṃ pucchi—  “āvuso, mayhaṃ patto kena avahaṭo”ti? So evamāha—  “mayā avahaṭo”ti. So taṃ ādiyi, “assamaṇosi tvan”ti. Tassa kukkuccaṃ ahosi…pe…  “anāpatti, bhikkhu, niruttipathe”ti. (27--29)
-</p>
-<p id="p_1V_303">
- <span class="badge rounded-pill text-bg-light me-1" id="303">
-  303
- </span>
- Tena kho pana samayena aññatarā bhikkhunī vatiyā cīvaraṃ pattharitvā vihāraṃ pāvisi. Aññatarā bhikkhunī—  “māyidaṃ cīvaraṃ nassī”ti paṭisāmesi. Sā nikkhamitvā taṃ bhikkhuniṃ pucchi—  “ayye, mayhaṃ cīvaraṃ kena avahaṭan”ti? Sā evamāha—  “mayā avahaṭan”ti. “Sā taṃ ādiyi, assamaṇīsi tvan”ti. Tassā kukkuccaṃ ahosi…pe… . Atha kho sā bhikkhunī bhikkhunīnaṃ etamatthaṃ ārocesi. Bhikkhuniyo bhikkhūnaṃ etamatthaṃ ārocesuṃ. Bhikkhū bhagavato etamatthaṃ ārocesuṃ…pe…  “anāpatti, bhikkhave, niruttipathe”ti. (30)
-</p>
-<p id="p_1V_304">
- <span class="badge rounded-pill text-bg-secondary me-2" id="d136">
-  136.
- </span>
- <span class="badge rounded-pill text-bg-light me-1" id="304">
-  304
- </span>
- Tena kho pana samayena aññataro bhikkhu vātamaṇḍalikāya ukkhittaṃ sāṭakaṃ passitvā sāmikānaṃ dassāmīti, aggahesi. Sāmikā taṃ bhikkhuṃ codesuṃ—  “assamaṇosi tvan”ti. Tassa kukkuccaṃ ahosi…pe…  “kiṃcitto tvaṃ, bhikkhū”ti? “Atheyyacitto ahaṃ, bhagavā”ti. “Anāpatti, bhikkhu, atheyyacittassā”ti. (31)
-</p>
-<p id="p_1V_305">
- <span class="badge rounded-pill text-bg-light me-1" id="305">
-  305
- </span>
- Tena kho pana samayena aññataro bhikkhu vātamaṇḍalikāya ukkhittaṃ veṭhanaṃ passitvā—  “pure sāmikā passantī”ti theyyacitto aggahesi. Sāmikā taṃ bhikkhuṃ codesuṃ—  “assamaṇosi tvan”ti. Tassa kukkuccaṃ ahosi…pe…  “āpattiṃ tvaṃ, bhikkhu, āpanno pārājikan”ti. (32)
-</p>
-<p id="p_1V_306">
- <span class="badge rounded-pill text-bg-secondary me-2" id="d137">
-  137.
- </span>
- <span class="badge rounded-pill text-bg-light me-1" id="306">
-  306
- </span>
- Tena kho pana samayena aññataro bhikkhu susānaṃ gantvā abhinne sarīre paṃsukūlaṃ aggahesi. Tasmiñca sarīre peto adhivattho hoti. Atha kho so peto taṃ bhikkhuṃ etadavoca—  “mā, bhante, mayhaṃ sāṭakaṃ aggahesī”ti. So bhikkhu anādiyanto agamāsi. Atha kho taṃ sarīraṃ uṭṭhahitvā tassa bhikkhuno piṭṭhito piṭṭhito anubandhi. Atha kho so bhikkhu vihāraṃ pavisitvā dvāraṃ thakesi. Atha kho taṃ sarīraṃ tattheva paripati. Tassa kukkuccaṃ ahosi…pe…  “anāpatti, bhikkhu, pārājikassa. Na ca, bhikkhave, abhinne sarīre paṃsukūlaṃ gahetabbaṃ. Yo gaṇheyya, āpatti dukkaṭassā”ti. (33)
-</p>
-<p id="p_1V_307">
- <span class="badge rounded-pill text-bg-secondary me-2" id="d138">
-  138.
- </span>
- <span class="badge rounded-pill text-bg-light me-1" id="307">
-  307
- </span>
- Tena kho pana samayena aññataro bhikkhu saṃghassa cīvare bhājīyamāne theyyacitto kusaṃ saṅkāmetvā cīvaraṃ aggahesi. Tassa kukkuccaṃ ahosi…pe…  “āpattiṃ tvaṃ, bhikkhu, āpanno pārājikan”ti. (34)
-</p>
-<p id="p_1V_308">
- <span class="badge rounded-pill text-bg-secondary me-2" id="d139">
-  139.
- </span>
- <span class="badge rounded-pill text-bg-light me-1" id="308">
-  308
- </span>
- Tena kho pana samayena āyasmā ānando jantāghare aññatarassa bhikkhuno antaravāsakaṃ attano maññamāno nivāsesi. Atha kho so bhikkhu āyasmantaṃ ānandaṃ etadavoca—  “kissa me tvaṃ, āvuso ānanda, antaravāsakaṃ nivāsesī”ti? “Sakasaññī ahaṃ, āvuso”ti. Bhagavato etamatthaṃ ārocesuṃ. “Anāpatti, bhikkhave, sakasaññissā”ti. (35)
-</p>
-<p id="p_1V_309">
- <span class="badge rounded-pill text-bg-secondary me-2" id="d140">
-  140.
- </span>
- <span class="badge rounded-pill text-bg-light me-1" id="309">
-  309
- </span>
- Tena kho pana samayena sambahulā bhikkhū gijjhakūṭā pabbatā orohantā sīhavighāsaṃ passitvā pacāpetvā paribhuñjiṃsu. Tesaṃ kukkuccaṃ ahosi…pe…  “anāpatti, bhikkhave, sīhavighāse”ti. (36)
-</p>
-<p id="p_1V_310">
- <span class="badge rounded-pill text-bg-light me-1" id="310">
-  310
- </span>
- Tena kho pana samayena sambahulā bhikkhū gijjhakūṭā pabbatā orohantā byagghavighāsaṃ passitvā…  dīpivighāsaṃ passitvā…  taracchavighāsaṃ passitvā…  kokavighāsaṃ passitvā pacāpetvā paribhuñjiṃsu. Tesaṃ kukkuccaṃ ahosi…pe…  “anāpatti, bhikkhave, tiracchānagatapariggahe”ti. (37--40)
-</p>
-<p id="p_1V_311">
- <span class="badge rounded-pill text-bg-secondary me-2" id="d141">
-  141.
- </span>
- <span class="badge rounded-pill text-bg-light me-1" id="311">
-  311
- </span>
- Tena kho pana samayena aññataro bhikkhu saṃghassa odane bhājīyamāne—  “aparassa bhāgaṃ dehī”ti amūlakaṃ aggahesi. Tassa kukkuccaṃ ahosi…pe…  “anāpatti, bhikkhu, pārājikassa. Āpatti sampajānamusāvāde pācittiyassā”ti. (41)
-</p>
-<p id="p_1V_312">
- <span class="badge rounded-pill text-bg-light me-1" id="312">
-  312
- </span>
- Tena kho pana samayena aññataro bhikkhu saṃghassa khādanīye bhājīyamāne…  saṃghassa pūve bhājīyamāne…  saṃghassa ucchumhi bhājīyamāne…  saṃghassa timbarūsake bhājīyamāne—  “aparassa bhāgaṃ dehī”ti amūlakaṃ aggahesi. Tassa kukkuccaṃ ahosi…pe… . “Anāpatti, bhikkhu, pārājikassa. Āpatti sampajānamusāvāde pācittiyassā”ti. (42--45)
-</p>
-<p id="p_1V_313">
- <span class="badge rounded-pill text-bg-secondary me-2" id="d142">
-  142.
- </span>
- <span class="badge rounded-pill text-bg-light me-1" id="313">
-  313
- </span>
- Tena kho pana samayena aññataro bhikkhu dubbhikkhe odanīyagharaṃ pavisitvā pattapūraṃ odanaṃ theyyacitto avahari. Tassa kukkuccaṃ ahosi…pe…  “āpattiṃ tvaṃ, bhikkhu, āpanno pārājikan”ti. (46)
-</p>
-<p id="p_1V_314">
- <span class="badge rounded-pill text-bg-light me-1" id="314">
-  314
- </span>
- Tena kho pana samayena aññataro bhikkhu dubbhikkhe sūnagharaṃ pavisitvā pattapūraṃ maṃsaṃ theyyacitto avahari. Tassa kukkuccaṃ ahosi…pe…  “āpattiṃ tvaṃ, bhikkhu, āpanno pārājikan”ti. (47)
-</p>
-<p id="p_1V_315">
- <span class="badge rounded-pill text-bg-light me-1" id="315">
-  315
- </span>
- Tena kho pana samayena aññataro bhikkhu dubbhikkhe pūvagharaṃ pavisitvā pattapūraṃ pūvaṃ theyyacitto avahari…pe…  pattapūrā sakkhaliyo theyyacitto avahari…pe…  pattapūre modake theyyacitto avahari. Tassa kukkuccaṃ ahosi…pe…  “āpattiṃ tvaṃ, bhikkhu, āpanno pārājikan”ti. (48--50)
-</p>
-<p id="p_1V_316">
- <span class="badge rounded-pill text-bg-secondary me-2" id="d143">
-  143.
- </span>
- <span class="badge rounded-pill text-bg-light me-1" id="316">
-  316
- </span>
- Tena kho pana samayena aññataro bhikkhu divā parikkhāraṃ passitvā nimittaṃ akāsi—  “rattiṃ avaharissāmī”ti. So taṃ maññamāno taṃ avahari…pe…  taṃ maññamāno aññaṃ avahari…pe…  aññaṃ maññamāno taṃ avahari…pe…  aññaṃ maññamāno aññaṃ avahari. Tassa kukkuccaṃ ahosi…pe…  “āpattiṃ tvaṃ, bhikkhu, āpanno pārājikan”ti. (51--54)
-</p>
-<p id="p_1V_317">
- <span class="badge rounded-pill text-bg-light me-1" id="317">
-  317
- </span>
- Tena kho pana samayena aññataro bhikkhu divā parikkhāraṃ passitvā nimittaṃ akāsi—  “rattiṃ avaharissāmī”ti. So taṃ maññamāno attano parikkhāraṃ avahari. Tassa kukkuccaṃ ahosi…pe…  “anāpatti, bhikkhu, pārājikassa. Āpatti dukkaṭassā”ti. (55)
-</p>
-<p id="p_1V_318">
- <span class="badge rounded-pill text-bg-secondary me-2" id="d144">
-  144.
- </span>
- <span class="badge rounded-pill text-bg-light me-1" id="318">
-  318
- </span>
- Tena kho pana samayena aññataro bhikkhu pīṭhe thavikaṃ passitvā—  “ito gaṇhanto pārājiko bhavissāmī”ti saha pīṭhakena saṅkāmetvā aggahesi. Tassa kukkuccaṃ ahosi…pe…  “āpattiṃ tvaṃ, bhikkhu, āpanno pārājikan”ti. (56)
-</p>
-<p id="p_1V_319">
- <span class="badge rounded-pill text-bg-light me-1" id="319">
-  319
- </span>
- Tena kho pana samayena aññataro bhikkhu saṃghassa bhisiṃ theyyacitto avahari. Tassa kukkuccaṃ ahosi…pe…  “āpattiṃ tvaṃ, bhikkhu, āpanno pārājikan”ti. (57)
-</p>
-<p id="p_1V_320">
- <span class="badge rounded-pill text-bg-secondary me-2" id="d145">
-  145.
- </span>
- <span class="badge rounded-pill text-bg-light me-1" id="320">
-  320
- </span>
- Tena kho pana samayena aññataro bhikkhu cīvaravaṃse cīvaraṃ theyyacitto avahari. Tassa kukkuccaṃ ahosi…pe…  “āpattiṃ tvaṃ, bhikkhu, āpanno pārājikan”ti. (58)
-</p>
-<p id="p_1V_321">
- <span class="badge rounded-pill text-bg-light me-1" id="321">
-  321
- </span>
- Tena kho pana samayena aññataro bhikkhu vihāre cīvaraṃ avaharitvā—  “ito nikkhamanto pārājiko bhavissāmī”ti vihārā na nikkhami…pe…  bhagavato etamatthaṃ ārocesuṃ. “Nikkhami vā so, bhikkhave, moghapuriso na vā nikkhami, āpatti pārājikassā”ti. (59)
-</p>
-<p id="p_1V_322">
- <span class="badge rounded-pill text-bg-secondary me-2" id="d146">
-  146.
- </span>
- <span class="badge rounded-pill text-bg-light me-1" id="322">
-  322
- </span>
- Tena kho pana samayena dve bhikkhū sahāyakā honti. Eko bhikkhu gāmaṃ piṇḍāya pāvisi. Dutiyo bhikkhu saṃghassa khādanīye bhājīyamāne sahāyakassa bhāgaṃ gahetvā tassa vissasanto paribhuñji. So jānitvā taṃ codesi—  “assamaṇosi tvan”ti. Tassa kukkuccaṃ ahosi…pe…  “kiṃcitto tvaṃ, bhikkhū”ti? “Vissāsaggāho ahaṃ, bhagavā”ti. “Anāpatti, bhikkhu, vissāsaggāhe”ti. (60)
-</p>
-<p id="p_1V_323">
- <span class="badge rounded-pill text-bg-secondary me-2" id="d147">
-  147.
- </span>
- <span class="badge rounded-pill text-bg-light me-1" id="323">
-  323
- </span>
- Tena kho pana samayena sambahulā bhikkhū cīvarakammaṃ karonti. Saṃghassa khādanīye bhājīyamāne sabbesaṃ paṭivisā āharitvā upanikkhittā honti. Aññataro bhikkhu aññatarassa bhikkhuno paṭivisaṃ attano maññamāno paribhuñji. So jānitvā taṃ codesi—  “assamaṇosi tvan”ti. Tassa kukkuccaṃ ahosi…pe…  “kiṃcitto tvaṃ, bhikkhū”ti? “Sakasaññī ahaṃ, bhagavā”ti. “Anāpatti, bhikkhu, sakasaññissā”ti. (61)
-</p>
-<p id="p_1V_324">
- <span class="badge rounded-pill text-bg-light me-1" id="324">
-  324
- </span>
- Tena kho pana samayena sambahulā bhikkhū cīvarakammaṃ karonti. Saṃghassa khādanīye bhājīyamāne aññatarassa bhikkhuno pattena aññatarassa bhikkhuno paṭiviso āharitvā upanikkhitto hoti. Pattasāmiko bhikkhu attano maññamāno paribhuñji. So jānitvā taṃ codesi—  “assamaṇosi tvan”ti. Tassa kukkuccaṃ ahosi…pe…  “anāpatti, bhikkhu, sakasaññissā”ti. (62)
-</p>
-<p id="p_1V_325">
- <span class="badge rounded-pill text-bg-secondary me-2" id="d148">
-  148.
- </span>
- <span class="badge rounded-pill text-bg-light me-1" id="325">
-  325
- </span>
- Tena kho pana samayena ambacorakā ambaṃ pātetvā bhaṇḍikaṃ ādāya agamaṃsu. Sāmikā te corake anubandhiṃsu. Corakā sāmike passitvā bhaṇḍikaṃ pātetvā palāyiṃsu. Bhikkhū paṃsukūlasaññino paṭiggahāpetvā paribhuñjiṃsu. Sāmikā te bhikkhū codesuṃ—  “assamaṇāttha tumhe”ti. Tesaṃ kukkuccaṃ ahosi…pe…  bhagavato etamatthaṃ ārocesuṃ. “Kiṃcittā tumhe, bhikkhave”ti? “Paṃsukūlasaññino mayaṃ, bhagavā”ti. “Anāpatti, bhikkhave, paṃsukūlasaññissā”ti. (63)
-</p>
-<p id="p_1V_326">
- <span class="badge rounded-pill text-bg-light me-1" id="326">
-  326
- </span>
- Tena kho pana samayena jambucorakā…  labujacorakā…  panasacorakā…  tālapakkacorakā…  ucchucorakā…  timbarūsakacorakā timbarūsake uccinitvā bhaṇḍikaṃ ādāya agamaṃsu. Sāmikā te corake anubandhiṃsu. Corakā sāmike passitvā bhaṇḍikaṃ pātetvā palāyiṃsu. Bhikkhū paṃsukūlasaññino paṭiggahāpetvā paribhuñjiṃsu. Sāmikā te bhikkhū codesuṃ—  “assamaṇāttha tumhe”ti. Tesaṃ kukkuccaṃ ahosi…pe…  “anāpatti, bhikkhave, paṃsukūlasaññissā”ti. (64--69)
-</p>
-<p id="p_1V_327">
- <span class="badge rounded-pill text-bg-light me-1" id="327">
-  327
- </span>
- Tena kho pana samayena ambacorakā ambaṃ pātetvā bhaṇḍikaṃ ādāya agamaṃsu. Sāmikā te corake anubandhiṃsu. Corakā sāmike passitvā bhaṇḍikaṃ pātetvā palāyiṃsu. Bhikkhū—  “pure sāmikā passantī”ti, theyyacittā paribhuñjiṃsu. Sāmikā te bhikkhū codesuṃ—  “assamaṇāttha tumhe”ti. Tesaṃ kukkuccaṃ ahosi…pe…  “āpattiṃ tumhe, bhikkhave, āpannā pārājikan”ti. (70)
-</p>
-<p id="p_1V_328">
- <span class="badge rounded-pill text-bg-light me-1" id="328">
-  328
- </span>
- Tena kho pana samayena jambucorakā…  labujacorakā…  panasacorakā…  tālapakkacorakā…  ucchucorakā…  timbarūsakacorakā timbarūsake uccinitvā bhaṇḍikaṃ ādāya agamaṃsu. Sāmikā te corake anubandhiṃsu. Corakā sāmike passitvā bhaṇḍikaṃ pātetvā palāyiṃsu. Bhikkhū—  “pure sāmikā passantī”ti, theyyacittā paribhuñjiṃsu. Sāmikā te bhikkhū codesuṃ—  “assamaṇāttha tumhe”ti. Tesaṃ kukkuccaṃ ahosi…pe…  “āpattiṃ tumhe, bhikkhave, āpannā pārājikan”ti. (71--76)
-</p>
-<p id="p_1V_329">
- <span class="badge rounded-pill text-bg-light me-1" id="329">
-  329
- </span>
- Tena kho pana samayena aññataro bhikkhu saṃghassa ambaṃ theyyacitto avahari…  saṃghassa jambuṃ…  saṃghassa labujaṃ…  saṃghassa panasaṃ…  saṃghassa tālapakkaṃ…  saṃghassa ucchuṃ…  saṃghassa timbarūsakaṃ theyyacitto avahari. Tassa kukkuccaṃ ahosi…pe…  “āpattiṃ tvaṃ, bhikkhu, āpanno pārājikan”ti. (77--83)
-</p>
-<p id="p_1V_330">
- <span class="badge rounded-pill text-bg-secondary me-2" id="d149">
-  149.
- </span>
- <span class="badge rounded-pill text-bg-light me-1" id="330">
-  330
- </span>
- Tena kho pana samayena aññataro bhikkhu pupphārāmaṃ gantvā ocitaṃ pupphaṃ pañcamāsagghanakaṃ theyyacitto avahari. Tassa kukkuccaṃ ahosi…pe…  “āpattiṃ tvaṃ, bhikkhu, āpanno pārājikan”ti. (84)
-</p>
-<p id="p_1V_331">
- <span class="badge rounded-pill text-bg-light me-1" id="331">
-  331
- </span>
- Tena kho pana samayena aññataro bhikkhu pupphārāmaṃ gantvā pupphaṃ ocinitvā pañcamāsagghanakaṃ theyyacitto avahari. Tassa kukkuccaṃ ahosi…pe…  “āpattiṃ tvaṃ, bhikkhu, āpanno pārājikan”ti. (85)
-</p>
-<p id="p_1V_332">
- <span class="badge rounded-pill text-bg-secondary me-2" id="d150">
-  150.
- </span>
- <span class="badge rounded-pill text-bg-light me-1" id="332">
-  332
- </span>
- Tena kho pana samayena aññataro bhikkhu gāmakaṃ gacchanto aññataraṃ bhikkhuṃ etadavoca—  “āvuso, tuyhaṃ upaṭṭhākakulaṃ vutto vajjemī”ti. So gantvā ekaṃ sāṭakaṃ āharāpetvā attanā paribhuñji. So jānitvā taṃ codesi—  “assamaṇosi tvan”ti. Tassa kukkuccaṃ ahosi…pe…  “anāpatti, bhikkhu, pārājikassa. Na ca, bhikkhave, vutto vajjemīti vattabbo. Yo vadeyya, āpatti dukkaṭassā”ti. (86)
-</p>
-<p id="p_1V_333">
- <span class="badge rounded-pill text-bg-light me-1" id="333">
-  333
- </span>
- Tena kho pana samayena aññataro bhikkhu gāmakaṃ gacchati. Aññataro bhikkhu taṃ bhikkhuṃ etadavoca—  “āvuso, mayhaṃ upaṭṭhākakulaṃ vutto vajjehī”ti. So gantvā yugasāṭakaṃ āharāpetvā ekaṃ attanā paribhuñji, ekaṃ tassa bhikkhuno adāsi. So jānitvā taṃ codesi—  “assamaṇosi tvan”ti. Tassa kukkuccaṃ ahosi…pe…  “anāpatti, bhikkhu, pārājikassa. Na ca, bhikkhave, vutto vajjehīti vattabbo. Yo vadeyya, āpatti dukkaṭassā”ti. (87)
-</p>
-<p id="p_1V_334">
- <span class="badge rounded-pill text-bg-light me-1" id="334">
-  334
- </span>
- Tena kho pana samayena aññataro bhikkhu gāmakaṃ gacchanto aññataraṃ bhikkhuṃ etadavoca—  “āvuso, tuyhaṃ upaṭṭhākakulaṃ vutto vajjemī”ti. Sopi evamāha—  “vutto vajjehī”ti. So gantvā āḷhakaṃ sappiṃ tulaṃ guḷaṃ doṇaṃ taṇḍulaṃ āharāpetvā attanā paribhuñji. So jānitvā taṃ codesi—  “assamaṇosi tvan”ti. Tassa kukkuccaṃ ahosi…pe…  “anāpatti, bhikkhu, pārājikassa. Na ca, bhikkhave, vutto vajjemīti vattabbo, na ca vutto vajjehīti vattabbo. Yo vadeyya, āpatti dukkaṭassā”ti. (88)
-</p>
-<p id="p_1V_335">
- <span class="badge rounded-pill text-bg-secondary me-2" id="d151">
-  151.
- </span>
- <span class="badge rounded-pill text-bg-light me-1" id="335">
-  335
- </span>
- Tena kho pana samayena aññataro puriso mahagghaṃ maṇiṃ ādāya aññatarena bhikkhunā saddhiṃ addhānamaggappaṭipanno hoti. Atha kho so puriso suṅkaṭṭhānaṃ passitvā tassa bhikkhuno ajānantassa thavikāya maṇiṃ pakkhipitvā suṅkaṭṭhānaṃ atikkamitvā aggahesi. Tassa kukkuccaṃ ahosi…pe…  “kiṃcitto tvaṃ, bhikkhū”ti? “Nāhaṃ, bhagavā, jānāmī”ti. “Anāpatti, bhikkhu, ajānantassā”ti. (89)
-</p>
-<p id="p_1V_336">
- <span class="badge rounded-pill text-bg-light me-1" id="336">
-  336
- </span>
- Tena kho pana samayena aññataro puriso mahagghaṃ maṇiṃ ādāya aññatarena bhikkhunā saddhiṃ addhānamaggappaṭipanno hoti. Atha kho so puriso suṅkaṭṭhānaṃ passitvā gilānālayaṃ karitvā attano bhaṇḍikaṃ tassa bhikkhuno adāsi. Atha kho so puriso suṅkaṭṭhānaṃ atikkamitvā taṃ bhikkhuṃ etadavoca—  “āhara me, bhante, bhaṇḍikaṃ; nāhaṃ akallako”ti. “Kissa pana tvaṃ, āvuso, evarūpaṃ akāsī”ti? Atha kho so puriso tassa bhikkhuno etamatthaṃ ārocesi. Tassa kukkuccaṃ ahosi…pe…  “kiṃcitto tvaṃ, bhikkhū”ti? “Nāhaṃ, bhagavā, jānāmī”ti. “Anāpatti, bhikkhu, ajānantassā”ti. (90)
-</p>
-<p id="p_1V_337">
- <span class="badge rounded-pill text-bg-secondary me-2" id="d152">
-  152.
- </span>
- <span class="badge rounded-pill text-bg-light me-1" id="337">
-  337
- </span>
- Tena kho pana samayena aññataro bhikkhu satthena saddhiṃ addhānamaggappaṭipanno hoti. Aññataro puriso taṃ bhikkhuṃ āmisena upalāpetvā suṅkaṭṭhānaṃ passitvā mahagghaṃ maṇiṃ tassa bhikkhuno adāsi—  “imaṃ, bhante, maṇiṃ suṅkaṭṭhānaṃ atikkāmehī”ti. Atha kho so bhikkhu taṃ maṇiṃ suṅkaṭṭhānaṃ atikkāmesi. Tassa kukkuccaṃ ahosi…pe…  “āpattiṃ tvaṃ, bhikkhu, āpanno pārājikan”ti. (91)
-</p>
-<p id="p_1V_338">
- <span class="badge rounded-pill text-bg-secondary me-2" id="d153">
-  153.
- </span>
- <span class="badge rounded-pill text-bg-light me-1" id="338">
-  338
- </span>
- Tena kho pana samayena aññataro bhikkhu pāse bandhaṃ sūkaraṃ kāruññena muñci. Tassa kukkuccaṃ ahosi…pe…  “kiṃcitto tvaṃ, bhikkhū”ti? “Kāruññādhippāyo ahaṃ, bhagavā”ti. “Anāpatti, bhikkhu, kāruññādhippāyassā”ti. (92)
-</p>
-<p id="p_1V_339">
- <span class="badge rounded-pill text-bg-light me-1" id="339">
-  339
- </span>
- Tena kho pana samayena aññataro bhikkhu pāse bandhaṃ sūkaraṃ—  “pure sāmikā passantī”ti, theyyacitto muñci. Tassa kukkuccaṃ ahosi…pe…  “āpattiṃ tvaṃ, bhikkhu, āpanno pārājikan”ti. (93)
-</p>
-<p id="p_1V_340">
- <span class="badge rounded-pill text-bg-light me-1" id="340">
-  340
- </span>
- Tena kho pana samayena aññataro bhikkhu pāse bandhaṃ migaṃ kāruññena muñci…  pāse bandhaṃ migaṃ—  “pure sāmikā passantī”ti, theyyacitto muñci…  kumine bandhe macche kāruññena muñci…  kumine bandhe macche—  “pure sāmikā passantī”ti theyyacitto muñci. Tassa kukkuccaṃ ahosi…pe…  “āpattiṃ tvaṃ, bhikkhu, āpanno pārājikan”ti. (94--97)
-</p>
-<p id="p_1V_341">
- <span class="badge rounded-pill text-bg-light me-1" id="341">
-  341
- </span>
- Tena kho pana samayena aññataro bhikkhu yāne bhaṇḍaṃ passitvā—  “ito gaṇhanto pārājiko bhavissāmī”ti, atikkamitvā pavaṭṭetvā aggahesi. Tassa kukkuccaṃ ahosi…pe…  “āpattiṃ tvaṃ, bhikkhu, āpanno pārājikan”ti. (98)
-</p>
-<p id="p_1V_342">
- <span class="badge rounded-pill text-bg-light me-1" id="342">
-  342
- </span>
- Tena kho pana samayena aññataro bhikkhu kulalena ukkhittaṃ maṃsapesiṃ—  “sāmikānaṃ dassāmī”ti aggahesi. Sāmikā taṃ bhikkhuṃ codesuṃ—  “assamaṇosi tvan”ti. Tassa kukkuccaṃ ahosi…pe…  “anāpatti, bhikkhu, atheyyacittassā”ti. (99)
-</p>
-<p id="p_1V_343">
- <span class="badge rounded-pill text-bg-light me-1" id="343">
-  343
- </span>
- Tena kho pana samayena aññataro bhikkhu kulalena ukkhittaṃ maṃsapesiṃ—  “pure sāmikā passantī”ti, theyyacitto aggahesi. Sāmikā taṃ bhikkhuṃ codesuṃ—  “assamaṇosi tvan”ti. Tassa kukkuccaṃ ahosi…pe…  “āpattiṃ tvaṃ, bhikkhu, āpanno pārājikan”ti. (100)
-</p>
-<p id="p_1V_344">
- <span class="badge rounded-pill text-bg-secondary me-2" id="d154">
-  154.
- </span>
- <span class="badge rounded-pill text-bg-light me-1" id="344">
-  344
- </span>
- Tena kho pana samayena manussā uḷumpaṃ bandhitvā aciravatiyā nadiyā osārenti. Bandhane chinne kaṭṭhāni vippakiṇṇāni agamaṃsu. Bhikkhū paṃsukūlasaññino uttāresuṃ. Sāmikā te bhikkhū codesuṃ—  “assamaṇāttha tumhe”ti. Tesaṃ kukkuccaṃ ahosi…pe…  “anāpatti, bhikkhave, paṃsukūlasaññissā”ti. (101)
-</p>
-<p id="p_1V_345">
- <span class="badge rounded-pill text-bg-light me-1" id="345">
-  345
- </span>
- Tena kho pana samayena manussā uḷumpaṃ bandhitvā aciravatiyā nadiyā osārenti. Bandhane chinne kaṭṭhāni vippakiṇṇāni agamaṃsu. Bhikkhū—  “pure sāmikā passantī”ti, theyyacittā uttāresuṃ. Sāmikā te bhikkhū codesuṃ—  “assamaṇāttha tumhe”ti. Tesaṃ kukkuccaṃ ahosi…pe…  “āpattiṃ tumhe, bhikkhave, āpannā pārājikan”ti. (102)
-</p>
-<p id="p_1V_346">
- <span class="badge rounded-pill text-bg-light me-1" id="346">
-  346
- </span>
- Tena kho pana samayena aññataro gopālako rukkhe sāṭakaṃ ālaggetvā uccāraṃ agamāsi. Aññataro bhikkhu paṃsukūlasaññī aggahesi. Atha kho so gopālako taṃ bhikkhuṃ codesi—  “assamaṇosi tvan”ti. Tassa kukkuccaṃ ahosi…pe…  “anāpatti, bhikkhu, paṃsukūlasaññissā”ti. (103)
-</p>
-<p id="p_1V_347">
- <span class="badge rounded-pill text-bg-light me-1" id="347">
-  347
- </span>
- Tena kho pana samayena aññatarassa bhikkhuno nadiṃ tarantassa rajakānaṃ hatthato muttaṃ sāṭakaṃ pāde laggaṃ hoti. So bhikkhu—  “sāmikānaṃ dassāmī”ti aggahesi. Sāmikā taṃ bhikkhuṃ codesuṃ—  “assamaṇosi tvan”ti. Tassa kukkuccaṃ ahosi…pe…  “anāpatti, bhikkhu, atheyyacittassā”ti. (104)
-</p>
-<p id="p_1V_348">
- <span class="badge rounded-pill text-bg-light me-1" id="348">
-  348
- </span>
- Tena kho pana samayena aññatarassa bhikkhuno nadiṃ tarantassa rajakānaṃ hatthato muttaṃ sāṭakaṃ pāde laggaṃ hoti. So bhikkhu—  “pure sāmikā passantī”ti, theyyacitto aggahesi. Sāmikā taṃ bhikkhuṃ codesuṃ—  “assamaṇosi tvan”ti. Tassa kukkuccaṃ ahosi…pe…  “āpattiṃ tvaṃ, bhikkhu, āpanno pārājikan”ti. (105)
-</p>
-<p id="p_1V_349">
- <span class="badge rounded-pill text-bg-secondary me-2" id="d155">
-  155.
- </span>
- <span class="badge rounded-pill text-bg-light me-1" id="349">
-  349
- </span>
- Tena kho pana samayena aññataro bhikkhu sappikumbhiṃ passitvā thokaṃ thokaṃ paribhuñji. Tassa kukkuccaṃ ahosi…pe…  “anāpatti, bhikkhu, pārājikassa; āpatti dukkaṭassā”ti. (106)
-</p>
-<p id="p_1V_350">
- <span class="badge rounded-pill text-bg-light me-1" id="350">
-  350
- </span>
- Tena kho pana samayena sambahulā bhikkhū saṃvidahitvā agamaṃsu—  “bhaṇḍaṃ avaharissāmā”ti. Eko bhaṇḍaṃ avahari. Te evamāhaṃsu—  “na mayaṃ pārājikā. Yo avahaṭo so pārājiko”ti. Bhagavato etamatthaṃ ārocesuṃ…  “āpattiṃ tumhe, bhikkhave, āpannā pārājikan”ti. (107)
-</p>
-<p id="p_1V_351">
- <span class="badge rounded-pill text-bg-light me-1" id="351">
-  351
- </span>
- Tena kho pana samayena sambahulā bhikkhū saṃvidahitvā bhaṇḍaṃ avaharitvā bhājesuṃ. Tehi bhājīyamāne ekamekassa paṭiviso na pañcamāsako pūri. Te evamāhaṃsu—  “na mayaṃ pārājikā”ti. Bhagavato etamatthaṃ ārocesuṃ. “Āpattiṃ tumhe, bhikkhave, āpannā pārājikan”ti. (108)
-</p>
-<p id="p_1V_352">
- <span class="badge rounded-pill text-bg-light me-1" id="352">
-  352
- </span>
- Tena kho pana samayena aññataro bhikkhu sāvatthiyaṃ dubbhikkhe āpaṇikassa taṇḍulamuṭṭhiṃ theyyacitto avahari. Tassa kukkuccaṃ ahosi…pe…  “āpattiṃ tvaṃ, bhikkhu, āpanno pārājikan”ti. (109)
-</p>
-<p id="p_1V_353">
- <span class="badge rounded-pill text-bg-light me-1" id="353">
-  353
- </span>
- Tena kho pana samayena aññataro bhikkhu sāvatthiyaṃ dubbhikkhe āpaṇikassa muggamuṭṭhiṃ…  māsamuṭṭhiṃ…  tilamuṭṭhiṃ theyyacitto avahari. Tassa kukkuccaṃ ahosi…pe…  “āpattiṃ tvaṃ, bhikkhu, āpanno pārājikan”ti. (110--112)
-</p>
-<p id="p_1V_354">
- <span class="badge rounded-pill text-bg-light me-1" id="354">
-  354
- </span>
- Tena kho pana samayena sāvatthiyaṃ andhavane corakā gāviṃ hantvā maṃsaṃ khāditvā sesakaṃ paṭisāmetvā agamaṃsu. Bhikkhū paṃsukūlasaññino paṭiggahāpetvā paribhuñjiṃsu. Corakā te bhikkhū codesuṃ—  “assamaṇāttha tumhe”ti. Tesaṃ kukkuccaṃ ahosi…pe…  “anāpatti, bhikkhave, paṃsukūlasaññissā”ti. (113)
-</p>
-<p id="p_1V_355">
- <span class="badge rounded-pill text-bg-light me-1" id="355">
-  355
- </span>
- Tena kho pana samayena sāvatthiyaṃ andhavane corakā sūkaraṃ hantvā maṃsaṃ khāditvā sesakaṃ paṭisāmetvā agamaṃsu. Bhikkhū paṃsukūlasaññino paṭiggahāpetvā paribhuñjiṃsu. Corakā te bhikkhū codesuṃ—  “assamaṇāttha tumhe”ti. Tesaṃ kukkuccaṃ ahosi…pe…  “anāpatti, bhikkhave, paṃsukūlasaññissā”ti. (114)
-</p>
-<p id="p_1V_356">
- <span class="badge rounded-pill text-bg-light me-1" id="356">
-  356
- </span>
- Tena kho pana samayena aññataro bhikkhu tiṇakkhettaṃ gantvā lūtaṃ tiṇaṃ pañcamāsagghanakaṃ theyyacitto avahari. Tassa kukkuccaṃ ahosi…pe…  “āpattiṃ tvaṃ, bhikkhu, āpanno pārājikan”ti. (115)
-</p>
-<p id="p_1V_357">
- <span class="badge rounded-pill text-bg-light me-1" id="357">
-  357
- </span>
- Tena kho pana samayena aññataro bhikkhu tiṇakkhettaṃ gantvā tiṇaṃ lāyitvā pañcamāsagghanakaṃ theyyacitto avahari. Tassa kukkuccaṃ ahosi…pe…  “āpattiṃ tvaṃ, bhikkhu, āpanno pārājikan”ti. (116)
-</p>
-<p id="p_1V_358">
- <span class="badge rounded-pill text-bg-secondary me-2" id="d156">
-  156.
- </span>
- <span class="badge rounded-pill text-bg-light me-1" id="358">
-  358
- </span>
- Tena kho pana samayena āgantukā bhikkhū saṃghassa ambaṃ bhājāpetvā paribhuñjiṃsu. Āvāsikā bhikkhū te bhikkhū codesuṃ—  “assamaṇāttha tumhe”ti. Tesaṃ kukkuccaṃ ahosi…pe…  bhagavato etamatthaṃ ārocesuṃ. “Kiṃcittā tumhe, bhikkhave”ti? “Paribhogatthāya mayaṃ, bhagavā”ti. “Anāpatti, bhikkhave, paribhogatthāyā”ti. (117)
-</p>
-<p id="p_1V_359">
- <span class="badge rounded-pill text-bg-light me-1" id="359">
-  359
- </span>
- Tena kho pana samayena āgantukā bhikkhū saṃghassa jambuṃ…  saṃghassa labujaṃ…  saṃghassa panasaṃ…  saṃghassa tālapakkaṃ…  saṃghassa ucchuṃ…  saṃghassa timbarūsakaṃ bhājāpetvā paribhuñjiṃsu. Āvāsikā bhikkhū te bhikkhū codesuṃ—  “assamaṇāttha tumhe”ti. Tesaṃ kukkuccaṃ ahosi…pe…  “anāpatti, bhikkhave, paribhogatthāyā”ti. (118--123)
-</p>
-<p id="p_1V_360">
- <span class="badge rounded-pill text-bg-light me-1" id="360">
-  360
- </span>
- Tena kho pana samayena ambapālakā bhikkhūnaṃ ambaphalaṃ denti. Bhikkhū—  “gopetuṃ ime issarā, nayime dātun”ti, kukkuccāyantā na paṭiggaṇhanti. Bhagavato etamatthaṃ ārocesuṃ. “Anāpatti, bhikkhave, gopakassa dāne”ti. (124)
-</p>
-<p id="p_1V_361">
- <span class="badge rounded-pill text-bg-light me-1" id="361">
-  361
- </span>
- Tena kho pana samayena jambupālakā…  labujapālakā…  panasapālakā…  tālapakkapālakā…  ucchupālakā…  timbarūsakapālakā bhikkhūnaṃ timbarūsakaṃ denti. Bhikkhū—  “gopetuṃ ime issarā, nayime dātun”ti, kukkuccāyantā na paṭiggaṇhanti. Bhagavato etamatthaṃ ārocesuṃ. “Anāpatti, bhikkhave, gopakassa dāne”ti. (125--130)
-</p>
-<p id="p_1V_362">
- <span class="badge rounded-pill text-bg-light me-1" id="362">
-  362
- </span>
- Tena kho pana samayena aññataro bhikkhu saṃghassa dāruṃ tāvakālikaṃ haritvā attano vihārassa kuṭṭaṃ upatthambhesi. Bhikkhū taṃ bhikkhuṃ codesuṃ—  “assamaṇosi tvan”ti. Tassa kukkuccaṃ ahosi. Bhagavato etamatthaṃ ārocesi. “Kiṃcitto tvaṃ, bhikkhū”ti? “Tāvakāliko ahaṃ, bhagavā”ti. “Anāpatti, bhikkhu, tāvakālike”ti. (131)
-</p>
-<p id="p_1V_363">
- <span class="badge rounded-pill text-bg-light me-1" id="363">
-  363
- </span>
- Tena kho pana samayena aññataro bhikkhu saṃghassa udakaṃ theyyacitto avahari…  saṃghassa mattikaṃ theyyacitto avahari…  saṃghassa puñjakitaṃ tiṇaṃ theyyacitto avahari…  tassa kukkuccaṃ ahosi…pe…  “āpattiṃ tvaṃ, bhikkhu, āpanno pārājikan”ti. (132--134)
-</p>
-<p id="p_1V_364">
- <span class="badge rounded-pill text-bg-light me-1" id="364">
-  364
- </span>
- Tena kho pana samayena aññataro bhikkhu saṃghassa puñjakitaṃ tiṇaṃ theyyacitto jhāpesi. Tassa kukkuccaṃ ahosi…pe…  “anāpatti, bhikkhu, pārājikassa. Āpatti dukkaṭassā”ti. (135)
-</p>
-<p id="p_1V_365">
- <span class="badge rounded-pill text-bg-light me-1" id="365">
-  365
- </span>
- Tena kho pana samayena aññataro bhikkhu saṃghassa mañcaṃ theyyacitto avahari…  tassa kukkuccaṃ ahosi…pe…  “āpattiṃ tvaṃ, bhikkhu, āpanno pārājikan”ti. (136)
-</p>
-<p id="p_1V_366">
- <span class="badge rounded-pill text-bg-light me-1" id="366">
-  366
- </span>
- Tena kho pana samayena aññataro bhikkhu saṃghassa pīṭhaṃ…  saṃghassa bhisiṃ…  saṃghassa bibbohanaṃ…  saṃghassa kavāṭaṃ…  saṃghassa ālokasandhiṃ…  saṃghassa gopānasiṃ theyyacitto avahari…  tassa kukkuccaṃ ahosi…pe…  “āpattiṃ tvaṃ, bhikkhu, āpanno pārājikan”ti. (137--142)
-</p>
-<p id="p_1V_367">
- <span class="badge rounded-pill text-bg-secondary me-2" id="d157">
-  157.
- </span>
- <span class="badge rounded-pill text-bg-light me-1" id="367">
-  367
- </span>
- Tena kho pana samayena bhikkhū aññatarassa upāsakassa vihāraparibhogaṃ senāsanaṃ aññatra paribhuñjanti. Atha kho so upāsako ujjhāyati khiyyati vipāceti—  “kathañhi nāma bhadantā aññatra paribhogaṃ aññatra paribhuñjissantī”ti. Bhagavato etamatthaṃ ārocesuṃ. “Na, bhikkhave, aññatra paribhogo aññatra paribhuñjitabbo. Yo paribhuñjeyya, āpatti dukkaṭassā”ti. (143)
-</p>
-<p id="p_1V_368">
- <span class="badge rounded-pill text-bg-light me-1" id="368">
-  368
- </span>
- Tena kho pana samayena bhikkhū uposathaggampi sannisajjampi harituṃ kukkuccāyantā chamāyaṃ nisīdanti. Gattānipi cīvarānipi paṃsukitāni honti. Bhagavato etamatthaṃ ārocesuṃ. “Anujānāmi, bhikkhave, tāvakālikaṃ haritun”ti. (144)
-</p>
-<p id="p_1V_369">
- <span class="badge rounded-pill text-bg-light me-1" id="369">
-  369
- </span>
- Tena kho pana samayena campāyaṃ thullanandāya bhikkhuniyā antevāsinī bhikkhunī thullanandāya bhikkhuniyā upaṭṭhākakulaṃ gantvā—  “ayyā icchati tekaṭulayāguṃ pātun”ti, pacāpetvā haritvā attanā paribhuñji. Sā jānitvā taṃ codesi—  “assamaṇīsi tvan”ti. Tassā kukkuccaṃ ahosi…pe… . Atha kho sā bhikkhunī bhikkhunīnaṃ etamatthaṃ ārocesi. Bhikkhuniyo bhikkhūnaṃ etamatthaṃ ārocesuṃ. Bhikkhū bhagavato etamatthaṃ ārocesuṃ. “Anāpatti, bhikkhave, pārājikassa; āpatti sampajānamusāvāde pācittiyassā”ti. (145)
-</p>
-<p id="p_1V_370">
- <span class="badge rounded-pill text-bg-light me-1" id="370">
-  370
- </span>
- Tena kho pana samayena rājagahe thullanandāya bhikkhuniyā antevāsinī bhikkhunī thullanandāya bhikkhuniyā upaṭṭhākakulaṃ gantvā—  “ayyā icchati madhugoḷakaṃ khāditun”ti, pacāpetvā haritvā attanā paribhuñji. Sā jānitvā taṃ codesi—  “assamaṇīsi tvan”ti. Tassā kukkuccaṃ ahosi…pe…  “anāpatti, bhikkhave, pārājikassa; āpatti sampajānamusāvāde pācittiyassā”ti. (146)
-</p>
-<p id="p_1V_371">
- <span class="badge rounded-pill text-bg-secondary me-2" id="d158">
-  158.
- </span>
- <span class="badge rounded-pill text-bg-light me-1" id="371">
-  371
- </span>
- Tena kho pana samayena vesāliyaṃ āyasmato ajjukassa upaṭṭhākassa gahapatino dve dārakā honti—  putto ca bhāgineyyo ca. Atha kho so gahapati āyasmantaṃ ajjukaṃ etadavoca—  “imaṃ, bhante, okāsaṃ yo imesaṃ dvinnaṃ dārakānaṃ saddho hoti pasanno tassa ācikkheyyāsī”ti. Tena kho pana samayena tassa gahapatino bhāgineyyo saddho hoti pasanno. Atha kho āyasmā ajjuko taṃ okāsaṃ tassa dārakassa ācikkhi. So tena sāpateyyena kuṭumbañca saṇṭhapesi dānañca paṭṭhapesi. Atha kho tassa gahapatino putto āyasmantaṃ ānandaṃ etadavoca—  “ko nu kho, bhante ānanda, pituno dāyajjo—  putto vā bhāgineyyo vā”ti? “Putto kho, āvuso, pituno dāyajjo”ti. “Ayaṃ, bhante, ayyo ajjuko amhākaṃ sāpateyyaṃ amhākaṃ methunakassa ācikkhī”ti. “Assamaṇo, āvuso, āyasmā ajjuko”ti. Atha kho āyasmā ajjuko āyasmantaṃ ānandaṃ etadavoca—  “dehi me, āvuso ānanda, vinicchayan”ti. Tena kho pana samayena āyasmā upāli āyasmato ajjukassa pakkho hoti. Atha kho āyasmā upāli āyasmantaṃ ānandaṃ etadavoca—  “yo nu kho, āvuso ānanda, sāmikena ‘imaṃ okāsaṃ itthannāmassa ācikkheyyāsī’ti vutto tassa ācikkhati, kiṃ so āpajjatī”ti? “Na, bhante, kiñci āpajjati, antamaso dukkaṭamattampī”ti. “Ayaṃ, āvuso, āyasmā ajjuko sāmikena—  ‘imaṃ okāsaṃ itthannāmassa ācikkhā’ti vutto tassa ācikkhati; anāpatti, āvuso, āyasmato ajjukassā”ti. (147)
-</p>
-<p id="p_1V_372">
- <span class="badge rounded-pill text-bg-secondary me-2" id="d159">
-  159.
- </span>
- <span class="badge rounded-pill text-bg-light me-1" id="372">
-  372
- </span>
- Tena kho pana samayena bārāṇasiyaṃ āyasmato pilindavacchassa upaṭṭhākakulaṃ corehi upaddutaṃ hoti. Dve ca dārakā nītā honti. Atha kho āyasmā pilindavaccho te dārake iddhiyā ānetvā pāsāde ṭhapesi. Manussā te dārake passitvā—  “ayyassāyaṃ pilindavacchassa iddhānubhāvo”ti, āyasmante pilindavacche abhippasīdiṃsu. Bhikkhū ujjhāyanti khiyyanti vipācenti—  “kathañhi nāma āyasmā pilindavaccho corehi nīte dārake ānessatī”ti. Bhagavato etamatthaṃ ārocesuṃ. “Anāpatti, bhikkhave, iddhimassa iddhivisaye”ti. (148)
-</p>
-<p id="p_1V_373">
- <span class="badge rounded-pill text-bg-secondary me-2" id="d160">
-  160.
- </span>
- <span class="badge rounded-pill text-bg-light me-1" id="373">
-  373
- </span>
- Tena kho pana samayena dve bhikkhū sahāyakā honti—  paṇḍuko ca kapilo ca. Eko gāmake viharati, eko kosambiyaṃ. Atha kho tassa bhikkhuno gāmakā kosambiṃ gacchantassa antarāmagge nadiṃ tarantassa sūkarikānaṃ hatthato muttā medavaṭṭi pāde laggā hoti. So bhikkhu—  “sāmikānaṃ dassāmī”ti aggahesi. Sāmikā taṃ bhikkhuṃ codesuṃ—  “assamaṇosi tvan”ti. Taṃ uttiṇṇaṃ gopālikā passitvā etadavoca—  “ehi, bhante, methunaṃ dhammaṃ paṭisevā”ti. So—  “pakatiyāpāhaṃ assamaṇo”ti tassā methunaṃ dhammaṃ paṭisevitvā kosambiṃ gantvā bhikkhūnaṃ etamatthaṃ ārocesi. Bhikkhū bhagavato etamatthaṃ ārocesuṃ. “Anāpatti, bhikkhave, adinnādāne pārājikassa; āpatti methunadhammasamāyoge pārājikassā”ti. (149)
-</p>
-<p id="p_1V_374">
- <span class="badge rounded-pill text-bg-secondary me-2" id="d161">
-  161.
- </span>
- <span class="badge rounded-pill text-bg-light me-1" id="374">
-  374
- </span>
- Tena kho pana samayena sāgalāyaṃ āyasmato daḷhikassa saddhivihāriko bhikkhu anabhiratiyā pīḷito āpaṇikassa veṭhanaṃ avaharitvā āyasmantaṃ daḷhikaṃ etadavoca—  “assamaṇo ahaṃ, bhante, vibbhamissāmī”ti. “Kiṃ tayā, āvuso, katan”ti? So tamatthaṃ ārocesi. Āharāpetvā agghāpesi. Taṃ agghāpentaṃ na pañcamāsake agghati. “Anāpatti, āvuso, pārājikassā”ti. Dhammakathaṃ akāsi. So bhikkhu abhiramatīti. (150)
-</p>
-<p class="text-center lead" id="p_1V_375">
- <span class="badge rounded-pill text-bg-light me-1" id="375">
-  375
- </span>
- Dutiyapārājikaṃ samattaṃ.
-</p>
-<div class="fixed_bottom container">
- <footer class="row align-items-center py-4 my-4 border-top">
-  <a class="col order-1 btn btn-outline-secondary" href="/tipitaka/1V/1/1.1/1.1.2/1.1.2.1.html" id="previous">
-   1.1.2.1 Vinītavatthuuddānagāthā
-  </a>
-  <a class="col order-2 btn btn-outline-secondary" href="/tipitaka/1V/1/1.1/1.1.2.html" id="up">
-   up
-  </a>
-  <a class="col order-3 btn btn-outline-secondary" href="/tipitaka/1V/1/1.1/1.1.3.html" id="next">
-   1.1.3 Tatiyapārājikasikkhāpada
-  </a>
- </footer>
-</div>
-  
-    </div>
-  </main>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>
-  <script src="/scripts/sidebars.js"></script>
-</body>
-
+<!DOCTYPE html>
+<html lang="pi">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="toc-section-path" content="V/1V/1/2/2/2">
+    <title>1.1.2.2 Vinītavatthu — 1.2.2.2. วินีตวัต์ถุ</title>
+  </head>
+  <body>
+    <header>
+      <nav aria-label="Breadcrumb">
+        <ol class="breadcrumb">
+          <li><a href="/">Home</a></li>
+          <li><a href="/tipitaka/1V.html">1V Pārājikapāḷi</a></li>
+          <li><a href="/tipitaka/1V/1.html">1 Mahāvibhaṅga</a></li>
+          <li><a href="/tipitaka/1V/1/1.1.html">1.1 Pārājikakaṇḍa</a></li>
+          <li><a href="/tipitaka/1V/1/1.1/1.1.2.html">1.1.2 Dutiyapārājikasikkhāpada</a></li>
+        </ol>
+      </nav>
+      <h1 class="pali-title" lang="pi">1.1.2.2 Vinītavatthu</h1>
+      <p class="thai-title" lang="th">1.2.2.2. วินีตวัต์ถุ</p>
+    </header>
+    <main>
+      <h3>Mahāvibhaṅga</h3>
+      <h3>Pārājikakaṇḍa</h3>
+      <h3>Dutiyapārājikasikkhāpada</h3>
+      <h3>Vinītavatthu</h3>
+      <p id="p_1V_292"><span class="division-number" id="d132">132.</span> <span class="paragraph-number" id="292">292</span> Tena kho pana samayena chabbaggiyā bhikkhū rajakattharaṇaṁ gantvā rajakabhaṇḍikaṁ avahariṁsu. Tesaṁ kukkuccaṁ ahosi— “bhagavatā sikkhāpadaṁ paññattaṁ. Kacci nu kho mayaṁ pārājikaṁ āpattiṁ āpannā”ti. Bhagavato etamatthaṁ ārocesuṁ. “Āpattiṁ tumhe, bhikkhave, āpannā pārājikan”ti. (1)</p>
+      <p id="p_1V_293"><span class="paragraph-number" id="293">293</span> Tena kho pana samayena aññataro bhikkhu rajakattharaṇaṁ gantvā mahagghaṁ dussaṁ passitvā theyyacittaṁ uppādesi. Tassa kukkuccaṁ ahosi— “bhagavatā sikkhāpadaṁ paññattaṁ, kacci nu kho ahaṁ pārājikaṁ āpattiṁ āpanno”ti? Bhagavato etamatthaṁ ārocesi. “Anāpatti, bhikkhu, cittuppāde”ti. (2)</p>
+      <p id="p_1V_294"><span class="paragraph-number" id="294">294</span> Tena kho pana samayena aññataro bhikkhu rajakattharaṇaṁ gantvā mahagghaṁ dussaṁ passitvā theyyacitto āmasi. Tassa kukkuccaṁ ahosi…pe… “anāpatti, bhikkhu, pārājikassa. Āpatti dukkaṭassā”ti. (3)</p>
+      <p id="p_1V_295"><span class="paragraph-number" id="295">295</span> Tena kho pana samayena aññataro bhikkhu rajakattharaṇaṁ gantvā mahagghaṁ dussaṁ passitvā theyyacitto phandāpesi. Tassa kukkuccaṁ ahosi…pe… “anāpatti, bhikkhu, pārājikassa. Āpatti thullaccayassā”ti. (4)</p>
+      <p id="p_1V_296"><span class="paragraph-number" id="296">296</span> Tena kho pana samayena aññataro bhikkhu rajakattharaṇaṁ gantvā mahagghaṁ dussaṁ passitvā theyyacitto ṭhānā cāvesi. Tassa kukkuccaṁ ahosi…pe… “āpattiṁ tvaṁ, bhikkhu, āpanno pārājikan”ti. (5)</p>
+      <p id="p_1V_297"><span class="division-number" id="d133">133.</span> <span class="paragraph-number" id="297">297</span> Tena kho pana samayena aññataro piṇḍacāriko bhikkhu mahagghaṁ uttarattharaṇaṁ passitvā theyyacittaṁ uppādesi…pe… theyyacitto āmasi…pe… theyyacitto phandāpesi…pe… theyyacitto ṭhānā cāvesi. Tassa kukkuccaṁ ahosi…pe… “āpattiṁ tvaṁ, bhikkhu, āpanno pārājikan”ti. (6--9)</p>
+      <p id="p_1V_298"><span class="division-number" id="d134">134.</span> <span class="paragraph-number" id="298">298</span> Tena kho pana samayena aññataro bhikkhu divā bhaṇḍaṁ passitvā nimittaṁ akāsi— “rattiṁ avaharissāmī”ti. So taṁ maññamāno taṁ avahari…pe… taṁ maññamāno aññaṁ avahari…pe… aññaṁ maññamāno taṁ avahari…pe… aññaṁ maññamāno aññaṁ avahari. Tassa kukkuccaṁ ahosi…pe… “āpattiṁ tvaṁ, bhikkhu, āpanno pārājikan”ti. (10--13)</p>
+      <p id="p_1V_299"><span class="paragraph-number" id="299">299</span> Tena kho pana samayena aññataro bhikkhu divā bhaṇḍaṁ passitvā nimittaṁ akāsi— “rattiṁ avaharissāmī”ti. So taṁ maññamāno attano bhaṇḍaṁ avahari. Tassa kukkuccaṁ ahosi…pe… “anāpatti, bhikkhu, pārājikassa. Āpatti dukkaṭassā”ti. (14)</p>
+      <p id="p_1V_300"><span class="paragraph-number" id="300">300</span> Tena kho pana samayena aññataro bhikkhu aññassa bhaṇḍaṁ haranto sīse bhāraṁ theyyacitto āmasi…pe… theyyacitto phandāpesi…pe… theyyacitto khandhaṁ oropesi…pe… khandhe bhāraṁ theyyacitto āmasi…pe… theyyacitto phandāpesi…pe… theyyacitto kaṭiṁ oropesi…pe… kaṭiyā bhāraṁ theyyacitto āmasi…pe… theyyacitto phandāpesi…pe… theyyacitto hatthena aggahesi…pe… hatthe bhāraṁ theyyacitto bhūmiyaṁ nikkhipi…pe… theyyacitto bhūmito aggahesi. Tassa kukkuccaṁ ahosi…pe… “āpattiṁ tvaṁ, bhikkhu, āpanno pārājikan”ti. (15--25)</p>
+      <p id="p_1V_301"><span class="division-number" id="d135">135.</span> <span class="paragraph-number" id="301">301</span> Tena kho pana samayena aññataro bhikkhu ajjhokāse cīvaraṁ pattharitvā vihāraṁ pāvisi. Aññataro bhikkhu— “māyidaṁ cīvaraṁ nassī”ti, paṭisāmesi. So nikkhamitvā taṁ bhikkhuṁ pucchi— “āvuso, mayhaṁ cīvaraṁ kena avahaṭan”ti? So evamāha— “mayā avahaṭan”ti. “So taṁ ādiyi, assamaṇosi tvan”ti. Tassa kukkuccaṁ ahosi…pe… . Bhagavato etamatthaṁ ārocesi. “Kiṁcitto tvaṁ, bhikkhū”ti? “Niruttipatho ahaṁ, bhagavā”ti. “Anāpatti, bhikkhu, niruttipathe”ti. (26)</p>
+      <p id="p_1V_302"><span class="paragraph-number" id="302">302</span> Tena kho pana samayena aññataro bhikkhu pīṭhe cīvaraṁ nikkhipitvā. Pīṭhe nisīdanaṁ nikkhipitvā… heṭṭhāpīṭhe pattaṁ nikkhipitvā vihāraṁ pāvisi. Aññataro bhikkhu— “māyaṁ patto nassī”ti paṭisāmesi. So nikkhamitvā taṁ bhikkhuṁ pucchi— “āvuso, mayhaṁ patto kena avahaṭo”ti? So evamāha— “mayā avahaṭo”ti. So taṁ ādiyi, “assamaṇosi tvan”ti. Tassa kukkuccaṁ ahosi…pe… “anāpatti, bhikkhu, niruttipathe”ti. (27--29)</p>
+      <p id="p_1V_303"><span class="paragraph-number" id="303">303</span> Tena kho pana samayena aññatarā bhikkhunī vatiyā cīvaraṁ pattharitvā vihāraṁ pāvisi. Aññatarā bhikkhunī— “māyidaṁ cīvaraṁ nassī”ti paṭisāmesi. Sā nikkhamitvā taṁ bhikkhuniṁ pucchi— “ayye, mayhaṁ cīvaraṁ kena avahaṭan”ti? Sā evamāha— “mayā avahaṭan”ti. “Sā taṁ ādiyi, assamaṇīsi tvan”ti. Tassā kukkuccaṁ ahosi…pe… . Atha kho sā bhikkhunī bhikkhunīnaṁ etamatthaṁ ārocesi. Bhikkhuniyo bhikkhūnaṁ etamatthaṁ ārocesuṁ. Bhikkhū bhagavato etamatthaṁ ārocesuṁ…pe… “anāpatti, bhikkhave, niruttipathe”ti. (30)</p>
+      <p id="p_1V_304"><span class="division-number" id="d136">136.</span> <span class="paragraph-number" id="304">304</span> Tena kho pana samayena aññataro bhikkhu vātamaṇḍalikāya ukkhittaṁ sāṭakaṁ passitvā sāmikānaṁ dassāmīti, aggahesi. Sāmikā taṁ bhikkhuṁ codesuṁ— “assamaṇosi tvan”ti. Tassa kukkuccaṁ ahosi…pe… “kiṁcitto tvaṁ, bhikkhū”ti? “Atheyyacitto ahaṁ, bhagavā”ti. “Anāpatti, bhikkhu, atheyyacittassā”ti. (31)</p>
+      <p id="p_1V_305"><span class="paragraph-number" id="305">305</span> Tena kho pana samayena aññataro bhikkhu vātamaṇḍalikāya ukkhittaṁ veṭhanaṁ passitvā— “pure sāmikā passantī”ti theyyacitto aggahesi. Sāmikā taṁ bhikkhuṁ codesuṁ— “assamaṇosi tvan”ti. Tassa kukkuccaṁ ahosi…pe… “āpattiṁ tvaṁ, bhikkhu, āpanno pārājikan”ti. (32)</p>
+      <p id="p_1V_306"><span class="division-number" id="d137">137.</span> <span class="paragraph-number" id="306">306</span> Tena kho pana samayena aññataro bhikkhu susānaṁ gantvā abhinne sarīre paṁsukūlaṁ aggahesi. Tasmiñca sarīre peto adhivattho hoti. Atha kho so peto taṁ bhikkhuṁ etadavoca— “mā, bhante, mayhaṁ sāṭakaṁ aggahesī”ti. So bhikkhu anādiyanto agamāsi. Atha kho taṁ sarīraṁ uṭṭhahitvā tassa bhikkhuno piṭṭhito piṭṭhito anubandhi. Atha kho so bhikkhu vihāraṁ pavisitvā dvāraṁ thakesi. Atha kho taṁ sarīraṁ tattheva paripati. Tassa kukkuccaṁ ahosi…pe… “anāpatti, bhikkhu, pārājikassa. Na ca, bhikkhave, abhinne sarīre paṁsukūlaṁ gahetabbaṁ. Yo gaṇheyya, āpatti dukkaṭassā”ti. (33)</p>
+      <p id="p_1V_307"><span class="division-number" id="d138">138.</span> <span class="paragraph-number" id="307">307</span> Tena kho pana samayena aññataro bhikkhu saṁghassa cīvare bhājīyamāne theyyacitto kusaṁ saṅkāmetvā cīvaraṁ aggahesi. Tassa kukkuccaṁ ahosi…pe… “āpattiṁ tvaṁ, bhikkhu, āpanno pārājikan”ti. (34)</p>
+      <p id="p_1V_308"><span class="division-number" id="d139">139.</span> <span class="paragraph-number" id="308">308</span> Tena kho pana samayena āyasmā ānando jantāghare aññatarassa bhikkhuno antaravāsakaṁ attano maññamāno nivāsesi. Atha kho so bhikkhu āyasmantaṁ ānandaṁ etadavoca— “kissa me tvaṁ, āvuso ānanda, antaravāsakaṁ nivāsesī”ti? “Sakasaññī ahaṁ, āvuso”ti. Bhagavato etamatthaṁ ārocesuṁ. “Anāpatti, bhikkhave, sakasaññissā”ti. (35)</p>
+      <p id="p_1V_309"><span class="division-number" id="d140">140.</span> <span class="paragraph-number" id="309">309</span> Tena kho pana samayena sambahulā bhikkhū gijjhakūṭā pabbatā orohantā sīhavighāsaṁ passitvā pacāpetvā paribhuñjiṁsu. Tesaṁ kukkuccaṁ ahosi…pe… “anāpatti, bhikkhave, sīhavighāse”ti. (36)</p>
+      <p id="p_1V_310"><span class="paragraph-number" id="310">310</span> Tena kho pana samayena sambahulā bhikkhū gijjhakūṭā pabbatā orohantā byagghavighāsaṁ passitvā… dīpivighāsaṁ passitvā… taracchavighāsaṁ passitvā… kokavighāsaṁ passitvā pacāpetvā paribhuñjiṁsu. Tesaṁ kukkuccaṁ ahosi…pe… “anāpatti, bhikkhave, tiracchānagatapariggahe”ti. (37--40)</p>
+      <p id="p_1V_311"><span class="division-number" id="d141">141.</span> <span class="paragraph-number" id="311">311</span> Tena kho pana samayena aññataro bhikkhu saṁghassa odane bhājīyamāne— “aparassa bhāgaṁ dehī”ti amūlakaṁ aggahesi. Tassa kukkuccaṁ ahosi…pe… “anāpatti, bhikkhu, pārājikassa. Āpatti sampajānamusāvāde pācittiyassā”ti. (41)</p>
+      <p id="p_1V_312"><span class="paragraph-number" id="312">312</span> Tena kho pana samayena aññataro bhikkhu saṁghassa khādanīye bhājīyamāne… saṁghassa pūve bhājīyamāne… saṁghassa ucchumhi bhājīyamāne… saṁghassa timbarūsake bhājīyamāne— “aparassa bhāgaṁ dehī”ti amūlakaṁ aggahesi. Tassa kukkuccaṁ ahosi…pe… . “Anāpatti, bhikkhu, pārājikassa. Āpatti sampajānamusāvāde pācittiyassā”ti. (42--45)</p>
+      <p id="p_1V_313"><span class="division-number" id="d142">142.</span> <span class="paragraph-number" id="313">313</span> Tena kho pana samayena aññataro bhikkhu dubbhikkhe odanīyagharaṁ pavisitvā pattapūraṁ odanaṁ theyyacitto avahari. Tassa kukkuccaṁ ahosi…pe… “āpattiṁ tvaṁ, bhikkhu, āpanno pārājikan”ti. (46)</p>
+      <p id="p_1V_314"><span class="paragraph-number" id="314">314</span> Tena kho pana samayena aññataro bhikkhu dubbhikkhe sūnagharaṁ<sup class="footnote-ref"><a href="#fn-p_1V_314_84" id="fnref-p_1V_314_84">[84]</a></sup> pavisitvā pattapūraṁ maṁsaṁ theyyacitto avahari. Tassa kukkuccaṁ ahosi…pe… “āpattiṁ tvaṁ, bhikkhu, āpanno pārājikan”ti. (47)</p>
+      <p id="p_1V_315"><span class="paragraph-number" id="315">315</span> Tena kho pana samayena aññataro bhikkhu dubbhikkhe pūvagharaṁ pavisitvā pattapūraṁ pūvaṁ theyyacitto avahari…pe… pattapūrā sakkhaliyo theyyacitto avahari…pe… pattapūre modake theyyacitto avahari. Tassa kukkuccaṁ ahosi…pe… “āpattiṁ tvaṁ, bhikkhu, āpanno pārājikan”ti. (48--50)</p>
+      <p id="p_1V_316"><span class="division-number" id="d143">143.</span> <span class="paragraph-number" id="316">316</span> Tena kho pana samayena aññataro bhikkhu divā parikkhāraṁ passitvā nimittaṁ akāsi— “rattiṁ avaharissāmī”ti. So taṁ maññamāno taṁ avahari…pe… taṁ maññamāno aññaṁ avahari…pe… aññaṁ maññamāno taṁ avahari…pe… aññaṁ maññamāno aññaṁ avahari. Tassa kukkuccaṁ ahosi…pe… “āpattiṁ tvaṁ, bhikkhu, āpanno pārājikan”ti. (51--54)</p>
+      <p id="p_1V_317"><span class="paragraph-number" id="317">317</span> Tena kho pana samayena aññataro bhikkhu divā parikkhāraṁ passitvā nimittaṁ akāsi— “rattiṁ avaharissāmī”ti. So taṁ maññamāno attano parikkhāraṁ avahari. Tassa kukkuccaṁ ahosi…pe… “anāpatti, bhikkhu, pārājikassa. Āpatti dukkaṭassā”ti. (55)</p>
+      <p id="p_1V_318"><span class="division-number" id="d144">144.</span> <span class="paragraph-number" id="318">318</span> Tena kho pana samayena aññataro bhikkhu pīṭhe thavikaṁ passitvā— “ito gaṇhanto pārājiko bhavissāmī”ti saha pīṭhakena saṅkāmetvā aggahesi. Tassa kukkuccaṁ ahosi…pe… “āpattiṁ tvaṁ, bhikkhu, āpanno pārājikan”ti. (56)</p>
+      <p id="p_1V_319"><span class="paragraph-number" id="319">319</span> Tena kho pana samayena aññataro bhikkhu saṁghassa bhisiṁ theyyacitto avahari. Tassa kukkuccaṁ ahosi…pe… “āpattiṁ tvaṁ, bhikkhu, āpanno pārājikan”ti. (57)</p>
+      <p id="p_1V_320"><span class="division-number" id="d145">145.</span> <span class="paragraph-number" id="320">320</span> Tena kho pana samayena aññataro bhikkhu cīvaravaṁse cīvaraṁ theyyacitto avahari. Tassa kukkuccaṁ ahosi…pe… “āpattiṁ tvaṁ, bhikkhu, āpanno pārājikan”ti. (58)</p>
+      <p id="p_1V_321"><span class="paragraph-number" id="321">321</span> Tena kho pana samayena aññataro bhikkhu vihāre cīvaraṁ avaharitvā— “ito nikkhamanto pārājiko bhavissāmī”ti vihārā na nikkhami<sup class="footnote-ref"><a href="#fn-p_1V_321_86" id="fnref-p_1V_321_86">[86]</a></sup>…pe… bhagavato etamatthaṁ ārocesuṁ. “Nikkhami vā so, bhikkhave, moghapuriso na vā nikkhami, āpatti pārājikassā”ti. (59) <sup class="footnote-ref"><a href="#fn-p_1V_321_85" id="fnref-p_1V_321_85">[85]</a></sup></p>
+      <p id="p_1V_322"><span class="division-number" id="d146">146.</span> <span class="paragraph-number" id="322">322</span> Tena kho pana samayena dve bhikkhū sahāyakā honti. Eko bhikkhu gāmaṁ piṇḍāya pāvisi. Dutiyo bhikkhu saṁghassa khādanīye bhājīyamāne sahāyakassa bhāgaṁ gahetvā tassa vissasanto paribhuñji. So jānitvā taṁ codesi— “assamaṇosi tvan”ti. Tassa kukkuccaṁ ahosi…pe… “kiṁcitto tvaṁ, bhikkhū”ti? “Vissāsaggāho ahaṁ, bhagavā”ti. “Anāpatti, bhikkhu, vissāsaggāhe”ti. (60)</p>
+      <p id="p_1V_323"><span class="division-number" id="d147">147.</span> <span class="paragraph-number" id="323">323</span> Tena kho pana samayena sambahulā bhikkhū cīvarakammaṁ karonti. Saṁghassa khādanīye bhājīyamāne sabbesaṁ paṭivisā āharitvā upanikkhittā honti. Aññataro bhikkhu aññatarassa bhikkhuno paṭivisaṁ attano maññamāno paribhuñji. So jānitvā taṁ codesi— “assamaṇosi tvan”ti. Tassa kukkuccaṁ ahosi…pe… “kiṁcitto tvaṁ, bhikkhū”ti? “Sakasaññī ahaṁ, bhagavā”ti. “Anāpatti, bhikkhu, sakasaññissā”ti. (61)</p>
+      <p id="p_1V_324"><span class="paragraph-number" id="324">324</span> Tena kho pana samayena sambahulā bhikkhū cīvarakammaṁ karonti. Saṁghassa khādanīye bhājīyamāne aññatarassa bhikkhuno pattena aññatarassa bhikkhuno paṭiviso āharitvā upanikkhitto hoti. Pattasāmiko bhikkhu attano maññamāno paribhuñji. So jānitvā taṁ codesi— “assamaṇosi tvan”ti. Tassa kukkuccaṁ ahosi…pe… “anāpatti, bhikkhu, sakasaññissā”ti. (62)</p>
+      <p id="p_1V_325"><span class="division-number" id="d148">148.</span> <span class="paragraph-number" id="325">325</span> Tena kho pana samayena ambacorakā ambaṁ pātetvā bhaṇḍikaṁ ādāya agamaṁsu. Sāmikā te corake anubandhiṁsu. Corakā sāmike passitvā bhaṇḍikaṁ pātetvā palāyiṁsu. Bhikkhū paṁsukūlasaññino paṭiggahāpetvā paribhuñjiṁsu. Sāmikā te bhikkhū codesuṁ— “assamaṇāttha tumhe”ti. Tesaṁ kukkuccaṁ ahosi…pe… bhagavato etamatthaṁ ārocesuṁ. “Kiṁcittā tumhe, bhikkhave”ti? “Paṁsukūlasaññino mayaṁ, bhagavā”ti. “Anāpatti, bhikkhave, paṁsukūlasaññissā”ti. (63)</p>
+      <p id="p_1V_326"><span class="paragraph-number" id="326">326</span> Tena kho pana samayena jambucorakā… labujacorakā… panasacorakā… tālapakkacorakā… ucchucorakā… timbarūsakacorakā timbarūsake uccinitvā bhaṇḍikaṁ ādāya agamaṁsu. Sāmikā te corake anubandhiṁsu. Corakā sāmike passitvā bhaṇḍikaṁ pātetvā palāyiṁsu. Bhikkhū paṁsukūlasaññino paṭiggahāpetvā paribhuñjiṁsu. Sāmikā te bhikkhū codesuṁ— “assamaṇāttha tumhe”ti. Tesaṁ kukkuccaṁ ahosi…pe… “anāpatti, bhikkhave, paṁsukūlasaññissā”ti. (64--69)</p>
+      <p id="p_1V_327"><span class="paragraph-number" id="327">327</span> Tena kho pana samayena ambacorakā ambaṁ pātetvā bhaṇḍikaṁ ādāya agamaṁsu. Sāmikā te corake anubandhiṁsu. Corakā sāmike passitvā bhaṇḍikaṁ pātetvā palāyiṁsu. Bhikkhū— “pure sāmikā passantī”ti, theyyacittā paribhuñjiṁsu. Sāmikā te bhikkhū codesuṁ— “assamaṇāttha tumhe”ti. Tesaṁ kukkuccaṁ ahosi…pe… “āpattiṁ tumhe, bhikkhave, āpannā pārājikan”ti. (70)</p>
+      <p id="p_1V_328"><span class="paragraph-number" id="328">328</span> Tena kho pana samayena jambucorakā… labujacorakā… panasacorakā… tālapakkacorakā… ucchucorakā… timbarūsakacorakā timbarūsake uccinitvā bhaṇḍikaṁ ādāya agamaṁsu. Sāmikā te corake anubandhiṁsu. Corakā sāmike passitvā bhaṇḍikaṁ pātetvā palāyiṁsu. Bhikkhū— “pure sāmikā passantī”ti, theyyacittā paribhuñjiṁsu. Sāmikā te bhikkhū codesuṁ— “assamaṇāttha tumhe”ti. Tesaṁ kukkuccaṁ ahosi…pe… “āpattiṁ tumhe, bhikkhave, āpannā pārājikan”ti. (71--76)</p>
+      <p id="p_1V_329"><span class="paragraph-number" id="329">329</span> Tena kho pana samayena aññataro bhikkhu saṁghassa ambaṁ theyyacitto avahari… saṁghassa jambuṁ… saṁghassa labujaṁ… saṁghassa panasaṁ… saṁghassa tālapakkaṁ… saṁghassa ucchuṁ… saṁghassa timbarūsakaṁ theyyacitto avahari. Tassa kukkuccaṁ ahosi…pe… “āpattiṁ tvaṁ, bhikkhu, āpanno pārājikan”ti. (77--83)</p>
+      <p id="p_1V_330"><span class="division-number" id="d149">149.</span> <span class="paragraph-number" id="330">330</span> Tena kho pana samayena aññataro bhikkhu pupphārāmaṁ gantvā ocitaṁ pupphaṁ pañcamāsagghanakaṁ theyyacitto avahari. Tassa kukkuccaṁ ahosi…pe… “āpattiṁ tvaṁ, bhikkhu, āpanno pārājikan”ti. (84)</p>
+      <p id="p_1V_331"><span class="paragraph-number" id="331">331</span> Tena kho pana samayena aññataro bhikkhu pupphārāmaṁ gantvā pupphaṁ ocinitvā pañcamāsagghanakaṁ theyyacitto avahari. Tassa kukkuccaṁ ahosi…pe… “āpattiṁ tvaṁ, bhikkhu, āpanno pārājikan”ti. (85)</p>
+      <p id="p_1V_332"><span class="division-number" id="d150">150.</span> <span class="paragraph-number" id="332">332</span> Tena kho pana samayena aññataro bhikkhu gāmakaṁ gacchanto aññataraṁ bhikkhuṁ etadavoca— “āvuso, tuyhaṁ upaṭṭhākakulaṁ vutto vajjemī”ti. So gantvā ekaṁ sāṭakaṁ āharāpetvā attanā paribhuñji. So jānitvā taṁ codesi— “assamaṇosi tvan”ti. Tassa kukkuccaṁ ahosi…pe… “anāpatti, bhikkhu, pārājikassa. Na ca, bhikkhave, vutto vajjemīti vattabbo. Yo vadeyya, āpatti dukkaṭassā”ti. (86)</p>
+      <p id="p_1V_333"><span class="paragraph-number" id="333">333</span> Tena kho pana samayena aññataro bhikkhu gāmakaṁ gacchati. Aññataro bhikkhu taṁ bhikkhuṁ etadavoca— “āvuso, mayhaṁ upaṭṭhākakulaṁ vutto vajjehī”ti. So gantvā yugasāṭakaṁ āharāpetvā ekaṁ attanā paribhuñji, ekaṁ tassa bhikkhuno adāsi. So jānitvā taṁ codesi— “assamaṇosi tvan”ti. Tassa kukkuccaṁ ahosi…pe… “anāpatti, bhikkhu, pārājikassa. Na ca, bhikkhave, vutto vajjehīti vattabbo. Yo vadeyya, āpatti dukkaṭassā”ti. (87)</p>
+      <p id="p_1V_334"><span class="paragraph-number" id="334">334</span> Tena kho pana samayena aññataro bhikkhu gāmakaṁ gacchanto aññataraṁ bhikkhuṁ etadavoca— “āvuso, tuyhaṁ upaṭṭhākakulaṁ vutto vajjemī”ti. Sopi evamāha— “vutto vajjehī”ti. So gantvā āḷhakaṁ sappiṁ tulaṁ guḷaṁ doṇaṁ taṇḍulaṁ āharāpetvā attanā paribhuñji. So jānitvā taṁ codesi— “assamaṇosi tvan”ti. Tassa kukkuccaṁ ahosi…pe… “anāpatti, bhikkhu, pārājikassa. Na ca, bhikkhave, vutto vajjemīti vattabbo, na ca vutto vajjehīti vattabbo. Yo vadeyya, āpatti dukkaṭassā”ti. (88)</p>
+      <p id="p_1V_335"><span class="division-number" id="d151">151.</span> <span class="paragraph-number" id="335">335</span> Tena kho pana samayena aññataro puriso mahagghaṁ maṇiṁ ādāya aññatarena bhikkhunā saddhiṁ addhānamaggappaṭipanno hoti. Atha kho so puriso suṅkaṭṭhānaṁ passitvā tassa bhikkhuno ajānantassa thavikāya maṇiṁ pakkhipitvā suṅkaṭṭhānaṁ atikkamitvā aggahesi. Tassa kukkuccaṁ ahosi…pe… “kiṁcitto tvaṁ, bhikkhū”ti? “Nāhaṁ, bhagavā, jānāmī”ti. “Anāpatti, bhikkhu, ajānantassā”ti. (89)</p>
+      <p id="p_1V_336"><span class="paragraph-number" id="336">336</span> Tena kho pana samayena aññataro puriso mahagghaṁ maṇiṁ ādāya aññatarena bhikkhunā saddhiṁ addhānamaggappaṭipanno hoti. Atha kho so puriso suṅkaṭṭhānaṁ passitvā gilānālayaṁ karitvā attano bhaṇḍikaṁ tassa bhikkhuno adāsi. Atha kho so puriso suṅkaṭṭhānaṁ atikkamitvā taṁ bhikkhuṁ etadavoca— “āhara me, bhante, bhaṇḍikaṁ; nāhaṁ akallako”ti. “Kissa pana tvaṁ, āvuso, evarūpaṁ akāsī”ti? Atha kho so puriso tassa bhikkhuno etamatthaṁ ārocesi. Tassa kukkuccaṁ ahosi…pe… “kiṁcitto tvaṁ, bhikkhū”ti? “Nāhaṁ, bhagavā, jānāmī”ti. “Anāpatti, bhikkhu, ajānantassā”ti. (90)</p>
+      <p id="p_1V_337"><span class="division-number" id="d152">152.</span> <span class="paragraph-number" id="337">337</span> Tena kho pana samayena aññataro bhikkhu satthena saddhiṁ addhānamaggappaṭipanno hoti. Aññataro puriso taṁ bhikkhuṁ āmisena upalāpetvā suṅkaṭṭhānaṁ passitvā mahagghaṁ maṇiṁ tassa bhikkhuno adāsi— “imaṁ, bhante, maṇiṁ suṅkaṭṭhānaṁ atikkāmehī”ti. Atha kho so bhikkhu taṁ maṇiṁ suṅkaṭṭhānaṁ atikkāmesi. Tassa kukkuccaṁ ahosi…pe… “āpattiṁ tvaṁ, bhikkhu, āpanno pārājikan”ti. (91)</p>
+      <p id="p_1V_338"><span class="division-number" id="d153">153.</span> <span class="paragraph-number" id="338">338</span> Tena kho pana samayena aññataro bhikkhu pāse bandhaṁ sūkaraṁ kāruññena muñci. Tassa kukkuccaṁ ahosi…pe… “kiṁcitto tvaṁ, bhikkhū”ti? “Kāruññādhippāyo ahaṁ, bhagavā”ti. “Anāpatti, bhikkhu, kāruññādhippāyassā”ti. (92)</p>
+      <p id="p_1V_339"><span class="paragraph-number" id="339">339</span> Tena kho pana samayena aññataro bhikkhu pāse bandhaṁ sūkaraṁ— “pure sāmikā passantī”ti, theyyacitto muñci. Tassa kukkuccaṁ ahosi…pe… “āpattiṁ tvaṁ, bhikkhu, āpanno pārājikan”ti. (93)</p>
+      <p id="p_1V_340"><span class="paragraph-number" id="340">340</span> Tena kho pana samayena aññataro bhikkhu pāse bandhaṁ migaṁ kāruññena muñci… pāse bandhaṁ migaṁ— “pure sāmikā passantī”ti, theyyacitto muñci… kumine bandhe macche kāruññena muñci… kumine bandhe macche— “pure sāmikā passantī”ti theyyacitto muñci. Tassa kukkuccaṁ ahosi…pe… “āpattiṁ tvaṁ, bhikkhu, āpanno pārājikan”ti. (94--97)</p>
+      <p id="p_1V_341"><span class="paragraph-number" id="341">341</span> Tena kho pana samayena aññataro bhikkhu yāne bhaṇḍaṁ passitvā— “ito gaṇhanto pārājiko bhavissāmī”ti, atikkamitvā pavaṭṭetvā<sup class="footnote-ref"><a href="#fn-p_1V_341_87" id="fnref-p_1V_341_87">[87]</a></sup> aggahesi. Tassa kukkuccaṁ ahosi…pe… “āpattiṁ tvaṁ, bhikkhu, āpanno pārājikan”ti. (98)</p>
+      <p id="p_1V_342"><span class="paragraph-number" id="342">342</span> Tena kho pana samayena aññataro bhikkhu kulalena ukkhittaṁ maṁsapesiṁ— “sāmikānaṁ dassāmī”ti aggahesi. Sāmikā taṁ bhikkhuṁ codesuṁ— “assamaṇosi tvan”ti. Tassa kukkuccaṁ ahosi…pe… “anāpatti, bhikkhu, atheyyacittassā”ti. (99)</p>
+      <p id="p_1V_343"><span class="paragraph-number" id="343">343</span> Tena kho pana samayena aññataro bhikkhu kulalena ukkhittaṁ maṁsapesiṁ— “pure sāmikā passantī”ti, theyyacitto aggahesi. Sāmikā taṁ bhikkhuṁ codesuṁ— “assamaṇosi tvan”ti. Tassa kukkuccaṁ ahosi…pe… “āpattiṁ tvaṁ, bhikkhu, āpanno pārājikan”ti. (100)</p>
+      <p id="p_1V_344"><span class="division-number" id="d154">154.</span> <span class="paragraph-number" id="344">344</span> Tena kho pana samayena manussā uḷumpaṁ bandhitvā aciravatiyā nadiyā osārenti<sup class="footnote-ref"><a href="#fn-p_1V_344_88" id="fnref-p_1V_344_88">[88]</a></sup>. Bandhane chinne kaṭṭhāni vippakiṇṇāni agamaṁsu. Bhikkhū paṁsukūlasaññino uttāresuṁ. Sāmikā te bhikkhū codesuṁ— “assamaṇāttha tumhe”ti. Tesaṁ kukkuccaṁ ahosi…pe… “anāpatti, bhikkhave, paṁsukūlasaññissā”ti. (101)</p>
+      <p id="p_1V_345"><span class="paragraph-number" id="345">345</span> Tena kho pana samayena manussā uḷumpaṁ bandhitvā aciravatiyā nadiyā osārenti. Bandhane chinne kaṭṭhāni vippakiṇṇāni agamaṁsu. Bhikkhū— “pure sāmikā passantī”ti, theyyacittā uttāresuṁ. Sāmikā te bhikkhū codesuṁ— “assamaṇāttha tumhe”ti. Tesaṁ kukkuccaṁ ahosi…pe… “āpattiṁ tumhe, bhikkhave, āpannā pārājikan”ti. (102)</p>
+      <p id="p_1V_346"><span class="paragraph-number" id="346">346</span> Tena kho pana samayena aññataro gopālako rukkhe sāṭakaṁ ālaggetvā uccāraṁ agamāsi. Aññataro bhikkhu paṁsukūlasaññī aggahesi. Atha kho so gopālako taṁ bhikkhuṁ codesi— “assamaṇosi tvan”ti. Tassa kukkuccaṁ ahosi…pe… “anāpatti, bhikkhu, paṁsukūlasaññissā”ti. (103)</p>
+      <p id="p_1V_347"><span class="paragraph-number" id="347">347</span> Tena kho pana samayena aññatarassa bhikkhuno nadiṁ tarantassa rajakānaṁ hatthato muttaṁ sāṭakaṁ pāde laggaṁ hoti. So bhikkhu— “sāmikānaṁ dassāmī”ti aggahesi. Sāmikā taṁ bhikkhuṁ codesuṁ— “assamaṇosi tvan”ti. Tassa kukkuccaṁ ahosi…pe… “anāpatti, bhikkhu, atheyyacittassā”ti. (104)</p>
+      <p id="p_1V_348"><span class="paragraph-number" id="348">348</span> Tena kho pana samayena aññatarassa bhikkhuno nadiṁ tarantassa rajakānaṁ hatthato muttaṁ sāṭakaṁ pāde laggaṁ hoti. So bhikkhu— “pure sāmikā passantī”ti, theyyacitto aggahesi. Sāmikā taṁ bhikkhuṁ codesuṁ— “assamaṇosi tvan”ti. Tassa kukkuccaṁ ahosi…pe… “āpattiṁ tvaṁ, bhikkhu, āpanno pārājikan”ti. (105)</p>
+      <p id="p_1V_349"><span class="division-number" id="d155">155.</span> <span class="paragraph-number" id="349">349</span> Tena kho pana samayena aññataro bhikkhu sappikumbhiṁ passitvā thokaṁ thokaṁ paribhuñji. Tassa kukkuccaṁ ahosi…pe… “anāpatti, bhikkhu, pārājikassa; āpatti dukkaṭassā”ti. (106)</p>
+      <p id="p_1V_350"><span class="paragraph-number" id="350">350</span> Tena kho pana samayena sambahulā bhikkhū saṁvidahitvā agamaṁsu— “bhaṇḍaṁ avaharissāmā”ti. Eko bhaṇḍaṁ avahari. Te evamāhaṁsu— “na mayaṁ pārājikā. Yo avahaṭo so pārājiko”ti. Bhagavato etamatthaṁ ārocesuṁ… “āpattiṁ tumhe, bhikkhave, āpannā pārājikan”ti. (107)</p>
+      <p id="p_1V_351"><span class="paragraph-number" id="351">351</span> Tena kho pana samayena sambahulā bhikkhū saṁvidahitvā bhaṇḍaṁ avaharitvā bhājesuṁ. Tehi bhājīyamāne ekamekassa paṭiviso na pañcamāsako pūri. Te evamāhaṁsu— “na mayaṁ pārājikā”ti. Bhagavato etamatthaṁ ārocesuṁ. “Āpattiṁ tumhe, bhikkhave, āpannā pārājikan”ti. (108)</p>
+      <p id="p_1V_352"><span class="paragraph-number" id="352">352</span> Tena kho pana samayena aññataro bhikkhu sāvatthiyaṁ dubbhikkhe āpaṇikassa taṇḍulamuṭṭhiṁ theyyacitto avahari. Tassa kukkuccaṁ ahosi…pe… “āpattiṁ tvaṁ, bhikkhu, āpanno pārājikan”ti. (109)</p>
+      <p id="p_1V_353"><span class="paragraph-number" id="353">353</span> Tena kho pana samayena aññataro bhikkhu sāvatthiyaṁ dubbhikkhe āpaṇikassa muggamuṭṭhiṁ… māsamuṭṭhiṁ… tilamuṭṭhiṁ theyyacitto avahari. Tassa kukkuccaṁ ahosi…pe… “āpattiṁ tvaṁ, bhikkhu, āpanno pārājikan”ti. (110--112)</p>
+      <p id="p_1V_354"><span class="paragraph-number" id="354">354</span> Tena kho pana samayena sāvatthiyaṁ andhavane corakā gāviṁ hantvā maṁsaṁ khāditvā sesakaṁ paṭisāmetvā agamaṁsu. Bhikkhū paṁsukūlasaññino paṭiggahāpetvā<sup class="footnote-ref"><a href="#fn-p_1V_354_89" id="fnref-p_1V_354_89">[89]</a></sup> paribhuñjiṁsu. Corakā te bhikkhū codesuṁ— “assamaṇāttha tumhe”ti. Tesaṁ kukkuccaṁ ahosi…pe… “anāpatti, bhikkhave, paṁsukūlasaññissā”ti. (113)</p>
+      <p id="p_1V_355"><span class="paragraph-number" id="355">355</span> Tena kho pana samayena sāvatthiyaṁ andhavane corakā sūkaraṁ hantvā maṁsaṁ khāditvā sesakaṁ paṭisāmetvā agamaṁsu. Bhikkhū paṁsukūlasaññino paṭiggahāpetvā paribhuñjiṁsu. Corakā te bhikkhū codesuṁ— “assamaṇāttha tumhe”ti. Tesaṁ kukkuccaṁ ahosi…pe… “anāpatti, bhikkhave, paṁsukūlasaññissā”ti. (114)</p>
+      <p id="p_1V_356"><span class="paragraph-number" id="356">356</span> Tena kho pana samayena aññataro bhikkhu tiṇakkhettaṁ gantvā lūtaṁ tiṇaṁ pañcamāsagghanakaṁ theyyacitto avahari. Tassa kukkuccaṁ ahosi…pe… “āpattiṁ tvaṁ, bhikkhu, āpanno pārājikan”ti. (115)</p>
+      <p id="p_1V_357"><span class="paragraph-number" id="357">357</span> Tena kho pana samayena aññataro bhikkhu tiṇakkhettaṁ gantvā tiṇaṁ lāyitvā pañcamāsagghanakaṁ theyyacitto avahari. Tassa kukkuccaṁ ahosi…pe… “āpattiṁ tvaṁ, bhikkhu, āpanno pārājikan”ti. (116)</p>
+      <p id="p_1V_358"><span class="division-number" id="d156">156.</span> <span class="paragraph-number" id="358">358</span> Tena kho pana samayena āgantukā bhikkhū saṁghassa ambaṁ bhājāpetvā paribhuñjiṁsu. Āvāsikā bhikkhū te bhikkhū codesuṁ— “assamaṇāttha tumhe”ti. Tesaṁ kukkuccaṁ ahosi…pe… bhagavato etamatthaṁ ārocesuṁ. “Kiṁcittā tumhe, bhikkhave”ti? “Paribhogatthāya mayaṁ, bhagavā”ti. “Anāpatti, bhikkhave, paribhogatthāyā”ti. (117) <sup class="footnote-ref"><a href="#fn-p_1V_358_90" id="fnref-p_1V_358_90">[90]</a></sup></p>
+      <p id="p_1V_359"><span class="paragraph-number" id="359">359</span> Tena kho pana samayena āgantukā bhikkhū saṁghassa jambuṁ… saṁghassa labujaṁ… saṁghassa panasaṁ… saṁghassa tālapakkaṁ… saṁghassa ucchuṁ… saṁghassa timbarūsakaṁ bhājāpetvā paribhuñjiṁsu. Āvāsikā bhikkhū te bhikkhū codesuṁ— “assamaṇāttha tumhe”ti. Tesaṁ kukkuccaṁ ahosi…pe… “anāpatti, bhikkhave, paribhogatthāyā”ti. (118--123)</p>
+      <p id="p_1V_360"><span class="paragraph-number" id="360">360</span> Tena kho pana samayena ambapālakā bhikkhūnaṁ ambaphalaṁ denti. Bhikkhū— “gopetuṁ ime issarā, nayime dātun”ti, kukkuccāyantā na paṭiggaṇhanti. Bhagavato etamatthaṁ ārocesuṁ. “Anāpatti, bhikkhave, gopakassa dāne”ti. (124)</p>
+      <p id="p_1V_361"><span class="paragraph-number" id="361">361</span> Tena kho pana samayena jambupālakā… labujapālakā… panasapālakā… tālapakkapālakā… ucchupālakā… timbarūsakapālakā bhikkhūnaṁ timbarūsakaṁ denti. Bhikkhū— “gopetuṁ ime issarā, nayime dātun”ti, kukkuccāyantā na paṭiggaṇhanti. Bhagavato etamatthaṁ ārocesuṁ. “Anāpatti, bhikkhave, gopakassa dāne”ti. (125--130)</p>
+      <p id="p_1V_362"><span class="paragraph-number" id="362">362</span> Tena kho pana samayena aññataro bhikkhu saṁghassa dāruṁ tāvakālikaṁ haritvā attano vihārassa kuṭṭaṁ upatthambhesi. Bhikkhū taṁ bhikkhuṁ codesuṁ— “assamaṇosi tvan”ti. Tassa kukkuccaṁ ahosi. Bhagavato etamatthaṁ ārocesi. “Kiṁcitto tvaṁ, bhikkhū”ti? “Tāvakāliko ahaṁ, bhagavā”ti. “Anāpatti, bhikkhu, tāvakālike”ti. (131)</p>
+      <p id="p_1V_363"><span class="paragraph-number" id="363">363</span> Tena kho pana samayena aññataro bhikkhu saṁghassa udakaṁ theyyacitto avahari… saṁghassa mattikaṁ theyyacitto avahari… saṁghassa puñjakitaṁ tiṇaṁ theyyacitto avahari… tassa kukkuccaṁ ahosi…pe… “āpattiṁ tvaṁ, bhikkhu, āpanno pārājikan”ti. (132--134)</p>
+      <p id="p_1V_364"><span class="paragraph-number" id="364">364</span> Tena kho pana samayena aññataro bhikkhu saṁghassa puñjakitaṁ tiṇaṁ theyyacitto jhāpesi. Tassa kukkuccaṁ ahosi…pe… “anāpatti, bhikkhu, pārājikassa. Āpatti dukkaṭassā”ti. (135)</p>
+      <p id="p_1V_365"><span class="paragraph-number" id="365">365</span> Tena kho pana samayena aññataro bhikkhu saṁghassa mañcaṁ theyyacitto avahari… tassa kukkuccaṁ ahosi…pe… “āpattiṁ tvaṁ, bhikkhu, āpanno pārājikan”ti. (136)</p>
+      <p id="p_1V_366"><span class="paragraph-number" id="366">366</span> Tena kho pana samayena aññataro bhikkhu saṁghassa pīṭhaṁ… saṁghassa bhisiṁ… saṁghassa bibbohanaṁ<sup class="footnote-ref"><a href="#fn-p_1V_366_91" id="fnref-p_1V_366_91">[91]</a></sup>… saṁghassa kavāṭaṁ… saṁghassa ālokasandhiṁ… saṁghassa gopānasiṁ theyyacitto avahari… tassa kukkuccaṁ ahosi…pe… “āpattiṁ tvaṁ, bhikkhu, āpanno pārājikan”ti. (137--142)</p>
+      <p id="p_1V_367"><span class="division-number" id="d157">157.</span> <span class="paragraph-number" id="367">367</span> <sup class="footnote-ref"><a href="#fn-p_1V_367_92" id="fnref-p_1V_367_92">[92]</a></sup> Tena kho pana samayena bhikkhū aññatarassa upāsakassa vihāraparibhogaṁ senāsanaṁ aññatra paribhuñjanti. Atha kho so upāsako ujjhāyati khiyyati vipāceti— “kathañhi nāma bhadantā aññatra paribhogaṁ aññatra paribhuñjissantī”ti. Bhagavato etamatthaṁ ārocesuṁ. “Na, bhikkhave, aññatra paribhogo aññatra paribhuñjitabbo. Yo paribhuñjeyya, āpatti dukkaṭassā”ti. (143)</p>
+      <p id="p_1V_368"><span class="paragraph-number" id="368">368</span> <sup class="footnote-ref"><a href="#fn-p_1V_368_93" id="fnref-p_1V_368_93">[93]</a></sup> Tena kho pana samayena bhikkhū uposathaggampi sannisajjampi harituṁ kukkuccāyantā chamāyaṁ nisīdanti. Gattānipi cīvarānipi paṁsukitāni honti. Bhagavato etamatthaṁ ārocesuṁ. “Anujānāmi, bhikkhave, tāvakālikaṁ haritun”ti. (144)</p>
+      <p id="p_1V_369"><span class="paragraph-number" id="369">369</span> Tena kho pana samayena campāyaṁ thullanandāya bhikkhuniyā antevāsinī bhikkhunī thullanandāya bhikkhuniyā upaṭṭhākakulaṁ gantvā— “ayyā icchati tekaṭulayāguṁ pātun”ti, pacāpetvā haritvā attanā paribhuñji. Sā jānitvā taṁ codesi— “assamaṇīsi tvan”ti. Tassā kukkuccaṁ ahosi…pe… . Atha kho sā bhikkhunī bhikkhunīnaṁ etamatthaṁ ārocesi. Bhikkhuniyo bhikkhūnaṁ etamatthaṁ ārocesuṁ. Bhikkhū bhagavato etamatthaṁ ārocesuṁ. “Anāpatti, bhikkhave, pārājikassa; āpatti sampajānamusāvāde pācittiyassā”ti. (145)</p>
+      <p id="p_1V_370"><span class="paragraph-number" id="370">370</span> Tena kho pana samayena rājagahe thullanandāya bhikkhuniyā antevāsinī bhikkhunī thullanandāya bhikkhuniyā upaṭṭhākakulaṁ gantvā— “ayyā icchati madhugoḷakaṁ khāditun”ti, pacāpetvā haritvā attanā paribhuñji. Sā jānitvā taṁ codesi— “assamaṇīsi tvan”ti. Tassā kukkuccaṁ ahosi…pe… “anāpatti, bhikkhave, pārājikassa; āpatti sampajānamusāvāde pācittiyassā”ti. (146)</p>
+      <p id="p_1V_371"><span class="division-number" id="d158">158.</span> <span class="paragraph-number" id="371">371</span> Tena kho pana samayena vesāliyaṁ āyasmato ajjukassa upaṭṭhākassa gahapatino dve dārakā honti— putto ca bhāgineyyo ca. Atha kho so gahapati āyasmantaṁ ajjukaṁ etadavoca— “imaṁ, bhante, okāsaṁ yo imesaṁ dvinnaṁ dārakānaṁ saddho hoti pasanno tassa ācikkheyyāsī”ti. Tena kho pana samayena tassa gahapatino bhāgineyyo saddho hoti pasanno. Atha kho āyasmā ajjuko taṁ okāsaṁ tassa dārakassa ācikkhi. So tena sāpateyyena kuṭumbañca saṇṭhapesi dānañca paṭṭhapesi. Atha kho tassa gahapatino putto āyasmantaṁ ānandaṁ etadavoca— “ko nu kho, bhante ānanda, pituno dāyajjo— putto vā bhāgineyyo vā”ti? “Putto kho, āvuso, pituno dāyajjo”ti. “Ayaṁ, bhante, ayyo ajjuko amhākaṁ sāpateyyaṁ amhākaṁ methunakassa ācikkhī”ti. “Assamaṇo, āvuso, āyasmā ajjuko”ti. Atha kho āyasmā ajjuko āyasmantaṁ ānandaṁ etadavoca— “dehi me, āvuso ānanda, vinicchayan”ti. Tena kho pana samayena āyasmā upāli āyasmato ajjukassa pakkho hoti. Atha kho āyasmā upāli āyasmantaṁ ānandaṁ etadavoca— “yo nu kho, āvuso ānanda, sāmikena ‘imaṁ okāsaṁ itthannāmassa ācikkheyyāsī’ti vutto tassa ācikkhati, kiṁ so āpajjatī”ti? “Na, bhante, kiñci āpajjati, antamaso dukkaṭamattampī”ti. “Ayaṁ, āvuso, āyasmā ajjuko sāmikena— ‘imaṁ okāsaṁ itthannāmassa ācikkhā’ti vutto tassa ācikkhati; anāpatti, āvuso, āyasmato ajjukassā”ti. (147) <sup class="footnote-ref"><a href="#fn-p_1V_371_94" id="fnref-p_1V_371_94">[94]</a></sup></p>
+      <p id="p_1V_372"><span class="division-number" id="d159">159.</span> <span class="paragraph-number" id="372">372</span> Tena kho pana samayena bārāṇasiyaṁ āyasmato pilindavacchassa upaṭṭhākakulaṁ corehi upaddutaṁ hoti. Dve ca dārakā nītā honti. Atha kho āyasmā pilindavaccho te dārake iddhiyā ānetvā pāsāde ṭhapesi. Manussā te dārake passitvā— “ayyassāyaṁ pilindavacchassa iddhānubhāvo”ti, āyasmante pilindavacche abhippasīdiṁsu. Bhikkhū ujjhāyanti khiyyanti vipācenti— “kathañhi nāma āyasmā pilindavaccho corehi nīte dārake ānessatī”ti. Bhagavato etamatthaṁ ārocesuṁ. “Anāpatti, bhikkhave, iddhimassa<sup class="footnote-ref"><a href="#fn-p_1V_372_95" id="fnref-p_1V_372_95">[95]</a></sup> iddhivisaye”ti. (148)</p>
+      <p id="p_1V_373"><span class="division-number" id="d160">160.</span> <span class="paragraph-number" id="373">373</span> Tena kho pana samayena dve bhikkhū sahāyakā honti— paṇḍuko ca kapilo ca. Eko gāmake viharati, eko kosambiyaṁ. Atha kho tassa bhikkhuno gāmakā kosambiṁ gacchantassa antarāmagge nadiṁ tarantassa sūkarikānaṁ hatthato muttā medavaṭṭi pāde laggā hoti. So bhikkhu— “sāmikānaṁ dassāmī”ti aggahesi. Sāmikā taṁ bhikkhuṁ codesuṁ— “assamaṇosi tvan”ti. Taṁ uttiṇṇaṁ gopālikā<sup class="footnote-ref"><a href="#fn-p_1V_373_96" id="fnref-p_1V_373_96">[96]</a></sup> passitvā etadavoca— “ehi, bhante, methunaṁ dhammaṁ paṭisevā”ti. So— “pakatiyāpāhaṁ assamaṇo”ti tassā methunaṁ dhammaṁ paṭisevitvā kosambiṁ gantvā bhikkhūnaṁ etamatthaṁ ārocesi. Bhikkhū bhagavato etamatthaṁ ārocesuṁ. “Anāpatti, bhikkhave, adinnādāne pārājikassa; āpatti methunadhammasamāyoge pārājikassā”ti. (149)</p>
+      <p id="p_1V_374"><span class="division-number" id="d161">161.</span> <span class="paragraph-number" id="374">374</span> Tena kho pana samayena sāgalāyaṁ āyasmato daḷhikassa saddhivihāriko bhikkhu anabhiratiyā pīḷito āpaṇikassa veṭhanaṁ avaharitvā āyasmantaṁ daḷhikaṁ etadavoca— “assamaṇo ahaṁ, bhante, vibbhamissāmī”ti. “Kiṁ tayā, āvuso, katan”ti? So tamatthaṁ ārocesi. Āharāpetvā agghāpesi. Taṁ agghāpentaṁ na pañcamāsake agghati. “Anāpatti, āvuso, pārājikassā”ti. Dhammakathaṁ akāsi. So bhikkhu abhiramatīti<sup class="footnote-ref"><a href="#fn-p_1V_374_97" id="fnref-p_1V_374_97">[97]</a></sup>. (150)</p>
+      <p class="center" id="p_1V_375"><span class="paragraph-number" id="375">375</span> Dutiyapārājikaṁ samattaṁ.</p>
+      <section class="footnotes" aria-label="Footnotes">
+        <hr>
+        <ol>
+          <li id="fn-p_1V_314_84" value="84"><strong>sūnagharaṁ</strong>: sūnāgharaṁ (sī) <em>(Word Variant)</em> <a href="#fnref-p_1V_314_84" aria-label="Back to content">↩</a></li>
+          <li id="fn-p_1V_321_85" value="85"><strong>&quot;Nikkhami</strong>: nikkhameyya (sī, syā1-3, pā1) <em>(Word Variant)</em> <a href="#fnref-p_1V_321_85" aria-label="Back to content">↩</a></li>
+          <li id="fn-p_1V_321_86" value="86"><strong>nikkhami</strong>: nikkhameyya (sī, syā1-3, pā1) <em>(Word Variant)</em> <a href="#fnref-p_1V_321_86" aria-label="Back to content">↩</a></li>
+          <li id="fn-p_1V_341_87" value="87"><strong>pavaṭṭetvā</strong>: pavattetvā (pā1, ka-ma) <em>(Word Variant)</em> <a href="#fnref-p_1V_341_87" aria-label="Back to content">↩</a></li>
+          <li id="fn-p_1V_344_88" value="88"><strong>osārenti</strong>: osādenti (sī) <em>(Word Variant)</em> <a href="#fnref-p_1V_344_88" aria-label="Back to content">↩</a></li>
+          <li id="fn-p_1V_354_89" value="89"><strong>paṭiggahāpetvā</strong>: paṭiggāhāpetvā (sī) <em>(Word Variant)</em> <a href="#fnref-p_1V_354_89" aria-label="Back to content">↩</a></li>
+          <li id="fn-p_1V_358_90" value="90"><strong>&quot;Paribhogatthāya</strong>: paribhogatthā (sī) <em>(Word Variant)</em> <a href="#fnref-p_1V_358_90" aria-label="Back to content">↩</a></li>
+          <li id="fn-p_1V_366_91" value="91"><strong>bibbohanaṁ</strong>: bimbohanaṁ (sī, syā1-3, pā1) <em>(Word Variant)</em> <a href="#fnref-p_1V_366_91" aria-label="Back to content">↩</a></li>
+          <li id="fn-p_1V_367_92" value="92"><a href="/tipitaka/4V/6/6.3/6.3.4.html#p_4V_1415">4V.324/1</a> <em>(Cross Reference)</em> <a href="#fnref-p_1V_367_92" aria-label="Back to content">↩</a></li>
+          <li id="fn-p_1V_368_93" value="93"><a href="/tipitaka/4V/6/6.3/6.3.4.html#p_4V_1415">4V.324/1</a> <em>(Cross Reference)</em> <a href="#fnref-p_1V_368_93" aria-label="Back to content">↩</a></li>
+          <li id="fn-p_1V_371_94" value="94"><strong>ācikkheyyāsī&quot;ti</strong>: ācikkheyyāsīti so kālamakāsi (syā1-3) <em>(Word Variant)</em> <a href="#fnref-p_1V_371_94" aria-label="Back to content">↩</a></li>
+          <li id="fn-p_1V_372_95" value="95"><strong>iddhimassa</strong>: iddhimato (sī), iddhimantassa (syā1-3, pā1) <em>(Word Variant)</em> <a href="#fnref-p_1V_372_95" aria-label="Back to content">↩</a></li>
+          <li id="fn-p_1V_373_96" value="96"><strong>gopālikā</strong>: aññatarā gopālikā (sī, syā1-3) <em>(Word Variant)</em> <a href="#fnref-p_1V_373_96" aria-label="Back to content">↩</a></li>
+          <li id="fn-p_1V_374_97" value="97"><strong>abhiramatīti</strong>: abhiramīti (sī, syā1-3, pā1) <em>(Word Variant)</em> <a href="#fnref-p_1V_374_97" aria-label="Back to content">↩</a></li>
+        </ol>
+      </section>
+    </main>
+    <footer>
+      <nav aria-label="Pagination">
+        <a href="/tipitaka/1V/1/1.1/1.1.2/1.1.2.1.html" id="previous">1.1.2.1 Vinītavatthuuddānagāthā</a>
+        <a href="/tipitaka/1V/1/1.1/1.1.2.html" id="up">up</a>
+        <a href="/tipitaka/1V/1/1.1/1.1.3.html" id="next">1.1.3 Tatiyapārājikasikkhāpada</a>
+      </nav>
+    </footer>
+  </body>
 </html>

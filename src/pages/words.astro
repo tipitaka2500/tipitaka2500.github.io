@@ -1,0 +1,425 @@
+---
+import fs from 'node:fs';
+import path from 'node:path';
+import Layout from '../layouts/Layout.astro';
+
+const metaPath = path.resolve(process.cwd(), 'public/data/words/meta.json');
+const meta = JSON.parse(fs.readFileSync(metaPath, 'utf-8'));
+const counts = meta.counts as Record<string, number>;
+const alphabets = (
+  meta.alphabets as Array<{
+    code: string;
+    roman: string;
+    thai: string;
+  }>
+).filter((a) => (counts[a.code] ?? 0) > 0);
+const books = meta.books as Array<{
+  code: string;
+  name: string;
+  thai: string;
+  pitaka: string;
+}>;
+---
+
+<Layout
+  title="Pāḷi Word Index (Padabhājanīya) — Tipiṭaka Indices"
+  description="Search and browse all 146,693 unique Pāḷi headwords across the 40-volume World Tipiṭaka Edition with Roman script, Thai script, IPA pronunciation, and frequency distributions across all 88 books."
+  currentBook="words"
+  lang="en"
+>
+  <main class="index-page">
+    <div class="index-hero">
+      <h1>Pāḷi Word Index</h1>
+      <p>
+        Explore all {meta.total.toLocaleString()} unique Pāḷi headwords across the 2,708,706 words
+        of the World Tipiṭaka Edition, with Roman Pāḷi, Thai script, IPA phonetic transcription, and
+        frequency breakdowns across all 88 books.
+      </p>
+    </div>
+
+    <nav aria-label="Pāḷi Alphabet Letters" class="pill-bar" id="words-alpha-bar">
+      {
+        alphabets.map((a, idx) => (
+          <button
+            type="button"
+            class="pill-btn"
+            data-alpha-code={a.code}
+            aria-pressed={idx === 0 ? 'true' : 'false'}
+            title={`${a.roman} (${a.thai}) — ${(counts[a.code] || 0).toLocaleString()} words`}
+          >
+            <span>{a.roman}</span>
+            <span class="pill-count">({(counts[a.code] || 0).toLocaleString()})</span>
+          </button>
+        ))
+      }
+    </nav>
+
+    <div class="index-toolbar" role="search" aria-label="Filter Pāḷi Word Index">
+      <div class="form-group">
+        <label for="words-search-input" class="form-label">
+          Search Pāḷi Word (Roman, ASCII without diacritics, Thai, or IPA)
+        </label>
+        <input
+          type="search"
+          id="words-search-input"
+          class="form-input"
+          placeholder="e.g. dhamma, nibbāna, satipaṭṭhāna, [ababaː]…"
+          autocomplete="off"
+          spellcheck="false"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="words-match-select" class="form-label">Search Mode</label>
+        <select id="words-match-select" class="form-select">
+          <option value="prefix">Starts with query (Auto-switches letter)</option>
+          <option value="contains">Contains query in selected letter</option>
+          <option value="exact">Exact match</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="words-book-select" class="form-label">Filter by Occurrence in Book</label>
+        <select id="words-book-select" class="form-select">
+          <option value="ALL">All 88 Books</option>
+          {
+            books.map((b) => (
+              <option value={b.code}>
+                {b.code} — {b.name}
+              </option>
+            ))
+          }
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="words-sort-select" class="form-label">Sort Order</label>
+        <select id="words-sort-select" class="form-select">
+          <option value="alpha">Alphabetical (Pāḷi order)</option>
+          <option value="freq_desc">Most Frequent First</option>
+          <option value="freq_asc">Least Frequent First</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="index-stats-bar">
+      <div id="words-status" aria-live="polite">Loading Pāḷi Word Index…</div>
+      <div id="words-letter-summary"></div>
+    </div>
+
+    <div class="index-table-wrapper">
+      <table class="index-table">
+        <caption id="words-table-caption">Pāḷi Headwords</caption>
+        <thead>
+          <tr>
+            <th scope="col">Roman Pāḷi Headword</th>
+            <th scope="col">Thai Script &amp; IPA</th>
+            <th scope="col">Total</th>
+            <th scope="col">Vinaya / Suttanta / Abhidhamma Distribution</th>
+          </tr>
+        </thead>
+        <tbody id="words-tbody"></tbody>
+      </table>
+    </div>
+    <div id="words-sentinel" class="load-more-sentinel"></div>
+  </main>
+
+  <script is:inline define:vars={{ alphabets, counts, books }}>
+    (() => {
+      const alphaBtns = Array.from(document.querySelectorAll('[data-alpha-code]'));
+      const searchInput = document.getElementById('words-search-input');
+      const matchSelect = document.getElementById('words-match-select');
+      const bookSelect = document.getElementById('words-book-select');
+      const sortSelect = document.getElementById('words-sort-select');
+      const statusEl = document.getElementById('words-status');
+      const summaryEl = document.getElementById('words-letter-summary');
+      const captionEl = document.getElementById('words-table-caption');
+      const tbody = document.getElementById('words-tbody');
+      const sentinel = document.getElementById('words-sentinel');
+
+      const bookNameMap = Object.fromEntries(books.map((b) => [b.code, b.name]));
+      const cache = new Map();
+      let activeAlpha = '10';
+      let currentFiltered = [];
+      let renderedCount = 0;
+      const PAGE_SIZE = 120;
+
+      function stripDiacritics(str) {
+        return (str || '')
+          .normalize('NFKD')
+          .replace(/[\u0300-\u036f]/g, '')
+          .toLowerCase();
+      }
+
+      function escapeHtml(str) {
+        return String(str || '')
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;');
+      }
+
+      // Map prefix of a Roman/ASCII query to candidate alphabet shard codes
+      const PREFIX_SHARD_MAP = [
+        ['bh', ['13']],
+        ['ch', ['15']],
+        ['dh', ['18', '19']],
+        ['ḍh', ['19']],
+        ['gh', ['22']],
+        ['jh', ['27']],
+        ['kh', ['29']],
+        ['ph', ['40']],
+        ['th', ['45', '46']],
+        ['ṭh', ['46']],
+        ['ā', ['11']],
+        ['a', ['10', '11']],
+        ['b', ['12', '13']],
+        ['c', ['14', '15']],
+        ['ḍ', ['17', '19']],
+        ['d', ['16', '17', '18', '19']],
+        ['e', ['20']],
+        ['g', ['21', '22']],
+        ['h', ['23']],
+        ['ī', ['25']],
+        ['i', ['24', '25']],
+        ['j', ['26', '27']],
+        ['k', ['28', '29']],
+        ['ḷ', ['31']],
+        ['l', ['30', '31']],
+        ['ṁ', ['33']],
+        ['m', ['32', '33']],
+        ['ñ', ['35']],
+        ['ṅ', ['36']],
+        ['ṇ', ['37']],
+        ['n', ['34', '35', '36', '37']],
+        ['o', ['38']],
+        ['p', ['39', '40']],
+        ['r', ['41']],
+        ['s', ['42']],
+        ['ṭ', ['44', '46']],
+        ['t', ['43', '44', '45', '46']],
+        ['ū', ['48']],
+        ['u', ['47', '48']],
+        ['v', ['49']],
+        ['y', ['50']],
+      ];
+
+      function detectShardsForQuery(q) {
+        const clean = q.trim().toLowerCase().replace(/^\[/, '');
+        if (!clean) return [activeAlpha];
+        for (const [pref, codes] of PREFIX_SHARD_MAP) {
+          if (clean.startsWith(pref)) {
+            return codes.filter((c) => counts[c] > 0);
+          }
+        }
+        return [activeAlpha];
+      }
+
+      async function fetchShard(code) {
+        if (cache.has(code)) return cache.get(code);
+        const res = await fetch(`/data/words/${code}.json`);
+        const data = await res.json();
+        cache.set(code, data);
+        return data;
+      }
+
+      function formatBookDistribution(pitakaLabel, total, distStr) {
+        if (!total || !distStr) return '';
+        const badges = distStr
+          .trim()
+          .split(/\s+/)
+          .map((tok) => {
+            const [bcode, cnt] = tok.split(':');
+            if (!bcode || !cnt) return escapeHtml(tok);
+            const bname = bookNameMap[bcode] || bcode;
+            return `<a href="/tipitaka/${escapeHtml(bcode)}.html" class="badge-pill" title="${escapeHtml(bname)}: ${escapeHtml(cnt)} occurrences">${escapeHtml(bcode)}: ${escapeHtml(cnt)}</a>`;
+          })
+          .join(' ');
+        return `<div style="margin-bottom: 0.25rem;"><strong style="font-size: 0.78rem; color: var(--text-secondary);">${pitakaLabel} (${total.toLocaleString()}):</strong> ${badges}</div>`;
+      }
+
+      function renderBatch() {
+        const nextEnd = Math.min(renderedCount + PAGE_SIZE, currentFiltered.length);
+        if (renderedCount >= nextEnd) {
+          sentinel.textContent =
+            currentFiltered.length === 0
+              ? 'No matching Pāḷi words found.'
+              : `Showing all ${currentFiltered.length.toLocaleString()} words.`;
+          return;
+        }
+
+        const rowsHtml = [];
+        for (let i = renderedCount; i < nextEnd; i++) {
+          const w = currentFiltered[i];
+          const vBlock = formatBookDistribution('Vinaya', w.vt, w.vb);
+          const sBlock = formatBookDistribution('Suttanta', w.st, w.sb);
+          const aBlock = formatBookDistribution('Abhidhamma', w.at, w.ab);
+
+          rowsHtml.push(`
+            <tr>
+              <td lang="pi">
+                <strong class="index-card-title">${escapeHtml(w.r)}</strong>
+                <div class="quick-jump-sub">#${w.id}</div>
+              </td>
+              <td>
+                <div lang="pi">${escapeHtml(w.w)}</div>
+                <div class="quick-jump-sub"><code>${escapeHtml(w.i)}</code></div>
+              </td>
+              <td style="white-space: nowrap">
+                <span class="badge-code">${w.t.toLocaleString()}</span>
+              </td>
+              <td>
+                ${vBlock}${sBlock}${aBlock}
+              </td>
+            </tr>
+          `);
+        }
+
+        tbody.insertAdjacentHTML('beforeend', rowsHtml.join(''));
+        renderedCount = nextEnd;
+        sentinel.textContent =
+          renderedCount < currentFiltered.length
+            ? `Showing ${renderedCount.toLocaleString()} of ${currentFiltered.length.toLocaleString()} words — scroll for more…`
+            : `Showing all ${currentFiltered.length.toLocaleString()} words.`;
+      }
+
+      function syncAlphaPills(selectedCodes) {
+        alphaBtns.forEach((btn) => {
+          const code = btn.getAttribute('data-alpha-code');
+          const isPressed = selectedCodes.includes(code);
+          btn.setAttribute('aria-pressed', isPressed ? 'true' : 'false');
+        });
+      }
+
+      async function updateView(fromAlphaClick = false) {
+        const q = searchInput.value.trim();
+        const qLower = q.toLowerCase();
+        const qNorm = stripDiacritics(q);
+        const matchMode = matchSelect.value;
+        const bookCode = bookSelect.value;
+        const sortMode = sortSelect.value;
+
+        let targetShards = [activeAlpha];
+        if (!fromAlphaClick && q && (matchMode === 'prefix' || matchMode === 'exact')) {
+          const detected = detectShardsForQuery(q);
+          if (detected.length > 0) {
+            targetShards = detected;
+            activeAlpha = detected[0];
+          }
+        }
+        syncAlphaPills(targetShards);
+
+        const params = new URLSearchParams();
+        if (activeAlpha !== '10' && !q) params.set('letter', activeAlpha);
+        if (q) params.set('q', q);
+        if (matchMode !== 'prefix') params.set('mode', matchMode);
+        if (bookCode !== 'ALL') params.set('book', bookCode);
+        if (sortMode !== 'alpha') params.set('sort', sortMode);
+        const newUrl = `${window.location.pathname}${params.toString() ? '?' + params.toString() : ''}`;
+        window.history.replaceState(null, '', newUrl);
+
+        statusEl.textContent = `Loading word index shard…`;
+        const shardArrays = await Promise.all(targetShards.map((c) => fetchShard(c)));
+        const rawItems = shardArrays.flat();
+
+        const bookTokenPrefix = bookCode !== 'ALL' ? `${bookCode}:` : '';
+
+        currentFiltered = rawItems.filter((w) => {
+          if (bookTokenPrefix) {
+            const allBooksStr = `${w.vb || ''} ${w.sb || ''} ${w.ab || ''}`;
+            const hasBook = allBooksStr
+              .split(/\s+/)
+              .some((tok) => tok.startsWith(bookTokenPrefix));
+            if (!hasBook) return false;
+          }
+          if (!q) return true;
+          if (matchMode === 'exact') {
+            return (
+              w.r === qLower ||
+              w.a === qNorm ||
+              w.w === q ||
+              w.i === q
+            );
+          }
+          if (matchMode === 'prefix') {
+            return (
+              w.r.startsWith(qLower) ||
+              w.a.startsWith(qNorm) ||
+              (w.w && w.w.startsWith(q)) ||
+              (w.i && w.i.includes(q))
+            );
+          }
+          return (
+            w.r.includes(qLower) ||
+            w.a.includes(qNorm) ||
+            (w.w && w.w.includes(q)) ||
+            (w.i && w.i.includes(q))
+          );
+        });
+
+        if (sortMode === 'freq_desc') {
+          currentFiltered.sort((a, b) => b.t - a.t || a.id - b.id);
+        } else if (sortMode === 'freq_asc') {
+          currentFiltered.sort((a, b) => a.t - b.t || a.id - b.id);
+        } else {
+          currentFiltered.sort((a, b) => a.id - b.id);
+        }
+
+        tbody.innerHTML = '';
+        renderedCount = 0;
+
+        const shardLabels = targetShards
+          .map((c) => {
+            const a = alphabets.find((al) => al.code === c);
+            return a ? `${a.roman} (${a.thai})` : c;
+          })
+          .join(', ');
+
+        captionEl.textContent = `Pāḷi Headwords — Letter ${shardLabels}`;
+        summaryEl.textContent = `Active letter shard: ${shardLabels}`;
+        statusEl.textContent = `Found ${currentFiltered.length.toLocaleString()} Pāḷi word${currentFiltered.length === 1 ? '' : 's'}.`;
+        renderBatch();
+      }
+
+      const initParams = new URLSearchParams(window.location.search);
+      if (initParams.get('letter') && counts[initParams.get('letter')]) {
+        activeAlpha = initParams.get('letter');
+      }
+      if (initParams.get('mode')) matchSelect.value = initParams.get('mode');
+      if (initParams.get('book')) bookSelect.value = initParams.get('book');
+      if (initParams.get('sort')) sortSelect.value = initParams.get('sort');
+      if (initParams.get('q')) searchInput.value = initParams.get('q');
+
+      alphaBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          activeAlpha = btn.getAttribute('data-alpha-code');
+          if (searchInput.value && matchSelect.value === 'prefix') {
+            searchInput.value = '';
+          }
+          updateView(true);
+        });
+      });
+
+      let debounceTimer = null;
+      searchInput.addEventListener('input', () => {
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(() => updateView(false), 180);
+      });
+      matchSelect.addEventListener('change', () => updateView(false));
+      bookSelect.addEventListener('change', () => updateView(true));
+      sortSelect.addEventListener('change', () => updateView(true));
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          if (entries.some((e) => e.isIntersecting) && renderedCount < currentFiltered.length) {
+            renderBatch();
+          }
+        },
+        { rootMargin: '300px' }
+      );
+      observer.observe(sentinel);
+
+      updateView(Boolean(initParams.get('letter')));
+    })();
+  </script>
+</Layout>

@@ -1,0 +1,170 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="About & Edition History — tipitaka2500.github.io"
+  description="History of tipitaka2500.github.io: from the initial yuttadhammo scrape conversion to the verified 2020 OpenPāḷi edition built with Astro, featuring critical apparatus footnotes, cross-references, indices, and page concordances."
+  currentBook="about"
+  lang="en"
+>
+  <main class="index-page">
+    <div class="index-hero">
+      <h1>About This Website &amp; Edition History</h1>
+      <p>
+        How <strong>tipitaka2500.github.io</strong> evolved from an early static HTML conversion into
+        a complete, deterministically verified digital reconstruction of the 2020 World Tipiṭaka
+        Edition.
+      </p>
+    </div>
+
+    <article class="index-card" style="padding: 1.5rem; margin-bottom: 1.25rem;">
+      <h2 style="margin-top: 0; color: var(--text-emphasis);">1. The World Tipiṭaka Edition</h2>
+      <p>
+        <strong>The World Tipiṭaka Edition</strong> (<em>Mahāsaṅgīti Tipiṭaka Buddhavasse 2500</em>)
+        represents the 40-volume Roman-script edition of the Pāḷi Tipiṭaka produced by the M.L.
+        Maniratana Bunnag Dhamma Society Fund under the patronage of His Holiness Somdet Phra
+        Ñāṇasaṁvara, the Supreme Patriarch of Thailand.
+      </p>
+      <p style="margin-bottom: 0;">
+        Derived from the Chaṭṭhasaṅgīti (Sixth Buddhist Council) text convened in B.E. 2500 (1957),
+        the Roman-script edition underwent four complete cycles of canonical Pāḷi recitation and
+        computer-assisted proofreading to verify all <strong>2,708,706 Pāḷi words</strong>
+        (<strong>20,606,104 Roman letters</strong>) across the 88 books of the Vinayapiṭaka,
+        Suttantapiṭaka, and Abhidhammapiṭaka. For the complete historical timeline and linguistic
+        innovations of the project (1893–2024), see{' '}
+        <a href="/project.html"><strong>The World Tipiṭaka Project &amp; Its History →</strong></a>.
+      </p>
+    </article>
+
+    <article class="index-card" style="padding: 1.5rem; margin-bottom: 1.25rem;">
+      <h2 style="margin-top: 0; color: var(--text-emphasis);">
+        2. First Generation: Yuttadhammo Scrape &amp; Python Conversion
+      </h2>
+      <p>
+        The initial version of <strong>tipitaka2500.github.io</strong> was built from Bhante
+        Yuttadhammo’s archival repository, which preserved a scrape of the original Tipiṭaka website
+        (2005 edition).
+      </p>
+      <p style="margin-bottom: 0;">
+        Using a series of custom Python conversion scripts, those archival files were cleaned,
+        reorganized into a hierarchical folder structure matching the canonical divisions of the 40
+        volumes, and wrapped in a static Bootstrap user interface with collapsible sidebar navigation
+        and light/dark theming. While this made the Roman Pāḷi text fast and readable on the modern
+        web, it lacked the critical apparatus footnotes, cross-references, and scholarly reference
+        indices introduced in the updated 2020 edition.
+      </p>
+    </article>
+
+    <article class="index-card" style="padding: 1.5rem; margin-bottom: 1.25rem;">
+      <h2 style="margin-top: 0; color: var(--text-emphasis);">
+        3. Current Generation: Re-Scraped from OpenPāḷi &amp; Built with Astro (2020 Edition)
+      </h2>
+      <p>
+        This updated version of the site is based on a fresh, complete scrape of the <strong>OpenPāḷi</strong>
+        project, bringing the website fully up to date with the <strong>2020 edition</strong> while
+        adopting a modern static architecture powered by <strong>Astro</strong>:
+      </p>
+      <ul>
+        <li style="margin-bottom: 0.5rem;">
+          <strong>100% Verified Canonical Content:</strong> The Pāḷi body text across all
+          <strong>20,189 section pages</strong> and <strong>118,280 canonical paragraphs</strong> has
+          been deterministically compared and verified against the previous repository to guarantee
+          that the core canonical text is identical.
+        </li>
+        <li style="margin-bottom: 0.5rem;">
+          <strong>Clean Vanilla HTML Source:</strong> All 20,189 HTML files in <code>tipitaka/</code>
+          are stored as clean, semantic, standards-compliant HTML5 without presentation framework
+          bloat, while Astro provides the site layout, navigation, Rosely light/dark theme, and
+          client-side interactivity.
+        </li>
+        <li style="margin-bottom: 0.5rem;">
+          <strong>Critical Apparatus Footnotes &amp; Linked Cross-References:</strong> Every page now
+          includes its canonical footnotes (<strong>26,529 critical apparatus notes</strong> collating
+          Sīhaḷa, Syāmaraṭṭha, Kambuja, Maramma, and PTS editions) with inline preview popovers and
+          <strong>7,938 live cross-reference links</strong> that jump directly to the cited book and
+          paragraph.
+        </li>
+        <li style="margin-bottom: 0;">
+          <strong>Complete 2020 Reference Indices &amp; Concordances:</strong> The site now includes
+          interactive, searchable editions of the five reference databases from the 2020 edition.
+        </li>
+      </ul>
+    </article>
+
+    <section aria-label="2020 Edition Reference Indices" class="home-index-grid">
+      <a href="/toc.html" class="home-index-card">
+        <div>
+          <h2>Table of Contents (Mātikā)</h2>
+          <p>
+            Complete structural hierarchy across all 88 books with canonical paragraph and division
+            ranges.
+          </p>
+        </div>
+        <span class="home-index-stat">20,116 Sections →</span>
+      </a>
+
+      <a href="/verses.html" class="home-index-card">
+        <div>
+          <h2>Index of Verses (Gāthā)</h2>
+          <p>
+            Every canonical verse paragraph in both Roman Pāḷi and Thai Pāḷi script, linked to its
+            exact paragraph in context.
+          </p>
+        </div>
+        <span class="home-index-stat">28,395 Verses →</span>
+      </a>
+
+      <a href="/notes.html" class="home-index-card">
+        <div>
+          <h2>Critical Apparatus &amp; Notes</h2>
+          <p>
+            Searchable textual variants, manuscript collations, and cross-references with an edition
+            abbreviations guide.
+          </p>
+        </div>
+        <span class="home-index-stat">26,529 Notes →</span>
+      </a>
+
+      <a href="/concordances.html" class="home-index-card">
+        <div>
+          <h2>Page Concordances</h2>
+          <p>
+            Cross-reference paragraphs and divisions with volume and page numbers across 8 printed
+            Tipiṭaka editions.
+          </p>
+        </div>
+        <span class="home-index-stat">164,784 Concordances →</span>
+      </a>
+
+      <a href="/words.html" class="home-index-card">
+        <div>
+          <h2>Pāḷi Word Index</h2>
+          <p>
+            Every unique headword across the 41 Pāḷi alphabet letters with Roman Pāḷi, Thai script,
+            IPA pronunciation, and book frequencies.
+          </p>
+        </div>
+        <span class="home-index-stat">146,693 Headwords →</span>
+      </a>
+    </section>
+
+    <article class="index-card" style="padding: 1.25rem 1.5rem;">
+      <p style="margin: 0 0 0.5rem;">
+        Created and maintained by <strong>Chris Tham</strong> (<a href="mailto:chris@christham.net">chris@christham.net</a>).
+      </p>
+      <p style="margin: 0;">
+        <img
+          src="/images/cc-zero.svg"
+          alt=""
+          aria-hidden="true"
+          width="16"
+          height="16"
+          class="cc-icon"
+        />
+        CC0: This work has been marked as dedicated to the public domain.{' '}
+        <a href="https://creativecommons.org/publicdomain/zero/1.0/">See the CC0 Deed</a>.
+      </p>
+    </article>
+  </main>
+</Layout>

@@ -1,0 +1,275 @@
+---
+import fs from 'node:fs';
+import path from 'node:path';
+import Layout from '../layouts/Layout.astro';
+
+const metaPath = path.resolve(process.cwd(), 'public/data/toc/meta.json');
+const meta = JSON.parse(fs.readFileSync(metaPath, 'utf-8'));
+const books = meta.books as Array<{
+  code: string;
+  name: string;
+  full_name: string;
+  thai: string;
+  pitaka: string;
+  url: string;
+  from_abbrv: string;
+  to_abbrv: string;
+}>;
+---
+
+<Layout
+  title="Table of Contents — Tipiṭaka Indices"
+  description="Interactive Table of Contents across all 88 books and 20,116 sections of the World Tipiṭaka Edition."
+  currentBook="toc"
+  lang="en"
+>
+  <main class="index-page">
+    <div class="index-hero">
+      <h1>Table of Contents (Mātikā)</h1>
+      <p>
+        Browse and search all {meta.total_toc_entries.toLocaleString()} structural sections across the
+        88 books of the Vinayapiṭaka, Suttantapiṭaka, and Abhidhammapiṭaka, with paragraph and
+        division ranges.
+      </p>
+    </div>
+
+    <div class="index-toolbar" role="search" aria-label="Filter Table of Contents">
+      <div class="form-group">
+        <label for="toc-book-select" class="form-label">Book (88 Books)</label>
+        <select id="toc-book-select" class="form-select">
+          {
+            books.map((b, i) => (
+              <option value={b.code} selected={i === 0}>
+                {b.code} — {b.name} ({b.thai})
+              </option>
+            ))
+          }
+          <option value="ALL">All 88 Books (Search Entire Tipiṭaka)</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="toc-level-select" class="form-label">Maximum Depth Level</label>
+        <select id="toc-level-select" class="form-select">
+          <option value="99">All Heading Levels</option>
+          <option value="3">Up to Level 3 (Major Divisions)</option>
+          <option value="4">Up to Level 4 (Vagga / Paṇṇāsa)</option>
+          <option value="5">Up to Level 5 (Sutta / Sikkhāpada)</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="toc-search-input" class="form-label">
+          Filter by Title or Citation (Roman or Thai Pāḷi)
+        </label>
+        <input
+          type="search"
+          id="toc-search-input"
+          class="form-input"
+          placeholder="e.g. Brahmajāla, Satipaṭṭhāna, 6D:0001…"
+          autocomplete="off"
+          spellcheck="false"
+        />
+      </div>
+    </div>
+
+    <div class="index-stats-bar">
+      <div id="toc-status" aria-live="polite">Loading Table of Contents…</div>
+      <div id="toc-book-links"></div>
+    </div>
+
+    <div class="index-table-wrapper">
+      <table class="index-table">
+        <caption id="toc-table-caption">Sections in selected book</caption>
+        <thead>
+          <tr>
+            <th scope="col">Section Title (Roman &amp; Thai Pāḷi)</th>
+            <th scope="col">Level</th>
+            <th scope="col">Paragraphs</th>
+            <th scope="col">Divisions</th>
+          </tr>
+        </thead>
+        <tbody id="toc-tbody"></tbody>
+      </table>
+    </div>
+    <div id="toc-sentinel" class="load-more-sentinel"></div>
+  </main>
+
+  <script is:inline define:vars={{ books }}>
+    (() => {
+      const bookSelect = document.getElementById('toc-book-select');
+      const levelSelect = document.getElementById('toc-level-select');
+      const searchInput = document.getElementById('toc-search-input');
+      const statusEl = document.getElementById('toc-status');
+      const bookLinksEl = document.getElementById('toc-book-links');
+      const captionEl = document.getElementById('toc-table-caption');
+      const tbody = document.getElementById('toc-tbody');
+      const sentinel = document.getElementById('toc-sentinel');
+
+      const cache = new Map();
+      let currentFiltered = [];
+      let renderedCount = 0;
+      const PAGE_SIZE = 150;
+
+      function stripDiacritics(str) {
+        return (str || '')
+          .normalize('NFKD')
+          .replace(/[\u0300-\u036f]/g, '')
+          .toLowerCase();
+      }
+
+      function escapeHtml(str) {
+        return String(str || '')
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;');
+      }
+
+      async function fetchBookToc(code) {
+        if (cache.has(code)) return cache.get(code);
+        const res = await fetch(`/data/toc/${code}.json`);
+        const data = await res.json();
+        cache.set(code, data);
+        return data;
+      }
+
+      async function getActiveItems(bookCode) {
+        if (bookCode === 'ALL') {
+          statusEl.textContent = 'Loading all 88 books…';
+          const allArrays = await Promise.all(books.map((b) => fetchBookToc(b.code)));
+          return allArrays.flat();
+        }
+        return fetchBookToc(bookCode);
+      }
+
+      function renderBatch() {
+        const nextEnd = Math.min(renderedCount + PAGE_SIZE, currentFiltered.length);
+        if (renderedCount >= nextEnd) {
+          sentinel.textContent =
+            currentFiltered.length === 0
+              ? 'No matching sections found.'
+              : `Showing all ${currentFiltered.length.toLocaleString()} sections.`;
+          return;
+        }
+        const rowsHtml = [];
+        for (let i = renderedCount; i < nextEnd; i++) {
+          const item = currentFiltered[i];
+          const indentRem = Math.max(0, (item.lvl - 2) * 1.15);
+          const titleCell = item.u
+            ? `<a href="${escapeHtml(item.u)}" class="index-card-title">${escapeHtml(item.r)}</a>`
+            : `<span class="index-card-title">${escapeHtml(item.r)}</span>`;
+
+          const fromRef = item.fl
+            ? `<a href="${escapeHtml(item.fl)}">${escapeHtml(item.fa)}</a>`
+            : escapeHtml(item.fa);
+          const toRef = item.tl
+            ? `<a href="${escapeHtml(item.tl)}">${escapeHtml(item.ta)}</a>`
+            : escapeHtml(item.ta);
+          const paraRange =
+            item.fa && item.ta && item.fa !== item.ta ? `${fromRef} – ${toRef}` : fromRef;
+
+          const divRange =
+            item.fd && item.td && item.fd !== item.td
+              ? `${escapeHtml(item.fd)} – ${escapeHtml(item.td)}`
+              : escapeHtml(item.fd || '');
+
+          rowsHtml.push(`
+            <tr>
+              <td style="padding-left: calc(0.85rem + ${indentRem}rem)">
+                <div>${titleCell} <span class="badge-code">${escapeHtml(item.b)}</span></div>
+                <div class="quick-jump-sub" lang="pi">${escapeHtml(item.t)}</div>
+              </td>
+              <td><span class="badge-pill">L${item.lvl}</span></td>
+              <td style="white-space: nowrap">${paraRange}</td>
+              <td style="white-space: nowrap">${divRange || '—'}</td>
+            </tr>
+          `);
+        }
+        tbody.insertAdjacentHTML('beforeend', rowsHtml.join(''));
+        renderedCount = nextEnd;
+        sentinel.textContent =
+          renderedCount < currentFiltered.length
+            ? `Showing ${renderedCount.toLocaleString()} of ${currentFiltered.length.toLocaleString()} sections — scroll for more…`
+            : `Showing all ${currentFiltered.length.toLocaleString()} sections.`;
+      }
+
+      async function updateView() {
+        const bookCode = bookSelect.value;
+        const maxLvl = parseInt(levelSelect.value, 10) || 99;
+        const q = searchInput.value.trim();
+        const qNorm = stripDiacritics(q);
+
+        const params = new URLSearchParams();
+        if (bookCode && bookCode !== '1V') params.set('book', bookCode);
+        if (maxLvl !== 99) params.set('lvl', String(maxLvl));
+        if (q) params.set('q', q);
+        const newUrl = `${window.location.pathname}${params.toString() ? '?' + params.toString() : ''}`;
+        window.history.replaceState(null, '', newUrl);
+
+        const items = await getActiveItems(bookCode);
+        currentFiltered = items.filter((it) => {
+          if (it.lvl > maxLvl) return false;
+          if (!qNorm) return true;
+          return (
+            stripDiacritics(it.r).includes(qNorm) ||
+            (it.t && it.t.includes(q)) ||
+            stripDiacritics(it.fa).includes(qNorm) ||
+            stripDiacritics(it.ta).includes(qNorm) ||
+            stripDiacritics(it.sp).includes(qNorm)
+          );
+        });
+
+        tbody.innerHTML = '';
+        renderedCount = 0;
+
+        const bookMeta = books.find((b) => b.code === bookCode);
+        if (bookMeta) {
+          captionEl.textContent = `Table of Contents for ${bookMeta.name} (${bookMeta.code}) — ${bookMeta.thai}`;
+          bookLinksEl.innerHTML = `
+            <a href="${bookMeta.url}" class="badge-pill">Open ${bookMeta.code} Reader →</a>
+            <a href="/verses.html?book=${bookMeta.code}" class="badge-pill">Verses</a>
+            <a href="/notes.html?book=${bookMeta.code}" class="badge-pill">Notes</a>
+            <a href="/concordances.html?book=${bookMeta.code}" class="badge-pill">Concordance</a>
+          `;
+        } else {
+          captionEl.textContent = `Table of Contents across All 88 Books`;
+          bookLinksEl.innerHTML = '';
+        }
+
+        statusEl.textContent = `Found ${currentFiltered.length.toLocaleString()} section${currentFiltered.length === 1 ? '' : 's'}.`;
+        renderBatch();
+      }
+
+      // Initialize from URL query parameters
+      const initParams = new URLSearchParams(window.location.search);
+      if (initParams.get('book')) {
+        bookSelect.value = initParams.get('book');
+      } else if (initParams.get('q')) {
+        bookSelect.value = 'ALL';
+      }
+      if (initParams.get('lvl')) levelSelect.value = initParams.get('lvl');
+      if (initParams.get('q')) searchInput.value = initParams.get('q');
+
+      let debounceTimer = null;
+      bookSelect.addEventListener('change', updateView);
+      levelSelect.addEventListener('change', updateView);
+      searchInput.addEventListener('input', () => {
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(updateView, 180);
+      });
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          if (entries.some((e) => e.isIntersecting) && renderedCount < currentFiltered.length) {
+            renderBatch();
+          }
+        },
+        { rootMargin: '300px' }
+      );
+      observer.observe(sentinel);
+
+      updateView();
+    })();
+  </script>
+</Layout>
