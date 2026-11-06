@@ -1,4 +1,5 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig, fontProviders } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   site: 'https://tipitaka2500.github.io',
@@ -6,6 +7,24 @@ export default defineConfig({
   build: {
     format: 'file',
   },
+  fonts: [
+    {
+      provider: fontProviders.google(),
+      name: 'Noto Sans',
+      cssVariable: '--font-noto-sans',
+      weights: [400, 700],
+    },
+  ],
+  integrations: [
+    sitemap({
+      serialize(item) {
+        if (item.url !== 'https://tipitaka2500.github.io/' && !item.url.endsWith('.html')) {
+          item.url = `${item.url.replace(/\/$/, '')}.html`;
+        }
+        return item;
+      },
+    }),
+  ],
   vite: {
     plugins: [
       {

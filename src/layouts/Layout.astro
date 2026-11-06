@@ -1,4 +1,5 @@
 ---
+import { Font } from 'astro:assets';
 import Sidebar from '../components/Sidebar.astro';
 import '../styles/global.css';
 
@@ -121,6 +122,7 @@ const jsonLdString = JSON.stringify({
       } catch {}
     </script>
     <title>{title}</title>
+    <Font cssVariable="--font-noto-sans" preload />
     <meta name="description" content={description} />
     <meta name="keywords" content={keywords} />
     <meta name="author" content="Chris Tham (chris@christham.net)" />

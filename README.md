@@ -20,12 +20,23 @@ This work has been marked as dedicated to the public domain. See the [CC0 1.0 Un
 
 ---
 
+## Motivation & Purpose
+
+1. **Restoring a Lost Digital Heritage**:
+   The original World Tipiṭaka website (which initially published the Roman-script B.E. 2500 Great International Council edition online) ceased operating and no longer exists. This project was originally created to restore a permanent, free, fast, and accessible digital home for the World Tipiṭaka Edition so that this historic 40-volume council text would remain available to scholars, monastic communities, and students worldwide.
+2. **Making the 2020 Edition Fully Functional**:
+   When the updated 2020 Edition was released through the [Open Pāḷi](https://openpali.sajjhaya.org) database, the official site remained incomplete and not fully functional (its homepage is devoid of content and difficult to navigate). Re-scraping and reconstructing the database under a modern, clean static architecture brings the entire 2020 scholarly apparatus—including all 26,529 critical variant footnotes, 7,938 linked cross-references, and five reference indices—into a reliable, fast, and accessible interface.
+3. **An Authoritative Global Reference**:
+   Today, `tipitaka2500.github.io` frequently ranks #1 on Google Search as the primary online authority for the Roman-script World Tipiṭaka Edition. With researchers, Buddhist studies programs, and readers worldwide relying on this site as their canonical reference, it is vital to keep the text deterministically verified, up to date with modern web and accessibility standards, and rigorously maintained.
+
+---
+
 ## Architecture & How This Site Was Created
 
 ### First Generation (`v1`–`v2.8`)
 The initial version of `tipitaka2500.github.io` was based on converting an archival XML scrape of the 2005 website from [yuttadhammo/World-Tipitaka](https://github.com/yuttadhammo/World-Tipitaka) into static HTML files using Python scripts ([tidipa/convert-scripts](https://github.com/tidipa/convert-scripts)), reorganizing the files into a semantic folder hierarchy (`tipitaka/{BookCode}/...`), and embedding a Bootstrap sidebar with the Rosely color scheme.
 
-### Current Generation (`v3.0` — 2020 Edition with Astro)
+### Current Generation (`v3.1` — 2020 Edition with Astro 7)
 This update brings the website up to date with the **2020 Edition** through a fresh scrape of the [Open Pāḷi](https://openpali.sajjhaya.org) database and a clean separation between canonical HTML content and site presentation:
 
 1. **100% Deterministically Verified Canonical Text**:
@@ -109,3 +120,10 @@ npm run build
   * Added all 26,529 critical apparatus footnotes and 7,938 live cross-reference links
   * Added interactive Table of Contents (`20,116` sections), Index of Verses (`28,395` gāthās in Roman & Thai script), Critical Apparatus (`26,529` notes), Page Concordances (`164,784` entries), and Pāḷi Word Index (`146,693` headwords)
   * Added Global Quick Jump (`⌘K`), interactive footnote/paragraph popovers, Quick Guide (`/guide.html`), World Tipiṭaka Project history (`/project.html`), and About page (`/about.html`)
+* **v3.1**: Astro 7 Modernization, Font Standardization & PUA Unicode Normalization:
+  * Upgraded to Astro 7 with Rust compiler, Vite 8/Rolldown, and type checking (`@astrojs/check`)
+  * Implemented native Astro 7 font handling (`fontProviders.google()` for Noto Sans) with zero CLS Capsize fallbacks and automated self-hosting
+  * Normalized 281,540 legacy Thai PUA glyphs (`U+F700` and `U+F70F`) to standard Unicode `ฐ` and `ญ` across all data, canonical HTML files, and indices
+  * Added automated XML sitemaps (`@astrojs/sitemap`) and `robots.txt`
+  * Updated GitHub Pages deployment workflow (`withastro/action@v6`, `actions/checkout@v7`, `actions/deploy-pages@v5`)
+  * Documented project motivations, heritage restoration, and OpenPāḷi database provenance on the About page and README
