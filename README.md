@@ -26,7 +26,7 @@ This work has been marked as dedicated to the public domain. See the [CC0 1.0 Un
 The initial version of `tipitaka2500.github.io` was based on converting an archival XML scrape of the 2005 website from [yuttadhammo/World-Tipitaka](https://github.com/yuttadhammo/World-Tipitaka) into static HTML files using Python scripts ([tidipa/convert-scripts](https://github.com/tidipa/convert-scripts)), reorganizing the files into a semantic folder hierarchy (`tipitaka/{BookCode}/...`), and embedding a Bootstrap sidebar with the Rosely color scheme.
 
 ### Current Generation (`v3.0` — 2020 Edition with Astro)
-This repository (`openpali`) brings the website up to date with the **2020 Edition** through a fresh scrape of the OpenPāḷi database and a clean separation between canonical HTML content and site presentation:
+This update brings the website up to date with the **2020 Edition** through a fresh scrape of the [Open Pāḷi](https://openpali.sajjhaya.org) database and a clean separation between canonical HTML content and site presentation:
 
 1. **100% Deterministically Verified Canonical Text**:
    - All **20,189 section HTML files** (`tipitaka/**/*.html`) and **118,280 canonical paragraphs** have been deterministically compared (`compare_tipitaka.py`) against the previous repository to verify that the canonical Pāḷi text is identical (while also restoring 2 missing paragraphs in `7D/2.html` and `9M/1/5/4.html` that had been dropped by an unclosed comment in the legacy XML source).
