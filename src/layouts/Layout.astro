@@ -1324,6 +1324,17 @@ const jsonLdString = JSON.stringify({
 
           if (!dictPopover.hidden && dictPopover.contains(e.target)) return;
 
+          // Do not trigger dictionary popover over navigation links, buttons, or citations
+          if (e.target.closest('a, button, sup.footnote-ref, .paragraph-number, .reader-popover, .dict-hover-popover')) {
+            if (hoverTimer) clearTimeout(hoverTimer);
+            if (!dictPopover.hidden && !leaveTimer) {
+              leaveTimer = setTimeout(() => {
+                hideDictPopover();
+              }, 120);
+            }
+            return;
+          }
+
           if (hoverTimer) clearTimeout(hoverTimer);
           if (leaveTimer) {
             clearTimeout(leaveTimer);

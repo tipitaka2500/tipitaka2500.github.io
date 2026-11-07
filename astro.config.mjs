@@ -30,15 +30,23 @@ export default defineConfig({
       {
         name: 'rewrite-tipitaka-html-in-dev',
         configureServer(server) {
-          server.middlewares.use((req, _res, next) => {
-            if (req.url) {
-              const [pathname, search] = req.url.split('?');
-              if (pathname.endsWith('.html') && pathname !== '/index.html') {
-                req.url = pathname.slice(0, -5) + (search ? `?${search}` : '');
-              }
-            }
-            next();
-          });
+          // In Astro 7, devRouteGuard unshifts early to block root files.
+          // By returning a post-hook and unshifting to the front of the stack,
+          // we rewrite *.html to extensionless before devRouteGuard checks root disk files.
+          return () => {
+            server.middlewares.stack.unshift({
+              route: '',
+              handle(req, _res, next) {
+                if (req.url) {
+                  const [pathname, search] = req.url.split('?');
+                  if (pathname.endsWith('.html') && pathname !== '/index.html') {
+                    req.url = pathname.slice(0, -5) + (search ? `?${search}` : '');
+                  }
+                }
+                next();
+              },
+            });
+          };
         },
       },
     ],

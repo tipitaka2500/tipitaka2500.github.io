@@ -1422,6 +1422,14 @@ details[open] > .btn-toggle::before {
   color: #ffffff;
 }
 
+/* Ensure all [hidden] popovers and elements are strictly not displayed and don't intercept events */
+[hidden],
+.dict-hover-popover[hidden],
+.reader-popover[hidden] {
+  display: none !important;
+  pointer-events: none !important;
+}
+
 /* Dictionary Hover Popover */
 .dict-hover-popover {
   position: fixed;
