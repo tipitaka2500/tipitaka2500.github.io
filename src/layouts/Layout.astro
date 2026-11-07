@@ -1018,8 +1018,24 @@ const jsonLdString = JSON.stringify({
           return `<tr><td><b>${escapeHtml(pos)}</b></td>${catCols}<td>${escapeHtml(usage)}</td><td>${escapeHtml(symbol)}(${escapeHtml(headword)})</td></tr>`;
         }
 
+        let lookupHistory = [];
+
         function renderPopoverHtml(res, rawWord) {
-          const [hws, grammarList] = res.entry;
+          let hws = [];
+          let grammarList = [];
+          let deconstructions = [];
+
+          if (Array.isArray(res.entry)) {
+            if (res.entry.length > 0 && typeof res.entry[0] === 'string') {
+              // Pure deconstruction entry: ['part1 + part2', ...]
+              deconstructions = res.entry;
+            } else {
+              hws = res.entry[0] || [];
+              grammarList = res.entry[1] || [];
+              deconstructions = res.entry[2] || [];
+            }
+          }
+
           const wordIndexUrl = `/words.html?q=${encodeURIComponent(res.word)}`;
 
           let headwordsHtml = '';
@@ -1062,13 +1078,38 @@ const jsonLdString = JSON.stringify({
             `;
           }
 
+          let deconstructionHtml = '';
+          if (deconstructions && deconstructions.length > 0) {
+            const splitLines = deconstructions.map((splitStr) => {
+              const parts = splitStr.split(' + ').map((s) => s.trim()).filter(Boolean);
+              const pills = parts.map((p) => `<button type="button" class="dict-split-pill" data-lookup="${escapeHtml(p)}" title="Look up ${escapeHtml(p)}">${escapeHtml(p)}</button>`).join(' <span class="dict-split-plus">+</span> ');
+              return `<div class="dict-split-line">${pills}</div>`;
+            }).join('');
+
+            const isPureDecon = hws.length === 0 && grammarList.length === 0;
+            const summaryPlaceholder = isPureDecon ? '<div class="dict-parts-summary" id="dict-parts-summary"><em>Loading component meanings…</em></div>' : '';
+
+            deconstructionHtml = `
+              <div class="dict-decon-wrap">
+                <div class="dict-decon-title">🧩 Compound / Sandhi Deconstruction</div>
+                <div class="dict-splits">${splitLines}</div>
+                ${summaryPlaceholder}
+              </div>
+            `;
+          }
+
           const variantNote = res.variant
             ? `<span class="dict-match-note">(from <em>${escapeHtml(rawWord)}</em>)</span>`
+            : '';
+
+          const backBtn = lookupHistory.length > 0
+            ? `<button type="button" class="dict-back-btn" data-dict-back="true" title="Go back to ${escapeHtml(lookupHistory[lookupHistory.length - 1])}">← ${escapeHtml(lookupHistory[lookupHistory.length - 1])}</button>`
             : '';
 
           return `
             <div class="dict-popover-header">
               <div class="dict-popover-title">
+                ${backBtn}
                 <span class="dict-word">${escapeHtml(res.word)}</span>
                 ${variantNote}
               </div>
@@ -1078,10 +1119,61 @@ const jsonLdString = JSON.stringify({
               </div>
             </div>
             <div class="dict-popover-body">
+              ${deconstructionHtml}
               ${headwordsHtml}
               ${grammarTableHtml}
             </div>
           `;
+        }
+
+        async function populateConstituentSummary(res) {
+          let deconstructions = [];
+          if (Array.isArray(res.entry)) {
+            if (res.entry.length > 0 && typeof res.entry[0] === 'string') {
+              deconstructions = res.entry;
+            } else if (res.entry[2]) {
+              deconstructions = res.entry[2];
+            }
+          }
+          if (!deconstructions || deconstructions.length === 0) return;
+
+          const summaryEl = dictPopover.querySelector('#dict-parts-summary');
+          if (!summaryEl) return;
+
+          const primarySplit = deconstructions[0];
+          const parts = primarySplit.split(' + ').map((s) => s.trim()).filter(Boolean);
+          if (parts.length === 0) return;
+
+          try {
+            const results = await Promise.all(parts.slice(0, 4).map((p) => lookupPaliWord(p)));
+            // Check if popover still displays the same word
+            if (!dictPopover || dictPopover.hidden || !dictPopover.contains(summaryEl)) return;
+
+            const items = results.map((pr, idx) => {
+              const partName = parts[idx];
+              if (!pr) {
+                return `<div class="dict-part-item"><strong>${escapeHtml(partName)}</strong>: <span class="dict-construction">[unindexed]</span></div>`;
+              }
+              let pHws = [];
+              let pGram = [];
+              if (Array.isArray(pr.entry) && Array.isArray(pr.entry[0])) {
+                pHws = pr.entry[0] || [];
+                pGram = pr.entry[1] || [];
+              }
+              let def = '';
+              if (pHws && pHws.length > 0) {
+                def = pHws[0][3] || pHws[0][2] || '';
+              } else if (pGram && pGram.length > 0) {
+                def = `${escapeHtml(pGram[0][0])} (${escapeHtml(pGram[0][1])})`;
+              } else if (Array.isArray(pr.entry) && typeof pr.entry[0] === 'string') {
+                def = `🧩 ${escapeHtml(pr.entry[0])}`;
+              }
+              return `<div class="dict-part-item"><strong>${escapeHtml(partName)}</strong>: ${def || '<em>see entry</em>'}</div>`;
+            });
+            summaryEl.innerHTML = items.join('');
+          } catch {
+            summaryEl.innerHTML = '';
+          }
         }
 
         function positionPopover(rect) {
@@ -1105,6 +1197,7 @@ const jsonLdString = JSON.stringify({
         function hideDictPopover() {
           dictPopover.hidden = true;
           currentRawWord = '';
+          lookupHistory = [];
           if (typeof CSS !== 'undefined' && CSS.highlights) {
             CSS.highlights.delete('pali-hover-word');
           }
@@ -1185,9 +1278,41 @@ const jsonLdString = JSON.stringify({
           }, 250);
         });
 
-        dictPopover.addEventListener('click', (e) => {
+        dictPopover.addEventListener('click', async (e) => {
           if (e.target.closest('.dict-popover-close')) {
             hideDictPopover();
+            return;
+          }
+
+          const pill = e.target.closest('.dict-split-pill');
+          if (pill) {
+            e.preventDefault();
+            e.stopPropagation();
+            const targetWord = pill.getAttribute('data-lookup');
+            if (targetWord) {
+              lookupHistory.push(currentRawWord);
+              const subRes = await lookupPaliWord(targetWord);
+              if (subRes) {
+                currentRawWord = targetWord;
+                dictPopover.innerHTML = renderPopoverHtml(subRes, targetWord);
+                populateConstituentSummary(subRes);
+              }
+            }
+            return;
+          }
+
+          const backBtn = e.target.closest('[data-dict-back]');
+          if (backBtn && lookupHistory.length > 0) {
+            e.preventDefault();
+            e.stopPropagation();
+            const prevWord = lookupHistory.pop();
+            const subRes = await lookupPaliWord(prevWord);
+            if (subRes) {
+              currentRawWord = prevWord;
+              dictPopover.innerHTML = renderPopoverHtml(subRes, prevWord);
+              populateConstituentSummary(subRes);
+            }
+            return;
           }
         });
 
@@ -1225,10 +1350,12 @@ const jsonLdString = JSON.stringify({
               return;
             }
 
+            lookupHistory = [];
             currentRawWord = word;
             highlightWordRange(range);
 
             dictPopover.innerHTML = renderPopoverHtml(res, word);
+            populateConstituentSummary(res);
             positionPopover(range.getBoundingClientRect());
           }, 120);
         });
@@ -1253,10 +1380,12 @@ const jsonLdString = JSON.stringify({
           const res = await lookupPaliWord(word);
           if (!res) return;
 
+          lookupHistory = [];
           currentRawWord = word;
           highlightWordRange(range);
 
           dictPopover.innerHTML = renderPopoverHtml(res, word);
+          populateConstituentSummary(res);
           positionPopover(range.getBoundingClientRect());
         });
 

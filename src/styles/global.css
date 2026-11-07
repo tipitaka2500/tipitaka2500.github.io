@@ -1595,6 +1595,107 @@ table.grammar_dict td:last-child {
   font-family: var(--font-sans);
 }
 
+/* Deconstructor: Compound & Sandhi Breakdown */
+.dict-decon-wrap {
+  margin: 0.5rem 0;
+  padding: 0.5rem 0.65rem;
+  background-color: var(--bg-tertiary);
+  border: 1px dashed var(--border-color);
+  border-radius: 6px;
+}
+
+.dict-decon-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--text-secondary);
+  margin-bottom: 0.35rem;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.dict-splits {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.dict-split-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 0.35rem;
+  font-size: 0.88rem;
+}
+
+.dict-split-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.15rem 0.5rem;
+  font-size: 0.85rem;
+  font-family: inherit;
+  font-weight: 600;
+  color: var(--primary-color);
+  background-color: var(--badge-light-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.12s ease;
+}
+
+.dict-split-pill:hover {
+  background-color: var(--primary-color);
+  color: #ffffff;
+  border-color: var(--primary-color);
+}
+
+.dict-split-plus {
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-size: 0.82rem;
+}
+
+.dict-parts-summary {
+  margin-top: 0.5rem;
+  padding-top: 0.45rem;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.82rem;
+}
+
+.dict-part-item {
+  color: var(--text-body);
+  line-height: 1.4;
+}
+
+.dict-part-item strong {
+  color: var(--primary-color);
+}
+
+.dict-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  margin-right: 0.4rem;
+  font-size: 0.75rem;
+  padding: 0.1rem 0.35rem;
+  background-color: var(--badge-light-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 3px;
+  color: var(--text-emphasis);
+  cursor: pointer;
+}
+
+.dict-back-btn:hover {
+  background-color: var(--primary-color);
+  color: #ffffff;
+}
+
 /* Hovered Word Highlight using modern CSS Custom Highlight API */
 ::highlight(pali-hover-word) {
   background-color: rgba(181, 101, 167, 0.28);
