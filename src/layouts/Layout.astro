@@ -201,9 +201,9 @@ const jsonLdString = JSON.stringify({
         type="button"
         id="dict-hover-toggle-btn"
         class="dict-hover-toggle-btn active"
-        aria-label="Toggle Pali grammar dictionary lookup"
+        aria-label="Toggle Dictionary Lookup"
         aria-pressed="true"
-        title="Pali Grammar Dictionary Lookup: ON (Click to toggle)"
+        title="Dictionary Lookup: ON (Click to toggle)"
       >
         <span class="dict-toggle-icon" aria-hidden="true">📖</span>
         <span class="dict-toggle-label">Dict</span>
@@ -306,7 +306,7 @@ const jsonLdString = JSON.stringify({
     </dialog>
 
     <div id="reader-popover" class="reader-popover" role="region" aria-label="Reference details" hidden></div>
-    <div id="dict-hover-popover" class="dict-hover-popover" role="region" aria-label="Pali Dictionary Lookup" hidden></div>
+    <div id="dict-hover-popover" class="dict-hover-popover" role="region" aria-label="Dictionary Lookup" hidden></div>
 
     <script is:inline>
       (() => {
@@ -770,7 +770,7 @@ const jsonLdString = JSON.stringify({
           if (toggleBtn) {
             toggleBtn.classList.toggle('active', enabled);
             toggleBtn.setAttribute('aria-pressed', enabled ? 'true' : 'false');
-            toggleBtn.title = `Pali Grammar Dictionary Lookup: ${enabled ? 'ON' : 'OFF'} (Click to toggle)`;
+            toggleBtn.title = `Dictionary Lookup: ${enabled ? 'ON' : 'OFF'} (Click to toggle)`;
           }
           if (sidebarToggleBtn) {
             sidebarToggleBtn.classList.toggle('active', enabled);
