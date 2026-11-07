@@ -243,6 +243,10 @@ const EDITIONS_TABLE = [
               <strong>Search across all 5 indices:</strong> Type any Pāḷi word or phrase to search
               the Word Index, Verses, TOC, or Critical Notes with one click.
             </li>
+            <li>
+              <strong>Toggle Dictionary Lookup:</strong> Click the <strong>📖 Dictionary Lookup</strong>
+              button in the top header bar or sidebar drawer to enable or disable instant on-hover/tap word definitions, grammar symbols, and compound deconstructions.
+            </li>
           </ul>
         </div>
         <div>
@@ -404,15 +408,124 @@ const EDITIONS_TABLE = [
                 across all 88 books with clickable occurrence badges.
               </td>
             </tr>
+            <tr>
+              <td><strong>Pāḷi Word (Dictionary Lookup)</strong></td>
+              <td>
+                <code>bhagavā</code> → <span class="badge-code">🚹①⨀ bhagavant</span><br />
+                <code>evamme</code> → <span class="badge-code">evaṃ + me</span>
+              </td>
+              <td>
+                When <strong>Dictionary Lookup</strong> is active (toggled via <code>📖</code>), hover any word
+                on desktop (or tap on mobile) in the canonical text to display an instant popover with its
+                lemma, English meaning, textbook grammar notation symbols, and compound/sandhi deconstruction pills.
+                Click any constituent pill to look up that component word.
+              </td>
+            </tr>
           </tbody>
         </table>
       </div>
     </article>
 
-    <!-- Section 3: Editions & Abbreviations (Plates 4 & 5) -->
+    <!-- Section 3: Pāḷi Grammar Dictionary Lookup & Notation Guide -->
+    <article class="index-card" id="dict-lookup" style="padding: 1.5rem; margin-bottom: 1.25rem;">
+      <h2 style="margin-top: 0; color: var(--text-emphasis);">
+        3. Pāḷi Grammar Dictionary Lookup &amp; Notation Guide
+      </h2>
+      <p>
+        The reading view includes a fast, client-side <strong>Pāḷi Grammar Dictionary Lookup</strong> and
+        <strong>Compound/Sandhi Deconstructor</strong> derived from the <a href="https://digitalpalidictionary.github.io/" target="_blank" rel="noopener noreferrer">Digital Pāḷi Dictionary (DPD)</a>.
+        When enabled, readers can hover over any Pāḷi word on desktop (or tap on mobile/touch screens) to
+        open a popover showing:
+      </p>
+      <ul>
+        <li><strong>Headwords &amp; English Definitions:</strong> Primary meanings, grammatical constructions, and verbal roots (e.g. <code>√bhū + a</code>).</li>
+        <li><strong>Pāḷi Word Index Link:</strong> Click <em>Word Index ↗</em> in the popover header to jump directly to the occurrence list and Thai/IPA forms in the <a href="/words.html">Pāḷi Word Index</a>.</li>
+        <li><strong>Compound &amp; Sandhi Splits:</strong> Complex words are deconstructed into interactive clickable pills (e.g. <code>evamme</code> → <code>evaṃ</code> + <code>me</code>). Clicking any pill navigates to that component word, with a <code>← back</code> button to return.</li>
+        <li><strong>Grammatical Inflection Analysis:</strong> Detailed tables classifying part of speech, grammatical category, case usage, and symbolic notation.</li>
+      </ul>
+
+      <h3 style="margin-top: 1.25rem; font-size: 1.05rem; color: var(--text-emphasis);">
+        Textbook Grammar Notation Symbols
+      </h3>
+      <p style="font-size: 0.92rem;">
+        To convey grammatical inflections compactly without verbose abbreviations, the dictionary uses visual
+        notation symbols from the author’s Pāḷi textbook:
+      </p>
+
+      <div class="verse-grid" style="margin-bottom: 1rem;">
+        <div class="index-table-wrapper">
+          <table class="index-table" style="font-size: 0.88rem;">
+            <caption>Noun &amp; Pronoun Declensions (Liṅga, Vibhatti, Vacana)</caption>
+            <thead>
+              <tr>
+                <th scope="col">Symbol</th>
+                <th scope="col">Grammar Category</th>
+                <th scope="col">Syntactic Usage</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><code>🚹</code></td><td>Masculine (Pulliṅga)</td><td>Gender</td></tr>
+              <tr><td><code>🚺</code></td><td>Feminine (Itthīliṅga)</td><td>Gender</td></tr>
+              <tr><td><code>🚻</code></td><td>Neuter (Napuṁsakaliṅga)</td><td>Gender</td></tr>
+              <tr><td><code>⚧️</code></td><td>Any / Common Gender</td><td>Adjectives &amp; Pronouns</td></tr>
+              <tr><td><code>⨀</code></td><td>Singular (Ekavacana)</td><td>Number</td></tr>
+              <tr><td><code>⨂</code></td><td>Plural (Bahuvacana)</td><td>Number</td></tr>
+              <tr><td><code>①</code></td><td>Nominative (Paṭhamā)</td><td>Subject</td></tr>
+              <tr><td><code>②</code></td><td>Accusative (Dutiyā)</td><td>Object</td></tr>
+              <tr><td><code>③</code></td><td>Instrumental (Tatiyā)</td><td>by / with</td></tr>
+              <tr><td><code>④</code></td><td>Dative (Catutthī)</td><td>for / to</td></tr>
+              <tr><td><code>⑤</code></td><td>Ablative (Pañcamī)</td><td>from</td></tr>
+              <tr><td><code>⑥</code></td><td>Genitive (Chaṭṭhī)</td><td>of / 's</td></tr>
+              <tr><td><code>⑦</code></td><td>Locative (Sattamī)</td><td>in / at / on</td></tr>
+              <tr><td><code>⓪</code></td><td>Vocative (Ālapana)</td><td>Direct address</td></tr>
+              <tr><td><code>🆎</code></td><td>In Compounds (Samāsa)</td><td>Prefix / Stem form</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="index-table-wrapper">
+          <table class="index-table" style="font-size: 0.88rem;">
+            <caption>Verb Conjugations &amp; Moods (Ākhyāta, Purisa, Kāla)</caption>
+            <thead>
+              <tr>
+                <th scope="col">Symbol</th>
+                <th scope="col">Grammar Category</th>
+                <th scope="col">Tense / Mood / Voice</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><code>▶️</code></td><td>Present (Vattamānā)</td><td>Action happening now</td></tr>
+              <tr><td><code>⏭</code></td><td>Future (Bhavissantī)</td><td>Action to come</td></tr>
+              <tr><td><code>⏮</code></td><td>Aorist (Ajjatanī)</td><td>Past completed action</td></tr>
+              <tr><td><code>⏯</code></td><td>Optative (Sattamī)</td><td>Potential, wish, advice</td></tr>
+              <tr><td><code>⏹</code></td><td>Imperative (Pañcamī)</td><td>Command, blessing</td></tr>
+              <tr><td><code>🔀</code></td><td>Conditional (Kālātipatti)</td><td>Hypothetical condition</td></tr>
+              <tr><td><code>↩️</code></td><td>Imperfect (Hiyyattanī)</td><td>Past continuous</td></tr>
+              <tr><td><code>🔄</code></td><td>Perfect (Parokkhā)</td><td>Historical past</td></tr>
+              <tr><td><code>🟢</code></td><td>Active Voice (Parassapada)</td><td>Subject performs action</td></tr>
+              <tr><td><code>🔵</code></td><td>Reflexive Voice (Attanopada)</td><td>Subject affected by action</td></tr>
+              <tr><td><code>👆</code></td><td>1st Person (Uttamapurisa)</td><td>I, we (ahaṁ, mayaṁ)</td></tr>
+              <tr><td><code>🤘</code></td><td>2nd Person (Majjhimapurisa)</td><td>you (tvaṁ, tumhe)</td></tr>
+              <tr><td><code>🤟</code></td><td>3rd Person (Paṭhamapurisa)</td><td>he, she, it, they</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="tipitaka-content" style="padding: 1rem 1.25rem; border: 1px solid var(--border-color); border-radius: 0.5rem; background-color: var(--badge-light-bg); font-size: 0.92rem;">
+        <strong>Example Analysis:</strong>
+        <ul style="margin: 0.5rem 0 0; padding-left: 1.25rem;">
+          <li><code>bhagavā</code> → <code>🚹①⨀(bhagavant)</code>: Masculine nominative singular subject of stem <em>bhagavant</em> ("blessed one, Lord").</li>
+          <li><code>deseti</code> → <code>▶️🤟🟢(disa)</code>: Present tense, 3rd person singular, active voice of root <em>√dis</em> ("teaches, explains, expounds").</li>
+          <li><code>dhammameva</code> → <code>dhammaṃ + eva</code>: Split into <em>dhammaṃ</em> (<code>🚻②⨀</code>, object "Dhamma") + <em>eva</em> (particle "indeed, truly, only").</li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- Section 4: Editions & Abbreviations (Plates 4 & 5) -->
     <article class="index-card" style="padding: 1.5rem; margin-bottom: 1.25rem;">
       <h2 style="margin-top: 0; color: var(--text-emphasis);">
-        3. Reference to Pāḷi Tipiṭaka Editions in Various Scripts (Plates 4 &amp; 5)
+        4. Reference to Pāḷi Tipiṭaka Editions in Various Scripts (Plates 4 &amp; 5)
       </h2>
       <p>
         The table below explains the abbreviations used in both the{' '}
@@ -464,10 +577,10 @@ const EDITIONS_TABLE = [
       </div>
     </article>
 
-    <!-- Section 4: Guide to Pali Pronunciation & Phonetics (Plates 7 & 8) -->
+    <!-- Section 5: Guide to Pali Pronunciation & Phonetics (Plates 7 & 8) -->
     <article class="index-card" style="padding: 1.5rem; margin-bottom: 1.25rem;">
       <h2 style="margin-top: 0; color: var(--text-emphasis);">
-        4. Guide to Pāḷi Pronunciation: The 41 Pāḷi Sounds (Plates 7 &amp; 8)
+        5. Guide to Pāḷi Pronunciation: The 41 Pāḷi Sounds (Plates 7 &amp; 8)
       </h2>
       <p>
         According to the ancient <em>Kaccāyana Pāḷi Grammar</em> (<em>Akkharāpādayo ekacattālīsaṁ</em>),
@@ -636,10 +749,10 @@ const EDITIONS_TABLE = [
       </div>
     </article>
 
-    <!-- Section 5: Complete 40-Volume / 88-Book Reference Table (Plates 1 & 2) -->
+    <!-- Section 6: Complete 40-Volume / 88-Book Reference Table (Plates 1 & 2) -->
     <article class="index-card" style="padding: 1.5rem;">
       <h2 style="margin-top: 0; color: var(--text-emphasis);">
-        5. Complete Directory of the 40 Volumes &amp; 88 Books (Plates 1 &amp; 2)
+        6. Complete Directory of the 40 Volumes &amp; 88 Books (Plates 1 &amp; 2)
       </h2>
       <p>
         In every book code (such as <code>1V</code>, <code>12S1</code>, or <code>40P24</code>), the

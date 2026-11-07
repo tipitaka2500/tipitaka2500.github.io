@@ -96,8 +96,51 @@ import Layout from '../layouts/Layout.astro';
         <li style="margin-bottom: 0.5rem;">
           <strong>Critical Apparatus Footnotes &amp; Linked Cross-References:</strong> Every page now includes its canonical footnotes (<strong>26,529 critical apparatus notes</strong> collating Sīhaḷa, Syāmaraṭṭha, Kambuja, Maramma, and PTS editions) with inline preview popovers and <strong>7,938 live cross-reference links</strong> that jump directly to the cited book and paragraph.
         </li>
-        <li style="margin-bottom: 0;">
+        <li style="margin-bottom: 0.5rem;">
           <strong>Complete 2020 Reference Indices &amp; Concordances:</strong> The site now includes interactive, searchable editions of the five reference databases from the 2020 edition.
+        </li>
+        <li style="margin-bottom: 0;">
+          <strong>Pāḷi Grammar Dictionary Lookup &amp; Compound Deconstructor:</strong> Hover over (desktop) or tap (mobile) any Pāḷi word in the canonical text to view instant grammatical inflections rendered in the author's textbook notation symbols, English definitions from DPD, and compound/sandhi deconstruction into clickable component words.
+        </li>
+      </ul>
+    </article>
+
+    <article class="index-card" style="padding: 1.5rem; margin-bottom: 1.25rem;">
+      <h2 style="margin-top: 0; color: var(--text-emphasis);">
+        5. Pāḷi Grammar Dictionary &amp; Textbook Notation
+      </h2>
+      <p>
+        To make reading and studying the canonical Pāḷi text seamless for students, practitioners, and scholars
+        alike, version 3.1 integrates an on-demand <strong>Pāḷi Grammar Dictionary Lookup</strong> and
+        <strong>Compound/Sandhi Deconstructor</strong> directly into every reading page:
+      </p>
+      <ul>
+        <li style="margin-bottom: 0.5rem;">
+          <strong>Digital Pāḷi Dictionary (DPD) Integration:</strong> Word definitions, roots, and
+          morphological constructions are derived from the comprehensive <a href="https://digitalpalidictionary.github.io/" target="_blank" rel="noopener noreferrer">Digital Pāḷi Dictionary</a>.
+        </li>
+        <li style="margin-bottom: 0.5rem;">
+          <strong>Textbook Grammar Notation:</strong> Grammatical inflections are encoded using
+          intuitive visual symbols from the author’s Pāḷi textbook (e.g. <code>🚹①⨀</code> for masculine
+          nominative singular, <code>▶️🤟🟢</code> for present 3rd person active verb), providing
+          instant syntactic clarity at a glance without cryptic abbreviation clutter.
+        </li>
+        <li style="margin-bottom: 0.5rem;">
+          <strong>Compound &amp; Sandhi Deconstruction:</strong> Powered by the DPD deconstructor database,
+          complex sandhi and compound forms (such as <em>evamme</em> → <em>evaṃ + me</em>, <em>tasseva</em> → <em>tassa + eva</em>, <em>hotīti</em> → <em>hoti + iti</em>)
+          are automatically split into interactive constituent pills. Clicking any component word
+          immediately retrieves its individual grammatical analysis and definition.
+        </li>
+        <li style="margin-bottom: 0.5rem;">
+          <strong>Client-Side Zero-Latency Sharding:</strong> The entire dictionary database of over
+          <strong>1,178,000 Pāḷi word forms</strong> is split into 786 static JSON shards. The browser
+          downloads only the relevant shard on demand using binary search and caches it locally,
+          ensuring zero server latency, complete privacy, and full offline usability.
+        </li>
+        <li style="margin-bottom: 0;">
+          <strong>User Controlled:</strong> Dictionary lookup can be easily toggled ON or OFF at any
+          time using the <strong>📖 Dictionary Lookup</strong> button in the top header or mobile sidebar.
+          For a complete guide to all grammar notation symbols, see the <a href="/guide.html#dict-lookup"><strong>Quick Guide →</strong></a>.
         </li>
       </ul>
     </article>
