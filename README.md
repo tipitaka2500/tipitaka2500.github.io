@@ -54,6 +54,7 @@ This update brings the website up to date with the **2020 Edition** through a fr
    - **Critical Apparatus & Notes (`/notes.html`)**: Filter and search all **26,529** textual variant and cross-reference notes by book, note type, or witness edition.
    - **Page Concordances (`/concordances.html`)**: Cross-reference **164,784** paragraph-to-page mappings across 8 printed Tipiṭaka editions (`P1`, `P2`, `Ch1`, `Ch2`, `S`, `B`, `C`, `V`).
    - **Pāḷi Word Index (`/words.html`)**: Search and browse all **146,693** unique Pāḷi headwords across the 41 Pāḷi alphabet letters with Roman Pāḷi, diacritic-insensitive ASCII search, Thai script, IPA phonetic transcription, and book frequency distributions.
+   - **Pāḷi Grammar Dictionary on Hover (`📖 Dict`)**: Hovering over any Pāḷi word in the canon displays instant grammatical inflection analysis and definitions derived from the Digital Pāḷi Dictionary (DPD), rendered with the author's Pāḷi Textbook grammatical notation symbols (e.g. `🚹①⨂(āda)` for masc nom pl, `▶️🤟🟢(hoti)` for pr 3rd sg act). Features an on/off UI toggle in both the floating reader widget and sidebar, persistent `localStorage` preference, tap-to-lookup on touch devices, and client-side sandhi resolution powered by 557 balanced range shards with $O(1)$ binary search.
    - **Guide & History Pages**:
      - `/guide.html` — Quick Guide to citations, interactive features, collated editions, and Pāḷi pronunciation.
      - `/project.html` — History and innovations of the World Tipiṭaka Project (1893–2024).
@@ -127,3 +128,4 @@ npm run build
   * Added automated XML sitemaps (`@astrojs/sitemap`) and `robots.txt`
   * Updated GitHub Pages deployment workflow (`withastro/action@v6`, `actions/checkout@v7`, `actions/deploy-pages@v5`)
   * Documented project motivations, heritage restoration, and OpenPāḷi database provenance on the About page and README
+  * Integrated instant Pāḷi Grammar Dictionary lookup on hover with author's textbook notation symbols, UI on/off toggle, and balanced range-sharded architecture (557 shards across 445,577 entries)

@@ -231,6 +231,19 @@ const isIndexPage = INDEX_LINKS.some((item) => item.code === currentBook);
     <kbd class="quick-jump-kbd">⌘K</kbd>
   </button>
 
+  <div class="sidebar-dict-toggle-wrap">
+    <button
+      type="button"
+      id="dict-toggle-sidebar"
+      class="sidebar-dict-toggle-btn active"
+      aria-pressed="true"
+      title="Toggle Pali Grammar dictionary lookup on hover"
+    >
+      <span class="sidebar-dict-label">📖 Dict on Hover</span>
+      <span class="sidebar-dict-status" id="sidebar-dict-status">ON</span>
+    </button>
+  </div>
+
   <ul class="sidebar-list">
     <li class="sidebar-item">
       <details open={isIndexPage || !currentBook}>

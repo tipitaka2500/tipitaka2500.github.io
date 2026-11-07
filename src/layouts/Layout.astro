@@ -196,50 +196,64 @@ const jsonLdString = JSON.stringify({
       </symbol>
     </svg>
 
-    <div class="theme-toggle-widget">
-      <details class="theme-toggle-details" id="theme-details">
-        <summary class="theme-toggle-btn" aria-label="Toggle color scheme">
-          <svg width="16" height="16" aria-hidden="true">
-            <use href="#circle-half" id="active-theme-icon"></use>
-          </svg>
-          <span class="visually-hidden">Toggle theme</span>
-        </summary>
-        <ul class="theme-menu" aria-label="Color scheme options">
-          <li>
-            <button type="button" class="theme-option" data-scheme-value="light" aria-pressed="false">
-              <svg class="theme-icon" width="16" height="16" aria-hidden="true">
-                <use href="#sun-fill"></use>
-              </svg>
-              Light
-              <svg class="check-icon" width="16" height="16" aria-hidden="true">
-                <use href="#check2"></use>
-              </svg>
-            </button>
-          </li>
-          <li>
-            <button type="button" class="theme-option" data-scheme-value="dark" aria-pressed="false">
-              <svg class="theme-icon" width="16" height="16" aria-hidden="true">
-                <use href="#moon-stars-fill"></use>
-              </svg>
-              Dark
-              <svg class="check-icon" width="16" height="16" aria-hidden="true">
-                <use href="#check2"></use>
-              </svg>
-            </button>
-          </li>
-          <li>
-            <button type="button" class="theme-option" data-scheme-value="light dark" aria-pressed="true">
-              <svg class="theme-icon" width="16" height="16" aria-hidden="true">
-                <use href="#circle-half"></use>
-              </svg>
-              Auto
-              <svg class="check-icon" width="16" height="16" aria-hidden="true">
-                <use href="#check2"></use>
-              </svg>
-            </button>
-          </li>
-        </ul>
-      </details>
+    <div class="floating-tools-widget">
+      <button
+        type="button"
+        id="dict-hover-toggle-btn"
+        class="dict-hover-toggle-btn active"
+        aria-label="Toggle Pali grammar dictionary lookup on hover"
+        aria-pressed="true"
+        title="Pali Grammar Dictionary on Hover: ON (Click to toggle)"
+      >
+        <span class="dict-toggle-icon" aria-hidden="true">📖</span>
+        <span class="dict-toggle-label">Dict</span>
+      </button>
+
+      <div class="theme-toggle-widget">
+        <details class="theme-toggle-details" id="theme-details">
+          <summary class="theme-toggle-btn" aria-label="Toggle color scheme">
+            <svg width="16" height="16" aria-hidden="true">
+              <use href="#circle-half" id="active-theme-icon"></use>
+            </svg>
+            <span class="visually-hidden">Toggle theme</span>
+          </summary>
+          <ul class="theme-menu" aria-label="Color scheme options">
+            <li>
+              <button type="button" class="theme-option" data-scheme-value="light" aria-pressed="false">
+                <svg class="theme-icon" width="16" height="16" aria-hidden="true">
+                  <use href="#sun-fill"></use>
+                </svg>
+                Light
+                <svg class="check-icon" width="16" height="16" aria-hidden="true">
+                  <use href="#check2"></use>
+                </svg>
+              </button>
+            </li>
+            <li>
+              <button type="button" class="theme-option" data-scheme-value="dark" aria-pressed="false">
+                <svg class="theme-icon" width="16" height="16" aria-hidden="true">
+                  <use href="#moon-stars-fill"></use>
+                </svg>
+                Dark
+                <svg class="check-icon" width="16" height="16" aria-hidden="true">
+                  <use href="#check2"></use>
+                </svg>
+              </button>
+            </li>
+            <li>
+              <button type="button" class="theme-option" data-scheme-value="light dark" aria-pressed="true">
+                <svg class="theme-icon" width="16" height="16" aria-hidden="true">
+                  <use href="#circle-half"></use>
+                </svg>
+                Auto
+                <svg class="check-icon" width="16" height="16" aria-hidden="true">
+                  <use href="#check2"></use>
+                </svg>
+              </button>
+            </li>
+          </ul>
+        </details>
+      </div>
     </div>
 
     <div class="app-shell">
@@ -292,6 +306,7 @@ const jsonLdString = JSON.stringify({
     </dialog>
 
     <div id="reader-popover" class="reader-popover" role="region" aria-label="Reference details" hidden></div>
+    <div id="dict-hover-popover" class="dict-hover-popover" role="region" aria-label="Pali Dictionary Lookup" hidden></div>
 
     <script is:inline>
       (() => {
@@ -733,6 +748,532 @@ const jsonLdString = JSON.stringify({
         document.addEventListener('keydown', (e) => {
           if (e.key === 'Escape' && !popover.hidden) {
             hidePopover();
+          }
+        });
+      })();
+
+      (() => {
+        // --- Pali Grammar Dictionary Hover Lookup System ---
+        const toggleBtn = document.getElementById('dict-hover-toggle-btn');
+        const sidebarToggleBtn = document.getElementById('dict-toggle-sidebar');
+        const sidebarStatus = document.getElementById('sidebar-dict-status');
+        const dictPopover = document.getElementById('dict-hover-popover');
+        const contentRoot = document.querySelector('.tipitaka-content');
+
+        let dictEnabled = true;
+        try {
+          const saved = localStorage.getItem('tipitaka_dict_hover');
+          if (saved !== null) dictEnabled = saved === 'true';
+        } catch {}
+
+        function updateToggleUI(enabled) {
+          if (toggleBtn) {
+            toggleBtn.classList.toggle('active', enabled);
+            toggleBtn.setAttribute('aria-pressed', enabled ? 'true' : 'false');
+            toggleBtn.title = `Pali Grammar Dictionary on Hover: ${enabled ? 'ON' : 'OFF'} (Click to toggle)`;
+          }
+          if (sidebarToggleBtn) {
+            sidebarToggleBtn.classList.toggle('active', enabled);
+            sidebarToggleBtn.setAttribute('aria-pressed', enabled ? 'true' : 'false');
+          }
+          if (sidebarStatus) {
+            sidebarStatus.textContent = enabled ? 'ON' : 'OFF';
+          }
+        }
+
+        function setDictEnabled(enabled) {
+          dictEnabled = enabled;
+          try {
+            localStorage.setItem('tipitaka_dict_hover', String(enabled));
+          } catch {}
+          updateToggleUI(enabled);
+          if (!enabled && dictPopover) {
+            hideDictPopover();
+          }
+        }
+
+        if (toggleBtn) {
+          toggleBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            setDictEnabled(!dictEnabled);
+          });
+        }
+        if (sidebarToggleBtn) {
+          sidebarToggleBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            setDictEnabled(!dictEnabled);
+          });
+        }
+
+        updateToggleUI(dictEnabled);
+
+        // If not on a /tipitaka/ content page, nothing further needed
+        if (!contentRoot || !dictPopover) return;
+
+        // Notation symbols from user's Pali Grammar Textbook
+        const TO_SYMBOL = {
+          nom: '①',
+          acc: '②',
+          instr: '③',
+          dat: '④',
+          abl: '⑤',
+          gen: '⑥',
+          loc: '⑦',
+          voc: '⓪',
+          masc: '🚹',
+          fem: '🚺',
+          nt: '🚻',
+          x: '⚧️',
+          sg: '⨀',
+          pl: '⨂',
+          dual: '⨁',
+          act: '🟢',
+          reflx: '🔵',
+          pr: '▶️',
+          fut: '⏭',
+          aor: '⏮',
+          opt: '⏯',
+          imp: '⏹',
+          cond: '🔀',
+          imperf: '↩️',
+          perf: '🔄',
+          '1st': '👆',
+          '2nd': '🤘',
+          '3rd': '🤟',
+        };
+
+        const TO_MEANING = {
+          nom: 'subject',
+          acc: 'object',
+          instr: 'by/with',
+          dat: 'for',
+          abl: 'from',
+          gen: 'of',
+          loc: 'in/at/on',
+          voc: 'vocative',
+        };
+
+        function getSymbols(grammar) {
+          if (grammar === 'in comps') return '🆎';
+          return grammar
+            .split(' ')
+            .map((s) => TO_SYMBOL[s] || s)
+            .join('');
+        }
+
+        function getCaseUsage(grammar) {
+          return grammar
+            .split(' ')
+            .map((p) => TO_MEANING[p] || '')
+            .join('');
+        }
+
+        function escapeHtml(str) {
+          if (!str) return '';
+          return String(str)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;');
+        }
+
+        // Sharded dictionary cache and manifest
+        let manifest = null;
+        let manifestPromise = null;
+        const shardCache = new Map();
+
+        async function loadManifest() {
+          if (manifest) return manifest;
+          if (!manifestPromise) {
+            manifestPromise = fetch('/data/dpd/manifest.json')
+              .then((res) => {
+                if (!res.ok) throw new Error('Failed to load dictionary manifest');
+                return res.json();
+              })
+              .then((data) => {
+                manifest = data;
+                return data;
+              })
+              .catch((err) => {
+                manifestPromise = null;
+                console.warn('Could not load Pali grammar dictionary manifest', err);
+                return null;
+              });
+          }
+          return manifestPromise;
+        }
+
+        function findShardFile(word, m) {
+          const boundaries = m.boundaries;
+          let low = 0;
+          let high = boundaries.length - 1;
+          let ans = 0;
+          while (low <= high) {
+            const mid = (low + high) >> 1;
+            if (boundaries[mid] <= word) {
+              ans = mid;
+              low = mid + 1;
+            } else {
+              high = mid - 1;
+            }
+          }
+          return m.files[ans];
+        }
+
+        async function loadShard(fileId) {
+          if (shardCache.has(fileId)) return shardCache.get(fileId);
+          try {
+            const res = await fetch(`/data/dpd/${fileId}.json`);
+            if (!res.ok) return null;
+            const data = await res.json();
+            shardCache.set(fileId, data);
+            return data;
+          } catch {
+            return null;
+          }
+        }
+
+        function normalizePali(raw) {
+          return raw
+            .toLowerCase()
+            .replace(/[.,;:\"“”!?'’()—\[\]{}]/g, '')
+            .replace(/ṁ/g, 'ṃ')
+            .replace(/ŋ/g, 'ṃ')
+            .trim();
+        }
+
+        function getSandhiCandidates(k) {
+          const c = [];
+          if (k.endsWith('ī')) c.push(k.slice(0, -1) + 'i');
+          if (k.endsWith('ū')) c.push(k.slice(0, -1) + 'u');
+          if (k.endsWith('ā')) c.push(k.slice(0, -1) + 'a');
+          if (k.endsWith('si')) c.push(k.slice(0, -2));
+          if (k.endsWith('mhi')) c.push(k.slice(0, -3));
+          if (k.endsWith('nti')) c.push(k.slice(0, -3) + 'ṃ');
+          if (k.endsWith('ti')) {
+            const s = k.slice(0, -2);
+            c.push(s);
+            if (s.endsWith('ī')) c.push(s.slice(0, -1) + 'i');
+            if (s.endsWith('ū')) c.push(s.slice(0, -1) + 'u');
+            if (s.endsWith('ā')) c.push(s.slice(0, -1) + 'a');
+          }
+          if (k.endsWith('pi')) {
+            const s = k.slice(0, -2);
+            c.push(s, s + 'ṃ');
+            if (s.endsWith('m')) c.push(s.slice(0, -1) + 'ṃ');
+          }
+          if (k.endsWith('ñca')) c.push(k.slice(0, -3) + 'ṃ');
+          if (k.endsWith('ca')) c.push(k.slice(0, -2), k.slice(0, -2) + 'ṃ');
+          if (k.endsWith('ñceva')) c.push(k.slice(0, -5) + 'ṃ');
+          if (k.endsWith('eva')) c.push(k.slice(0, -3), k.slice(0, -3) + 'ṃ');
+          if (k.endsWith('va')) c.push(k.slice(0, -2));
+          if (k.endsWith('n') || k.endsWith('m')) c.push(k.slice(0, -1) + 'ṃ');
+          return c;
+        }
+
+        async function lookupPaliWord(raw) {
+          const norm = normalizePali(raw);
+          if (!norm) return null;
+          const m = await loadManifest();
+          if (!m) return null;
+
+          // 1. Direct match
+          const fId = findShardFile(norm, m);
+          let shard = await loadShard(fId);
+          if (shard && shard[norm]) {
+            return { word: norm, entry: shard[norm], variant: null };
+          }
+
+          // 2. Sandhi / enclitic candidates
+          for (const cand of getSandhiCandidates(norm)) {
+            const cfId = findShardFile(cand, m);
+            shard = await loadShard(cfId);
+            if (shard && shard[cand]) {
+              return { word: cand, entry: shard[cand], variant: raw };
+            }
+          }
+          return null;
+        }
+
+        function renderGrammarRow(pos, grammarStr, headword) {
+          const symbol = getSymbols(grammarStr);
+          const usage = getCaseUsage(grammarStr);
+
+          let cats = [];
+          if (grammarStr.startsWith('reflx')) {
+            const sp = grammarStr.split(' ');
+            cats.push(sp[0] + ' ' + (sp[1] || ''));
+            cats.push(...sp.slice(2));
+          } else if (grammarStr.startsWith('in comps')) {
+            return `<tr><td><b>${escapeHtml(pos)}</b></td><td colspan="3">${escapeHtml(grammarStr)}</td><td></td><td>🆎(${escapeHtml(headword)})</td></tr>`;
+          } else {
+            cats = grammarStr.split(' ');
+            while (cats.length < 3) cats.push('');
+          }
+
+          const catCols = cats
+            .slice(0, 3)
+            .map((c) => `<td>${escapeHtml(c)}</td>`)
+            .join('');
+          return `<tr><td><b>${escapeHtml(pos)}</b></td>${catCols}<td>${escapeHtml(usage)}</td><td>${escapeHtml(symbol)}(${escapeHtml(headword)})</td></tr>`;
+        }
+
+        function renderPopoverHtml(res, rawWord) {
+          const [hws, grammarList] = res.entry;
+          const wordIndexUrl = `/words.html?q=${encodeURIComponent(res.word)}`;
+
+          let headwordsHtml = '';
+          if (hws && hws.length > 0) {
+            headwordsHtml = `<ol class="dict-headwords">${hws
+              .map((h) => {
+                const l1 = h[0] ? `<i>${escapeHtml(h[0])}</i>` : '';
+                const l2 = h[1] ? ` (<i>${escapeHtml(h[1])}</i>)` : '';
+                const constr = h[2]
+                  ? ` <span class="dict-construction">[${escapeHtml(h[2])}]</span>`
+                  : '';
+                const meaning = h[3]
+                  ? `: <span class="dict-meaning">${h[3]}</span>`
+                  : '';
+                return `<li>${l1}${l2}${constr}${meaning}</li>`;
+              })
+              .join('')}</ol>`;
+          }
+
+          let grammarTableHtml = '';
+          if (grammarList && grammarList.length > 0) {
+            grammarTableHtml = `
+              <div class="dict-grammar-wrap">
+                <table class="dict-grammar-table">
+                  <thead>
+                    <tr>
+                      <th id="col1">pos ⇅</th>
+                      <th id="col2">⇅</th>
+                      <th id="col3">⇅</th>
+                      <th id="col4">⇅</th>
+                      <th id="col5">usage ⇅</th>
+                      <th id="col6">word ⇅</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    ${grammarList.map((g) => renderGrammarRow(g[0], g[1], g[2])).join('')}
+                  </tbody>
+                </table>
+              </div>
+            `;
+          }
+
+          const variantNote = res.variant
+            ? `<span class="dict-match-note">(from <em>${escapeHtml(rawWord)}</em>)</span>`
+            : '';
+
+          return `
+            <div class="dict-popover-header">
+              <div class="dict-popover-title">
+                <span class="dict-word">${escapeHtml(res.word)}</span>
+                ${variantNote}
+              </div>
+              <div class="dict-popover-tools">
+                <a href="${wordIndexUrl}" target="_blank" rel="noopener noreferrer" class="dict-popover-link" title="Open in Word Index">Word Index ↗</a>
+                <button type="button" class="dict-popover-close" aria-label="Close">✕</button>
+              </div>
+            </div>
+            <div class="dict-popover-body">
+              ${headwordsHtml}
+              ${grammarTableHtml}
+            </div>
+          `;
+        }
+
+        function positionPopover(rect) {
+          dictPopover.hidden = false;
+          const popRect = dictPopover.getBoundingClientRect();
+          let top = rect.bottom + 6;
+          let left = rect.left;
+
+          // Keep within window boundaries
+          if (left + popRect.width > window.innerWidth - 16) {
+            left = Math.max(16, window.innerWidth - popRect.width - 16);
+          }
+          if (top + popRect.height > window.innerHeight - 16) {
+            top = Math.max(16, rect.top - popRect.height - 6);
+          }
+
+          dictPopover.style.top = `${top}px`;
+          dictPopover.style.left = `${left}px`;
+        }
+
+        function hideDictPopover() {
+          dictPopover.hidden = true;
+          currentRawWord = '';
+          if (typeof CSS !== 'undefined' && CSS.highlights) {
+            CSS.highlights.delete('pali-hover-word');
+          }
+        }
+
+        function highlightWordRange(range) {
+          if (typeof CSS !== 'undefined' && CSS.highlights && window.Highlight) {
+            try {
+              CSS.highlights.set('pali-hover-word', new Highlight(range));
+            } catch {}
+          }
+        }
+
+        function getWordAtPoint(x, y) {
+          let range = null;
+          if (document.caretPositionFromPoint) {
+            const pos = document.caretPositionFromPoint(x, y);
+            if (pos && pos.offsetNode) {
+              range = document.createRange();
+              range.setStart(pos.offsetNode, pos.offset);
+              range.collapse(true);
+            }
+          } else if (typeof document['caretRangeFromPoint'] === 'function') {
+            range = document['caretRangeFromPoint'](x, y);
+          }
+          if (
+            !range ||
+            !range.startContainer ||
+            range.startContainer.nodeType !== Node.TEXT_NODE
+          ) {
+            return null;
+          }
+          const textNode = range.startContainer;
+          const text = textNode.nodeValue;
+          const offset = range.startOffset;
+          if (!text || offset < 0 || offset > text.length) return null;
+
+          const isPaliChar = (ch) => /[a-zA-ZāīūñṅṇṭḍḷṃṁĀĪŪÑṄṆṬḌḶṂṀ]/.test(ch);
+
+          let start = offset;
+          let end = offset;
+          if (start >= text.length || !isPaliChar(text[start])) {
+            if (start > 0 && isPaliChar(text[start - 1])) {
+              start--;
+              end = start;
+            } else {
+              return null;
+            }
+          }
+
+          while (start > 0 && isPaliChar(text[start - 1])) start--;
+          while (end < text.length && isPaliChar(text[end])) end++;
+
+          const rawWord = text.slice(start, end).trim();
+          if (!rawWord || rawWord.length < 2) return null;
+
+          const wordRange = document.createRange();
+          wordRange.setStart(textNode, start);
+          wordRange.setEnd(textNode, end);
+
+          return { word: rawWord, range: wordRange };
+        }
+
+        let hoverTimer = null;
+        let leaveTimer = null;
+        let currentRawWord = '';
+
+        dictPopover.addEventListener('mouseenter', () => {
+          if (leaveTimer) {
+            clearTimeout(leaveTimer);
+            leaveTimer = null;
+          }
+        });
+
+        dictPopover.addEventListener('mouseleave', () => {
+          leaveTimer = setTimeout(() => {
+            hideDictPopover();
+          }, 250);
+        });
+
+        dictPopover.addEventListener('click', (e) => {
+          if (e.target.closest('.dict-popover-close')) {
+            hideDictPopover();
+          }
+        });
+
+        const tipitakaMain = contentRoot.querySelector('main');
+        if (!tipitakaMain) return;
+
+        tipitakaMain.addEventListener('mousemove', (e) => {
+          if (!dictEnabled) return;
+
+          if (!dictPopover.hidden && dictPopover.contains(e.target)) return;
+
+          if (hoverTimer) clearTimeout(hoverTimer);
+          if (leaveTimer) {
+            clearTimeout(leaveTimer);
+            leaveTimer = null;
+          }
+
+          hoverTimer = setTimeout(async () => {
+            const match = getWordAtPoint(e.clientX, e.clientY);
+            if (!match) {
+              leaveTimer = setTimeout(() => {
+                hideDictPopover();
+              }, 250);
+              return;
+            }
+
+            const { word, range } = match;
+            if (word === currentRawWord && !dictPopover.hidden) return;
+
+            const res = await lookupPaliWord(word);
+            if (!res) {
+              leaveTimer = setTimeout(() => {
+                hideDictPopover();
+              }, 200);
+              return;
+            }
+
+            currentRawWord = word;
+            highlightWordRange(range);
+
+            dictPopover.innerHTML = renderPopoverHtml(res, word);
+            positionPopover(range.getBoundingClientRect());
+          }, 120);
+        });
+
+        tipitakaMain.addEventListener('mouseleave', () => {
+          if (hoverTimer) clearTimeout(hoverTimer);
+          leaveTimer = setTimeout(() => {
+            hideDictPopover();
+          }, 250);
+        });
+
+        // Tap-to-lookup on mobile / touch devices
+        tipitakaMain.addEventListener('click', async (e) => {
+          if (!dictEnabled) return;
+          if (e.target.closest('a, button, sup.footnote-ref, .paragraph-number'))
+            return;
+
+          const match = getWordAtPoint(e.clientX, e.clientY);
+          if (!match) return;
+
+          const { word, range } = match;
+          const res = await lookupPaliWord(word);
+          if (!res) return;
+
+          currentRawWord = word;
+          highlightWordRange(range);
+
+          dictPopover.innerHTML = renderPopoverHtml(res, word);
+          positionPopover(range.getBoundingClientRect());
+        });
+
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && !dictPopover.hidden) {
+            hideDictPopover();
+          }
+        });
+
+        document.addEventListener('click', (e) => {
+          if (
+            !dictPopover.hidden &&
+            !dictPopover.contains(e.target) &&
+            !e.target.closest('.dict-hover-toggle-btn') &&
+            !e.target.closest('.sidebar-dict-toggle-btn')
+          ) {
+            hideDictPopover();
           }
         });
       })();
