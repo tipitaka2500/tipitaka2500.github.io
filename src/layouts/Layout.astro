@@ -201,9 +201,9 @@ const jsonLdString = JSON.stringify({
         type="button"
         id="dict-hover-toggle-btn"
         class="dict-hover-toggle-btn active"
-        aria-label="Toggle Pali grammar dictionary lookup on hover"
+        aria-label="Toggle Pali grammar dictionary lookup"
         aria-pressed="true"
-        title="Pali Grammar Dictionary on Hover: ON (Click to toggle)"
+        title="Pali Grammar Dictionary Lookup: ON (Click to toggle)"
       >
         <span class="dict-toggle-icon" aria-hidden="true">📖</span>
         <span class="dict-toggle-label">Dict</span>
@@ -770,7 +770,7 @@ const jsonLdString = JSON.stringify({
           if (toggleBtn) {
             toggleBtn.classList.toggle('active', enabled);
             toggleBtn.setAttribute('aria-pressed', enabled ? 'true' : 'false');
-            toggleBtn.title = `Pali Grammar Dictionary on Hover: ${enabled ? 'ON' : 'OFF'} (Click to toggle)`;
+            toggleBtn.title = `Pali Grammar Dictionary Lookup: ${enabled ? 'ON' : 'OFF'} (Click to toggle)`;
           }
           if (sidebarToggleBtn) {
             sidebarToggleBtn.classList.toggle('active', enabled);
