@@ -1264,6 +1264,8 @@ const jsonLdString = JSON.stringify({
         let hoverTimer = null;
         let leaveTimer = null;
         let currentRawWord = '';
+        let dismissedWord = '';
+        let dismissedUntil = 0;
 
         dictPopover.addEventListener('mouseenter', () => {
           if (leaveTimer) {
@@ -1279,7 +1281,12 @@ const jsonLdString = JSON.stringify({
         });
 
         dictPopover.addEventListener('click', async (e) => {
-          if (e.target.closest('.dict-popover-close')) {
+          const closeBtn = e.target.closest('.dict-popover-close');
+          if (closeBtn) {
+            e.preventDefault();
+            e.stopPropagation();
+            dismissedWord = currentRawWord;
+            dismissedUntil = Date.now() + 1000;
             hideDictPopover();
             return;
           }
@@ -1321,6 +1328,7 @@ const jsonLdString = JSON.stringify({
 
         tipitakaMain.addEventListener('mousemove', (e) => {
           if (!dictEnabled) return;
+          if (Date.now() < dismissedUntil) return;
 
           if (!dictPopover.hidden && dictPopover.contains(e.target)) return;
 
@@ -1342,6 +1350,7 @@ const jsonLdString = JSON.stringify({
           }
 
           hoverTimer = setTimeout(async () => {
+            if (Date.now() < dismissedUntil) return;
             const match = getWordAtPoint(e.clientX, e.clientY);
             if (!match) {
               leaveTimer = setTimeout(() => {
@@ -1351,6 +1360,9 @@ const jsonLdString = JSON.stringify({
             }
 
             const { word, range } = match;
+            if (word === dismissedWord) return;
+            dismissedWord = '';
+
             if (word === currentRawWord && !dictPopover.hidden) return;
 
             const res = await lookupPaliWord(word);
@@ -1381,6 +1393,7 @@ const jsonLdString = JSON.stringify({
         // Tap-to-lookup on mobile / touch devices
         tipitakaMain.addEventListener('click', async (e) => {
           if (!dictEnabled) return;
+          if (Date.now() < dismissedUntil) return;
           if (e.target.closest('a, button, sup.footnote-ref, .paragraph-number'))
             return;
 
@@ -1388,6 +1401,11 @@ const jsonLdString = JSON.stringify({
           if (!match) return;
 
           const { word, range } = match;
+          if (word === dismissedWord) {
+            dismissedWord = '';
+            return;
+          }
+
           const res = await lookupPaliWord(word);
           if (!res) return;
 
@@ -1402,6 +1420,8 @@ const jsonLdString = JSON.stringify({
 
         document.addEventListener('keydown', (e) => {
           if (e.key === 'Escape' && !dictPopover.hidden) {
+            dismissedWord = currentRawWord;
+            dismissedUntil = Date.now() + 1000;
             hideDictPopover();
           }
         });
@@ -1413,6 +1433,8 @@ const jsonLdString = JSON.stringify({
             !e.target.closest('.dict-hover-toggle-btn') &&
             !e.target.closest('.sidebar-dict-toggle-btn')
           ) {
+            dismissedWord = currentRawWord;
+            dismissedUntil = Date.now() + 400;
             hideDictPopover();
           }
         });
