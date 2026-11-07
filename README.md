@@ -27,7 +27,7 @@ This work has been marked as dedicated to the public domain. See the [CC0 1.0 Un
 2. **Making the 2020 Edition Fully Functional**:
    When the updated 2020 Edition was released through the [Open Pāḷi](https://openpali.sajjhaya.org) database, the official site remained incomplete and not fully functional (its homepage is devoid of content and difficult to navigate). Re-scraping and reconstructing the database under a modern, clean static architecture brings the entire 2020 scholarly apparatus—including all 26,529 critical variant footnotes, 7,938 linked cross-references, and five reference indices—into a reliable, fast, and accessible interface.
 3. **An Authoritative Global Reference**:
-   Today, `tipitaka2500.github.io` frequently ranks #1 on Google Search as the primary online authority for the Roman-script World Tipiṭaka Edition. With researchers, Buddhist studies programs, and readers worldwide relying on this site as their canonical reference, it is vital to keep the text deterministically verified, up to date with modern web and accessibility standards, and rigorously maintained.
+   Today, `tipitaka2500.github.io` frequently ranks #1 on Google Search as the primary online authority for the Roman-script World Tipiṭaka Edition. It is vital to keep the text deterministically verified, up to date with modern web and accessibility standards, and rigorously maintained.
 
 ---
 

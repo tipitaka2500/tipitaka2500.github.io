@@ -4,7 +4,7 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout
   title="About & Edition History — tipitaka2500.github.io"
-  description="History of tipitaka2500.github.io: from the initial yuttadhammo scrape conversion to the verified 2020 OpenPāḷi edition built with Astro, featuring critical apparatus footnotes, cross-references, indices, and page concordances."
+  description="History of tipitaka2500.github.io: from an early static HTML conversion to the verified 2020 OpenPāḷi edition built with Astro, featuring critical apparatus footnotes, cross-references, indices, and page concordances."
   currentBook="about"
   lang="en"
 >
@@ -44,23 +44,18 @@ import Layout from '../layouts/Layout.astro';
         ceased operating and went offline, this monumental 40-volume Roman-script edition of the
         Great International Buddhist Council was in danger of disappearing from the open web. This
         site was originally founded to restore a permanent, free, fast, and accessible digital home for
-        the World Tipiṭaka so that this historic resource would remain preserved and accessible to monks,
-        scholars, translators, and students across the world.
+        the World Tipiṭaka so that this historic resource would remain preserved and accessible to everyone.
       </p>
       <p>
-        <strong>Making the 2020 Edition Fully Functional:</strong> The Dhamma Society subsequently updated
-        the text to the 2020 Edition through the <a href="https://openpali.sajjhaya.org" target="_blank" rel="noopener noreferrer">Open Pāḷi</a>
-        project. However, the OpenPāḷi web portal remains incomplete and not fully functional—its homepage
-        is devoid of content, and navigation across its databases is difficult. By conducting a fresh,
-        complete scrape of the underlying OpenPāḷi data and pairing it with a clean static architecture in Astro,
+        <strong>Making the 2020 Edition Fully Functional:</strong> The <a href="https://openpali.sajjhaya.org" target="_blank" rel="noopener noreferrer">Open Pāḷi</a> website contains the latest digital version of the World Tipiṭaka Edition
+        but remains incomplete and not fully functional — its homepage
+        is devoid of content, the signup process does not work, and there is no visible navigation links into its content. By conducting a fresh,
+        complete scrape of the underlying data and pairing it with a clean static architecture in Astro,
         this site brings the 2020 edition fully to life with all 20,189 sections, 26,529 critical apparatus
         footnotes, 7,938 linked cross-references, and all five research indices in a reliable, fast interface.
       </p>
       <p style="margin-bottom: 0;">
-        <strong>An Authoritative Global Reference:</strong> Over the years, <strong>tipitaka2500.github.io</strong>
-        has become widely recognized as an authoritative resource and frequently ranks <strong>#1 on Google Search</strong>
-        for the World Tipiṭaka Edition. Because researchers, academic institutions, and practitioners worldwide
-        rely on this website daily, maintaining rigorous textual accuracy, deterministic verification, modern
+        <strong>An Authoritative Global Reference:</strong> Google Search often ranks <strong>tipitaka2500.github.io</strong> #1 for searches for the World Tipiṭaka Edition and therefore maintaining rigorous textual accuracy, deterministic verification, modern
         accessibility, and fast performance is a vital ongoing responsibility.
       </p>
     </article>
@@ -71,7 +66,7 @@ import Layout from '../layouts/Layout.astro';
       </h2>
       <p>
         The initial version of <strong>tipitaka2500.github.io</strong> was built from Bhante
-        Yuttadhammo’s archival repository, which preserved a scrape of the original Tipiṭaka website
+        Yuttadhammo’s Github repository <a href="https://github.com/yuttadhammo/World-Tipitaka" target="_blank" rel="noopener noreferrer">World-Tipitaka</a>, which preserved a scrape of the original Tipiṭaka website
         (2005 edition).
       </p>
       <p style="margin-bottom: 0;">
@@ -86,36 +81,23 @@ import Layout from '../layouts/Layout.astro';
 
     <article class="index-card" style="padding: 1.5rem; margin-bottom: 1.25rem;">
       <h2 style="margin-top: 0; color: var(--text-emphasis);">
-        4. Current Generation: Re-Scraped from <a href="https://openpali.sajjhaya.org" target="_blank" rel="noopener noreferrer">Open Pāḷi</a> &amp; Built with Astro (2020 Edition)
+        4. Current Generation: Re-Scraped from Open Pāḷi &amp; Built with Astro (2020 Edition)
       </h2>
       <p>
-        This updated version of the site is based on a fresh, complete scrape of the <strong>OpenPāḷi</strong>
-        project, bringing the website fully up to date with the <strong>2020 edition</strong> while
-        adopting a modern static architecture powered by <strong>Astro</strong>:
+        This updated version of the site is based on a fresh, complete scrape of the <a href="https://openpali.sajjhaya.org" target="_blank" rel="noopener noreferrer">Open Pāḷi</a> contents, bringing this website fully up to date with the <strong>2020 edition</strong> while adopting a modern static architecture powered by <a href="https://astro.build" target="_blank" rel="noopener noreferrer">Astro</a>:
       </p>
       <ul>
         <li style="margin-bottom: 0.5rem;">
-          <strong>100% Verified Canonical Content:</strong> The Pāḷi body text across all
-          <strong>20,189 section pages</strong> and <strong>118,280 canonical paragraphs</strong> has
-          been deterministically compared and verified against the previous repository to guarantee
-          that the core canonical text is identical.
+          <strong>100% Verified Canonical Content:</strong> The Pāḷi body text across all <strong>20,189 section pages</strong> and <strong>118,280 canonical paragraphs</strong> has been deterministically compared and verified against the previous repository to guarantee that the core canonical text is identical.
         </li>
         <li style="margin-bottom: 0.5rem;">
-          <strong>Clean Vanilla HTML Source:</strong> All 20,189 HTML files in <code>tipitaka/</code>
-          are stored as clean, semantic, standards-compliant HTML5 without presentation framework
-          bloat, while Astro provides the site layout, navigation, Rosely light/dark theme, and
-          client-side interactivity.
+          <strong>Clean Vanilla HTML Source:</strong> All 20,189 HTML files in <code>tipitaka/</code> are stored as clean, semantic, standards-compliant HTML5 without presentation framework bloat, while Astro provides the site layout, navigation, Rosely light/dark theme, and client-side interactivity.
         </li>
         <li style="margin-bottom: 0.5rem;">
-          <strong>Critical Apparatus Footnotes &amp; Linked Cross-References:</strong> Every page now
-          includes its canonical footnotes (<strong>26,529 critical apparatus notes</strong> collating
-          Sīhaḷa, Syāmaraṭṭha, Kambuja, Maramma, and PTS editions) with inline preview popovers and
-          <strong>7,938 live cross-reference links</strong> that jump directly to the cited book and
-          paragraph.
+          <strong>Critical Apparatus Footnotes &amp; Linked Cross-References:</strong> Every page now includes its canonical footnotes (<strong>26,529 critical apparatus notes</strong> collating Sīhaḷa, Syāmaraṭṭha, Kambuja, Maramma, and PTS editions) with inline preview popovers and <strong>7,938 live cross-reference links</strong> that jump directly to the cited book and paragraph.
         </li>
         <li style="margin-bottom: 0;">
-          <strong>Complete 2020 Reference Indices &amp; Concordances:</strong> The site now includes
-          interactive, searchable editions of the five reference databases from the 2020 edition.
+          <strong>Complete 2020 Reference Indices &amp; Concordances:</strong> The site now includes interactive, searchable editions of the five reference databases from the 2020 edition.
         </li>
       </ul>
     </article>
