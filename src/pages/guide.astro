@@ -819,5 +819,51 @@ const EDITIONS_TABLE = [
         </table>
       </div>
     </article>
+
+    <article class="index-card" id="offline-pwa" style="padding: 1.5rem; margin-top: 1.25rem;">
+      <h2 style="margin-top: 0; color: var(--text-emphasis);">
+        7. Offline Viewing &amp; PWA (Progressive Web App)
+      </h2>
+      <p>
+        The entire World Tipiṭaka Edition can be accessed offline without requiring an active internet connection.
+        Choose the approach that best fits your device and study environment:
+      </p>
+
+      <div class="verse-grid">
+        <div class="verse-box" style="padding: 1rem 1.25rem;">
+          <h3 style="margin-top: 0; font-size: 1.05rem; color: var(--link-color);">
+            Option A: Install as a Progressive Web App (PWA)
+          </h3>
+          <p style="font-size: 0.9rem; margin-bottom: 0.75rem;">
+            Install this website directly to your home screen or desktop application list for a fast, full-screen reading experience with automatic offline caching:
+          </p>
+          <ul style="font-size: 0.88rem; margin: 0 0 0.75rem; padding-left: 1.25rem;">
+            <li><strong>iPhone / iPad (Safari):</strong> Tap the <em>Share</em> button (box with upward arrow) and select <strong>Add to Home Screen</strong>.</li>
+            <li><strong>Android (Chrome):</strong> Tap the menu (<code>⋮</code>) and select <strong>Install app</strong> or <strong>Add to Home screen</strong>.</li>
+            <li><strong>macOS / Windows / Linux (Chrome, Edge, Brave):</strong> Click the <strong>Install</strong> icon in the address bar, or click the <strong>📥 Install App</strong> button in the floating widget or mobile sidebar drawer.</li>
+          </ul>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;">
+            <em>How it works:</em> The built-in Service Worker automatically caches the core navigation shell, visited canonical texts, and searched dictionary words, allowing you to study seamlessly when offline.
+          </p>
+        </div>
+
+        <div class="verse-box" style="padding: 1rem 1.25rem;">
+          <h3 style="margin-top: 0; font-size: 1.05rem; color: var(--link-color);">
+            Option B: Download the Full Offline Archive (~354 MB)
+          </h3>
+          <p style="font-size: 0.9rem; margin-bottom: 0.75rem;">
+            For complete offline independence without relying on browser caching quotas, download the entire static distribution containing all 40 volumes, 20,189 sections, and the complete dictionary:
+          </p>
+          <ol style="font-size: 0.88rem; margin: 0 0 0.75rem; padding-left: 1.25rem;">
+            <li>Download <code>tipitaka2500-v3.2.0-offline.zip</code> from <a href="https://github.com/tipitaka2500/tipitaka2500.github.io/releases" target="_blank" rel="noopener noreferrer"><strong>GitHub Releases</strong></a>.</li>
+            <li>Unzip the archive to any folder on your computer or external drive.</li>
+            <li><strong>For Reading &amp; Footnotes:</strong> Double-click <code>index.html</code> to open directly in any browser.</li>
+            <li><strong>For Interactive Dictionary &amp; Word Index:</strong> Modern browsers restrict <code>file://</code> URLs from fetching local JSON shards. To enable dictionary hover lookups, launch a local server:
+              <pre style="margin: 0.5rem 0; padding: 0.5rem; background: var(--bg-tertiary); border-radius: 4px; font-size: 0.8rem;"><code># In the unzipped folder:&#10;python3 -m http.server 8000&#10;# Then browse to http://localhost:8000</code></pre>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </article>
   </main>
 </Layout>

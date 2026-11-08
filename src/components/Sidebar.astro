@@ -244,6 +244,18 @@ const isIndexPage = INDEX_LINKS.some((item) => item.code === currentBook);
     </button>
   </div>
 
+  <div class="sidebar-dict-toggle-wrap pwa-install-wrap" style="display: none;">
+    <button
+      type="button"
+      class="sidebar-dict-toggle-btn pwa-install-btn"
+      aria-label="Install Tipiṭaka App"
+      title="Install Tipiṭaka 2500 App for offline reading"
+    >
+      <span class="sidebar-dict-label">📥 Install App (PWA)</span>
+      <span class="sidebar-dict-status" style="background-color: var(--primary-color); color: #fff;">PWA</span>
+    </button>
+  </div>
+
   <ul class="sidebar-list">
     <li class="sidebar-item">
       <details open={isIndexPage || !currentBook}>

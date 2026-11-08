@@ -159,7 +159,13 @@ const jsonLdString = JSON.stringify({
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json" set:html={jsonLdString} />
 
-    <link rel="apple-touch-icon" href="/images/logo128.png" sizes="128x128" />
+    <!-- PWA & Mobile Web App Meta -->
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Tipiṭaka 2500" />
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" sizes="180x180" />
     <link rel="icon" href="/images/logo.png" sizes="16x16" type="image/png" />
     <link rel="icon" href="/images/logo24.png" sizes="24x24" type="image/png" />
     <link rel="icon" href="/images/logo48.png" sizes="48x48" type="image/png" />
@@ -197,6 +203,17 @@ const jsonLdString = JSON.stringify({
     </svg>
 
     <div class="floating-tools-widget">
+      <button
+        type="button"
+        id="pwa-install-btn"
+        class="pwa-install-btn"
+        aria-label="Install Tipiṭaka App (PWA)"
+        title="Install Tipiṭaka 2500 as an app for offline reading"
+      >
+        <span aria-hidden="true">📥</span>
+        <span>Install App</span>
+      </button>
+
       <button
         type="button"
         id="dict-hover-toggle-btn"
@@ -1439,6 +1456,40 @@ const jsonLdString = JSON.stringify({
           }
         });
       })();
+
+      // --- PWA Service Worker Registration & Install Prompt ---
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch((err) => {
+            console.warn('PWA Service Worker registration failed:', err);
+          });
+        });
+      }
+
+      let deferredInstallPrompt = null;
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredInstallPrompt = e;
+        const installBtns = document.querySelectorAll('.pwa-install-btn');
+        installBtns.forEach((btn) => {
+          btn.style.display = 'inline-flex';
+          const wrap = btn.closest('.pwa-install-wrap');
+          if (wrap) wrap.style.display = 'block';
+        });
+      });
+
+      document.addEventListener('click', async (e) => {
+        const installBtn = e.target.closest('.pwa-install-btn');
+        if (installBtn && deferredInstallPrompt) {
+          deferredInstallPrompt.prompt();
+          const { outcome } = await deferredInstallPrompt.userChoice;
+          if (outcome === 'accepted') {
+            deferredInstallPrompt = null;
+            document.querySelectorAll('.pwa-install-btn').forEach((b) => (b.style.display = 'none'));
+            document.querySelectorAll('.pwa-install-wrap').forEach((w) => (w.style.display = 'none'));
+          }
+        }
+      });
     </script>
   </body>
 </html>

@@ -99,6 +99,9 @@ npm run dev
 
 # Build production static site to dist/
 npm run build
+
+# Package complete offline distribution zip archive
+./package_offline.py
 ```
 
 ---
@@ -109,6 +112,8 @@ npm run build
   For scholars, computational linguists, NLP researchers, and plain-text users, a complete version of the Tipiṭaka in clean Markdown format with verified textual corrections and collated errata applied is maintained at [**tipitaka-md/tipitaka2500**](https://github.com/tipitaka-md/tipitaka2500).
 - **Pāḷi Grammar Dictionary (Multiple Formats)**:
   The compiled Pāḷi grammatical inflection and compound deconstruction dictionary with textbook notation symbols is available for offline use in **Apple Dictionary** (macOS/iOS native Dictionary app), **GoldenDict**, and **MDict** formats from the releases page of [**ChristineTham/pali_grammar**](https://github.com/ChristineTham/pali_grammar).
+- **Offline Edition (PWA & Offline Archive)**:
+  This website is a fully compliant **Progressive Web App (PWA)** installable on iOS, Android, macOS, and Windows with Service Worker offline caching. In addition, a self-contained offline distribution archive containing all 40 volumes, 20,189 sections, and dictionary shards can be downloaded directly from [**GitHub Releases**](https://github.com/tipitaka2500/tipitaka2500.github.io/releases).
 
 ---
 
@@ -137,9 +142,11 @@ npm run build
   * Added automated XML sitemaps (`@astrojs/sitemap`) and `robots.txt`
   * Updated GitHub Pages deployment workflow (`withastro/action@v6`, `actions/checkout@v7`, `actions/deploy-pages@v5`)
   * Documented project motivations, heritage restoration, and OpenPāḷi database provenance on the About page and README
-* **v3.2**: Pāḷi Dictionary Lookup & Compound Deconstructor:
+* **v3.2**: Pāḷi Dictionary Lookup, Progressive Web App (PWA) & Offline Distribution:
   * Integrated instant Dictionary Lookup on hover (desktop) and tap (mobile) with author's [Pāḷi Textbook](https://christham.net/buddhavacana/pali-textbook/0-status/) grammar notation symbols (`🚹①⨀`, `▶️🤟🟢`)
   * Incorporated compound and sandhi word deconstruction (`digitalpalidictionary/deconstructor_output`) with interactive constituent drilldown pills and back-navigation
   * Generated 786 balanced client-side static JSON range shards (1,178,851 word forms) with sub-millisecond binary search and browser caching
   * Added UI toggle button in reader header and mobile sidebar drawer with persistent preference
-  * Documented complete grammar notation symbols and feature guides across About and Quick Guide pages
+  * Implemented full **Progressive Web App (PWA)** standard with `site.webmanifest`, app icons (192px/512px/Apple touch), and Service Worker (`sw.js`) for seamless offline reading of visited canonical texts and dictionary queries
+  * Added offline fallback page (`offline.html`) and packaging script (`package_offline.py`) generating a standalone offline distribution archive for [GitHub Releases](https://github.com/tipitaka2500/tipitaka2500.github.io/releases)
+  * Documented complete grammar notation symbols, offline reading options, and feature guides across About and Quick Guide pages
