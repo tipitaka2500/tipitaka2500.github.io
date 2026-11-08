@@ -14,12 +14,12 @@ import subprocess
 
 REPO_ROOT = os.path.dirname(os.path.abspath(__file__))
 DIST_DIR = os.path.join(REPO_ROOT, "dist")
-VERSION = "v3.2.0"
+VERSION = "v3.3.0"
 OUTPUT_ZIP = os.path.join(REPO_ROOT, f"tipitaka2500-{VERSION}-offline.zip")
 
 README_OFFLINE = """========================================================================
 The World Tipiṭaka Edition (Mahāsaṅgīti Tipiṭaka Buddhavasse 2500)
-Complete 40-Volume Roman-Script Pāḷi Tipiṭaka — Offline Edition (v3.2.0)
+Complete 40-Volume Roman-Script Pāḷi Tipiṭaka — Offline Edition (v3.3.0)
 Website: https://tipitaka2500.github.io
 Repository: https://github.com/tipitaka2500/tipitaka2500.github.io
 ========================================================================

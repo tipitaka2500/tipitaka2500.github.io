@@ -36,7 +36,7 @@ This work has been marked as dedicated to the public domain. See the [CC0 1.0 Un
 ### First Generation (`v1`–`v2.8`)
 The initial version of `tipitaka2500.github.io` was based on converting an archival XML scrape of the 2005 website from [yuttadhammo/World-Tipitaka](https://github.com/yuttadhammo/World-Tipitaka) into static HTML files using Python scripts ([tidipa/convert-scripts](https://github.com/tidipa/convert-scripts)), reorganizing the files into a semantic folder hierarchy (`tipitaka/{BookCode}/...`), and embedding a Bootstrap sidebar with the Rosely color scheme.
 
-### Current Generation (`v3.2` — 2020 Edition with Astro 7)
+### Current Generation (`v3.3` — 2020 Edition with Astro 7)
 This update brings the website up to date with the **2020 Edition** through a fresh scrape of the [Open Pāḷi](https://openpali.sajjhaya.org) database and a clean separation between canonical HTML content and site presentation:
 
 1. **100% Deterministically Verified Canonical Text**:
@@ -142,11 +142,14 @@ npm run build
   * Added automated XML sitemaps (`@astrojs/sitemap`) and `robots.txt`
   * Updated GitHub Pages deployment workflow (`withastro/action@v6`, `actions/checkout@v7`, `actions/deploy-pages@v5`)
   * Documented project motivations, heritage restoration, and OpenPāḷi database provenance on the About page and README
-* **v3.2**: Pāḷi Dictionary Lookup, Progressive Web App (PWA) & Offline Distribution:
+* **v3.2**: Pāḷi Dictionary Lookup & Compound Deconstructor:
   * Integrated instant Dictionary Lookup on hover (desktop) and tap (mobile) with author's [Pāḷi Textbook](https://christham.net/buddhavacana/pali-textbook/0-status/) grammar notation symbols (`🚹①⨀`, `▶️🤟🟢`)
   * Incorporated compound and sandhi word deconstruction (`digitalpalidictionary/deconstructor_output`) with interactive constituent drilldown pills and back-navigation
   * Generated 786 balanced client-side static JSON range shards (1,178,851 word forms) with sub-millisecond binary search and browser caching
   * Added UI toggle button in reader header and mobile sidebar drawer with persistent preference
+  * Documented complete grammar notation symbols and feature guides across About and Quick Guide pages
+* **v3.3**: Progressive Web App (PWA), Offline Distribution & External Cross-Edition Resources:
   * Implemented full **Progressive Web App (PWA)** standard with `site.webmanifest`, app icons (192px/512px/Apple touch), and Service Worker (`sw.js`) for seamless offline reading of visited canonical texts and dictionary queries
-  * Added offline fallback page (`offline.html`) and packaging script (`package_offline.py`) generating a standalone offline distribution archive for [GitHub Releases](https://github.com/tipitaka2500/tipitaka2500.github.io/releases)
-  * Documented complete grammar notation symbols, offline reading options, and feature guides across About and Quick Guide pages
+  * Added one-click PWA installation support on mobile and desktop
+  * Created offline fallback experience (`offline.html`) and packaging script (`package_offline.py`) bundling a complete standalone offline distribution archive (`tipitaka2500-v3.3.0-offline.zip`) for [GitHub Releases](https://github.com/tipitaka2500/tipitaka2500.github.io/releases)
+  * Added cross-edition resource links to the verified Markdown text repository ([tipitaka-md/tipitaka2500](https://github.com/tipitaka-md/tipitaka2500)) and multiple offline dictionary formats ([ChristineTham/pali_grammar](https://github.com/ChristineTham/pali_grammar))

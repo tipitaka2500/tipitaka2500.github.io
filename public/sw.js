@@ -3,7 +3,7 @@
  * https://tipitaka2500.github.io
  */
 
-const CACHE_NAME = 'tipitaka2500-v3.2.0';
+const CACHE_NAME = 'tipitaka2500-v3.3.0';
 const CORE_ASSETS = [
   '/',
   '/index.html',
