@@ -12,7 +12,7 @@ Derived from the **Chaṭṭhasaṅgīti (Sixth Buddhist Council) Edition** conv
 
 To eliminate printing anomalies found in earlier manuscripts, canonical Pāḷi experts recited the entire 40-volume text **4 times** between B.E. 2543–2545 (2000–2002) and B.E. 2549–2550 (2006–2007) while collating against 18 international editions across national scripts—verifying all **2,708,706 words** (**9,442,442 syllables** / **20,606,104 Roman letters**) across the **88 books** and **20,189 sections** of the Vinayapiṭaka, Suttantapiṭaka, and Abhidhammapiṭaka.
 
-Created and maintained by **Chris Tham** (`chris@christham.net`).
+Created and maintained by **Chris Tham** (`chris@christham.net`), author of the online [Pāḷi Textbook](https://christham.net/buddhavacana/pali-textbook/0-status/).
 
 ### CC0 License
 
@@ -100,6 +100,15 @@ npm run dev
 # Build production static site to dist/
 npm run build
 ```
+
+---
+
+## Research, Markdown & Offline Dictionary Downloads
+
+- **Tipiṭaka in Markdown (with Corrections)**:
+  For scholars, computational linguists, NLP researchers, and plain-text users, a complete version of the Tipiṭaka in clean Markdown format with verified textual corrections and collated errata applied is maintained at [**tipitaka-md/tipitaka2500**](https://github.com/tipitaka-md/tipitaka2500).
+- **Pāḷi Grammar Dictionary (Multiple Formats)**:
+  The compiled Pāḷi grammatical inflection and compound deconstruction dictionary with textbook notation symbols is available for offline use in **Apple Dictionary** (macOS/iOS native Dictionary app), **GoldenDict**, and **MDict** formats from the releases page of [**ChristineTham/pali_grammar**](https://github.com/ChristineTham/pali_grammar).
 
 ---
 
